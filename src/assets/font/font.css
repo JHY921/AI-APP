@@ -1,0 +1,30 @@
+@font-face{
+    font-family: 'naub';
+    src: url('HarmonyOS_Sans_Naskh_Arabic_UI_Bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'ct';
+    src: url('HarmonyOS_Sans_Condensed_Thin.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'naur';
+    src: url('HarmonyOS_Sans_Naskh_Arabic_UI_Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'res';
+    src: url('HarmonyOS_Sans_Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'dyh';
+    src: url('SmileySans-Oblique.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
