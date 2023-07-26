@@ -1,7 +1,7 @@
 <template>
     <div class="container" id="con">
-        <div class="mon">{{ month }} 月</div>
-        <div class="mon-shadow">{{ month }} 月</div>
+        <div class="mon">{{ month }}月</div>
+        <div class="mon-shadow">{{ month }}月</div>
         <div class="mon-s">{{ months }}.</div>
         <div class="bod"></div>
     </div>
@@ -34,6 +34,8 @@ export default{
         draw(){
             var width = document.getElementById('con').offsetWidth
             var height = document.getElementById('con').offsetHeight
+            console.log('width', width);
+            console.log('height', height);
             let svg = d3.select('#con')
                         .append('svg')
                         .attr('width', width)
