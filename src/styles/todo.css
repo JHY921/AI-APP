@@ -1,4 +1,5 @@
 .wrapper {
+  position: relative;
   height: 172px;
   width: 328px;
   display: flex;
@@ -32,10 +33,39 @@
   margin-right: 0px;
   border: 0px;
   width: 86px;
+  cursor: pointer;
 }
 .addtodo button div {
   float: right;
   margin-right: 5px;
+}
+.rotate {
+  animation-duration: 1s;
+  animation-name: rotate90;
+}
+@keyframes rotate90 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0px;
+}
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background-color: #b2d6de;
+  border-radius: 0 0 10px 10px;
+  margin-top: -8px;
+  box-shadow: 0px 2px 4px #00000040;
+  height: 40px;
+  width: 100%;
 }
 .alltodo {
   background-color: #b2d6de;
@@ -51,9 +81,12 @@
   margin-left: 20px;
 }
 .word {
-  height: 76px;
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 328px;
+  text-align: center;
   font-size: 40px;
   color: #b8c8d550;
   font-weight: 750;
-  margin: auto;
 }

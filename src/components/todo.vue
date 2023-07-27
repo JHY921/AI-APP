@@ -1,5 +1,30 @@
-<script setup>
-
+<script>
+export default {
+  data () {
+    return {
+      isRotated: false,
+      newTask: "",
+      tasks: [],
+      isModalOpen: false,
+    }
+  },
+  methods: {
+    rotateButton () {
+      this.isRotated = true
+      this.tasks.push({ text: this.newTask, completed: false })
+      this.newTask = ""
+      setTimeout(() => {
+        this.isRotated = false
+      }, 300)
+    },
+    deleteTask (index) {
+      this.tasks.splice(index, 1)
+    },
+    toggleCompletion (index) {
+      this.tasks[index].completed = !this.tasks[index].completed
+    },
+  },
+}
 </script>
 <style>
 @import "../styles/todo.css";
@@ -8,8 +33,8 @@
   <div class="wrapper">
     <div class="addtodo">
       <span>今天该做些什么</span>
-      <button @click="add">
-        <div>
+      <button @click="rotateButton">
+        <div :class="{ rotate: isRotated }">
           <svg
             t="1690047038908"
             class="icon"
@@ -29,11 +54,12 @@
         </div>
       </button>
     </div>
+    <ul>
+      <li v-for="(task, index) in tasks" :key="index"></li>
+    </ul>
     <div class="alltodo">
       <span>查看更多事项...</span>
     </div>
-    <div class="word">
-      <span>开始你的计划吧</span>
-    </div>
+    <span class="word">开始你的计划吧</span>
   </div>
 </template>
