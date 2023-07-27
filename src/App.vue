@@ -1,13 +1,11 @@
 <template>
+  <ballStage />
   <Todo />
 </template>
 
 <script setup>
 import Todo from './components/todo.vue'
+import ballStage from './components/ballStage.vue'
 import { defineProps } from 'vue'
-
-// Define props
 const props = defineProps()
-
-// Define other data or logic if needed
 </script>
