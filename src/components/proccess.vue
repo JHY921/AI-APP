@@ -51,50 +51,50 @@ export default{
             var g = svg.append('g')
                     
             g.append('circle')
-                .attr('cx', width/10+8)
+                .attr('cx', width/10)
                 .attr('cy', 95)
                 .attr('r', 8)
                 .attr('fill', '#00799412')
                 .attr('filter', 'url(#shadow)')
             g.append('circle')
-                .attr('cx', width/10+8)
+                .attr('cx', width/10)
                 .attr('cy', 115)
                 .attr('r', 8)
                 .attr('fill', 'rgba(147, 198, 209, 1)')
                 .attr('filter', 'url(#shadow)')
             g.append('circle')
-                .attr('cx', width/10+8)
+                .attr('cx', width/10)
                 .attr('cy', 135)
                 .attr('r', 8)
                 .attr('fill', ' #007994c7')
                 .attr('filter', 'url(#shadow)')
             g.append('circle')
-                .attr('cx', width/10+8)
+                .attr('cx', width/10)
                 .attr('cy', 155)
                 .attr('r', 8)
                 .attr('fill', '  #00647a')
                 .attr('filter', 'url(#shadow)')
             var txt = svg.append('g')
             txt.append('text')
-                .attr('x', width*0.18)
+                .attr('x', width*0.14)
                 .attr('y', 98)
                 .attr('font-size', 10)
                 .attr('fill', 'gray')
                 .text('较差')
             txt.append('text')
-                .attr('x', width*0.18)
+                .attr('x', width*0.14)
                 .attr('y', 118)
                 .attr('font-size', 10)
                 .attr('fill', 'gray')
                 .text('正常')
             txt.append('text')
-                .attr('x', width*0.18)
+                .attr('x', width*0.14)
                 .attr('y', 138)
                 .attr('font-size', 10)
                 .attr('fill', 'gray')
                 .text('较好')
             txt.append('text')
-                .attr('x', width*0.18)
+                .attr('x', width*0.14)
                 .attr('y', 158)
                 .attr('font-size', 10)
                 .attr('fill', 'gray')
@@ -160,7 +160,7 @@ export default{
     font-size: 32px;
     font-weight: 400;
     letter-spacing: 0px;
-    left: 10%;
+    left: 25px;
     top: 21px;
     color: rgba(0, 0, 0, 1);
     text-align: left;
@@ -168,8 +168,8 @@ export default{
 }
 .mon-s{
     position: absolute;
-    left: 10%;
-    top: 60px;
+    left: 25px;
+    top: 58px;
     font-size: 18px;
     font-weight:900 ;
     color: rgba(0, 0, 0, 0.3);
@@ -187,8 +187,8 @@ export default{
 }
 .mon-shadow{
     position: absolute;
-    left: 11%;
-    top: 25px;
+    left: 27px;
+    top: 26px;
     font-weight: 400;
     font-family: dyh;
     font-size: 32px;

@@ -10,7 +10,8 @@
       <div class="name">{{ name }}</div>
       <div class="account">账号  ：&thinsp;{{ account}}</div>
     </div>
-    <van-icon name="arrow" class="arrow" size="18px"/>
+    <svg class="dot" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="25.714279174804688" viewBox="0 0 24 25.714279174804688" fill="none"><g opacity="0.6"  transform="translate(0 0)  rotate(0)"><mask id="bg-mask-0" fill="white"><use transform="translate(0 0)  rotate(NaN)" xlink:href="#path_0"></use></mask><g mask="url(#bg-mask-0)" ><path id="路径 1" fill-rule="evenodd" style="fill:#333333" opacity="1" d="M6 11.25C5.17 11.25 4.5 11.97 4.5 12.86C4.5 13.74 5.17 14.46 6 14.46C6.83 14.46 7.5 13.74 7.5 12.86C7.5 11.97 6.83 11.25 6 11.25Z"></path><path id="路径 2" fill-rule="evenodd" style="fill:#333333" opacity="1" d="M12 11.25C11.17 11.25 10.5 11.97 10.5 12.86C10.5 13.74 11.17 14.46 12 14.46C12.83 14.46 13.5 13.74 13.5 12.86C13.5 11.97 12.83 11.25 12 11.25Z"></path><path id="路径 3" fill-rule="evenodd" style="fill:#333333" opacity="1" d="M18 11.25C17.17 11.25 16.5 11.97 16.5 12.86C16.5 13.74 17.17 14.46 18 14.46C18.83 14.46 19.5 13.74 19.5 12.86C19.5 11.97 18.83 11.25 18 11.25Z"></path></g></g><defs><rect id="path_0" x="0" y="0" width="24" height="25.71428680419922" /></defs></svg>
+    <van-icon name="arrow" class="arrow" size="14px"/>
       <div class="post">
         <div class="tit">帖子</div>
         <div class="numb">{{ post }}</div>
@@ -106,6 +107,11 @@ body{
   position: relative;
   box-shadow: -1px 2px 4px #0000001a
 }
+.dot{
+  position:absolute;
+  top: 89px;
+  left: 294px;
+}
 .blank-1{
   width: 100%;
   height: 19px;
@@ -150,55 +156,62 @@ body{
 .img{
   padding: 0;
   position: absolute;
-  left: 10%;
+  left: 25px;
+  top: 72px;
 }
 .info{
   position: absolute;
-  left: 30%;
+  left: 97px;
   top: 75px;
 }
 .name{
   font-family: res;
+  font-weight: 700;
 }
 .account{
   margin-top: 10px;
   font-family: res;
+  font-weight: 300;
   font-size: 10px;
 }
 .arrow{
   position: absolute;
-  right: 6%;
-  top: 97.5px;
+  right: 35px;
+  top: 95px;
 }
 .post{
   position: absolute;
-  left:18%;
-  top: 150px;
+  left:56px;
+  top: 154px;
 }
 .concern{
   position: absolute;
-  left: 48%;
-  top: 150px;
+  left: 169px;
+  top: 154px;
 }
 .fan{
   position: absolute;
-  left: 78%;
-  top: 150px;
+  left: 282px;
+  top: 154px;
 }
 .tit{
-  font-size:8px ;
+  font-size:12px ;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
 }
 .numb{
   font-family:res;
-  font-size: 16px
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
 }
 .line-1{
   width: 1.5px;
   height: 25px;
   background-color:  rgb(170, 187, 187) ;
   position: absolute;
-  top: 150px;
-  left: 35%;
+  top: 156px;
+  left: 124px;
   opacity: 0.5;
 }
 .line-2{
@@ -206,8 +219,8 @@ body{
   height: 25px;
   background-color:  rgb(170, 187, 187) ;
   position: absolute;
-  top: 150px;
-  left: 65%;
+  top: 156px;
+  left: 235px;
   opacity: 0.5;
 }
 .star{
