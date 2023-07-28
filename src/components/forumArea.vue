@@ -178,9 +178,6 @@
     margin:0px;
     padding:0px;
 }
-.second-page{
-    
-}
 #top{
     margin-top: 24px;
     width:100%;
