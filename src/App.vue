@@ -1,13 +1,6 @@
 <template>
-  <ballStage />
   <Todo />
   <Proccess></Proccess>
-  <!-- <heat1></heat1>
-  <heat2></heat2>
-  <heat3></heat3>
-  <heat tt="4"></heat>
-  <heat tt="5"></heat> -->
-  
 </template>
 
 <script setup>
@@ -20,5 +13,6 @@ import Proccess from './components/proccess.vue'
 // import heat3 from './components/heat/heat3.vue'
 // import heat from './components/heat/heat.vue'
 // Define props
+import forumArea from './components/forumArea.vue'
 const props = defineProps()
 </script>
