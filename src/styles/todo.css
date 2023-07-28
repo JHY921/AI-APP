@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #14849c;
+  background: url('../icons/todo/蒙版分组.svg');
   border-radius: 10px;
   box-shadow: 0px 2px 4px #00000040;
   height: 56px;
@@ -20,10 +20,6 @@
   z-index: 10000;
 }
 .addtodo span {
-  color: white;
-  font-size: 24px;
-  line-height: 56px;
-  font-weight: 750;
   margin-left: 20px;
 }
 .addtodo button {
