@@ -40,21 +40,54 @@ export default{
                         .append('svg')
                         .attr('width', width)
                         .attr('height', height)
-            var defs = svg.append('defs')
-            var filter = defs.append('filter')
-                            .attr('id', 'shadow')
-            filter.append('feDropShadow')
-                    .attr('dx', '0')
-                    .attr('dy', '2')
-                    .attr('stdDeviation', '0.3')
-                    .attr('flood-color', 'rgba(0, 0, 0, 0.25)')
+                        let defs = svg.append('defs');
+
+            let filter = defs.append('filter')
+            .attr('id', 'shadow')
+            .attr('x', '-20%')
+            .attr('y', '-20%')
+            .attr('width', '140%')
+            .attr('height', '140%');
+
+            filter.append('feGaussianBlur')
+            .attr('in', 'SourceAlpha')
+            .attr('stdDeviation', '1')
+            .attr('result', 'blur');
+
+            filter.append('feOffset')
+            .attr('in', 'blur')
+            .attr('dx', '-1')
+            .attr('dy', '4.5')
+            .attr('result', 'offsetBlur');
+
+            filter.append('feComposite')
+            .attr('in', 'SourceGraphic')
+            .attr('in2', 'offsetBlur')
+            .attr('operator', 'out')
+            .attr('result', 'inverse');
+
+            filter.append('feFlood')
+            .attr('flood-color', 'black')
+            .attr('flood-opacity', '0.55')
+            .attr('result', 'color');
+
+            filter.append('feComposite')
+            .attr('in', 'color')
+            .attr('in2', 'inverse')
+            .attr('operator', 'in')
+            .attr('result', 'shadow');
+
+            filter.append('feComposite')
+            .attr('in', 'shadow')
+            .attr('in2', 'SourceGraphic')
+            .attr('operator', 'over');
             var g = svg.append('g')
                     
             g.append('circle')
                 .attr('cx', width/10)
                 .attr('cy', 95)
                 .attr('r', 8)
-                .attr('fill', '#00799412')
+                .attr('fill', 'rgba(218, 235, 239, 1)')
                 .attr('filter', 'url(#shadow)')
             g.append('circle')
                 .attr('cx', width/10)
@@ -66,13 +99,13 @@ export default{
                 .attr('cx', width/10)
                 .attr('cy', 135)
                 .attr('r', 8)
-                .attr('fill', ' #007994c7')
+                .attr('fill', '  rgba(52, 148, 169, 1)')
                 .attr('filter', 'url(#shadow)')
             g.append('circle')
                 .attr('cx', width/10)
                 .attr('cy', 155)
                 .attr('r', 8)
-                .attr('fill', '  #00647a')
+                .attr('fill', ' rgba(0, 100, 122, 1)')
                 .attr('filter', 'url(#shadow)')
             var txt = svg.append('g')
             txt.append('text')
@@ -107,7 +140,7 @@ export default{
                         .attr('cx', width*0.35+j*30)
                         .attr('cy', 35+i*30)
                         .attr('r', 9)
-                        .attr('fill', '#00799412')
+                        .attr('fill', 'rgba(218, 235, 239, 1)')
                         .attr('filter', 'url(#shadow)')
                     tt.append('text')
                         .attr('x',width*0.35-3+j*30)
@@ -123,7 +156,7 @@ export default{
                         .attr('cx', width*0.35+i*30)
                         .attr('cy', 155)
                         .attr('r', 9)
-                        .attr('fill', '#00799412')
+                        .attr('fill', 'rgba(218, 235, 239, 1)')
                         .attr('filter', 'url(#shadow)')
                 tt.append('text')
                         .attr('x',width*0.35-3+i*30)
