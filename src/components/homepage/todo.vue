@@ -18,7 +18,7 @@ export default {
 }
 </script>
 <style>
-@import "../styles/todo.css";
+@import "../../styles/todo.css";
 </style>
 <template>
   <div class="wrapper">
