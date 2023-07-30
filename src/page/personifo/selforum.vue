@@ -66,22 +66,22 @@ export default{
     font-weight: 400;
     line-height: 13px;
     color: rgba(125, 125, 125, 1); 
-    top: 60px;
+    top: 65px;
     left: 25px;
 }
 span{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 .browse{
     position: absolute;
     font-family: res;
-    left: 25px;
+    left: 14px;
     top: 128px;
-    font-size: 6px;
+    transform: scale(0.6);
     font-weight: 400;
     letter-spacing: 0px;
     color: rgba(181, 181, 181, 1);
@@ -89,7 +89,7 @@ span{
 .svg-1{
     position: absolute;
     left: 255px;
-    top: 123px;
+    top: 120px;
     display: flex;
     width: 25px;
     height: 40px;
@@ -99,7 +99,7 @@ span{
 .svg-2{
     position: absolute;
     left: 290.3px;
-    top: 124px;
+    top: 121px;
     width: 25px;
     height: 40px;
     display: flex;
@@ -109,7 +109,7 @@ span{
 .svg-3{
     position: absolute;
     left: 320.3px;
-    top: 123px;
+    top: 120px;
     width: 25px;
     height: 40px;
     display: flex;
@@ -118,7 +118,7 @@ span{
 
 }
 .t{
-    transform: scale(0.6);
+    transform: scale(0.5);
     font-weight: 700;
     color: rgba(0, 0, 0, 1);
 }
