@@ -14,17 +14,17 @@
        <div class="con"><div class="txt">{{ isconcern }}</div></div>
        <div class="post">
         <div class="tit">帖子</div>
-        <div class="numb">{{ post }}</div>
+        <div class="numb">{{ trans(post )}}</div>
       </div>
       <div class="line-1"></div>
       <div class="concern">
         <div class="tit">关注</div>
-        <div class="numb">{{ concern }}</div>
+        <div class="numb">{{ trans(concern) }}</div>
       </div>
       <div class="line-2"></div>
       <div class="fan">
         <div class="tit">粉丝</div>
-        <div class="numb">{{ fan}}</div>
+        <div class="numb">{{ trans(fan)}}</div>
       </div>
     </div>
     <selforum class="forum"></selforum>
@@ -46,7 +46,15 @@ export default {
     };
   },
 
-  methods: {},
+  methods: {
+    trans(a){
+      var num = Number(a)
+      if(num>=10000){
+        return `${Math.round(num*10)/100000}w`
+      }
+      return a
+    }
+  },
 };
 </script>
 <style scoped>
@@ -159,16 +167,31 @@ body{
   position: absolute;
   left:52px;
   top: 160px;
+  width: 25px;
+  height: 30px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .concern{
   position: absolute;
   left: 165px;
   top: 160px;
+  width: 25px;
+  height: 30px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .fan{
   position: absolute;
   left: 278px;
   top: 160px;
+  width: 25px;
+  height: 30px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .tit{
   font-size:10px ;

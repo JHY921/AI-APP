@@ -14,17 +14,17 @@
     <van-icon name="arrow" class="arrow" size="14px"/>
       <div class="post">
         <div class="tit">帖子</div>
-        <div class="numb">{{ post }}</div>
+        <div class="numb">{{ trans(post) }}</div>
       </div>
       <div class="line-1"></div>
       <div class="concern">
         <div class="tit">关注</div>
-        <div class="numb">{{ concern }}</div>
+        <div class="numb">{{ trans(concern) }}</div>
       </div>
       <div class="line-2"></div>
       <div class="fan">
         <div class="tit">粉丝</div>
-        <div class="numb">{{ fan}}</div>
+        <div class="numb">{{ trans(fan)}}</div>
       </div>
   </div>
   <div class="blank"></div>
@@ -71,14 +71,21 @@ export default {
     return {
       name:'OSIR4',
       account:'22330133', 
-      post:22,
-      concern:35,
-      fan:65
+      post:'22',
+      concern:'35',
+      fan:'65'
     }
   },
   methods:{
+    trans(a){
+      var num = Number(a)
+      if(num>=10000){
+        return `${Math.round(num*10)/100000}w`
+      }
+      return a
+    }
 
-  }
+  },
 };
 </script>
 <style scoped>
@@ -183,16 +190,31 @@ body{
   position: absolute;
   left:56px;
   top: 154px;
+  width: 25px;
+  height: 30px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .concern{
   position: absolute;
   left: 169px;
   top: 154px;
+  width: 25px;
+  height: 30px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .fan{
   position: absolute;
   left: 282px;
   top: 154px;
+  width: 25px;
+  height: 30px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .tit{
   font-size:12px ;
