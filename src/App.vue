@@ -10,11 +10,12 @@ const props = defineProps()
 import Todo from './components/homepage/todo.vue'
 import ballStage from './components/homepage/ballStage.vue'
 import Proccess from './components/homepage/proccess.vue'
-
+import tabbar from './components/tabbar.vue'
 </script>
 
 <template>
   <ballStage />
   <Todo />
   <Proccess />
+  <tabbar />
 </template> 

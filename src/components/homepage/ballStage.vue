@@ -106,7 +106,11 @@
           }"
           :id="'block' + inum"
         >
-          <img class="block" id="block1" src="../../assets/block.png" />
+          <img
+            class="block"
+            id="block1"
+            src="../../assets/icons/homepage/ballstage/block.png"
+          />
           <span class="block_stage">0{{ inum }}</span>
         </div>
       </div>
@@ -147,7 +151,11 @@
           />
         </defs>
       </svg>
-      <img class="ball" :style="ball_style" src="../../assets/ball.png" />
+      <img
+        class="ball"
+        :style="ball_style"
+        src="../../assets/icons/homepage/ballstage/ball.png"
+      />
       <svg
         class="ball_showdow"
         transform="translate(92,79)"

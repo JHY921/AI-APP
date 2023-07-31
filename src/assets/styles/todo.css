@@ -7,7 +7,7 @@
   width: 328px;
   display: flex;
   flex-direction: column;
-  background: url('../icons/todo/list.svg');
+  background: url('../../assets/icons/homepage/todo/list.svg');
   border-radius: 10px;
 }
 .addtodo {
@@ -38,7 +38,7 @@
 }
 
 .addtodo button {
-  background: url(../icons/todo/右侧按键.svg);
+  background: url(../../assets/icons/homepage/todo/右侧按键.svg);
   border-radius: 10px;
   height: 56px;
   margin-right: 0px;

@@ -18,3 +18,6 @@ act.use(ActionBarButton)
 import { Icon } from 'vant'
 const icon = createApp()
 icon.use(Icon)
+
+import { Tabbar, TabbarItem } from 'vant'
+Vue.use(Tabbar).use(TabbarItem)
