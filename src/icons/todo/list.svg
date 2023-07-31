@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="328" height="170" viewBox="0 0 328 170" fill="none"><g id="to do list" filter="url(#filter_0)"><path id="to do list" fill-rule="evenodd" fill="url(#linear_0)" opacity="1" d="M10 170L318 170C323.52 170 328 165.52 328 160L328 10C328 4.48 323.52 0 318 0L10 0C4.48 0 0 4.48 0 10L0 160C0 165.52 4.48 170 10 170Z"></path></g><defs><linearGradient id="linear_0" x1="50%" y1="49.412%" x2="51%" y2="329.331%" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#B2D6DE" stop-opacity="0" /><stop offset="1" stop-color="#007994" stop-opacity="1" /></linearGradient><filter id="filter_0" x="-5" y="-7" width="338" height="184" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="feFloodId"/>
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+          
+          <feOffset dx="0" dy="2"/>
+          <feGaussianBlur stdDeviation="2.5"/>
+          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.44 0"/>
+          <feBlend mode="normal" in2="filter_feFlood" result="filter_feFlood_1"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="filter_0" result="shape"/></filter></defs></svg>
