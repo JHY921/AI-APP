@@ -1,13 +1,43 @@
-
-@font-face{
-    font-family: 'res';
-    src: url('HarmonyOS_Sans_Regular.ttf');
-    font-weight: normal;
-    font-style: normal;
+@font-face {
+  font-family: 'res';
+  src: url('HarmonyOS_Sans_SC_Black.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
-@font-face{
-    font-family: 'dyh';
-    src: url('SmileySans-Oblique.ttf');
-    font-weight: normal;
-    font-style: normal;
+@font-face {
+  font-family: 'Bold';
+  src: url('HarmonyOS_Sans_SC_Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Light';
+  src: url('HarmonyOS_Sans_SC_Light.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Medium';
+  src: url('HarmonyOS_Sans_SC_Medium.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Regular';
+  src: url('HarmonyOS_Sans_SC_Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Thin';
+  src: url('HarmonyOS_Sans_SC_Thin.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'dyh';
+  src: url('SmileySans-Oblique.ttf');
+  font-weight: normal;
+  font-style: normal;
 }

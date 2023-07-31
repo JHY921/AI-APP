@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" transform="translate (-4px)" width="336" height="64" viewBox="0 0 336 64" fill="none"><g id="5" filter="url(#filter_0)"><path id="5" fill-rule="evenodd" style="fill:#B2D6DE" opacity="1" d="M14 58L322 58C327.52 58 332 53.52 332 48L332 12C332 6.48 327.52 2 322 2L14 2C8.48 2 4 6.48 4 12L4 48C4 53.52 8.48 58 14 58Z"></path></g><defs><filter id="filter_0" x="0" y="0" width="336" height="68" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="feFloodId"/>
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+          
+          <feOffset dx="0" dy="2"/>
+          <feComposite in2="hardAlpha" operator="out"/>
+          <feGaussianBlur stdDeviation="2"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+          <feBlend mode="normal" in2="filter_feFlood" result="filter_feFlood_1"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="filter_0" result="shape"/></filter></defs></svg>

@@ -1,0 +1,110 @@
+* {
+  margin: 0px;
+}
+.wrapper {
+  position: relative;
+  height: 172px;
+  width: 328px;
+  display: flex;
+  flex-direction: column;
+  background: url('../../assets/icons/homepage/todo/list.svg');
+  border-radius: 10px;
+}
+.addtodo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 69, 84, 1) 0%,
+    rgba(0, 121, 148, 1) 100%
+  );
+  border-radius: 10px;
+  height: 56px;
+  width: 100%;
+  z-index: 10000;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.addtodo img {
+  margin-left: -100px;
+  margin-top: 5px;
+}
+.addtodo span img {
+  margin-left: 20px;
+  font-family: dyh;
+  line-height: 56px;
+  z-index: 10000;
+  margin-top: 15px;
+}
+
+.addtodo button {
+  background: url(../../assets/icons/homepage/todo/右侧按键.svg);
+  border-radius: 10px;
+  height: 56px;
+  margin-right: 0px;
+  border: 0px;
+  width: 84px;
+  cursor: pointer;
+}
+.addtodo button div {
+  float: right;
+  margin-right: 5px;
+}
+.rotate {
+  animation-duration: 1s;
+  animation-name: rotate90;
+}
+@keyframes rotate90 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0px;
+}
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background-color: #b2d6de;
+  border-radius: 0 0 10px 10px;
+  margin-top: -8px;
+  box-shadow: 0px 2px 4px #00000040;
+  height: 40px;
+  width: 100%;
+}
+.alltodo {
+  background: rgba(178, 214, 222, 1);
+  border-radius: 0 0 10px 10px;
+  margin-top: -8px;
+  box-shadow: 0px 2px 4px #00000040;
+  height: 48px;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.alltodo span {
+  line-height: 48px;
+  margin-left: 20px;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  font-family: res;
+  color: rgba(0, 81, 99, 1);
+}
+.word {
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 328px;
+  text-align: center;
+  font-size: 50px;
+  color: #b8c8d550;
+  font-family: dyh;
+  margin-bottom: 10px;
+}

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="37.783050537109375" viewBox="0 0 20 37.783050537109375" fill="none"><g id="重要事项" filter="url(#filter_0)"><path id="重要事项" fill-rule="evenodd" style="fill:#49828F" opacity="1" d="M9,22l-7,10.7831v-31.7831h14v31.7831zM6.76,17.48l-0.42,2.52l2.16,-1.21l2.16,1.21l-0.42,-2.52l1.76,-1.81l-2.42,-0.37l-1.08,-2.3l-1.07,2.3l-2.43,0.37z"></path></g><defs><filter id="filter_0" x="-2" y="-4" width="22" height="41.78305435180664" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="feFloodId"/>
-          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-          
-          <feOffset dx="1" dy="2"/>
-          <feComposite in2="hardAlpha" operator="out"/>
-          <feGaussianBlur stdDeviation="1.5"/>
-          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.33 0"/>
-          <feBlend mode="normal" in2="filter_feFlood" result="filter_feFlood_1"/>
-          <feBlend mode="normal" in="SourceGraphic" in2="filter_0" result="shape"/></filter></defs></svg>

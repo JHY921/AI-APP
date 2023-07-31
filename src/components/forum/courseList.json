@@ -1,0 +1,107 @@
+{
+  "courses": [
+    {
+      "course_id": 1,
+      "course_name": "数学",
+      "total_number":3,
+      "subcategories": [
+        {
+          "subcategory_id": 101,
+          "subcategory_name": "代数",
+          "subcategory_number":1
+        },
+        {
+          "subcategory_id": 102,
+          "subcategory_name": "几何",
+          "subcategory_number":2
+        },
+        {
+          "subcategory_id": 103,
+          "subcategory_name": "阿巴阿巴",
+          "subcategory_number":3
+        }
+      ]
+    },
+    {
+      "course_id": 2,
+      "course_name": "科学",
+      "total_number":2,
+      "subcategories": [
+        {
+          "subcategory_id": 201,
+          "subcategory_name": "物理",
+          "subcategory_number":1
+        },
+        {
+          "subcategory_id": 202,
+          "subcategory_name": "化学",
+          "subcategory_number":2
+        }
+      ]
+    },
+    {
+      "course_id": 3,
+      "course_name": "英语",
+      "total_number":5,
+      "subcategories": [
+        {
+          "subcategory_id": 301,
+          "subcategory_name": "四级",
+          "subcategory_number":1
+        },
+        {
+          "subcategory_id": 302,
+          "subcategory_name": "六级",
+          "subcategory_number":2
+        },
+        {
+          "subcategory_id": 303,
+          "subcategory_name": "八级",
+          "subcategory_number":3
+        },
+        {
+          "subcategory_id": 304,
+          "subcategory_name": "雅思",
+          "subcategory_number":4
+        },
+        {
+          "subcategory_id": 305,
+          "subcategory_name": "托福",
+          "subcategory_number":5
+        }
+      ]
+    },    
+    {
+      "course_id": 3,
+      "course_name": "英语",
+      "total_number":5,
+      "subcategories": [
+        {
+          "subcategory_id": 301,
+          "subcategory_name": "四级",
+          "subcategory_number":1
+        },
+        {
+          "subcategory_id": 302,
+          "subcategory_name": "六级",
+          "subcategory_number":2
+        },
+        {
+          "subcategory_id": 303,
+          "subcategory_name": "八级",
+          "subcategory_number":3
+        },
+        {
+          "subcategory_id": 304,
+          "subcategory_name": "雅思",
+          "subcategory_number":4
+        },
+        {
+          "subcategory_id": 305,
+          "subcategory_name": "托福",
+          "subcategory_number":5
+        }
+      ]
+    }
+  ]
+}
