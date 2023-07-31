@@ -138,13 +138,13 @@ export default{
                 for(var j = 0;j<7 ;j++){
                     mark.append('circle')
                         .attr('cx', width*0.35+j*30)
-                        .attr('cy', 35+i*30)
+                        .attr('cy', 25+i*29)
                         .attr('r', 9)
                         .attr('fill', 'rgba(218, 235, 239, 1)')
                         .attr('filter', 'url(#shadow)')
                     tt.append('text')
                         .attr('x',width*0.35-3+j*30)
-                        .attr('y', 35+i*30)
+                        .attr('y', 25+i*29)
                         .attr('font-size', 8)
                         .attr('fill', 'black')
                         .attr('text-anchor', 'middle')
@@ -154,13 +154,13 @@ export default{
             for(var i =0 ;i<this.day-28;i++){
                 mark.append('circle')
                         .attr('cx', width*0.35+i*30)
-                        .attr('cy', 155)
+                        .attr('cy', 141)
                         .attr('r', 9)
                         .attr('fill', 'rgba(218, 235, 239, 1)')
                         .attr('filter', 'url(#shadow)')
                 tt.append('text')
                         .attr('x',width*0.35-3+i*30)
-                        .attr('y', 155)
+                        .attr('y', 141)
                         .attr('font-size', 8)
                         .attr('fill', 'black')
                         .attr('text-anchor', 'middle')
@@ -177,6 +177,7 @@ export default{
 }
 </script>
 <style scoped> 
+@import url('../../assets/font/font.css');
 .container{
     width: 91%;
     height: 172px;
@@ -190,19 +191,19 @@ export default{
 }
 .mon{
     position: absolute;
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 400;
     letter-spacing: 0px;
-    left: 25px;
-    top: 21px;
+    left: 28px;
+    top: 16px;
     color: rgba(0, 0, 0, 1);
     text-align: left;
     vertical-align: top;
 }
 .mon-s{
     position: absolute;
-    left: 25px;
-    top: 58px;
+    left: 28px;
+    top: 65px;
     font-size: 18px;
     font-weight:900 ;
     color: rgba(0, 0, 0, 0.3);
@@ -216,15 +217,15 @@ export default{
     border: 0.3px solid rgba(0, 75, 92, 1);
     position: absolute;
     left: 28%;
-    top: 27px;
+    top: 17px;
 }
 .mon-shadow{
     position: absolute;
-    left: 27px;
-    top: 26px;
+    left: 33px;
+    top: 25px;
     font-weight: 400;
     font-family: dyh;
-    font-size: 32px;
+    font-size: 40px;
     letter-spacing: 0px;
     line-height: 38.4px;
     color: rgba(0, 90, 110, 0.06);
