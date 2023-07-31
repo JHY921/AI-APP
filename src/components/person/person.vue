@@ -319,7 +319,7 @@ export default {
 };
 </script>
 <style scoped>
-@import url("../../../assets/font/font.css");
+@import url("../../assets/font/font.css");
 body {
   background-color: rgb(243, 245, 245);
 }

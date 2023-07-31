@@ -233,7 +233,6 @@ export default {
       </ul>
     </div>
     <!-- <div id="footer">
-
 </div> -->
   </div>
 </template>
