@@ -107,7 +107,7 @@
     <div class="block3"></div>
     <div class="block4"></div>
 </div>
-<div id="body">
+<div id="body" style="overflow: hidden;">
       <ul class="post-list">
         <li class="each-post">
         <div id="each-post">
@@ -343,6 +343,8 @@
     color: rgba(0, 121, 148, 1);
     text-align: left;
     vertical-align: top;
+    /* background-color: #007994; */
+    text-shadow: 2px 1px 2px rgb(128, 128, 128,0.6);
     border-radius: 0 0 10px 10px;
 }
 .sorting-column .active{
@@ -353,6 +355,8 @@
     border-radius: 1px;
     background: linear-gradient(180deg, rgba(0, 90, 110, 0.05) 9.39%, rgba(0, 90, 110, 0) 100%);
     border-top: 2px solid rgba(0, 121, 148, 1);
+    /* text-shadow:  grey; */
+    text-shadow:10px 10px 10px 0px rgba(0,0,0,0.2);
 }
 .sorting-column div{
     width:33.33%;
@@ -361,6 +365,7 @@
 .recommend{
     background: linear-gradient(180deg, rgba(4, 155, 189, 0.01) 9.39%, rgba(3, 91, 110, 0.1) 100%);
     opacity: 1;
+    border-radius: 0 0 0 10px;
 }
 .items{
     position:relative;
@@ -385,10 +390,10 @@
     font-size: 8px;
 }
 .items img{
-    padding-top:11px;
-    width:39px;
+    padding-top:10px;
+    width:41px;
     margin:auto;
-    height:39px;
+    height:41px;
 }
 .item-info p{
     font-weight: 400;
@@ -445,7 +450,7 @@
     color:rgba(181, 181, 181, 1);
 }
 .post-title{
-    margin-top:22px;
+    margin-top:12px;
     color:black;
     width:98%;
     font-size: 16px;
