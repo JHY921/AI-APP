@@ -419,7 +419,7 @@
         >
       </div>
     </div>
-    <button @click="changeinfo" style="margin: 90px">阶段++</button>
+    <!-- <button @click="changeinfo" style="margin: 90px">阶段++</button> -->
   </div>
 </template>
 
@@ -468,7 +468,6 @@ div img {
   transition: transform 0.5s;
 }
 .total {
-  height: 640px;
   width: 100%;
 }
 .block_container {

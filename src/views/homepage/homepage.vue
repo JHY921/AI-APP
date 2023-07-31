@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import Todo from '../../components/homepage/todo.vue'
 import ballStage from '../../components/homepage/ballStage.vue'
 import Proccess from '../../components/homepage/proccess.vue'

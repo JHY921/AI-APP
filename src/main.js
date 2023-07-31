@@ -1,13 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
-import router from './router'
+import "../src/assets/font/font.css"
+import { Tabbar, TabbarItem } from 'vant'
 
 const app = createApp(App)
+app.use(Tabbar)
+app.use(TabbarItem)
+
+import router from './router'
 app.use(router)
 app.mount('#app')
 
-import "../src/assets/font/font.css"
-import { Tabbar, TabbarItem } from 'vant'
-Vue.use(Tabbar).use(TabbarItem)
 
