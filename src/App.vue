@@ -1,5 +1,4 @@
 <script>
-
 import { defineProps } from 'vue'
 // import heat1 from './components/heat/heat1.vue'
 // import heat2 from './components/heat/heat2.vue'
