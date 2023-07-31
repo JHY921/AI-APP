@@ -1,6 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+
 const Home = () => import('../views/homepage/homepage.vue')
+
 const Forum = () => import('../views/forum/forum_index.vue')
+const Forum_heat = () => import('../views/forum/forum_heat.vue')
+const Forum_post = () => import('../views/forum/forum_post.vue')
+const Personifo = () => import('../views/forum/Personifo.vue')
+const Course = () => import('../views/forum/Course.vue')
+
 const Person = () => import('../views/person/person.vue')
 
 const router = createRouter({
@@ -21,6 +28,22 @@ const router = createRouter({
     {
       path: '/Person',
       component: Person
+    },
+    {
+      path: '/Forum_heat',
+      component: Forum_heat
+    },
+    {
+      path: '/Forum_post',
+      component: Forum_post
+    },
+    {
+      path: '/Personifo',
+      component: Personifo
+    },
+    {
+      path: '/Course',
+      component: Course
     }
   ]
 })

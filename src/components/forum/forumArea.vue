@@ -53,6 +53,12 @@ export default {
         this.bg_color = "#fef0f0"
         this.ft_color = "#f56c6c"
       }
+    },
+    goToPersonifo () {
+      this.$router.push('/Personifo')
+    },
+    goToCourse () {
+      this.$router.push('/Course')
     }
   }
 }
@@ -61,7 +67,11 @@ export default {
   <div class="second-page">
     <div id="top">
       <!-- <div>头像+搜索框+消息通知</div> -->
-      <img src="../../assets/icons/forum/forumarea/头像.png" class="avator" />
+      <img
+        src="../../assets/icons/forum/forumarea/头像.png"
+        class="avator"
+        @click="goToPersonifo"
+      />
       <div class="search">
         <img
           src="../../assets/icons/forum/forumarea/搜索.png"
@@ -95,7 +105,10 @@ export default {
     </div>
     <div class="items">
       <div class="item-info">
-        <img src="../../assets/icons/forum/forumarea/课程.png" />
+        <img
+          src="../../assets/icons/forum/forumarea/课程.png"
+          @click="goToCourse"
+        />
         <p>课程</p>
       </div>
       <div class="item-info">
