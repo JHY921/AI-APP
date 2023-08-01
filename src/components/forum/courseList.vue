@@ -131,11 +131,11 @@ export default {
         moreInfor() {
             alert("more");
         },
-        loadJsonData() {
-            const courseData = require('./courseList.json');
-            const courseContent = require('./courseData.json');
-            this.courseData = courseData;
-            this.courseContent = courseContent;
+        async loadJsonData() {
+            const courseData = await import('./courseList.json');
+            const courseContent = await import('./courseData.json');
+            this.courseData = courseData.default;
+            this.courseContent = courseContent.default;
         },
         chooseCourse(data) {
             this.clickedCourse = data;

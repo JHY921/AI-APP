@@ -226,7 +226,7 @@ export default {
               <!-- 点赞 收藏 评论 -->
               <div class="like" @click="like">
                 <img
-                  src="../../assets/icons/forum/forumarea/like.png"
+                  src=".../../assets/icons/forum/forumarea/like.png"
                   class="likesbox"
                   @click="clicklikes"
                 />
