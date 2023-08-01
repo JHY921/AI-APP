@@ -166,6 +166,10 @@ export default{
                         .attr('text-anchor', 'middle')
                         .text(`${29+i}`)
             }
+        },
+        redraw(){
+            d3.select("#con svg").remove(); // 清除旧的 SVG 元素
+            this.draw(); // 创建新的图形
         }
 
     },
@@ -173,6 +177,10 @@ export default{
         this.getdata()
         this.transfata(this.month)
         this.draw()
+        window.addEventListener('resize', this.redraw)
+    },
+    beforeDestroy(){
+        window.removeEventListener('resize', this.redraw)
     }
 }
 </script>
