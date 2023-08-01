@@ -319,7 +319,7 @@ export default {
 };
 </script>
 <style scoped>
-@import url("../../../assets/font/font.css");
+@import url("../../assets/font/font.css");
 body {
   background-color: rgb(243, 245, 245);
 }
@@ -358,6 +358,7 @@ body {
   width: 100%;
   height: 56px;
   position: relative;
+  background-color: white;
 }
 .class {
   width: 100%;
@@ -381,6 +382,7 @@ body {
   width: 100%;
   height: 56px;
   position: relative;
+  background-color: white;
   box-shadow: -1px 2px 4px #0000001a;
 }
 .back {
@@ -406,7 +408,7 @@ body {
 }
 .account {
   margin-top: 10px;
-  font-family: res;
+  font-family: Light;
   font-weight: 300;
   font-size: 10px;
 }
