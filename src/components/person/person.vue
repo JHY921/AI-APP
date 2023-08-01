@@ -453,7 +453,7 @@ body {
   font-weight: 400;
 }
 .numb {
-  font-family: res;
+  font-family: Medium;
   font-size: 14px;
   font-weight: 500;
   text-align: center;
