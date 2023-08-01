@@ -47,22 +47,26 @@
         <div class="course_list">
             <ul>
                 <li v-for="(course,index) in courseData.courses" :key="course.course_id">
-                    <div style="border-top-right-radius: 10px;"  :class="{ 'isMove': moveIndex === index }">
+                    <div style="border-top-right-radius: 10px;left: -50px; "  
+                    :class="{ 'isMove': moveIndex === index && isClick}"><!--:style="`position: absolute; transform: translateY(${course.total_number * 36+48}px);`"-->
                         <div class="main_course" @click="mouseOver(course.course_id)">{{ course.course_name }}</div>
+                        <div style="height: 48px;"></div>
                         <ul>
-                            <div class="child_course">
-                                <li v-for="subcategory in course.subcategories" :key="subcategory.subcategory_id"
-                                    @click="chooseCourse(subcategory.subcategory_id)">
+                            <div class="child_course" >
+                                <li v-for="(subcategory) in course.subcategories" :key="subcategory.subcategory_id"
+                                    @click="chooseCourse(subcategory.subcategory_id)" ><!--:style="`position: absolute; transform: translateY(${index * 36}px);`"-->
                                     {{ subcategory.subcategory_name }}
                                     <center>
                                         <hr style="width: 80px; border: 0.4px solid rgba(110, 120, 122, 0.27);"
                                             v-if="subcategory.subcategory_number != course.total_number">
                                     </center>
+                                    
                                 </li>
                             </div>
                         </ul>
                     </div>
                 </li>
+                
             </ul>
         </div>
         </transition>
@@ -75,7 +79,8 @@
             <div class="course_detail" v-for="course in courseContent.courses" :key="course.course_id"
                 v-show="course.course_id === clickedCourse">
                 <div style="display: inline-block; width: 100px; height: 65px; background-color: #007994;
-                            margin-top: 20px; margin-left: 20px; margin-right: 10px; margin-bottom: 20px;">
+                            margin-top: 20px; margin-right: 10px; margin-bottom: 20px;
+                            border-radius: 10px;">
                     <img :src="course.course_cover" alt="封面"
                         style="max-width: 100%; max-height: 100%;border-radius: 10px;" />
                 </div>
@@ -84,16 +89,18 @@
                             color: rgba(0, 0, 0, 1);text-align: left;">
                         {{ course.course_title }}
                     </span>
-                    <p style="font-size: 8px; font-weight: 400; letter-spacing: 0px; line-height: 9.38px;
-                            color: rgba(0, 0, 0, 0.6); text-align: left; vertical-align: middle; margin-top: 5px;">
-                        {{ course.course_source }}
+                    <p style="font-size: 12px; font-weight: 400; letter-spacing: 0px; line-height: 9.38px;
+                            color: rgba(0, 0, 0, 0.6); text-align: left; vertical-align: middle; margin-top: 5px;
+                            -webkit-transform-origin-x: 0; -webkit-transform: scale(0.90);">
+                        课程来源：{{ course.course_source }}
                     </p>
                     <p style="font-size: 6px; font-weight: 400; letter-spacing: 0px; line-height: 7.03px;
-                            color: rgba(0, 0, 0, 0.4); text-align: left; vertical-align: middle; margin-top: 5px;">
-                        {{ course.course_time }}
+                            color: rgba(0, 0, 0, 0.4); text-align: left; vertical-align: middle; margin-top: 5px;
+                            -webkit-transform-origin-x: 0; -webkit-transform: scale(0.70);">
+                        时长：{{ course.course_time }}
                     </p>
                 </div>
-                <hr style="border: 6px solid rgba(110, 120, 122, 0.27);">
+                <hr style="border: 3px solid rgba(110, 120, 122, 0.1);">
             </div>
         </div>
     </div>
@@ -107,6 +114,8 @@ export default {
             courseContent: [],
             clickedCourse: 1,
             moveIndex:-1,
+            listPosition:[],
+            isClick:true
         };
     },
     created() {
@@ -130,10 +139,15 @@ export default {
         },
         chooseCourse(data) {
             this.clickedCourse = data;
-            console.log(this.clickedCourse);
+            
         },
         mouseOver(para) {
-            this.moveIndex=para-1;
+            if(para-1===this.moveIndex) this.isClick=!this.isClick;
+            else {
+                this.moveIndex=para-1;
+                this.isClick=true
+            }
+            console.log(this.isClick);
         }
     },
     computed: {
@@ -144,9 +158,21 @@ export default {
 
 <style>
 .isMove{
-    box-shadow: 10px 15px 0px 10px rgba(131, 199, 219, 0.9) inset;
+    box-shadow: 10px 1500px 0px 10px rgba(131, 199, 219, 0.1) inset;
     border-bottom-right-radius: 10px;
+    transform: translateX(14px);
+    width: 117px;
+    /* background: linear-gradient(90deg, rgb(255, 255, 255) 50%, rgb(143, 209, 224,0.8) 100%); */
     transition: box-shadow 0.5s;
+    transition: transform 0.5s;
+}
+@keyframes fadeInAnimation { 
+    0% { 
+        background: linear-gradient(90deg, rgb(255, 255, 255) 50%, rgb(143, 209, 224,0) 100%);
+    } 
+    100% { 
+        background: linear-gradient(90deg, rgb(255, 255, 255) 50%, rgb(143, 209, 224,0.8) 100%);
+     } 
 }
 * {
     margin: 0px;
@@ -193,15 +219,17 @@ h3 {
 }
 
 .course_list {
+    position: relative;
     display: inline-block;
     vertical-align: top;
     overflow-x: visible !important;
     overflow-y: auto;
     height: 568px;
-    width: 123px;
+    width: 140px;
 }
 
 .main_course {
+    position: absolute;
     width: 123px;
     height: 48px;
     opacity: 1;
@@ -220,6 +248,7 @@ h3 {
 }
 
 .child_course {
+    position: relative;
     width: 117px;
     text-align: center;
     line-height: 36px;
@@ -233,7 +262,7 @@ h3 {
     display: inline-block;
     vertical-align: top;
     overflow: auto;
-    width: 236px;
+    width: 220px;
     height: 568px;
 }
 

@@ -419,7 +419,7 @@
         >
       </div>
     </div>
-    <button @click="changeinfo" style="margin: 90px">阶段++</button>
+    <button @click="changeinfo" style="margin: 10px">阶段++</button>
   </div>
 </template>
 
