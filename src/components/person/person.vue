@@ -26,7 +26,7 @@
       <g opacity="0.6" transform="translate(0 0)  rotate(0)">
         <mask id="bg-mask-0" fill="white">
           <use
-            transform="translate(0 0)  rotate(NaN)"
+            transform="translate(0 0)  rotate(0)"
             xlink:href="#path_0"
           ></use>
         </mask>
@@ -358,6 +358,7 @@ body {
   width: 100%;
   height: 56px;
   position: relative;
+  background-color: white;
 }
 .class {
   width: 100%;
@@ -381,6 +382,7 @@ body {
   width: 100%;
   height: 56px;
   position: relative;
+  background-color: white;
   box-shadow: -1px 2px 4px #0000001a;
 }
 .back {
@@ -406,7 +408,7 @@ body {
 }
 .account {
   margin-top: 10px;
-  font-family: res;
+  font-family: Light;
   font-weight: 300;
   font-size: 10px;
 }
@@ -451,7 +453,7 @@ body {
   font-weight: 400;
 }
 .numb {
-  font-family: res;
+  font-family: Medium;
   font-size: 14px;
   font-weight: 500;
   text-align: center;

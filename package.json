@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vant/weapp": "^1.10.23",
     "axios": "^1.4.0",
     "d3": "^7.8.5",
     "unplugin-vue-components": "^0.25.1",
@@ -18,6 +19,11 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.4.0"
+    "vite": "^4.4.7"
+  },
+  "usingComponents": {
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
   }
 }
