@@ -1,7 +1,7 @@
 
 <template>
   <router-view />
-  <van-tabbar v-model="active" fixed id="bar" safe-area-inset-bottom>
+  <van-tabbar v-model="active" fixed>
     <van-tabbar-item replace to="/Home" icon="home-o">首页</van-tabbar-item>
     <van-tabbar-item replace to="/Forum" icon="search" dot
       >论坛</van-tabbar-item
@@ -24,9 +24,5 @@ export default {
   }
 }
 </script>
-<style>
-#bar {
-  z-index: 10000000000;
-}
-</style>
+
 
