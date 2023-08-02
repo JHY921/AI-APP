@@ -461,6 +461,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.isMove {
+  /* border-left: 10px solid blue; */
+  box-shadow: 0px 1500px 0px 0px rgba(131, 199, 219, 0.1) inset,
+    -50px 0px 0px 0px rgb(29, 146, 117, 0.4);
+  border-bottom-right-radius: 10px;
+  transform: translateX(14px);
+  width: 117px;
+  /* background: linear-gradient(90deg, rgb(255, 255, 255) 50%, rgb(143, 209, 224,0.8) 100%); */
+  transition: box-shadow 0.5s;
+  transition: transform 0.5s;
+}
 div img {
   transition: transform 0.5s;
 }
