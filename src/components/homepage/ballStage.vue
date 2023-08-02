@@ -469,6 +469,7 @@ div img {
 }
 .total {
   width: 100%;
+  height: auto;
 }
 .block_container {
   height: 190px;
