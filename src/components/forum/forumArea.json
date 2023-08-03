@@ -1,0 +1,32 @@
+{
+    "forumArea": [
+        {
+            "post-title": "Customizing the Nature of aBean既新奇博杜函数",
+            "user_avator":"../../assets/icons/forum/forumarea/photo.jpg",
+            "user_name":"基彭伯格",
+            "content":"Customizing the Nature of aBean，最早准备跳过这部分内容，但是觉得这部分内容是SpringBean生命周期中的一个重要部分可能会影响通往NB之路，所以还是要真学习一下Spring通过三种类型的接口实现对Bean行为或状态的改变或定制...",
+            "view":"400"
+        },
+        {
+            "post-title": "Customizing the Nature of aBean",
+            "user_avator":"../../assets/icons/forum/forumarea/photo.jpg",
+            "user_name":"基彭伯格",
+            "content":"Customizing the Nature of aBean，最早准备跳过这部分内容，但是觉得这部分内容是SpringBean生命周期中的一个重要部分可能会影响通往NB之路，所以还是要真学习一下Spring通过三种类型的接口实现对Bean行为或状态的改变或定制...",
+            "view":"400"
+        },
+        {
+            "post-title": "Customizing the Nature of aBean",
+            "user_avator":"../../assets/icons/forum/forumarea/photo.jpg",
+            "user_name":"基彭伯格",
+            "content":"Customizing the Nature of aBean，最早准备跳过这部分内容，但是觉得这部分内容是SpringBean生命周期中的一个重要部分可能会影响通往NB之路，所以还是要真学习一下Spring通过三种类型的接口实现对Bean行为或状态的改变或定制...",
+            "view":"400"
+        },
+        {
+            "post-title": "Customizing the Nature of aBean",
+            "user_avator":"../../assets/icons/forum/forumarea/photo.jpg",
+            "user_name":"基彭伯格",
+            "content":"Customizing the Nature of aBean，最早准备跳过这部分内容，但是觉得这部分内容是SpringBean生命周期中的一个重要部分可能会影响通往NB之路，所以还是要真学习一下Spring通过三种类型的接口实现对Bean行为或状态的改变或定制...",
+            "view":"400"
+        }
+    ]
+}

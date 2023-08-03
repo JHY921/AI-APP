@@ -1,4 +1,5 @@
 <script>
+import data from './forumArea.json'
 export default {
   name: "zan",
   data () {
@@ -9,9 +10,10 @@ export default {
       ft_color: "#f56c6c",
       likeshow: true,
       collectshow: true,
-      likeCount: 10000,
-      collectCount: 0,
-      commentCount: 0,
+      likeCount: 1000,
+      collectCount: 1000,
+      commentCount: 1000,
+      data:data,
     }
   },
   methods: {
@@ -136,19 +138,19 @@ export default {
     </div>
     <div id="body">
       <ul class="post-list">
-        <li class="each-post">
+        <li class="each-post" v-for="item in data.forumArea">
           <div id="each-post">
-            <p class="post-title">Spring FrameWork从入门到NB-定制Bean基辛格</p>
+            <p class="post-title">{{item['post-title']}}</p>
             <div class="user-info">
               <img
                 class="user-avator"
-                src="../../assets/icons/forum/forumarea/photo.jpg"
+                :src="item['user-avator']"
               />
-              <span class="user-name">基彭伯格</span>
+              <span class="user-name">{{ item.user_name }}</span>
               <img
                 class="vip-icon"
                 src="../../assets/icons/forum/forumarea/皇冠.png"
-                style="width: 16px; height: 16px; margin-left: 2.8%"
+                style="width: 16px; height: 16px; margin-left:0%;margin-top:-4px;"
               />
               <button
                 @click="favor"
@@ -162,69 +164,10 @@ export default {
             </div>
             <div class="ms-content">
               <p>
-                Customizing the Nature of a
-                Bean，最早准备跳过这部分内容，但是觉得这部分内容是Spring
-                Bean生命周期中的一个重要部分，跳过了可能会影响通往NB之路，所以还是要认真学习一下\n\nSpring通过三种类型的接口实现对Bean行为或状态的改变或定制
-                . . .
+                {{ item.content }}
               </p>
             </div>
-            <div class="page-view"><span>浏览量</span><span>30</span></div>
-            <div class="icon">
-              <!-- 点赞 收藏 评论 -->
-              <div class="like" @click="like">
-                <img
-                  src="../../assets/icons/forum/forumarea/like.png"
-                  class="likesbox"
-                  @click="clicklikes"
-                />
-                <p>{{ likeCount }}</p>
-              </div>
-              <div class="collect" @click="collect">
-                <img src="../../assets/icons/forum/forumarea/collect.png" />
-                <p>{{ collectCount }}</p>
-              </div>
-              <div class="comment" @click="comment">
-                <img src="../../assets/icons/forum/forumarea/comment.png" />
-                <p>{{ commentCount }}</p>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="each-post">
-          <div id="each-post">
-            <p class="post-title">
-              Spring FrameWork从入门到NB-定制BeanB既今昔个
-            </p>
-            <div class="user-info">
-              <img
-                class="user-avator"
-                src="../../assets/icons/forum/forumarea/photo.jpg"
-              />
-              <span class="user-name">基彭伯格</span>
-              <img
-                class="vip-icon"
-                src="../../assets/icons/forum/forumarea/皇冠.png"
-                style="width: 16px; height: 16px; margin-left: 2.8%"
-              />
-              <button
-                @click="favor"
-                class="button"
-                style="{background-color: bg_color,color:ft_color,}"
-                @mouseenter="change()"
-                @mouseleave="goback()"
-              >
-                {{ content }}
-              </button>
-            </div>
-            <div class="ms-content">
-              <p>
-                Customizing the Nature of a
-                Bean，最早准备跳过这部分内容，但是觉得这部分内容是Spring
-                Bean生命周期中的一个重要部分，跳过了可能会影响通往NB之路，所以还是要认真学习一下\n\nSpring通过三种类型的接口实现对Bean行为或状态的改变或定制
-                . . .
-              </p>
-            </div>
-            <div class="page-view"><span>浏览量</span><span>30</span></div>
+            <div class="page-view"><span>浏览量</span><span>{{ item.view }}</span></div>
             <div class="icon">
               <!-- 点赞 收藏 评论 -->
               <div class="like" @click="like">
@@ -251,11 +194,34 @@ export default {
     <!-- <div id="footer">
 </div> -->
   </div>
+  <div class="crisscross">
+    <p>+</p>
+  </div>
 </template>
-<style scoped>
+<style  scoped>
 * {
   margin: 0px;
   padding: 0px;
+}
+.crisscross{
+  position: fixed;
+  bottom:150px;
+  left:300px;
+  background-color: #007994;
+  width: 45px;
+  height: 45px;
+  opacity: 1;
+  border-radius: 50%;
+  background: rgba(0, 121, 148, 1);
+  box-shadow: 0px 2px 4px  rgba(0, 0, 0, 0.25);
+}
+.crisscross p{
+  font-size: 60px;
+  color:#ffffff;
+  margin-top:-25%;
+  font-weight: 100;
+  margin-left:11%;
+  transform: scale(1);
 }
 .second-page {
   width: 360px;
@@ -264,15 +230,12 @@ export default {
   position: fixed;
 }
 #top {
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  width: 90%;
   margin: auto;
   margin-top: 24px;
-  left: 16px;
-  top: 24px;
-  width: 90%;
   height: 58px;
   opacity: 1;
   border-radius: 4px;
@@ -283,9 +246,14 @@ export default {
   );
 }
 #body {
-  width: 100%;
+  width: 360px;
   height: 325px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  &::-webkit-scrollbar{
+    display: none;
+  }
 }
 #footer {
   width: 100%;
@@ -297,9 +265,10 @@ export default {
 .avator {
   width: 42px;
   height: 42px;
-  margin-top: 1.6%;
-  margin-left: 0.1%;
-  left: 16px;
+  /* margin-top: 1.6%; */
+  margin-top:-20px;
+  margin-left: 0px;
+  /* left: 16px; */
   top: 27px;
   opacity: 1;
 }
@@ -448,7 +417,11 @@ export default {
     rgba(4, 155, 189, 0.01) 9.39%,
     rgba(3, 91, 110, 0.1) 100%
   );
+  border-radius:0 0 0 10px;
   opacity: 1;
+}
+.focus-on{
+  border-radius:0 0 10px 0;
 }
 .items {
   position: relative;
@@ -473,17 +446,17 @@ export default {
   font-size: 8px;
 }
 .items img {
-  padding-top: 11px;
-  width: 39px;
+  padding-top: 8px;
+  width: 42px;
   margin: auto;
-  height: 39px;
+  height: 42px;
 }
 .item-info p {
-  font-weight: 400;
+  font-weight: 600;
   padding-bottom: 1px;
   margin-top: -11%;
   font-size: 8px;
-  transform: scale(0.7);
+  transform: scale(0.8);
   color: rgba(0, 121, 148, 1);
 }
 .banner {
@@ -496,7 +469,7 @@ export default {
   width: 100%;
 }
 .post-list {
-  width: 100%;
+  width: 360px;
   margin-top: 4%;
   display: flex;
   flex-wrap: wrap;
@@ -504,6 +477,7 @@ export default {
   flex-direction: row;
   color: #999;
   font-size: 20px;
+  /* overflow-x: hidden; */
 }
 .each-post {
   background-color: rgb(255, 255, 255);
@@ -535,7 +509,7 @@ export default {
 .post-title {
   margin-top: 22px;
   color: black;
-  width: 98%;
+  width: 96%;
   font-size: 16px;
   font-weight: 500;
   height: 34.4px;
@@ -567,16 +541,18 @@ export default {
   font-size: 7px;
   -webkit-transform: scale(0.7);
 }
-.user-info img {
+.user-avator {
   border-radius: 50%;
   width: 24px;
   height: 24px;
+  margin-top: -4px;
 }
-.user-name {
-  margin-left: 4.2%;
-  font-weight: 400;
-  font-size: 12px;
-  font-weight: 400;
+.user-name{
+  font-weight: 400; 
+  font-size: 12px; 
+  width:90px;
+  margin-top:-45px;
+  margin-left:-20px;
   letter-spacing: 0px;
   line-height: 14.06px;
   color: rgba(0, 0, 0, 1);
@@ -613,8 +589,8 @@ export default {
   font-size: 9px;
 }
 .icon {
-  margin-top: -3%;
-  width: 20%;
+  margin-top: -4.5%;
+  width: 30%;
   height: 100%;
   float: right;
   margin-right: 8%;
@@ -625,25 +601,30 @@ export default {
   font-size: 6px;
 }
 .icon p {
-  margin-top: -22%;
   transform: scale(0.6);
+  width:35px;
+  height:30px;
+  margin:auto;
+  margin-top: -13%;
 }
 .icon div {
-  margin-left: 28%;
-  width: 34px;
+  /* margin-left: 28%; */
+  width: 70px;
   height: 34px;
   display: flex;
   font-size: 6px;
   flex-direction: column;
   text-align: center;
 }
-.icon p {
-  font-size: 9px;
-}
+/* .like{
+  width:50px;
+  height:50px;
+} */
 .icon img {
   width: 18px;
   height: 18px;
   vertical-align: middle;
+  margin:auto;
 }
 .content span {
   font-size: 9px;

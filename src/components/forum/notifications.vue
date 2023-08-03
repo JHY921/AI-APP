@@ -1,8 +1,17 @@
 <script>
-
-
+import data from './notification.json'
+export default{
+    data(){
+        return {
+            notification:data
+        }
+    }
+}
 </script>
 <template>
+<div class="top-bar">
+    
+</div>
 <div class="goods_info">
 <van-nav-bar
   title="消息"
@@ -36,44 +45,12 @@
         <p>全部消息</p>
     </div>
     <div class="info-detail">
-        <div class="detail">
-            <img src="../../assets/info-icon/内容头像.png" class="avator-icon">
-            <p class="user-name">OSIR4</p>
+        <div class="detail" v-for="item in notification.notification">
+            <img :src="item['user-avator']" class="avator-icon">
+            <p class="user-name">{{ item.user_name }}</p>
             <img src="../../assets/info-icon/皇冠.png" class="vip">
-            <p class="behavior">评论了您的贴子</p>
-            <img src="../../assets/info-icon/评论1.png" class="behavior-icon">
-            <p class="date">7-26</p>
-        </div>
-        <div class="detail">
-            <img src="../../assets/info-icon/内容头像.png" class="avator-icon">
-            <p class="user-name">OSIR4</p>
-            <img src="../../assets/info-icon/皇冠.png" class="vip">
-            <p class="behavior">赞了您的贴子</p>
-            <img src="../../assets/info-icon/点赞1.png" class="behavior-icon">
-            <p class="date">7-26</p>
-        </div>        
-        <div class="detail">
-            <img src="../../assets/info-icon/内容头像.png" class="avator-icon">
-            <p class="user-name">OSIR4</p>
-            <img src="../../assets/info-icon/皇冠.png" class="vip">
-            <p class="behavior">关注了您</p>
-            <img src="../../assets/info-icon/喜欢1.png" class="behavior-icon">
-            <p class="date">7-26</p>
-        </div>        
-        <div class="detail">
-            <img src="../../assets/info-icon/内容头像.png" class="avator-icon">
-            <p class="user-name">OSIR4</p>
-            <img src="../../assets/info-icon/皇冠.png" class="vip">
-            <p class="behavior">赞了您的评论</p>
-            <img src="../../assets/info-icon/点赞1.png" class="behavior-icon">
-            <p class="date">7-26</p>
-        </div>
-        <div class="detail">
-            <img src="../../assets/info-icon/内容头像.png" class="avator-icon">
-            <p class="user-name">OSIR4</p>
-            <img src="../../assets/info-icon/皇冠.png" class="vip">
-            <p class="behavior">赞了您的评论</p>
-            <img src="../../assets/info-icon/点赞1.png" class="behavior-icon">
+            <p class="behavior">{{item['user-behavior']}}</p>
+            <img :src="item['user-behavior-icon']" class="behavior-icon">
             <p class="date">7-26</p>
         </div>
         <div class="detail">
@@ -81,22 +58,6 @@
             <p class="system-mesg">系统通知</p>
             <p class="system-info">这是一条来自系统的消息</p>
             <p class="system-date">7-26</p>
-        </div>
-        <div class="detail">
-            <img src="../../assets/info-icon/内容头像.png" class="avator-icon">
-            <p class="user-name">OSIR4</p>
-            <img src="../../assets/info-icon/皇冠.png" class="vip">
-            <p class="behavior">赞了您的评论</p>
-            <img src="../../assets/info-icon/点赞1.png" class="behavior-icon">
-            <p class="date">7-26</p>
-        </div>
-        <div class="detail">
-            <img src="../../assets/info-icon/内容头像.png" class="avator-icon">
-            <p class="user-name">OSIR4</p>
-            <img src="../../assets/info-icon/皇冠.png" class="vip">
-            <p class="behavior">赞了您的评论</p>
-            <img src="../../assets/info-icon/点赞1.png" class="behavior-icon">
-            <p class="date">7-26</p>
         </div>
    </div>
    
@@ -109,12 +70,33 @@
     padding:0px;
     position: relative;
 }
-::v-deep .van-nav-bar__text {
-  color:rgb(86, 221, 23);
+.top-bar{
+    top:0px;
+    position:fixed;
+    width:100%;
+    height:21.2px;
+    background-color: #a3a3a3;
+    z-index:999;
+}
+::v-deep .van-nav-bar__title{
+  color:#007994;
+  font-weight: 800;
+  font-size: 18px;
 }
 ::v-deep .van-nav-bar .van-icon{
     color:white !important;
     /* font-size:16px; */
+}
+::v-deep .van-nav-bar__text{
+  color:rgba(0, 121, 148, 1);
+  font-weight: 700;
+  font-size: 26px;
+}
+::v-deep .van-nav-bar__arrow{
+  color:rgba(0, 121, 148, 1);
+  font-weight: 600;
+  transform: scale(1.3);
+  /* height:30px; */
 }
 .total-info{
     left: 0px;
@@ -216,7 +198,7 @@
     top: 16px;
 }
 .user-name{
-    left: 16.13px;
+    left: 30px;
     top: 21px;
     width: 34px;
     height: 15px;
@@ -230,7 +212,7 @@
     vertical-align: top;
 }
 .vip{
-    left: 26px;
+    left: 40px;
     top: 20px;
     width: 15.91px;
     height: 16px;
@@ -294,7 +276,7 @@
     vertical-align: top;
 }
 .system-info{
-    left: 76px;
+    left: 60px;
     top: 22px;
     width: 140px;
     height: 12px;
@@ -309,7 +291,7 @@
     vertical-align: top;
 }
 .system-date{
-    left: 108px;
+    left: 92px;
 top: 24px;
 width: 28px;
 height: 12px;
