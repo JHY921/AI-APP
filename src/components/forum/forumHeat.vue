@@ -79,7 +79,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 * {
   margin: 0px;
   padding: 0px;
@@ -177,64 +177,6 @@ export default {
   color: rgba(0, 121, 148, 1);
   text-align: left;
   vertical-align: top;
-}
-.info {
-  width: 42px;
-  height: 42px;
-  margin-top: 1%;
-  margin-left: 5%;
-}
-.block1 {
-  position: absolute;
-  /* left: 161px; */
-  left: 44.1%;
-  /* top: 236.23px; */
-  margin-top: -5%;
-  width: 2.2%;
-  height: 1.6px;
-  opacity: 1;
-  border-radius: 2.5px;
-  background: rgba(255, 255, 255, 1);
-  z-index: 999;
-}
-.block2 {
-  /* left: 171.23px; */
-  left: 47.2%;
-  /* top: 236.23px; */
-  margin-top: -5%;
-  width: 2.2%;
-  height: 1.6px;
-  opacity: 1;
-  border-radius: 2.5px;
-  background: rgb(3, 81, 64);
-  z-index: 999;
-  position: absolute;
-}
-.block3 {
-  /* left: 181.46px; */
-  margin-left: 50.32%;
-  /* top: 236.23px; */
-  margin-top: -5%;
-  width: 2.2%;
-  height: 1.6px;
-  opacity: 1;
-  border-radius: 2.5px;
-  background: rgba(255, 255, 255, 1);
-  z-index: 999;
-  position: absolute;
-}
-.block4 {
-  position: absolute;
-  /* left: 191.69px; */
-  left: 53.44%;
-  /* top: 236.23px; */
-  margin-top: -5%;
-  width: 2.2%;
-  height: 1.6px;
-  opacity: 1;
-  border-radius: 2.5px;
-  background: rgba(255, 255, 255, 1);
-  z-index: 999;
 }
 .sorting-column {
   height: 28px;
