@@ -12,7 +12,8 @@
     </div>
     <div class="info">
       <div class="name">{{ name }}</div>
-      <div class="account">账号 ：&thinsp;{{ account }}</div>
+      <span class="acc">账号：</span>
+      <div class="account">{{ account }}</div>
     </div>
     <svg
       class="dot"
@@ -249,8 +250,17 @@ body {
   font-family: res;
   font-weight: 700;
 }
+.acc{
+  position: absolute;
+  font-family: Light;
+  font-weight: 300;
+  font-size: 10px;
+  top: 30px;
+}
 .account {
-  margin-top: 10px;
+  position: absolute;
+  top: 30px;
+  left: 35px;
   font-family: Light;
   font-weight: 300;
   font-size: 10px;
