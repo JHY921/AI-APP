@@ -9,7 +9,7 @@ export default {
       ft_color: "#f56c6c",
       likeshow: true,
       collectshow: true,
-      likeCount: 0,
+      likeCount: 10000,
       collectCount: 0,
       commentCount: 0,
     }
@@ -59,6 +59,9 @@ export default {
     },
     goToCourse () {
       this.$router.push('/Course')
+    },
+    goToHeat(){
+      this.$router.push('/Forum_heat')
     }
   }
 }
@@ -96,7 +99,7 @@ export default {
       <div class="recommend">
         <p class="active">推荐</p>
       </div>
-      <div class="popular">
+      <div class="popular" @click="goToHeat">
         <p>热门</p>
       </div>
       <div class="focus-on">
