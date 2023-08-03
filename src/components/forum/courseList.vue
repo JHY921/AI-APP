@@ -158,7 +158,8 @@ export default {
 
 <style>
 .isMove{
-    box-shadow: 10px 1500px 0px 10px rgba(131, 199, 219, 0.1) inset;
+    /* border-left: 10px solid blue; */
+    box-shadow: 0px 1500px 0px 0px rgba(131, 199, 219, 0.1) inset,-50px 0px 0px 0px rgb(29, 146, 117,0.4);
     border-bottom-right-radius: 10px;
     transform: translateX(14px);
     width: 117px;
