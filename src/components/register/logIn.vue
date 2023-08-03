@@ -140,7 +140,7 @@
         </div>
         <div style="margin-top: 20px; margin-left: 100px">
           <button
-            @click="swapCircles"
+            @click="login"
             style="
               width: 117px;
               height: 39px;
@@ -212,6 +212,9 @@ export default {
     }
   },
   methods: {
+    login () {
+      this.$router.push('/tabbar')
+    },
     swapCircles () {
       // Swap positions with animation
       const tempPos = Object.assign({}, this.circle1Pos)
@@ -224,6 +227,7 @@ export default {
       this.changeInfor("circle1Zindex", "circle2Zindex")
       this.changeInfor("circle1Opa", "circle2Opa")
       this.Skip = !this.Skip
+      this.$router.push('/signUp')
     },
     changeInfor (prop1, prop2) {
       const tempW = this[prop1]
