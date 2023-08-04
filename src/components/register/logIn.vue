@@ -227,7 +227,8 @@ export default {
       this.changeInfor("circle1Zindex", "circle2Zindex")
       this.changeInfor("circle1Opa", "circle2Opa")
       this.Skip = !this.Skip
-      this.$router.push('/signUp')
+      window.location.herf = 'signUp'
+      // this.$router.push('/signUp')
     },
     changeInfor (prop1, prop2) {
       const tempW = this[prop1]
