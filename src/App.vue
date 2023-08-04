@@ -4,9 +4,8 @@ import forumArea from './components/forum/forumArea.vue'
 import notification from './components/forum/notifications.vue'
 </script>
 <template>
-  <div>
+  <!-- <div> -->
     <!-- <Tabbar /> -->
     <forumArea></forumArea>
     <!-- <notification></notification> -->
-  </div>
 </template> 

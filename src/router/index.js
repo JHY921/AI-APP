@@ -1,5 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
+const login = () => import('../views/register/login.vue')
+const userinfor = () => import('../views/register/userinfo.vue')
+
+const tabbar = () => import('../components/tabbar.vue')
+
 const Home = () => import('../views/homepage/homepage.vue')
 
 const Forum = () => import('../views/forum/forum_index.vue')
@@ -15,7 +20,19 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/Home'
+      redirect: '/login'
+    },
+    {
+      path: '/tabbar',
+      component: tabbar
+    },
+    {
+      path: '/login',
+      component: login
+    },
+    {
+      path: '/userinfor',
+      component: userinfor
     },
     {
       path: '/Home',

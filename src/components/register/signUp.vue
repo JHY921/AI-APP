@@ -1,5 +1,7 @@
 <template>
-  <div style="position: relative; overflow: auto">
+  <div
+    style="position: relative; width: 360px; height: 640px; overflow: hidden"
+  >
     <div class="total">
       <!-- <img style="position: relative; z-index: -1; top: -700px; left: -1000px;" src="./background.png"/> -->
       <div
@@ -66,13 +68,15 @@
           );
         "
       ></div>
+
       <img
-        :class="{ 'fade-out': Skip }"
+        :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
         style="z-index: 10011; position: absolute; left: 47%; top: 15%"
-        src="../../assets/icons/register/字体.png"
+        src="../../assets/icons/register/signUp.png"
       />
+
       <div
-        :class="{ 'fade-out': Skip }"
+        :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
         style="
           z-index: 999999;
           position: absolute;
@@ -93,9 +97,10 @@
               width: 169px;
               border: none;
             "
+            v-model="account"
           />
         </div>
-        <div style="font-size: 18px; color: #008c99">
+        <div style="font-size: 18px; color: #008c99; margin-bottom: 20px">
           密码：
           <input
             style="
@@ -107,34 +112,35 @@
               width: 169px;
               border: none;
             "
+            v-model="password"
           />
         </div>
+        <div style="font-size: 18px; color: #008c99">
+          确认：
+          <input
+            style="
+              margin-left: 20px;
+              background-color: #ffffff;
+              border-radius: 24px;
+              box-shadow: 3px 4px 5px #0160752b inset;
+              height: 28px;
+              width: 169px;
+              border: none;
+            "
+            v-model="checkPassword"
+          />
+        </div>
+
         <div
           style="
+            margin-top: 40px;
+            margin-left: 100px;
             display: flex;
             align-items: center;
-            height: 30px;
-            font-size: 12px;
-            margin-top: 3px;
-            margin-left: 90px;
-            -webkit-transform-origin-x: 0;
-            -webkit-transform: scale(0.9);
           "
         >
-          <span style="margin-right: 10px">是否记住密码</span>
           <button
-            style="
-              width: 20px;
-              height: 20px;
-              border-radius: 50%;
-              border: none;
-              box-shadow: 3px 0px 10px 0px rgba(0, 0, 0, 0.1) inset;
-            "
-          ></button>
-        </div>
-        <div style="margin-top: 20px; margin-left: 100px">
-          <button
-            @click="swapCircles"
+            @click="login"
             style="
               width: 117px;
               height: 39px;
@@ -147,42 +153,32 @@
               line-height: 23px;
             "
           >
-            登录
+            注册
           </button>
-        </div>
-        <div
-          style="
-            display: flex;
-            align-items: center;
-            height: 30px;
-            font-size: 12px;
-            margin-top: 10px;
-            margin-left: 90px;
-          "
-        >
-          <span style="margin-right: 0px; color: #037a8587">还没有账号？</span>
           <button
-            @click="swapCircles"
             style="
-              width: 70px;
-              height: 16px;
+              width: 60px;
+              height: 20px;
+              border-radius: 19.5px;
               border: none;
+              background: rgba(255, 255, 255, 1);
               font-size: 10px;
-              font-family: SmileySans;
-              line-height: 10px;
-              background-color: #03758573;
-              border-radius: 8px;
-              color: white;
+              font-weight: 400;
+              letter-spacing: 0px;
+              line-height: 12px;
+              color: rgba(147, 183, 186, 1);
+              text-align: left;
+              margin-left: 30px;
             "
           >
-            注册一个
+            再想想
           </button>
         </div>
       </div>
     </div>
   </div>
 </template>
-  
+
 <script>
 export default {
   data () {
@@ -199,10 +195,17 @@ export default {
       circle2Zindex: '10008',
       circle1Opa: 0.7,
       circle2Opa: 1,
-      Skip: false
+      Skip: false,
+      isRem: false,//记住密码
+      account: '',//账号
+      password: '',//密码
+      checkPassword: '',//确认密码
     }
   },
   methods: {
+    login () {
+      this.$router.push('/tabbar')
+    },
     swapCircles () {
       // Swap positions with animation
       const tempPos = Object.assign({}, this.circle1Pos)
@@ -214,23 +217,29 @@ export default {
       this.changeInfor("circle1Width", "circle2Width")
       this.changeInfor("circle1Zindex", "circle2Zindex")
       this.changeInfor("circle1Opa", "circle2Opa")
-      this.Skip = true
+      this.Skip = !this.Skip
     },
     changeInfor (prop1, prop2) {
       const tempW = this[prop1]
       this[prop1] = this[prop2]
       this[prop2] = tempW
+    },
+    isRemember () {
+      this.isRem = !this.isRem
     }
   }
 };
 </script>
-  
+
 <style scoped>
 .fade-out {
-  -webkit-animation: fade-out 1s ease-out both;
-  animation: fade-out 1s ease-out both;
+  -webkit-animation: fade-out 0.5s ease-out both;
+  animation: fade-out 0.5s ease-out both;
 }
-
+.fade-in {
+  -webkit-animation: fade-in 0.5s ease-out both;
+  animation: fade-in 0.5s ease-out both;
+}
 @-webkit-keyframes fade-out {
   0% {
     opacity: 1;
@@ -250,17 +259,38 @@ export default {
     opacity: 0;
   }
 }
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
 
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.remPass {
+  background: rgba(0, 0, 0, 0.6);
+}
 * {
   margin: 0px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .total {
   position: relative;
   width: 360px;
   height: 640px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .circle {

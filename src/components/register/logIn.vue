@@ -69,11 +69,21 @@
         "
       ></div>
       <img
+        v-show="isLogin"
         :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
         style="z-index: 10011; position: absolute; left: 47%; top: 15%"
         src="../../assets/icons/register/login.png"
       />
+      <img
+        v-show="!isLogin"
+        :class="{ 'fade-out': !Skip, 'fade-in': Skip }"
+        style="z-index: 10011; position: absolute; left: 47%; top: 15%"
+        src="../../assets/icons/register/signUp.png"
+      />
+
+      <!-- 登录模块 -->
       <div
+        v-show="isLogin"
         :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
         style="
           z-index: 999999;
@@ -140,7 +150,7 @@
         </div>
         <div style="margin-top: 20px; margin-left: 100px">
           <button
-            @click="swapCircles"
+            @click="login"
             style="
               width: 117px;
               height: 39px;
@@ -185,6 +195,110 @@
           </button>
         </div>
       </div>
+
+      <!-- 注册模块 -->
+      <div
+        v-show="!isLogin"
+        :class="{ 'fade-out': !Skip, 'fade-in': Skip }"
+        style="
+          z-index: 999999;
+          position: absolute;
+          left: 8%;
+          top: 59%;
+          width: 100%;
+        "
+      >
+        <div style="font-size: 18px; margin-bottom: 20px; color: #008c99">
+          账号：
+          <input
+            style="
+              margin-left: 20px;
+              background-color: #ffffff;
+              border-radius: 24px;
+              box-shadow: 3px 4px 5px #0160752b inset;
+              height: 28px;
+              width: 169px;
+              border: none;
+            "
+            v-model="account"
+          />
+        </div>
+        <div style="font-size: 18px; color: #008c99; margin-bottom: 20px">
+          密码：
+          <input
+            style="
+              margin-left: 20px;
+              background-color: #ffffff;
+              border-radius: 24px;
+              box-shadow: 3px 4px 5px #0160752b inset;
+              height: 28px;
+              width: 169px;
+              border: none;
+            "
+            v-model="password"
+          />
+        </div>
+        <div style="font-size: 18px; color: #008c99">
+          确认：
+          <input
+            style="
+              margin-left: 20px;
+              background-color: #ffffff;
+              border-radius: 24px;
+              box-shadow: 3px 4px 5px #0160752b inset;
+              height: 28px;
+              width: 169px;
+              border: none;
+            "
+            v-model="checkPassword"
+          />
+        </div>
+
+        <div
+          style="
+            margin-top: 40px;
+            margin-left: 100px;
+            display: flex;
+            align-items: center;
+          "
+        >
+          <button
+            @click="login"
+            style="
+              width: 117px;
+              height: 39px;
+              background-color: #037585;
+              border-radius: 30px;
+              border: none;
+              color: #ffffff;
+              font-size: 24px;
+              font-family: SmileySans;
+              line-height: 23px;
+            "
+          >
+            注册
+          </button>
+          <button
+            @click="swapCircles"
+            style="
+              width: 60px;
+              height: 20px;
+              border-radius: 19.5px;
+              border: none;
+              background: rgba(255, 255, 255, 1);
+              font-size: 10px;
+              font-weight: 400;
+              letter-spacing: 0px;
+              line-height: 12px;
+              color: rgba(147, 183, 186, 1);
+              text-align: left;
+              margin-left: 30px;
+            "
+          >
+            再想想
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -193,6 +307,7 @@
 export default {
   data () {
     return {
+      isLogin: true,
       circle1Color: 'rgb(94, 196, 206)',
       circle2Color: 'rgba(180, 233, 238, 0.6)',
       circle1Pos: { x: 80, y: -50 },
@@ -212,6 +327,9 @@ export default {
     }
   },
   methods: {
+    login () {
+      this.$router.push('/tabbar')
+    },
     swapCircles () {
       // Swap positions with animation
       const tempPos = Object.assign({}, this.circle1Pos)
@@ -224,6 +342,8 @@ export default {
       this.changeInfor("circle1Zindex", "circle2Zindex")
       this.changeInfor("circle1Opa", "circle2Opa")
       this.Skip = !this.Skip
+      this.isLogin = !this.isLogin
+
     },
     changeInfor (prop1, prop2) {
       const tempW = this[prop1]
