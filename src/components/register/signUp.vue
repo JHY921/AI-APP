@@ -72,7 +72,7 @@
       <img
         :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
         style="z-index: 10011; position: absolute; left: 47%; top: 15%"
-        src="./signUp.png"
+        src="../../assets/icons/register/signUp.png"
       />
 
       <div
@@ -140,7 +140,7 @@
           "
         >
           <button
-            @click="swapCircles"
+            @click="login"
             style="
               width: 117px;
               height: 39px;
@@ -178,56 +178,59 @@
     </div>
   </div>
 </template>
-  
+
 <script>
+export default {
+  data () {
+    return {
+      circle1Color: 'rgb(94, 196, 206)',
+      circle2Color: 'rgba(180, 233, 238, 0.6)',
+      circle1Pos: { x: 80, y: -50 },
+      circle2Pos: { x: -70, y: -40 },
+      circle1Width: '350px',
+      circle1Height: '350px',
+      circle2Width: '250px',
+      circle2Height: '250px',
+      circle1Zindex: '10009',
+      circle2Zindex: '10008',
+      circle1Opa: 0.7,
+      circle2Opa: 1,
+      Skip: false,
+      isRem: false,//记住密码
+      account: '',//账号
+      password: '',//密码
+      checkPassword: '',//确认密码
+    }
+  },
+  methods: {
+    login () {
+      this.$router.push('/tabbar')
+    },
+    swapCircles () {
+      // Swap positions with animation
+      const tempPos = Object.assign({}, this.circle1Pos)
+      this.circle1Pos = Object.assign({}, this.circle2Pos)
+      this.circle2Pos = Object.assign({}, tempPos)
 
-
-
-olor: 'rgb(94, 196, 206)',
-r: 'rgba(180, 233, 238, 0.6)',
-  circle1Pos: { x: 80, y: -50 },
-    circle2Pos: { x: -70, y: -40 },
-
-rcle1Height: '350px',
-e2Width: '250px',
-eight: '250px',
-',
-
-
-
-
-密码
-
-ssword:'',//密码
-heckPassword:'',//确认密码
-
-
-
-es() {
-positions with animation
-t.assign({}, this.circle1Pos);
-gn({}, this.circle2Pos);
-t.assign({}, tempPos);
-
-("circle1Color", "circle2Color");
-("circle1Height", "circle2Height");
-("circle1Width", "circle2Width");
-is.changeInfor("circle1Zindex", "circle2Zindex");
-his.changeInfor("circle1Opa", "circle2Opa");
-s.Skip = !this.Skip;
-
-r(prop1, prop2) {
-his[prop1];
-op2];
-tempW;
-
-
-Rem;
-
-
-
+      this.changeInfor("circle1Color", "circle2Color")
+      this.changeInfor("circle1Height", "circle2Height")
+      this.changeInfor("circle1Width", "circle2Width")
+      this.changeInfor("circle1Zindex", "circle2Zindex")
+      this.changeInfor("circle1Opa", "circle2Opa")
+      this.Skip = !this.Skip
+    },
+    changeInfor (prop1, prop2) {
+      const tempW = this[prop1]
+      this[prop1] = this[prop2]
+      this[prop2] = tempW
+    },
+    isRemember () {
+      this.isRem = !this.isRem
+    }
+  }
+};
 </script>
-  
+
 <style scoped>
 .fade-out {
   -webkit-animation: fade-out 0.5s ease-out both;

@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const login = () => import('../views/register/login.vue')
-const signUp = () => import('../views/register/signUP.vue')
 const userinfor = () => import('../views/register/userinfo.vue')
 
 const tabbar = () => import('../components/tabbar.vue')
@@ -30,10 +29,6 @@ const router = createRouter({
     {
       path: '/login',
       component: login
-    },
-    {
-      path: '/signUp',
-      component: signUp
     },
     {
       path: '/userinfor',
