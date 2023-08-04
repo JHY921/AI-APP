@@ -50,5 +50,5 @@ export default {
   </van-action-bar>
 </template>
 <style scoped>
-@import url("../../assets/styles/post.css");
+@import url("../../../assets/styles/post.css");
 </style>

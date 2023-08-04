@@ -23,13 +23,13 @@ export default {
     <div class="addtodo">
       <span>
         <img
-          src="../../assets/icons/homepage/todo/今天该做什么.png"
+          src="../../../assets/icons/homepage/todo/今天该做什么.png"
           alt=""
           height="40"
         />
       </span>
       <img
-        src="../../assets/icons/homepage/todo/闹钟.png"
+        src="../../../assets/icons/homepage/todo/闹钟.png"
         alt=""
         width="70"
         height="50"
@@ -37,7 +37,7 @@ export default {
       <button @click="rotateButton">
         <div :class="{ rotate: isRotated }">
           <img
-            src="../../assets/icons/homepage/todo/加号icon.png"
+            src="../../../assets/icons/homepage/todo/加号icon.png"
             alt=""
             width="30"
             height="30"
@@ -55,5 +55,5 @@ export default {
   </div>
 </template>
 <style scoped>
-@import "../../assets/styles/todo.css";
+@import "../../../assets/styles/todo.css";
 </style>
