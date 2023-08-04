@@ -5,7 +5,6 @@
       <div class="time">
         <div class="begin">
           <span>开始</span>
-          <time datetime=""></time>
         </div>
       </div>
     </form>
