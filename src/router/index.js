@@ -6,7 +6,7 @@ const userinfor = () => import('../views/register/userinfo.vue')
 const tabbar = () => import('../components/tabbar.vue')
 
 const Home = () => import('../views/homepage/homepage.vue')
-
+const Monthlydata = ()=> import('../components/homepage/monthlydata.vue')
 const Forum = () => import('../views/forum/forum_index.vue')
 const Forum_heat = () => import('../views/forum/forum_heat.vue')
 const Forum_post = () => import('../views/forum/forum_post.vue')
@@ -37,6 +37,10 @@ const router = createRouter({
     {
       path: '/Home',
       component: Home
+    },
+    {
+      path:'/Monthlydata',
+      component:Monthlydata
     },
     {
       path: '/Forum',

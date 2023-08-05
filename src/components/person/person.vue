@@ -331,34 +331,40 @@ body {
 }
 .star {
   position: absolute;
-  top: 15px;
-  left: 4%;
+  top: 16px;
+  left: 7%;
 }
 .icon-1{
   position: absolute;
-  top: 17px;
-  left: 4%;
+  transform: scale(0.3);
+  top: -3px;
+  left: 0%;
 }
 .icon-2 {
   position: absolute;
-  top: 17px;
-  left: 4%;
+  transform: scale(0.3);
+  top: -3px;
+  left: 0%;
 }
 .icon-3 {
   position: absolute;
-  top: 17px;
-  left: 4%;
+  transform: scale(0.3);
+  top: -3px;
+  left: 0%;
 }
 .icon-4 {
   position: absolute;
-  top: 17px;
-  left: 4%;
+  transform: scale(0.3);
+  top: -3px;
+  left: -3px;
 }
 .icon-5 {
   position: absolute;
-  top: 17px;
-  left: 4%;
+  transform: scale(0.3);
+  top: -3px;
+  left: 0%;
 }
+
 .text1 {
   position: absolute;
   top: 16px;
