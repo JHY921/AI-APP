@@ -328,7 +328,7 @@ export default {
   },
   methods: {
     login () {
-      this.$router.push('/tabbar')
+      this.$router.push('/History')
     },
     swapCircles () {
       // Swap positions with animation

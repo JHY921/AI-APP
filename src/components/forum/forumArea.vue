@@ -195,9 +195,9 @@ export default {
 </div> -->
   </div>
   <div class="crisscross">
-    <p>+</p>
+   <p>+</p>
   </div>
-</template>
+</template> 
 <style  scoped>
 * {
   margin: 0px;

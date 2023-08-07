@@ -14,6 +14,7 @@ const Personifo = () => import('../views/forum/Personifo.vue')
 const Course = () => import('../views/forum/Course.vue')
 
 const Person = () => import('../views/person/person.vue')
+const History = () => import('../components/person/histroy.vue')
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -65,6 +66,10 @@ const router = createRouter({
     {
       path: '/Course',
       component: Course
+    },
+    {
+      path: '/History',
+      component: History
     }
   ]
 })
