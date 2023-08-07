@@ -1,3 +1,4 @@
+
 <script setup>
 import Tabbar from './components/tabbar.vue'
 import forumArea from './components/forum/forumArea.vue'

@@ -1,12 +1,24 @@
 <script>
 import { showToast } from 'vant'
+import { reactive } from 'vue';
+import axios from 'axios'
 export default {
   setup () {
     const onClickLeft = () => history.back()
     const onClickRight = () => showToast('按钮')
+    function post(){
+      let userId = this.$route.params.id
+      axios.post('https://localhost/postinfo',{
+        userId: userId,
+        title:info.title,
+        passage:info.passage
+      })
+    }
+    const info = reactive({title:'', passage:''})
     return {
       onClickLeft,
       onClickRight,
+      info
     }
   },
 };
@@ -29,13 +41,13 @@ export default {
     </template>
   </van-nav-bar>
   <form action="" class="text">
-    <input type="text" placeholder="请输入标题" class="title" />
+    <input type="text" placeholder="请输入标题" class="title" v-model="title" />
     <textarea
       name=""
       id="passage"
       rows="100"
       placeholder="想要写些什么"
-      class="passage"
+      class="passage" v-model="passage"
     ></textarea>
   </form>
   <van-action-bar>
@@ -50,5 +62,5 @@ export default {
   </van-action-bar>
 </template>
 <style scoped>
-@import url("../../assets/styles/post.css");
+@import url("../../../assets/styles/post.css");
 </style>
