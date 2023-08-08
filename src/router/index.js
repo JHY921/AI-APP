@@ -6,7 +6,7 @@ const userinfor = () => import('../views/register/userinfo.vue')
 const tabbar = () => import('../components/tabbar.vue')
 
 const Home = () => import('../views/homepage/homepage.vue')
-
+const Monthlydata = ()=> import('../components/homepage/monthlydata.vue')
 const Forum = () => import('../views/forum/forum_index.vue')
 const Forum_heat = () => import('../views/forum/forum_heat.vue')
 const Forum_post = () => import('../views/forum/forum_post.vue')
@@ -14,6 +14,7 @@ const Personifo = () => import('../views/forum/Personifo.vue')
 const Course = () => import('../views/forum/Course.vue')
 
 const Person = () => import('../views/person/person.vue')
+const History = () => import('../components/person/histroy.vue')
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -39,6 +40,10 @@ const router = createRouter({
       component: Home
     },
     {
+      path:'/Monthlydata',
+      component:Monthlydata
+    },
+    {
       path: '/Forum',
       component: Forum
     },
@@ -61,6 +66,10 @@ const router = createRouter({
     {
       path: '/Course',
       component: Course
+    },
+    {
+      path: '/History',
+      component: History
     }
   ]
 })

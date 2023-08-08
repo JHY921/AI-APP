@@ -129,11 +129,11 @@ body {
   box-shadow: 0px 1px 7px #0000001a;
 }
 .title {
-  position: absolute;
+  position: fixed;
   left: 0px;
-  top: 24px;
+  top: 0px;
   width: 360px;
-  height: 48px;
+  height: 72px;
   opacity: 1;
   border-radius: 0px 0px, 10px, 10px;
   background-color: white;

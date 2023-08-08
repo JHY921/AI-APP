@@ -3,7 +3,7 @@
 
         <div class="status_bar">
         </div>
-        
+
         <div class="return_label">
             <div @click="backTolast" style="display: inline-block; width: 40px; height: 100%;">
                 <svg transform="translate(13,16)" xmlns="http://www.w3.org/2000/svg"
@@ -44,78 +44,95 @@
         </div>
 
         <transition name="color-transition">
-        <div class="course_list">
-            <ul>
-                <li v-for="(course,index) in courseData.courses" :key="course.course_id">
-                    <div style="border-top-right-radius: 10px;left: -50px; "  
-                    :class="{ 'isMove': moveIndex === index && isClick}"><!--:style="`position: absolute; transform: translateY(${course.total_number * 36+48}px);`"-->
-                        <div class="main_course" @click="mouseOver(course.course_id)">{{ course.course_name }}</div>
-                        <div style="height: 48px;"></div>
-                        <ul>
-                            <div class="child_course" >
-                                <li v-for="(subcategory) in course.subcategories" :key="subcategory.subcategory_id"
-                                    @click="chooseCourse(subcategory.subcategory_id)" ><!--:style="`position: absolute; transform: translateY(${index * 36}px);`"-->
-                                    {{ subcategory.subcategory_name }}
-                                    <center>
-                                        <hr style="width: 80px; border: 0.4px solid rgba(110, 120, 122, 0.27);"
-                                            v-if="subcategory.subcategory_number != course.total_number">
-                                    </center>
-                                    
-                                </li>
-                            </div>
-                        </ul>
-                    </div>
-                </li>
-                
-            </ul>
-        </div>
+            <div class="course_list">
+                <ul>
+                    <li v-for="(course, index) in courseData.courses" :key="course.course_id">
+                        <div style="border-top-right-radius: 10px;left: -50px; "
+                            :class="{ 'isMove': moveIndex === index && isClick }">
+                            <!--:style="`position: absolute; transform: translateY(${course.total_number * 36+48}px);`"-->
+                            <div class="main_course" @click="mouseOver(course.course_id)">{{ course.course_name }}</div>
+                            <ul>
+                                <div class="child_course">
+                                    <li v-for="(subcategory) in course.subcategories" :key="subcategory.subcategory_id"
+                                        @click="chooseCourse(subcategory.subcategory_id)">
+                                        <!--:style="`position: absolute; transform: translateY(${index * 36}px);`"-->
+                                        {{ subcategory.subcategory_name }}
+                                        <center>
+                                            <hr style="width: 80px; border: 0.4px solid rgba(110, 120, 122, 0.27);"
+                                                v-if="subcategory.subcategory_number != course.total_number">
+                                        </center>
+
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </transition>
 
-        <div class="course_container">
+        <div class="course_container" style="margin-top: 10px;">
             <!-- <div v-if="new Number(course_number)===new Number(clickedCourse)">
                 {{ course.course_name }}
             </div>
             <div v-else>course.course_name {{course.course_name}} course.course_number {{ course.course_number }} clickedCourse {{clickedCourse}}</div> -->
             <div class="course_detail" v-for="course in courseContent.courses" :key="course.course_id"
                 v-show="course.course_id === clickedCourse">
+
+                <img v-bind:id="'Add' + course.course_number" src="./add.png" @click="addCourse(course.course_id, course.course_number)"
+                    style="display: block;position: relative; width: 60px; height: auto; margin: 0px; padding: 0px; margin-left: 150px;">
+
+                <img v-bind:id="'cancelAdd' + course.course_number" src="./alreadyAdd.png" @click="cancelAddCourse(course.course_id, course.course_number)"
+                    style="display: none; position: relative; width: 60px; height: auto; margin: 0px; padding: 0px; margin-left: 150px;">
+                <!-- <img src="./alreadyAdd.png"> -->
                 <div style="display: inline-block; width: 100px; height: 65px; background-color: #007994;
-                            margin-top: 20px; margin-right: 10px; margin-bottom: 20px;
+                            margin-top: 10px; margin-right: 10px; margin-bottom: 0px;
                             border-radius: 10px;">
                     <img :src="course.course_cover" alt="封面"
                         style="max-width: 100%; max-height: 100%;border-radius: 10px;" />
                 </div>
-                <div style="display: inline-block; vertical-align:top; width: 99px; margin-top: 20px;">
-                    <span style="font-size: 14px;font-weight: 700;letter-spacing: 0px;line-height: 16.41px;
-                            color: rgba(0, 0, 0, 1);text-align: left;">
-                        {{ course.course_title }}
-                    </span>
-                    <p style="font-size: 12px; font-weight: 400; letter-spacing: 0px; line-height: 9.38px;
+                <div style="display: inline-block; vertical-align:top; width: 99px; margin-top: 10px;">
+                    <div style="height: 33px; overflow: auto;">
+                        <span style="font-size: 14px;font-weight: 700;letter-spacing: 0px;line-height: 16.41px;
+                                color: rgba(0, 0, 0, 1);text-align: left;">
+                            {{ course.course_title }}
+                        </span>
+                    </div>
+                    <div style="height: 25px; margin-top: 10px;">
+                        <p style="font-size: 12px; font-weight: 400; letter-spacing: 0px; line-height: 9.38px;
                             color: rgba(0, 0, 0, 0.6); text-align: left; vertical-align: middle; margin-top: 5px;
-                            -webkit-transform-origin-x: 0; -webkit-transform: scale(0.90);">
-                        课程来源：{{ course.course_source }}
-                    </p>
-                    <p style="font-size: 6px; font-weight: 400; letter-spacing: 0px; line-height: 7.03px;
+                            -webkit-transform-origin-x: 0; -webkit-transform: scale(0.80);">
+                            课程来源：{{ course.course_source }}
+                        </p>
+                        <p style="font-size: 6px; font-weight: 400; letter-spacing: 0px; line-height: 7.03px;
                             color: rgba(0, 0, 0, 0.4); text-align: left; vertical-align: middle; margin-top: 5px;
                             -webkit-transform-origin-x: 0; -webkit-transform: scale(0.70);">
-                        时长：{{ course.course_time }}
-                    </p>
+                            时长：{{ course.course_time }}
+                        </p>
+                    </div>
                 </div>
+                <img src="./study.png" style="position: relative; width:50px; height: auto; margin: 5px;padding: 0px; left: 65%;"
+                    @click="goStudy(course.course_id, course.course_number)">
                 <hr style="border: 3px solid rgba(110, 120, 122, 0.1);">
             </div>
         </div>
     </div>
 </template>
 
+
 <script>
+
 export default {
     data() {
         return {
             courseData: [],
             courseContent: [],
             clickedCourse: 1,
-            moveIndex:-1,
-            listPosition:[],
-            isClick:true
+            moveIndex: -1,
+            listPosition: [],
+            isClick: true,
+            isAddCourse: "./add.png",
+            selectedCourse: null,
         };
     },
     created() {
@@ -131,35 +148,95 @@ export default {
         moreInfor() {
             alert("more");
         },
-        async loadJsonData() {
-            const courseData = await import('./courseList.json');
-            const courseContent = await import('./courseData.json');
-            this.courseData = courseData.default;
-            this.courseContent = courseContent.default;
+        loadJsonData() {
+            const courseData = require('./courseList.json');
+            const courseContent = require('./courseData.json');
+
+            this.courseData = courseData;
+            this.courseContent = courseContent;
+            console.log("222", this.courseContent);
+            // fetch("http://localhost:8081/courseList")
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         const courseData = data; // 将获取的数据赋值给courseData
+            //         this.courseData = courseData.res[0];
+            //     })
+            //     .catch(error => {
+            //         console.error(error);
+            //     });
+            // fetch("http://localhost:8081/courseContent")
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         const courseContent = data; 
+            //         this.courseContent = courseContent.res[0];
+            //     })
+            //     .catch(error => {
+            //         console.error(error);
+            //     });
+
         },
         chooseCourse(data) {
             this.clickedCourse = data;
-            
+
         },
         mouseOver(para) {
-            if(para-1===this.moveIndex) this.isClick=!this.isClick;
+            if (para - 1 === this.moveIndex) this.isClick = !this.isClick;
             else {
-                this.moveIndex=para-1;
-                this.isClick=true
+                this.moveIndex = para - 1;
+                this.isClick = true
             }
             console.log(this.isClick);
+        },
+        addCourse(id, num) {//关注课程
+            this.selectedCourse = id;
+            var element1 = document.getElementById("Add"+num);
+                element1.style.display = "none";
+            var element2 = document.getElementById("cancelAdd"+num);
+                element2.style.display = "block";
+            console.log("add",id, num);
+        },
+        cancelAddCourse(id, num) {//取消关注课程
+            this.selectedCourse = null;
+            var element1 = document.getElementById("Add"+num);
+                element1.style.display = "block";
+            var element2 = document.getElementById("cancelAdd"+num);
+                element2.style.display = "none";
+            console.log("cancel",id, num);
+        },
+        goStudy(id,num){
+            //跳转页面
+            console.log(id,num);
         }
     },
     computed: {
     },
+    mounted() {
 
+    }
 }
+
 </script>
 
 <style>
-.isMove{
+.hide {
+    display: none;
+}
+
+.appear {
+    display: block;
+}
+
+#Add {
+
+}
+
+#cancelAdd {
+
+}
+
+.isMove {
     /* border-left: 10px solid blue; */
-    box-shadow: 0px 1500px 0px 0px rgba(131, 199, 219, 0.1) inset,-50px 0px 0px 0px rgb(29, 146, 117,0.4);
+    box-shadow: 0px 1500px 0px 0px rgba(131, 199, 219, 0.1) inset, -50px 0px 0px 0px rgb(29, 146, 117, 0.4);
     border-bottom-right-radius: 10px;
     transform: translateX(14px);
     width: 117px;
@@ -167,14 +244,17 @@ export default {
     transition: box-shadow 0.5s;
     transition: transform 0.5s;
 }
-@keyframes fadeInAnimation { 
-    0% { 
-        background: linear-gradient(90deg, rgb(255, 255, 255) 50%, rgb(143, 209, 224,0) 100%);
-    } 
-    100% { 
-        background: linear-gradient(90deg, rgb(255, 255, 255) 50%, rgb(143, 209, 224,0.8) 100%);
-     } 
+
+@keyframes fadeInAnimation {
+    0% {
+        background: linear-gradient(90deg, rgb(255, 255, 255) 50%, rgb(143, 209, 224, 0) 100%);
+    }
+
+    100% {
+        background: linear-gradient(90deg, rgb(255, 255, 255) 50%, rgb(143, 209, 224, 0.8) 100%);
+    }
 }
+
 * {
     margin: 0px;
 }
@@ -230,7 +310,6 @@ h3 {
 }
 
 .main_course {
-    position: absolute;
     width: 123px;
     height: 48px;
     opacity: 1;
@@ -262,13 +341,13 @@ h3 {
 .course_container {
     display: inline-block;
     vertical-align: top;
-    overflow: auto;
+    overflow: hidden;
     width: 220px;
     height: 568px;
 }
 
 .course_detail {
     width: 236px;
-    height: 120px;
+    height: 140px;
 }
 </style>
