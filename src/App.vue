@@ -3,7 +3,7 @@ import writeTodo from './components/homepage/todo/writeTodo.vue';
 </script>
 <template>
   <div>
-    <!-- <router-view></router-view> -->
     <writeTodo />
+    <!-- <router-view></router-view> -->
   </div>
 </template> 
