@@ -1,5 +1,5 @@
 <script setup>
-import Course from '../../components/forum/couse/courseList.vue'
+import Course from '../../components/forum/courseList.vue'
 </script>
 <template>
   <Course />
