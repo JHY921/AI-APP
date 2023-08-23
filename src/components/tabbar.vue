@@ -1,6 +1,5 @@
 
 <template>
-  <router-view />
   <van-tabbar v-model="active" fixed id="bar" safe-area-inset-bottom>
     <van-tabbar-item replace to="/Home" icon="home-o">首页</van-tabbar-item>
     <van-tabbar-item replace to="/Forum" icon="search" dot

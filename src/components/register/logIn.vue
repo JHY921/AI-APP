@@ -62,8 +62,9 @@
                         border-radius: 30px; border: none; color: #ffffff; font-size: 24px;  margin-left: 100px; margin-right: 20px;
                         font-family: SmileySans; line-height: 23px; display: inline-block;">登录</button>
                     <div style="display: inline-block;">
-                        <p style="position: absolute; top: 52%;left: 68%; color: #037a8587; font-size: 16px;-webkit-transform-origin-x: 0; -webkit-transform: scale(0.60);">还没有账号？</p>
-                        <button @click="swapCircles" style="position: absolute; width: 70px; height: 25px; border: none;
+                        <p style="color: #037a8587; font-size: 16px;-webkit-transform-origin-x: 0; -webkit-transform: scale(0.60);">
+                            &nbsp;&nbsp;&nbsp;&nbsp;还没有账号？</p>
+                        <button @click="swapCircles" style="width: 70px; height: 25px; border: none;
                         font-size: 10px; font-family: SmileySans; line-height: 10px; top: 60%;
                         background-color: #03758573; border-radius: 12px; color: white;">
                             注册一个

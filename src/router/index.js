@@ -4,15 +4,14 @@ const login = () => import('../views/register/login.vue')
 const SignUp = ()=> import('../views/register/signUp.vue')
 const userinfor = () => import('../views/register/userinfo.vue')
 
-const tabbar = () => import('../components/tabbar.vue')
 
 const Home = () => import('../views/homepage/homepage.vue')
-const Monthlydata = ()=> import('../components/homepage/monthlydata.vue')
+const Monthlydata = () => import('../components/homepage/monthlydata.vue')
 const Forum = () => import('../views/forum/forum_index.vue')
 const Forum_heat = () => import('../views/forum/forum_heat.vue')
 const Forum_post = () => import('../views/forum/forum_post.vue')
 const Personifo = () => import('../views/forum/Personifo.vue')
-const Course = () => import('../views/forum/Course.vue')
+const Course = () => import('../views/forum/course.vue')
 
 const Person = () => import('../views/person/person.vue')
 const History = () => import('../components/person/histroy.vue')
@@ -22,15 +21,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/SignUp'
-    },
-    {
-      path:'/SignUp',
-      component:SignUp
-    },
-    {
-      path: '/tabbar',
-      component: tabbar
+      redirect: '/Home'
     },
     {
       path: '/login',
@@ -46,8 +37,8 @@ const router = createRouter({
       component: Home
     },
     {
-      path:'/Monthlydata',
-      component:Monthlydata
+      path: '/Monthlydata',
+      component: Monthlydata
     },
     {
       path: '/Forum',

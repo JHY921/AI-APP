@@ -1,0 +1,19 @@
+{
+    "admin": [
+        {
+            "question":"todolist",
+            "answer":"就是todolist"
+        }
+    ],
+    "user":[
+        {
+            "id": 10001, 
+            "question":"1112213"
+        },
+        {
+            "id": 10001, 
+            "question":"1112213"
+        }
+    ],
+    "noAnswer":"不知道捏"
+}
