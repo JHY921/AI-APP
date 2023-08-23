@@ -10,7 +10,7 @@ const Forum = () => import('../views/forum/forum_index.vue')
 const Forum_heat = () => import('../views/forum/forum_heat.vue')
 const Forum_post = () => import('../views/forum/forum_post.vue')
 const Personifo = () => import('../views/forum/Personifo.vue')
-const Course = () => import('../views/forum/Course.vue')
+const Course = () => import('../views/forum/course.vue')
 
 const Person = () => import('../views/person/person.vue')
 const History = () => import('../components/person/histroy.vue')

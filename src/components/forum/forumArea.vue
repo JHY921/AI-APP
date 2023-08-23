@@ -4,24 +4,33 @@ import Crisscross from './crisscross.vue'
 import forumHeader from './forumHeader.vue'
 import forumMid from './forumMid.vue'
 import forumPost from './forumPost.vue'
+import heat from './forumHeat.vue'
 export default {
-    name: "zan",
-    data() {
-        return {
+  name: "zan",
+  data () {
+    return {
 
-        };
-    },
-    methods: {
+    }
+  },
+  methods: {
 
-    },
-    components: { Crisscross,forumHeader,forumMid,forumPost}
+  },
+  components: { Crisscross, forumHeader, forumMid, forumPost, heat }
 }
 </script>
 <template>
   <div class="second-page">
     <forumHeader></forumHeader>
-    <forumMid></forumMid>
-    <forumPost></forumPost>
+    <van-tabs v-model:active="activeName">
+      <van-tab title="推荐" name="a">
+        <forumMid />
+        <forumPost />
+      </van-tab>
+      <van-tab title="热门" name="b">
+        <heat />
+      </van-tab>
+      <van-tab title="关注" name="c"> </van-tab>
+    </van-tabs>
   </div>
   <Crisscross></Crisscross>
 </template>
@@ -42,7 +51,7 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none;
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     display: none;
   }
 }
@@ -54,12 +63,12 @@ export default {
   background-color: rgb(249, 249, 249);
 }
 
-.history{
-  width:280px;
-  height:20px;
-  z-index:999;
-  margin-top:40px;
-  left:90px;
+.history {
+  width: 280px;
+  height: 20px;
+  z-index: 999;
+  margin-top: 40px;
+  left: 90px;
   position: fixed;
   display: flex;
   flex-direction: row;
@@ -74,5 +83,4 @@ export default {
 .content span {
   font-size: 9px;
 }
-
 </style>

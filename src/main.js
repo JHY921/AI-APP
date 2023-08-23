@@ -5,6 +5,10 @@ import { Tabbar, TabbarItem } from 'vant'
 import '../src/assets/styles/res.css'
 const app = createApp(App)
 
+import { Tab, Tabs } from 'vant'
+app.use(Tab)
+app.use(Tabs)
+
 app.use(Tabbar)
 app.use(TabbarItem)
 
