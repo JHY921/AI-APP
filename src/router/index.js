@@ -3,10 +3,9 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const login = () => import('../views/register/login.vue')
 const userinfor = () => import('../views/register/userinfo.vue')
 
-const tabbar = () => import('../components/tabbar.vue')
 
 const Home = () => import('../views/homepage/homepage.vue')
-const Monthlydata = ()=> import('../components/homepage/monthlydata.vue')
+const Monthlydata = () => import('../components/homepage/monthlydata.vue')
 const Forum = () => import('../views/forum/forum_index.vue')
 const Forum_heat = () => import('../views/forum/forum_heat.vue')
 const Forum_post = () => import('../views/forum/forum_post.vue')
@@ -21,11 +20,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/login'
-    },
-    {
-      path: '/tabbar',
-      component: tabbar
+      redirect: '/Home'
     },
     {
       path: '/login',
@@ -40,8 +35,8 @@ const router = createRouter({
       component: Home
     },
     {
-      path:'/Monthlydata',
-      component:Monthlydata
+      path: '/Monthlydata',
+      component: Monthlydata
     },
     {
       path: '/Forum',
