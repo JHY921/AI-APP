@@ -39,11 +39,12 @@
                 src="./signUp.png" />
 
             <div :class="{ 'fade-out': Skip ,'fade-in':!Skip}" style="z-index: 999999; position: absolute; left: 8%; top: 57%; width: 100%;">
-                <div style="font-size: 18px; margin-bottom: 10px; color: #008c99;">
-                    账号：
-                    <input style="margin-left: 20px; background-color: #ffffff;
+                <div style="font-size: 18px; color: #008c99;margin-bottom: 10px;">
+                    手机号：
+                    <input style="margin-left: 2px; background-color: #ffffff;
                         border-radius: 24px; box-shadow: 3px 4px 5px #0160752b inset;
-                        height: 28px; width: 169px; border: none;" v-model="account">
+                        height: 28px; width: 169px; border: none;" v-model="phoneNumber">
+                    <p style="color: red; font-size: 6px;margin-left: 100px; opacity: 0.6;" v-if="istel">手机号格式错误</p>
                 </div>
                 <div style="font-size: 18px; color: #008c99; margin-bottom: 10px;">
                     密码：
@@ -56,18 +57,16 @@
                     <input style="margin-left: 20px; background-color: #ffffff;
                         border-radius: 24px; box-shadow: 3px 4px 5px #0160752b inset;
                         height: 28px; width: 169px; border: none;" v-model="checkPassword">
-                </div>
-                <div style="font-size: 18px; color: #008c99;margin-bottom: 10px;">
-                    手机号：
-                    <input style="margin-left: 2px; background-color: #ffffff;
-                        border-radius: 24px; box-shadow: 3px 4px 5px #0160752b inset;
-                        height: 28px; width: 169px; border: none;" v-model="phoneNumber">
+                         <p style="color: red; font-size: 6px;margin-left: 100px;opacity: 0.6;" v-if="ispassword">两次密码输入不一致 </p>
                 </div>
                 <div style="font-size: 18px; color: #008c99;">
                     验证码：
                     <input style="margin-left: 2px; background-color: #ffffff;
                         border-radius: 24px; box-shadow: 3px 4px 5px #0160752b inset;
                         height: 28px; width: 100px; border: none;" v-model="checkNumber">
+                        <button style="width: 70px; height: 20px;border-radius: 10px; border: none; background: rgba(255, 255, 255, 1);
+                                font-size: 10px; font-weight: 400; letter-spacing: 0px; line-height: 12px;
+                                color: rgba(147, 183, 186, 1); text-align: left; margin-left: 25px;">发送验证码</button>
                 </div>
 
                 <div style="margin-top: 20px; margin-left: 90px; display: flex; align-items: center;">
@@ -86,6 +85,7 @@
 </template>
   
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
@@ -107,10 +107,20 @@ export default {
             password:'',//密码
             checkPassword:'',//确认密码
             phoneNumber:'',
-            checkNumber:''
+            checkNumber:'',
+            istel:0,
+            ispassword:0
         };
     },
     methods: {
+        login () {
+            if(this.password==this.checkPassword){
+                var acc={account:this.account, password:this.password}
+                axios.post('http://127.0.0.1:5000/sign_up/register', acc).then(res=>{
+                    this.$router.push({name:'userinfo', params:{userId:res.data}})
+                })
+            }
+        },
         swapCircles() {
             // Swap positions with animation
             const tempPos = Object.assign({}, this.circle1Pos);
@@ -131,6 +141,28 @@ export default {
         },
         isRemember(){
             this.isRem=!this.isRem;
+        },
+        validateTel(value) {
+            const pattern = /^1[3456789]\d{9}$/;
+            if (!pattern.test(value)) {
+                this.istel=1
+            } else {
+                this.istel=0
+            }
+        },
+        checknum(value){
+            if(this.password!=value)
+                this.ispassword=1
+            else
+                this.ispassword=0
+        }
+    },
+    watch:{
+        phoneNumber(newValue){
+            this.validateTel(newValue)
+        },
+        checkPassword(newValue){
+            this.checknum(newValue)
         }
     }
 };

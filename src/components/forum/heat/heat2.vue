@@ -18,7 +18,7 @@ export default{
 }
 </script>
 <style scoped>
-@import url('../../../assets/font/font.css');
+/* @import url('../../../assets/font/font.css'); */
 .heat{
     position: relative;
     width: 356px;

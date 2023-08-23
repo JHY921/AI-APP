@@ -28,16 +28,16 @@
             <div style="position: absolute; left: 78px;top: 345px;width: 360px;height: 361px;
                 opacity: 0.8; border-radius: 42px; 
                 background: linear-gradient(220deg, rgba(143,205,211,1) 30%, rgba(143,205,211,0) 90%);
-                filter: blur(0px); z-index: 10010;">
+                filter: blur(0px); z-index: 10;">
             </div>
-            <div style="z-index: 10009; position: absolute; left: -4px;top: 320px;width: 535px;height: 431px;
+            <div style="z-index: 9; position: absolute; left: -4px;top: 320px;width: 535px;height: 431px;
                 opacity: 0.4;border-radius: 79px;
                 background: linear-gradient(223.93deg, rgba(0, 140, 153, 1) 0%, rgba(0, 140, 153, 0) 100%);">
             </div>
-            <img :class="{ 'fade-out': Skip, 'fade-in': !Skip }" style="z-index: 10011;position: absolute;left: 47%;top: 15%;"
+            <img :class="{ 'fade-out': Skip, 'fade-in': !Skip }" style="z-index: 11;position: absolute;left: 47%;top: 15%;"
                 src="./logIn.png" />
             <div :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
-                style="z-index: 999999; position: absolute; left: 8%; top: 59%; width: 100%;">
+                style="z-index: 99; position: absolute; left: 8%; top: 59%; width: 100%;">
                 <div style="font-size: 18px; margin-bottom: 20px; color: #008c99;">
                     账号：
                     <input style="margin-left: 20px; background-color: #ffffff;
@@ -85,6 +85,9 @@
 </template>
   
 <script>
+import axios from 'axios';
+import { showDialog } from 'vant';
+import 'vant/es/dialog/style'
 export default {
     data() {
         return {
@@ -96,8 +99,8 @@ export default {
             circle1Height: '350px',
             circle2Width: '250px',
             circle2Height: '250px',
-            circle1Zindex: '10009',
-            circle2Zindex: '10008',
+            circle1Zindex: '9',
+            circle2Zindex: '8',
             circle1Opa: 0.7,
             circle2Opa: 1,
             Skip: false,
@@ -107,6 +110,16 @@ export default {
         };
     },
     methods: {
+        login () {
+        axios.post('http://127.0.0.1:5000/login', {
+            account:this.account,
+            password:this.password
+        }).then(res=>{
+            if(res.data['operation']==false){
+              showDialog({message:'账号或密码错误'})
+            }
+        })
+      },
         swapCircles() {
             // Swap positions with animation
             const tempPos = Object.assign({}, this.circle1Pos);

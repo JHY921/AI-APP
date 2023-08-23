@@ -253,19 +253,39 @@
 </template>
   
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
       loading: false,
+      name:'',
+      birth:'',
+      degree:'',
+      city:'',
+      tel:'',
+      id:''
     }
   },
   created () {
     setTimeout(() => {
       this.loading = true
     }, 100)
+    this.id = this.$route.params.userId;
   },
 
   methods: {
+    swapCircles(){
+            axios.post('http://127.0.0.1:5000/userinfo', {
+                name:this.name,
+                birth:this.birth,
+                degree:this.degree,
+                city:this.city,
+                tel:this.tel,
+                id:this.id
+            }).then(res=>{
+                console.log('collect success');
+            })
+        }
   }
 };
 </script>
