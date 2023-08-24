@@ -24,6 +24,8 @@ app.use(CellGroup)
 
 import router from './router'
 app.use(router)
+import {Cascader} from 'vant'
+app.use(Cascader)
 app.mount('#app')
 
 
