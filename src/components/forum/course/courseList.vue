@@ -148,32 +148,38 @@ export default {
         moreInfor() {
             alert("more");
         },
-        loadJsonData() {
-            const courseData = require('./courseList.json');
-            const courseContent = require('./courseData.json');
+        // loadJsonData() {
+        //     const courseData = require('./courseList.json');
+        //     const courseContent = require('./courseData.json');
 
-            this.courseData = courseData;
-            this.courseContent = courseContent;
-            console.log("222", this.courseContent);
-            // fetch("http://localhost:8081/courseList")
-            //     .then(response => response.json())
-            //     .then(data => {
-            //         const courseData = data; // 将获取的数据赋值给courseData
-            //         this.courseData = courseData.res[0];
-            //     })
-            //     .catch(error => {
-            //         console.error(error);
-            //     });
-            // fetch("http://localhost:8081/courseContent")
-            //     .then(response => response.json())
-            //     .then(data => {
-            //         const courseContent = data; 
-            //         this.courseContent = courseContent.res[0];
-            //     })
-            //     .catch(error => {
-            //         console.error(error);
-            //     });
+        //     this.courseData = courseData;
+        //     this.courseContent = courseContent;
+        //     console.log("222", this.courseContent);
+        //     // fetch("http://localhost:8081/courseList")
+        //     //     .then(response => response.json())
+        //     //     .then(data => {
+        //     //         const courseData = data; // 将获取的数据赋值给courseData
+        //     //         this.courseData = courseData.res[0];
+        //     //     })
+        //     //     .catch(error => {
+        //     //         console.error(error);
+        //     //     });
+        //     // fetch("http://localhost:8081/courseContent")
+        //     //     .then(response => response.json())
+        //     //     .then(data => {
+        //     //         const courseContent = data; 
+        //     //         this.courseContent = courseContent.res[0];
+        //     //     })
+        //     //     .catch(error => {
+        //     //         console.error(error);
+        //     //     });
 
+        // },
+        async loadJsonData() {
+            const courseData = await import('./courseList.json');
+            const courseContent = await import('./courseData.json');
+            this.courseData = courseData.default;
+            this.courseContent = courseContent.default;
         },
         chooseCourse(data) {
             this.clickedCourse = data;
