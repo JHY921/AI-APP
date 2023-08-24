@@ -6,14 +6,8 @@ export default {
     }
   },
   methods: {
-    goToPersonifo () {
-      this.$router.push('/Personifo')
-    },
-    goToCourse () {
-      this.$router.push('/Course')
-    },
-    goToHeat () {
-      this.$router.push('/Forum_heat')
+    go (path) {
+      this.$router.push(path)
     },
   }
 }
@@ -25,7 +19,7 @@ export default {
     <img
       src="../../assets/icons/forum/forumarea/头像.png"
       class="avator"
-      @click="goToPersonifo"
+      @click="go('/Personifo')"
     />
     <div class="search">
       <img
@@ -63,6 +57,7 @@ export default {
       </div>
     </div>
     <img
+      @click="go('./notification')"
       class="message-remind"
       src="../../assets/icons/forum/forumarea/提醒.png"
     />
@@ -98,11 +93,7 @@ export default {
   height: 58px;
   opacity: 1;
   border-radius: 4px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(0, 85, 114, 0.05) 100%
-  );
+  background-image: url("../../assets/icons/forum/forumarea/背景样式.png");
 }
 .avator {
   width: 42px;
