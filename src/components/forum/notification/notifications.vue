@@ -5,7 +5,12 @@ export default {
     return {
       notification: data
     }
-  }
+  },
+  methods: {
+    back () {
+      history.back()
+    }
+  },
 }
 </script>
 <template>
@@ -18,6 +23,7 @@ export default {
       left-arrow
       bind:click-left="onClickLeft"
       bind:click-right="onClickRight"
+      @click-left="back"
     />
   </div>
   <div class="nav">

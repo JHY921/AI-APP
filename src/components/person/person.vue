@@ -1,82 +1,88 @@
 <template>
   <div class="title">
     <div class="back"></div>
-    <div class="img">
-      <van-image
-        width="56"
-        height="56"
-        radius="10"
-        lazy-load
-        src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
-      />
-    </div>
-    <div class="info">
-      <div class="name">{{ name }}</div>
-      <span class="acc">账号：</span>
-      <div class="account">{{ account }}</div>
-    </div>
-    <svg
-      class="dot"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      width="24"
-      height="25.714279174804688"
-      viewBox="0 0 24 25.714279174804688"
-      fill="none"
-    >
-      <g opacity="0.6" transform="translate(0 0)  rotate(0)">
-        <mask id="bg-mask-0" fill="white">
-          <use
-            transform="translate(0 0)  rotate(0)"
-            xlink:href="#path_0"
-          ></use>
-        </mask>
-        <g mask="url(#bg-mask-0)">
-          <path
-            id="路径 1"
-            fill-rule="evenodd"
-            style="fill: #333333"
-            opacity="1"
-            d="M6 11.25C5.17 11.25 4.5 11.97 4.5 12.86C4.5 13.74 5.17 14.46 6 14.46C6.83 14.46 7.5 13.74 7.5 12.86C7.5 11.97 6.83 11.25 6 11.25Z"
-          ></path>
-          <path
-            id="路径 2"
-            fill-rule="evenodd"
-            style="fill: #333333"
-            opacity="1"
-            d="M12 11.25C11.17 11.25 10.5 11.97 10.5 12.86C10.5 13.74 11.17 14.46 12 14.46C12.83 14.46 13.5 13.74 13.5 12.86C13.5 11.97 12.83 11.25 12 11.25Z"
-          ></path>
-          <path
-            id="路径 3"
-            fill-rule="evenodd"
-            style="fill: #333333"
-            opacity="1"
-            d="M18 11.25C17.17 11.25 16.5 11.97 16.5 12.86C16.5 13.74 17.17 14.46 18 14.46C18.83 14.46 19.5 13.74 19.5 12.86C19.5 11.97 18.83 11.25 18 11.25Z"
-          ></path>
+    <div @click="go('./mypost')">
+      <div class="img">
+        <van-image
+          width="56"
+          height="56"
+          radius="10"
+          lazy-load
+          src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+        />
+      </div>
+      <div class="info">
+        <div class="name">{{ name }}</div>
+        <span class="acc">账号：</span>
+        <div class="account">{{ account }}</div>
+      </div>
+      <svg
+        class="dot"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="24"
+        height="25.714279174804688"
+        viewBox="0 0 24 25.714279174804688"
+        fill="none"
+      >
+        <g opacity="0.6" transform="translate(0 0)  rotate(0)">
+          <mask id="bg-mask-0" fill="white">
+            <use
+              transform="translate(0 0)  rotate(0)"
+              xlink:href="#path_0"
+            ></use>
+          </mask>
+          <g mask="url(#bg-mask-0)">
+            <path
+              id="路径 1"
+              fill-rule="evenodd"
+              style="fill: #333333"
+              opacity="1"
+              d="M6 11.25C5.17 11.25 4.5 11.97 4.5 12.86C4.5 13.74 5.17 14.46 6 14.46C6.83 14.46 7.5 13.74 7.5 12.86C7.5 11.97 6.83 11.25 6 11.25Z"
+            ></path>
+            <path
+              id="路径 2"
+              fill-rule="evenodd"
+              style="fill: #333333"
+              opacity="1"
+              d="M12 11.25C11.17 11.25 10.5 11.97 10.5 12.86C10.5 13.74 11.17 14.46 12 14.46C12.83 14.46 13.5 13.74 13.5 12.86C13.5 11.97 12.83 11.25 12 11.25Z"
+            ></path>
+            <path
+              id="路径 3"
+              fill-rule="evenodd"
+              style="fill: #333333"
+              opacity="1"
+              d="M18 11.25C17.17 11.25 16.5 11.97 16.5 12.86C16.5 13.74 17.17 14.46 18 14.46C18.83 14.46 19.5 13.74 19.5 12.86C19.5 11.97 18.83 11.25 18 11.25Z"
+            ></path>
+          </g>
         </g>
-      </g>
-      <defs>
-        <rect id="path_0" x="0" y="0" width="24" height="25.71428680419922" />
-      </defs>
-    </svg>
-    <van-icon name="arrow" class="arrow" size="14px" />
+        <defs>
+          <rect id="path_0" x="0" y="0" width="24" height="25.71428680419922" />
+        </defs>
+      </svg>
+      <van-icon name="arrow" class="arrow" size="14px" />
+    </div>
+
     <div class="post">
       <div class="tit">帖子</div>
       <div class="numb">{{ trans(post) }}</div>
     </div>
     <div class="line-1"></div>
+
     <div class="concern">
       <div class="tit">关注</div>
       <div class="numb">{{ trans(concern) }}</div>
     </div>
     <div class="line-2"></div>
+
     <div class="fan">
       <div class="tit">粉丝</div>
       <div class="numb">{{ trans(fan) }}</div>
     </div>
   </div>
+
   <div class="blank"></div>
-  <div class="collect">
+  <div class="collect" @click="go('./mycollect')">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="star"
@@ -107,39 +113,43 @@
     <div class="text1">收藏</div>
     <van-icon name="arrow" class="arrow-1" size="16px" />
   </div>
+
   <div class="blank-1"></div>
-  <div class="his">
-    <img class="icon-1" src="../../assets/icons/person/his.png" alt="">
+  <div class="his" @click="go('./History')">
+    <img class="icon-1" src="../../assets/icons/person/his.png" alt="" />
     <div class="text1">历史记录</div>
     <van-icon name="arrow" class="arrow-1" size="16px" />
   </div>
+
   <div class="gap1"></div>
   <div class="class">
-    <img class="icon-2" src="../../assets/icons/person/play.png" alt="">
+    <img class="icon-2" src="../../assets/icons/person/play.png" alt="" />
     <div class="text1">课程</div>
     <van-icon name="arrow" class="arrow-1" size="16px" />
   </div>
+
   <div class="gap1"></div>
   <div class="help">
-    <img class="icon-3" src="../../assets/icons/person/help.png" alt="">
+    <img class="icon-3" src="../../assets/icons/person/help.png" alt="" />
     <div class="text1">帮助</div>
     <van-icon name="arrow" class="arrow-1" size="16px" />
   </div>
   <div class="gap1"></div>
   <div class="set">
-    <img class="icon-4" src="../../assets/icons/person/set.png" alt="">
+    <img class="icon-4" src="../../assets/icons/person/set.png" alt="" />
     <div class="text1">设置</div>
     <van-icon name="arrow" class="arrow-1" size="16px" />
   </div>
   <div class="gap1"></div>
-  <div class="wait">
-    <img class="icon-5" src="../../assets/icons/person/wait.png" alt="">
-    <div class="text1">待定</div>
+  <div class="wait" @click="go('./useService')">
+    <img class="icon-5" src="../../assets/icons/person/耳机.png" alt="" />
+    <div class="text1">客服</div>
     <van-icon name="arrow" class="arrow-1" size="16px" />
   </div>
 </template>
-<script>
+<script >
 export default {
+
   components: {},
   data () {
     return {
@@ -157,7 +167,11 @@ export default {
         return `${Math.round(num * 10) / 100000}w`
       }
       return a
+    },
+    go (path) {
+      this.$router.push(path)
     }
+
 
   },
 };
@@ -250,7 +264,7 @@ body {
   font-family: res;
   font-weight: 700;
 }
-.acc{
+.acc {
   position: absolute;
   font-family: Light;
   font-weight: 300;
@@ -334,7 +348,7 @@ body {
   top: 16px;
   left: 7%;
 }
-.icon-1{
+.icon-1 {
   position: absolute;
   transform: scale(0.3);
   top: -3px;

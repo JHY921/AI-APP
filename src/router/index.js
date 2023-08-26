@@ -1,27 +1,30 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const login = () => import('../views/register/login.vue')
-const SignUp = ()=> import('../views/register/signUp.vue')
+const SignUp = () => import('../views/register/signUp.vue')
 const userinfor = () => import('../views/register/userinfo.vue')
 
 
 const Home = () => import('../views/homepage/homepage.vue')
 const Monthlydata = () => import('../components/homepage/monthlydata.vue')
 const Forum = () => import('../views/forum/forum_index.vue')
-const Forum_heat = () => import('../components/forum/forumHeat.vue')
 const Forum_post = () => import('../views/forum/forum_post.vue')
 const Personifo = () => import('../views/forum/Personifo.vue')
 const Course = () => import('../views/forum/course.vue')
 
 const Person = () => import('../views/person/person.vue')
-const History = () => import('../components/person/histroy.vue')
+const History = () => import('../views/person/history.vue')
+const mycollect = () => import('../views/person/Mycollect.vue')
+const mypost = () => import('../views/person/Mypost.vue')
+const notification = () => import('../views/forum/notification.vue')
+const useService = () => import('../views/person/useService.vue')
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
       path: '/',
-      redirect: '/Home'
+      redirect: '/login'
     },
     {
       path: '/login',
@@ -29,7 +32,7 @@ const router = createRouter({
     },
     {
       path: '/userinfor',
-      name:userinfor,
+      name: userinfor,
       component: userinfor
     },
     {
@@ -49,10 +52,6 @@ const router = createRouter({
       component: Person
     },
     {
-      path: '/Forum_heat',
-      component: Forum_heat
-    },
-    {
       path: '/Forum_post',
       component: Forum_post
     },
@@ -67,6 +66,22 @@ const router = createRouter({
     {
       path: '/History',
       component: History
+    },
+    {
+      path: '/mycollect',
+      component: mycollect
+    },
+    {
+      path: '/mypost',
+      component: mypost
+    },
+    {
+      path: '/notification',
+      component: notification
+    },
+    {
+      path: '/useService',
+      component: useService
     }
   ]
 })

@@ -1,67 +1,67 @@
 <template>
-    <div class="second-page">
-      <div id="top">
-        <!-- <div>头像+搜索框+消息通知</div> -->
+  <div class="second-page">
+    <div id="top">
+      <!-- <div>头像+搜索框+消息通知</div> -->
+      <img
+        src="../../assets/icons/forum/forumarea/头像.png"
+        class="avator"
+        @click="goToPersonifo"
+      />
+      <div class="search">
         <img
-          src="../../assets/icons/forum/forumarea/头像.png"
-          class="avator"
-          @click="goToPersonifo"
+          src="../../assets/icons/forum/forumarea/搜索.png"
+          class="search-icon"
         />
-        <div class="search">
-          <img
-            src="../../assets/icons/forum/forumarea/搜索.png"
-            class="search-icon"
+        <form>
+          <input
+            style="transform: scale(0.8); margin-left: -4%"
+            type="text"
+            v-model="inputText"
+            placeholder="前端开发就业前景"
           />
-          <form>
-            <input
-              style="transform: scale(0.8); margin-left: -4%"
-              type="text"
-              v-model="inputText"
-              placeholder="前端开发就业前景"
-            />
-          </form>
-          <span>搜索</span>
-        </div>
-        <img
-          class="message-remind"
-          src="../../assets/icons/forum/forumarea/提醒.png"
-        />
+        </form>
+        <span>搜索</span>
       </div>
-      <div class="sorting-column">
-        <div class="recommend">
-          <p class="active">推荐</p>
-        </div>
-        <div class="popular" @click="goToHeat">
-          <p class="heat">热门</p>
-        </div>
-        <div class="focus-on">
-          <p>关注</p>
-        </div>
+      <img
+        class="message-remind"
+        src="../../assets/icons/forum/forumarea/提醒.png"
+      />
+    </div>
+    <div class="sorting-column">
+      <div class="recommend">
+        <p class="active">推荐</p>
       </div>
-      <div id="body">
-        <heat1 class="heat1"></heat1>
+      <div class="popular" @click="goToHeat">
+        <p class="heat">热门</p>
+      </div>
+      <div class="focus-on">
+        <p>关注</p>
+      </div>
+    </div>
+    <div id="body">
+      <heat1 class="heat1"></heat1>
       <heat2 class="heat2"></heat2>
       <heat3 class="heat3"></heat3>
       <heat class="heat" tt="4"></heat>
       <heat class="heat" tt="5"></heat>
-      <heat  class="heat" tt="6"></heat>
+      <heat class="heat" tt="6"></heat>
       <heat class="heat" tt="7"></heat>
       <heat class="heat" tt="8"></heat>
       <heat class="heat" tt="9"></heat>
       <heat class="heat" tt="10"></heat>
       <div class="blank"></div>
     </div>
-      <!-- <div id="footer">
+    <!-- <div id="footer">
   </div> -->
-    </div>
-  </template>
+  </div>
+</template>
 <script>
 import heat1 from './heat/heat1.vue'
 import heat2 from './heat/heat2.vue'
 import heat3 from './heat/heat3.vue'
 import heat from './heat/heat.vue'
 export default {
-    components:{heat, heat1, heat2, heat3},
+  components: { heat, heat1, heat2, heat3 },
   data () {
     return {
     }
@@ -73,7 +73,7 @@ export default {
     goToCourse () {
       this.$router.push('/Course')
     },
-    goToHeat(){
+    goToHeat () {
       this.$router.push('/Forum_heat')
     }
   }
@@ -89,6 +89,7 @@ export default {
   height: 640px;
   background-image: url("../../assets/icons/forum/forumarea/background.jpg");
   position: fixed;
+  margin-top: 20px;
 }
 #top {
   width: 100%;
@@ -221,7 +222,6 @@ export default {
   opacity: 1;
 }
 
-
 .message-remind {
   width: 17px;
   height: 18px;
@@ -229,20 +229,20 @@ export default {
   opacity: 1;
   margin-left: 4.4%;
 }
-.heat1{
-    margin-top: 8px;
+.heat1 {
+  margin-top: 8px;
 }
-.heat2{
-    margin-top: 16px;
+.heat2 {
+  margin-top: 16px;
 }
-.heat3{
-    margin-top: 16px;
+.heat3 {
+  margin-top: 16px;
 }
-.heat{
-    margin-top: 16px;
+.heat {
+  margin-top: 16px;
 }
-.blank{
-    width: 100%;
-    height: 32px;
+.blank {
+  width: 100%;
+  height: 32px;
 }
 </style>

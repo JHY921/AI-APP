@@ -19,56 +19,64 @@
   <div class="text">我的帖子</div>
   <svg class="more" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="292" height="50" viewBox="0 0 292 50" fill="none"><g opacity="1"  transform="translate(0 0)  rotate(0)"><g opacity="1"  transform="translate(292 50)  rotate(0)"><path id="圆形 2" fill-rule="evenodd" style="fill:#007994" opacity="1" d="M-290 -50C-291.1 -50 -292 -49.1 -292 -48C-292 -46.9 -291.1 -46 -290 -46C-288.9 -46 -288 -46.9 -288 -48C-288 -49.1 -288.9 -50 -290 -50Z"></path><path id="圆形 2" fill-rule="evenodd" style="fill:#007994" opacity="1" d="M-282 -50C-283.1 -50 -284 -49.1 -284 -48C-284 -46.9 -283.1 -46 -282 -46C-280.9 -46 -280 -46.9 -280 -48C-280 -49.1 -280.9 -50 -282 -50Z"></path><path id="圆形 2" fill-rule="evenodd" style="fill:#007994" opacity="1" d="M-274 -50C-275.1 -50 -276 -49.1 -276 -48C-276 -46.9 -275.1 -46 -274 -46C-272.9 -46 -272 -46.9 -272 -48C-272 -49.1 -272.9 -50 -274 -50Z"></path></g></g></svg>
 </div>
-<!-- <div class="content">
-    <Post_com></Post_com>
-</div> -->
-<Post_com></Post_com>
+<div class="content">
+    <forumPost></forumPost>
+    <forumPost></forumPost>
+    <forumPost></forumPost>
+    <forumPost></forumPost>
+    <forumPost></forumPost>
+</div>
 </template>
 <script>
-import Post_com from './post_com.vue'
+import forumPost from '../forum/forumPost.vue'
 export default{
-components:{Post_com},
+components:{forumPost},
 data(){
     return{
 
     }
-}
+  },
+  methods: {
+    back () {
+      history.back()
+    }
+  }
 }
 </script>
 <style scoped>
 .title {
-position: fixed;
-left: 0px;
-top: 0px;
-width: 360px;
-height: 72px;
-opacity: 1;
-border-radius: 0px 0px, 10px, 10px;
-background-color: white;
-border-radius: 0px 0px 10px 10px;
-box-shadow: 0px 2px 4px #0000001a;
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 999;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 360px;
+  height: 72px;
+  opacity: 1;
+  border-radius: 0px 0px, 10px, 10px;
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0px 2px 4px #0000001a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 .text {
-color: #00576bab;
-font-size: 16px;
-font-family: SourceHanSansCN;
-font-weight: 700;
-line-height: 15px;
+  color: #00576bab;
+  font-size: 16px;
+  font-family: SourceHanSansCN;
+  font-weight: 700;
+  line-height: 15px;
 }
 .arrow {
-position: absolute;
-left: 21.5px;
+  position: absolute;
+  left: 21.5px;
 }
 .more{
 position: absolute;
 left: 321px;
-top: 34px;
+top: 24px;
 }
-.content{
-margin-top: 78px;
+.content {
+  margin-top: 78px;
 }
 </style>
