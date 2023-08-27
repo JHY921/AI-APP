@@ -22,9 +22,12 @@ import { Field, CellGroup } from 'vant'
 app.use(Field)
 app.use(CellGroup)
 
+
+
 import router from './router'
 app.use(router)
-import {Cascader} from 'vant'
+import { Cascader } from 'vant'
+//import store from './store'
 app.use(Cascader)
 app.mount('#app')
 
