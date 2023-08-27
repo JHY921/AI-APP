@@ -185,7 +185,7 @@
           "
         >
           <button
-            @click="totest"
+            @click="UserInfor"
             style="
               width: 117px;
               height: 39px;
@@ -193,12 +193,12 @@
               border-radius: 30px;
               border: none;
               color: #ffffff;
-              font-size: 24px;
+              font-size: 15px;
               font-family: SmileySans;
               line-height: 23px;
             "
           >
-            注册
+            填写个人信息
           </button>
           <button
             @click="swapCircles"
@@ -227,6 +227,7 @@
   
 <script>
 import axios from 'axios'
+import UserInfor from './userInfor.vue'
 export default {
   data () {
     return {
@@ -254,13 +255,9 @@ export default {
     }
   },
   methods: {
-    login () {
-      if (this.password == this.checkPassword) {
-        var acc = { account: this.account, password: this.password }
-        axios.post('http://127.0.0.1:5000/sign_up/register', acc).then(res => {
-          this.$router.push({ name: 'userinfo', params: { userId: res.data } })
-        })
-      }
+
+    UserInfor () {
+      this.$router.push('./userinfor')
     },
     swapCircles () {
       // Swap positions with animation

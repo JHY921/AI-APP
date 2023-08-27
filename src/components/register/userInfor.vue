@@ -2,7 +2,7 @@
   <div
     style="position: relative; width: 360px; height: 640px; overflow: hidden"
   >
-    <div class="total">
+    <div class="total" :class="{ 'fade-out': tonext }">
       <div
         style="
           height: 24px;
@@ -86,7 +86,7 @@
       ></div>
       <img
         style="position: relative; margin: 30px"
-        src="../../assets/icons/register/useinfor.png"
+        src="../../assets/icons/register/userinfor.png"
       />
       <div
         :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
@@ -216,7 +216,7 @@
         "
       >
         <button
-          @click="swapCircles"
+          @click="gotest"
           style="
             width: 117px;
             height: 39px;
@@ -231,22 +231,6 @@
         >
           注册
         </button>
-        <button
-          style="
-            width: 60px;
-            height: 20px;
-            border-radius: 19.5px;
-            border: none;
-            background: rgba(255, 255, 255, 1);
-            font-size: 10px;
-            font-weight: 400;
-            color: rgba(147, 183, 186, 1);
-            text-align: left;
-            margin-left: 30px;
-          "
-        >
-          再想想
-        </button>
       </div>
     </div>
   </div>
@@ -258,34 +242,39 @@ export default {
   data () {
     return {
       loading: false,
-      name:'',
-      birth:'',
-      degree:'',
-      city:'',
-      tel:'',
-      id:''
+      name: '',
+      birth: '',
+      degree: '',
+      city: '',
+      tel: '',
+      id: '',
+      tonext: false
     }
   },
   created () {
     setTimeout(() => {
       this.loading = true
     }, 100)
-    this.id = this.$route.params.userId;
+    this.id = this.$route.params.userId
   },
-
   methods: {
-    swapCircles(){
-            axios.post('http://127.0.0.1:5000/userinfo', {
-                name:this.name,
-                birth:this.birth,
-                degree:this.degree,
-                city:this.city,
-                tel:this.tel,
-                id:this.id
-            }).then(res=>{
-                console.log('collect success');
-            })
-        }
+    gotest () {
+      this.tonext = !this.tonext
+      setTimeout(() => {
+        this.$router.push('./questionSet1')
+      }, 800)
+
+      axios.post('http://127.0.0.1:5000/userinfo', {
+        name: this.name,
+        birth: this.birth,
+        degree: this.degree,
+        city: this.city,
+        tel: this.tel,
+        id: this.id
+      }).then(res => {
+        console.log('collect success')
+      })
+    }
   }
 };
 </script>
@@ -355,6 +344,7 @@ export default {
   transform: translate(290px, 0px);
   transition: transform 1s;
 }
+
 * {
   margin: 0px;
   overflow: hidden;

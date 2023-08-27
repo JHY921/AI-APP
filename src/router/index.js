@@ -19,6 +19,12 @@ const mypost = () => import('../views/person/Mypost.vue')
 const notification = () => import('../views/forum/notification.vue')
 const useService = () => import('../views/person/useService.vue')
 
+const questionSet1 = () => import('../views/questionSet/quesJelly/quesJelly.vue')
+const questionSet2 = () => import('../views/questionSet/quesMult/quesMulti.vue')
+const questionSet3 = () => import('../views/questionSet/quesMult_v2/quesMult_v2.vue')
+const questionSet4 = () => import('../views/questionSet/quesStage/quesStage.vue')
+const questionSet5 = () => import('../views/questionSet/quesTF/quesTF.vue')
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -86,6 +92,26 @@ const router = createRouter({
     {
       path: '/useService',
       component: useService
+    },
+    {
+      path: '/questionSet1',
+      component: questionSet1
+    },
+    {
+      path: '/questionSet2',
+      component: questionSet2
+    },
+    {
+      path: '/questionSet3',
+      component: questionSet3
+    },
+    {
+      path: '/questionSet4',
+      component: questionSet4
+    },
+    {
+      path: '/questionSet5',
+      component: questionSet5
     }
   ]
 })
