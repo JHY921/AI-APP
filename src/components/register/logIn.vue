@@ -4,6 +4,7 @@
   >
     <div class="total">
       <!-- <img style="position: relative; z-index: -1; top: -700px; left: -1000px;" src="./background.png"/> -->
+
       <div
         class="circle"
         :style="{
@@ -18,6 +19,7 @@
             '-3px 5px 30px 10px rgba(255, 255, 255, 0.7) inset, 0px 0px 5px 0px rgba(0,0,0,0.2)',
         }"
       ></div>
+
       <div
         class="circle"
         :style="{
@@ -73,6 +75,7 @@
         style="z-index: 11; position: absolute; left: 47%; top: 15%"
         src="./logIn.png"
       />
+
       <div
         :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
         style="z-index: 99; position: absolute; left: 8%; top: 59%; width: 100%"
@@ -251,18 +254,21 @@ export default {
     }
   },
   methods: {
-    async login () {
-      try {
-        const response = await axios.post('/api/login', {
-          username: this.account,
-          password: this.password
-        })
-        console.log(response.data.message) // 登录成功消息
-        // 可以在此处理登录成功后的逻辑，如导航到其他页面
-      } catch (error) {
-        console.error('登录失败:', error.response.data.message)
-      }
+    login () {
+      this.$router.push('/Home')
     },
+    // async login () {
+    //   try {
+    //     const response = await axios.post('/api/login', {
+    //       username: this.account,
+    //       password: this.password
+    //     })
+    //     console.log(response.data.message) // 登录成功消息
+    //     // 可以在此处理登录成功后的逻辑，如导航到其他页面
+    //   } catch (error) {
+    //     console.error('登录失败:', error.response.data.message)
+    //   }
+    // },
     // login () {
     // axios.post('http://127.0.0.1:5000/login', {
     //     account:this.account,
@@ -273,6 +279,9 @@ export default {
     //     }
     // })
     //},
+    onAfterLeave () {
+      this.$router.push('/signup')
+    },
     swapCircles () {
       // Swap positions with animation
       const tempPos = Object.assign({}, this.circle1Pos)
@@ -285,6 +294,10 @@ export default {
       this.changeInfor("circle1Zindex", "circle2Zindex")
       this.changeInfor("circle1Opa", "circle2Opa")
       this.Skip = !this.Skip
+      setTimeout(() => {
+        this.$router.push('/signup')
+      }, 300) // 这里的500表示延迟时间，根据动画持续时间来调整
+
     },
     changeInfor (prop1, prop2) {
       const tempW = this[prop1]
