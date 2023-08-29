@@ -293,7 +293,7 @@ export default {
   methods: {
 
     UserInfor () {
-      if (this.canpassword === 0 && this.ispassword === 0 && this.istel === 0) {
+      if (this.canpassword === 0 && this.ispassword === 0 && this.istel === 0 && this.password != 0 && this.checkPassword != 0 && this.phoneNumber != 0) {
         axios.post('http://127.0.0.1:5000/register', {
           tel: this.phoneNumber,
           password: this.password
@@ -303,7 +303,6 @@ export default {
         }).catch(err => {
           console.log(err)
         })
-
       }
       else {
         showDialog({ message: '请仔细检查' })
