@@ -4,7 +4,11 @@ import Crisscross from './crisscross.vue'
 import forumHeader from './forumHeader.vue'
 import forumMid from './forumMid.vue'
 import forumPost from './forumPost.vue'
-import heat from './forumHeat.vue'
+import heat from './heat/heat.vue'
+import heat1 from './heat/heat1.vue'
+import heat2 from './heat/heat2.vue'
+import heat3 from './heat/heat3.vue'
+
 export default {
   name: "zan",
   data () {
@@ -15,7 +19,7 @@ export default {
   methods: {
 
   },
-  components: { Crisscross, forumHeader, forumMid, forumPost, heat }
+  components: { Crisscross, forumHeader, forumMid, forumPost, heat, heat1, heat2, heat3 }
 }
 </script>
 <template>
@@ -27,7 +31,19 @@ export default {
         <forumPost />
       </van-tab>
       <van-tab title="热门" name="b">
-        <heat />
+        <div id="body">
+          <heat1 class="heat1"></heat1>
+          <heat2 class="heat2"></heat2>
+          <heat3 class="heat3"></heat3>
+          <heat class="heat" tt="4"></heat>
+          <heat class="heat" tt="5"></heat>
+          <heat  class="heat" tt="6"></heat>
+          <heat  class="heat" tt="7"></heat>
+          <heat  class="heat" tt="8"></heat>
+          <heat class="heat" tt="9"></heat>
+          <heat  class="heat" tt="10"></heat>
+          <div class="blank"></div>
+        </div>
       </van-tab>
       <van-tab title="关注" name="c"> 123 </van-tab>
     </van-tabs>
@@ -105,5 +121,29 @@ export default {
 }
 .content span {
   font-size: 9px;
+}
+#body {
+  width: 100%;
+  height: 500px;
+  overflow: scroll;
+  /* margin-top: 118px; */
+}
+
+
+.heat1 {
+  margin-top: 8px;
+}
+.heat2 {
+  margin-top: 16px;
+}
+.heat3 {
+  margin-top: 16px;
+}
+.heat {
+  margin-top: 16px;
+}
+.blank {
+  width: 100%;
+  height: 32px;
 }
 </style>
