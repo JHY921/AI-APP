@@ -1,5 +1,6 @@
 <script>
 import data from './notification.json'
+import 'vant/es/nav-bar'
 export default {
   data () {
     return {
@@ -18,9 +19,8 @@ export default {
   <div class="goods_info">
     <van-nav-bar
       title="消息"
-      right-text="···"
-      style=""
       left-arrow
+      right-text="···"
       bind:click-left="onClickLeft"
       bind:click-right="onClickRight"
       @click-left="back"
@@ -69,7 +69,7 @@ export default {
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 * {
   margin: 0px;
   padding: 0px;
@@ -83,25 +83,23 @@ export default {
   background-color: #a3a3a3;
   z-index: 999;
 }
-::v-deep .van-nav-bar__title {
+ .van-nav-bar__title {
   color: #007994;
   font-weight: 800;
   font-size: 18px;
 }
-::v-deep .van-nav-bar .van-icon {
+.van-nav-bar .van-icon {
   color: white !important;
   /* font-size:16px; */
 }
-::v-deep .van-nav-bar__text {
+ .van-nav-bar__text {
   color: rgba(0, 121, 148, 1);
   font-weight: 700;
   font-size: 26px;
-}
-::v-deep .van-nav-bar__arrow {
+}.van-nav-bar__arrow {
   color: rgba(0, 121, 148, 1);
   font-weight: 600;
   transform: scale(1.3);
-  /* height:30px; */
 }
 .total-info {
   left: 0px;
