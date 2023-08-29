@@ -130,6 +130,19 @@
             v-model="password"
           />
         </div>
+        <div
+          style="
+            margin-bottom: 8px;
+            color: red;
+            font-size: 6px;
+            opacity: 0.6;
+            margin-left: 55px;
+          "
+        >
+          <span v-show="canpassword"
+            >密码必须包含大写字母、数字、特殊字符且至少8位</span
+          >
+        </div>
         <div style="font-size: 18px; color: #008c99; margin-bottom: 10px">
           确认：
           <input
@@ -158,6 +171,7 @@
         >
           <span v-if="ispassword">两次密码输入不一致</span>
         </div>
+
         <div style="font-size: 18px; color: #008c99">
           验证码：
           <input
@@ -271,17 +285,15 @@ export default {
       checkPassword: '',//确认密码
       phoneNumber: '',
       checkNumber: '',
-      istel: 0,
-      ispassword: 0
+      istel: 0,//手机号是否符合要求
+      ispassword: 0, //密码是否一致
+      canpassword: 0, //密码是否符合要求
     }
   },
   methods: {
 
     UserInfor () {
-      if (this.password != this.checkPassword) {
-        showDialog({ message: '两次密码输入不一致' })
-      }
-      else {
+      if (this.canpassword === 0 && this.ispassword === 0 && this.istel === 0) {
         axios.post('http://127.0.0.1:5000/register', {
           tel: this.phoneNumber,
           password: this.password
@@ -291,6 +303,10 @@ export default {
         }).catch(err => {
           console.log(err)
         })
+
+      }
+      else {
+        showDialog({ message: '请仔细检查' })
       }
     },
     swapCircles () {
@@ -328,7 +344,6 @@ export default {
           this.istel = 0
         }
       }
-
     },
     checknum (value) {
       if (this.checkPassword === '') {
@@ -339,6 +354,18 @@ export default {
         else
           this.ispassword = 0
       }
+    },
+    checkcanpassword (value) {
+      if (this.password === '') {
+        this.canpassword = 0
+      } else {
+        const pattern1 = /^(?![A-Za-z0-9]+$)(?![a-z0-9\\W]+$)(?![A-Za-z\\W]+$)(?![A-Z0-9\\W]+$)[a-zA-Z0-9\\W]{8,20}$/
+        if (!pattern1.test(value)) {
+          this.canpassword = 1
+        } else {
+          this.canpassword = 0
+        }
+      }
     }
 
   },
@@ -348,6 +375,9 @@ export default {
     },
     checkPassword (newValue) {
       this.checknum(newValue)
+    },
+    password (newValue) {
+      this.checkcanpassword(newValue)
     }
   }
 };

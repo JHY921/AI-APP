@@ -136,6 +136,18 @@
         >
           <span v-show="admin">用户名不符合要求</span>
         </div>
+        <div
+          style="
+            margin-top: 7px;
+            margin-bottom: -7px;
+            color: grey;
+            font-size: 6px;
+            opacity: 0.6;
+            margin-left: 80px;
+          "
+        >
+          <span v-show="!admin">3-8位的数字或英文</span>
+        </div>
 
         <div style="margin-top: 20px">
           <label
@@ -390,7 +402,7 @@ export default {
         // 使用正则表达式进行匹配
         return regex.test(str)
       }
-      if (this.name === '') {
+      if ((this.name === '')) {
         this.admin = false
       } else {
         if (isValidString(value)) {
