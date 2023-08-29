@@ -1,8 +1,8 @@
 <script setup>
-import Forum from '../../components/forum/forumArea.vue'
+import extraFunction from '../../components/extraFunction/extraFunction.vue'
 import tabbar from '../../components/tabbar.vue'
 </script>
 <template>
-  <Forum />
+  <extraFunction />
   <tabbar />
 </template>

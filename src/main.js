@@ -27,8 +27,12 @@ app.use(DatePicker)
 import { Field, CellGroup } from 'vant'
 app.use(Field)
 app.use(CellGroup)
+
 import { NavBar } from 'vant'
 app.use(NavBar)
+
+import { Toast } from 'vant'
+app.use(Toast)
 
 
 import router from './router'

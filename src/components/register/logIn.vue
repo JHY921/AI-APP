@@ -236,6 +236,8 @@
 import axios from 'axios'
 import { showDialog } from 'vant'
 import 'vant/es/dialog/style'
+import { showSuccessToast } from 'vant'
+import 'vant/es/toast/style'
 export default {
   data () {
     return {
@@ -270,7 +272,11 @@ export default {
             showDialog({ message: '账号或密码错误' })
           }
           else {
-            this.$router.push('/Home')
+            showSuccessToast('登陆成功')
+            setTimeout(() => {
+              this.$router.push('/Home')
+            }, 500) // 这里的500表示延迟时间，根据动画持续时间来调整
+
           }
         }).catch(error => {
           console.log(error)
