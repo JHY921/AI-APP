@@ -91,6 +91,7 @@
               height: 28px;
               width: 169px;
               border: none;
+              text-align: center;
             "
             v-model="account"
           />
@@ -98,6 +99,7 @@
         <div style="font-size: 18px; color: #008c99">
           密码：
           <input
+            type="password"
             style="
               margin-left: 20px;
               background-color: #ffffff;
@@ -106,6 +108,7 @@
               height: 28px;
               width: 169px;
               border: none;
+              text-align: center;
             "
             v-model="password"
           />
@@ -255,18 +258,18 @@ export default {
   },
   methods: {
     login () {
-      axios.post('http://127.0.0.1:5000/login',{
-        account:this.account,
-        password:this.password
-      }).then(res=>{
-        if(res.data['message']==false){
-          showDialog({message:'账号或密码错误'})
+      axios.post('http://127.0.0.1:5000/login', {
+        account: this.account,
+        password: this.password
+      }).then(res => {
+        if (res.data['message'] == false) {
+          showDialog({ message: '账号或密码错误' })
         }
-        else{
-            this.$router.push('/Home')
+        else {
+          this.$router.push('/Home')
         }
-      }).catch(error=>{
-        console.log(error);
+      }).catch(error => {
+        console.log(error)
       })
 
     },

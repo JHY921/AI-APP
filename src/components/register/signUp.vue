@@ -96,6 +96,7 @@
               height: 28px;
               width: 169px;
               border: none;
+              text-align: center;
             "
             v-model="phoneNumber"
           />
@@ -109,6 +110,7 @@
         <div style="font-size: 18px; color: #008c99; margin-bottom: 10px">
           密码：
           <input
+            type="password"
             style="
               margin-left: 20px;
               background-color: #ffffff;
@@ -117,6 +119,7 @@
               height: 28px;
               width: 169px;
               border: none;
+              text-align: center;
             "
             v-model="password"
           />
@@ -124,6 +127,7 @@
         <div style="font-size: 18px; color: #008c99; margin-bottom: 10px">
           确认：
           <input
+            type="password"
             style="
               margin-left: 20px;
               background-color: #ffffff;
@@ -132,6 +136,7 @@
               height: 28px;
               width: 169px;
               border: none;
+              text-align: center;
             "
             v-model="checkPassword"
           />
@@ -153,6 +158,7 @@
               height: 28px;
               width: 100px;
               border: none;
+              text-align: center;
             "
             v-model="checkNumber"
           />
@@ -170,6 +176,7 @@
               color: rgba(147, 183, 186, 1);
               text-align: left;
               margin-left: 25px;
+              text-align: center;
             "
           >
             发送验证码
@@ -196,6 +203,7 @@
               font-size: 15px;
               font-family: SmileySans;
               line-height: 23px;
+              text-align: center;
             "
           >
             填写个人信息
@@ -215,6 +223,7 @@
               color: rgba(147, 183, 186, 1);
               text-align: left;
               margin-left: 25px;
+              text-align: center;
             "
           >
             返回
@@ -227,7 +236,7 @@
   
 <script>
 import axios from 'axios'
-import { showDialog } from 'vant';
+import { showDialog } from 'vant'
 import 'vant/es/dialog/style'
 import UserInfor from './userInfor.vue'
 export default {
@@ -258,19 +267,19 @@ export default {
   methods: {
 
     UserInfor () {
-      if(this.password!= this.checkPassword){
-        showDialog({message:'两次密码输入不一致'})
+      if (this.password != this.checkPassword) {
+        showDialog({ message: '两次密码输入不一致' })
       }
-      else{
+      else {
         axios.post('http://127.0.0.1:5000/register', {
-          tel:this.phoneNumber,
-          password:this.password
-      }).then(res=>{
-        console.log(res.data);
-        this.$router.push({name:'userinfor', params:{userId:res.data}})
-      }).catch(err=>{
-        console.log(err);
-      })
+          tel: this.phoneNumber,
+          password: this.password
+        }).then(res => {
+          console.log(res.data)
+          this.$router.push({ name: 'userinfor', params: { userId: res.data } })
+        }).catch(err => {
+          console.log(err)
+        })
       }
     },
     swapCircles () {
