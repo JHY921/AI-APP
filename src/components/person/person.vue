@@ -135,7 +135,7 @@
     <van-icon name="arrow" class="arrow-1" size="16px" />
   </div>
   <div class="gap1"></div>
-  <div class="set">
+  <div class="set" @click="go('./setting')">
     <img class="icon-4" src="../../assets/icons/person/set.png" alt="" />
     <div class="text1">设置</div>
     <van-icon name="arrow" class="arrow-1" size="16px" />
@@ -201,6 +201,8 @@ body {
   background-color: white;
   position: relative;
   box-shadow: -1px 2px 4px #0000001a;
+  font-size: 14px;
+  font-family: regular;
 }
 .dot {
   position: absolute;
@@ -217,24 +219,32 @@ body {
   height: 56px;
   position: relative;
   background-color: white;
+  font-size: 14px;
+  font-family: regular;
 }
 .class {
   width: 100%;
   height: 56px;
   background-color: white;
   position: relative;
+  font-size: 14px;
+  font-family: regular;
 }
 .help {
   width: 100%;
   height: 56px;
   background-color: white;
   position: relative;
+  font-size: 14px;
+  font-family: regular;
 }
 .set {
   width: 100%;
   height: 56px;
   background-color: white;
   position: relative;
+  font-size: 14px;
+  font-family: regular;
 }
 .wait {
   width: 100%;
@@ -242,6 +252,8 @@ body {
   position: relative;
   background-color: white;
   box-shadow: -1px 2px 4px #0000001a;
+  font-size: 14px;
+  font-family: regular;
 }
 .back {
   width: 100%;
@@ -293,6 +305,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 13px;
 }
 .concern {
   position: absolute;
@@ -383,6 +396,8 @@ body {
   position: absolute;
   top: 16px;
   left: 16%;
+  font-size: 14px;
+  font-family: regular;
 }
 .arrow-1 {
   position: absolute;

@@ -7,7 +7,7 @@ import Forum from '../../components/forum/forumArea.vue'
     <van-tabbar v-model="active" fixed id="bar" safe-area-inset-bottom route>
       <van-tabbar-item replace to="/Home" icon="home-o">首页</van-tabbar-item>
       <van-tabbar-item replace to="/Forum" icon="search">论坛</van-tabbar-item>
-      <van-tabbar-item replace to="/Home" icon="friends-o" info="5"
+      <van-tabbar-item replace to="/extraFunction" icon="friends-o" info="5"
         >xx</van-tabbar-item
       >
       <van-tabbar-item replace to="/Person" icon="setting-o" info="20"

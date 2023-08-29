@@ -11,6 +11,7 @@
     "@vant/weapp": "^1.10.23",
     "axios": "^1.4.0",
     "d3": "^7.8.5",
+    "http-proxy-middleware": "^2.0.6",
     "sass": "^1.64.2",
     "scss": "^0.2.4",
     "ssr-window": "^4.0.2",

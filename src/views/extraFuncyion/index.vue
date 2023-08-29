@@ -1,9 +1,16 @@
-<script setup>
-import person from '../../components/person/person.vue'
+<script>
+import extraFunction from '../../components/extraFunction/extraFunction.vue'
+import { ref } from 'vue'
+export default {
+  setup () {
+    const active = ref(1)
+    return { active }
+  },
+};
 </script>
 <template>
-  <div>
-    <person />
+  <extraFunction />
+  <div class="tabbar">
     <van-tabbar v-model="active" fixed id="bar" safe-area-inset-bottom route>
       <van-tabbar-item replace to="/Home" icon="home-o">首页</van-tabbar-item>
       <van-tabbar-item replace to="/Forum" icon="search">论坛</van-tabbar-item>
@@ -15,13 +22,4 @@ import person from '../../components/person/person.vue'
       >
     </van-tabbar>
   </div>
-</template> 
-<script>
-import { ref } from 'vue'
-export default {
-  setup () {
-    const active = ref(3)
-    return { active }
-  },
-};
-</script>
+</template>
