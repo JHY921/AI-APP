@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const login = () => import('../views/register/login.vue')
 const SignUp = () => import('../views/register/signUp.vue')
+const extraFunction = () => import('../views/extraFuncyion/index.vue')
 const userinfor = () => import('../views/register/userinfo.vue')
 
 
@@ -18,6 +19,7 @@ const mycollect = () => import('../views/person/Mycollect.vue')
 const mypost = () => import('../views/person/Mypost.vue')
 const notification = () => import('../views/forum/notification.vue')
 const useService = () => import('../views/person/useService.vue')
+const setting = () => import('../views/person/setting.vue')
 
 const questionSet1 = () => import('../views/questionSet/quesJelly/quesJelly.vue')
 const questionSet2 = () => import('../views/questionSet/quesMult/quesMulti.vue')
@@ -52,6 +54,10 @@ const router = createRouter({
     {
       path: '/Monthlydata',
       component: Monthlydata
+    },
+    {
+      path: '/extraFunction',
+      component: extraFunction
     },
     {
       path: '/Forum',
@@ -112,6 +118,10 @@ const router = createRouter({
     {
       path: '/questionSet5',
       component: questionSet5
+    },
+    {
+      path: '/setting',
+      component: setting
     }
   ]
 })

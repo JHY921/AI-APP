@@ -254,31 +254,29 @@ export default {
     }
   },
   methods: {
-    login () {
-      this.$router.push('/Home')
+    async login () {
+      try {
+        const response = await axios.post('https://39.106.71.161:5000', {
+          username: this.account,
+          password: this.password
+        })
+        console.log(response.data.message) // 登录成功消息
+        // 可以在此处理登录成功后的逻辑，如导航到其他页面
+      } catch (error) {
+        console.error('登录失败:', error.response.data.message)
+      }
     },
-    // async login () {
-    //   try {
-    //     const response = await axios.post('/api/login', {
-    //       username: this.account,
-    //       password: this.password
-    //     })
-    //     console.log(response.data.message) // 登录成功消息
-    //     // 可以在此处理登录成功后的逻辑，如导航到其他页面
-    //   } catch (error) {
-    //     console.error('登录失败:', error.response.data.message)
-    //   }
-    // },
     // login () {
-    // axios.post('http://127.0.0.1:5000/login', {
-    //     account:this.account,
-    //     password:this.password
-    // }).then(res=>{
-    //     if(res.data['operation']==false){
-    //       showDialog({message:'账号或密码错误'})
+    //   axios.post(' https://39.106.71.161:5000', {
+    //     account: this.account,
+    //     password: this.password
+    //   }).then(res => {
+    //     if (res.data['operation'] == false) {
+    //       showDialog({ message: '账号或密码错误' })
     //     }
-    // })
-    //},
+    //   })
+    //   //this.$router.push('/Home')
+    // },
     onAfterLeave () {
       this.$router.push('/signup')
     },
@@ -318,6 +316,9 @@ export default {
 </script>
   
 <style scoped>
+* {
+  font-family: dyh;
+}
 .fade-out {
   -webkit-animation: fade-out 0.5s ease-out both;
   animation: fade-out 0.5s ease-out both;

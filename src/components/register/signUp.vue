@@ -310,6 +310,9 @@ export default {
 </script>
   
 <style scoped>
+* {
+  font-family: dyh;
+}
 .fade-out {
   -webkit-animation: fade-out 0.5s ease-out both;
   animation: fade-out 0.5s ease-out both;
