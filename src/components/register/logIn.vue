@@ -139,7 +139,7 @@
           ></button>
         </div>
         <!-- <div style="margin-top: 20px; margin-left: 100px;"> -->
-        <div style="width: 100%; margin-top: 20px">
+        <div style="width: 100%">
           <button
             @click="login"
             style="
@@ -150,7 +150,7 @@
               border: none;
               color: #ffffff;
               font-size: 24px;
-              margin-left: 100px;
+              margin-left: 95px;
               margin-right: 20px;
               font-family: SmileySans;
               line-height: 23px;
@@ -205,7 +205,8 @@
               line-height: 14.4px;
               color: rgba(0, 100, 122, 0.4);
               vertical-align: top;
-              margin-bottom: 3px;
+              margin-bottom: 8px;
+              margin-left: -270px;
             "
           >
             第三方软件登录
