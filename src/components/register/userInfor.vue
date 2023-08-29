@@ -119,12 +119,16 @@
                 width: 114px;
                 border: none;
               "
+              @blur="checkadmin"
               v-model="name"
             />
           </label>
         </div>
+        <div style="color: red; margin: 5px">
+          <span v-show="admin">用户名不符合要求</span>
+        </div>
 
-        <div style="margin-top: 20px">
+        <div style="margin-top: 8px">
           <label
             for="sex"
             style="
@@ -318,6 +322,7 @@ export default {
       currentDate: ref(['2021', '01', '01']),
       minDate: new Date(1970, 0, 1),
       maxDate: new Date(),
+      admin: false,
     }
   },
   mounted () {
@@ -368,6 +373,21 @@ export default {
     ConfirmAcdemic ({ selectedValues }) {
       this.degree = selectedValues[0]
       this.ShowAcdemic = false
+    },
+    checkadmin () {
+      function isValidString (str) {
+        // 创建一个正则表达式，用于匹配只包含数字和英文字符，长度在3到6个字符之间的字符串
+        const regex = /^[0-9a-zA-Z]{3,6}$/
+        // 使用正则表达式进行匹配
+        return regex.test(str)
+      }
+      if (isValidString(this.name) || !this.name) {
+        console.log("符合要求")
+        this.admin = false
+      } else {
+        console.log("不符合要求")
+        this.admin = true
+      }
     }
   }
 };
