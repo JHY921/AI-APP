@@ -98,89 +98,117 @@
           width: 100%;
         "
       >
-        <div
-          style="
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: rgba(0, 103, 112, 1);
-          "
-        >
-          姓名：
-          <input
+        <div style="margin-top: 20px">
+          <label
+            for="admin"
             style="
-              margin-left: 20px;
-              background-color: #ffffff;
-              border-radius: 24px;
-              box-shadow: 3px 4px 5px #0160752b inset;
-              height: 28px;
-              width: 114px;
-              border: none;
+              font-size: 18px;
+              margin-bottom: 20px;
+              color: rgba(0, 103, 112, 1);
             "
-            v-model="name"
-          />
+          >
+            用户名：
+            <input
+              id="admin"
+              style="
+                margin-left: 6px;
+                background-color: #ffffff;
+                border-radius: 24px;
+                box-shadow: 3px 4px 5px #0160752b inset;
+                height: 28px;
+                width: 114px;
+                border: none;
+              "
+              v-model="name"
+            />
+          </label>
         </div>
-        <div
-          style="
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: rgba(0, 103, 112, 1);
-          "
-        >
-          生日：
-          <input
+
+        <div style="margin-top: 20px">
+          <label
+            for="sex"
             style="
-              margin-left: 20px;
-              background-color: #ffffff;
-              border-radius: 24px;
-              box-shadow: 3px 4px 5px #0160752b inset;
-              height: 28px;
-              width: 168px;
-              border: none;
+              font-size: 18px;
+              margin-bottom: 20px;
+              color: rgba(0, 103, 112, 1);
             "
-            v-model="birth"
-          />
+          >
+            性别：
+            <input
+              readonly
+              @click="ShowSex = true"
+              id="sex"
+              style="
+                margin-left: 20px;
+                background-color: #ffffff;
+                border-radius: 24px;
+                box-shadow: 3px 4px 5px #0160752b inset;
+                height: 28px;
+                width: 50px;
+                border: none;
+                text-align: center;
+              "
+              v-model="sex"
+            />
+          </label>
         </div>
-        <div
-          style="
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: rgba(0, 103, 112, 1);
-          "
-        >
-          学历：
-          <input
+
+        <div style="margin-top: 20px">
+          <label
+            for="birth"
             style="
-              margin-left: 20px;
-              background-color: #ffffff;
-              border-radius: 24px;
-              box-shadow: 3px 4px 5px #0160752b inset;
-              height: 28px;
-              width: 114px;
-              border: none;
+              font-size: 18px;
+              margin-bottom: 20px;
+              color: rgba(0, 103, 112, 1);
             "
-            v-model="degree"
-          />
+          >
+            生日：
+            <input
+              @click="ShowTime = true"
+              readonly
+              id="birth"
+              style="
+                margin-left: 20px;
+                background-color: #ffffff;
+                border-radius: 24px;
+                box-shadow: 3px 4px 5px #0160752b inset;
+                height: 28px;
+                width: 168px;
+                border: none;
+                text-align: center;
+              "
+              v-model="birth"
+            />
+          </label>
         </div>
-        <div
-          style="
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: rgba(0, 103, 112, 1);
-          "
-        >
-          城市：
-          <input
+
+        <div style="margin-top: 20px">
+          <label
+            for="acdamic"
             style="
-              margin-left: 20px;
-              background-color: #ffffff;
-              border-radius: 24px;
-              box-shadow: 3px 4px 5px #0160752b inset;
-              height: 28px;
-              width: 114px;
-              border: none;
+              font-size: 18px;
+              margin-bottom: 20px;
+              color: rgba(0, 103, 112, 1);
             "
-            v-model="city"
-          />
+          >
+            学历：
+            <input
+              @click="ShowAcdemic = true"
+              readonly
+              id="acadamic"
+              style="
+                margin-left: 20px;
+                background-color: #ffffff;
+                border-radius: 24px;
+                box-shadow: 3px 4px 5px #0160752b inset;
+                height: 28px;
+                width: 114px;
+                border: none;
+                text-align: center;
+              "
+              v-model="degree"
+            />
+          </label>
         </div>
         <div
           style="
@@ -188,16 +216,15 @@
             margin-bottom: 20px;
             color: rgba(0, 103, 112, 1);
           "
-        >
-        </div>
+        ></div>
       </div>
       <div
         :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
         style="
           position: relative;
           z-index: 999999;
-          top: 60%;
-          left: 33%;
+          top: 55%;
+          left: 35%;
           display: flex;
           align-items: center;
         "
@@ -220,10 +247,50 @@
         </button>
       </div>
     </div>
+    <van-popup
+      v-model:show="ShowSex"
+      position="bottom"
+      style="z-index: 999999999"
+    >
+      <van-picker
+        title="性别"
+        :columns="columns"
+        @confirm="onConfirm"
+        @cancel="ShowSex = false"
+        @change="onChange"
+      />
+    </van-popup>
+    <van-popup
+      v-model:show="ShowTime"
+      position="bottom"
+      style="z-index: 999999999"
+    >
+      <van-date-picker
+        v-model="currentDate"
+        title="选择日期"
+        :min-date="minDate"
+        :max-date="maxDate"
+        @confirm="ConfirmTime"
+        @cancel="ShowTime = false"
+      />
+    </van-popup>
+    <van-popup
+      v-model:show="ShowAcdemic"
+      position="bottom"
+      style="z-index: 999999999"
+    >
+      <van-picker
+        title="学历"
+        :columns="columnsa"
+        @confirm="ConfirmAcdemic"
+        @cancel="ShowAcdemic = false"
+      />
+    </van-popup>
   </div>
 </template>
   
 <script>
+import { ref } from 'vue'
 import axios from 'axios'
 export default {
   data () {
@@ -232,10 +299,33 @@ export default {
       name: '',
       birth: '',
       degree: '',
-      city: '',
+      sex: ' ',
       id: '',
-      tonext: false
+      tonext: false,
+      columns: [
+        { text: '男', value: '男' },
+        { text: '女', value: '女' },
+      ],
+      columnsa: [
+        { text: '初中', value: '初中' },
+        { text: '高中', value: '高中' },
+        { text: '大学', value: '大学' },
+        { text: '研究生及以上', value: '研究生及以上' },
+      ],
+      ShowSex: false,
+      ShowTime: false,
+      ShowAcdemic: false,
+      currentDate: ref(['2021', '01', '01']),
+      minDate: new Date(1970, 0, 1),
+      maxDate: new Date(),
     }
+  },
+  mounted () {
+    console.log(this.currentDate[0])
+    this.currentDate[0] = this.getdate()[0]
+    this.currentDate[1] = this.getdate()[1]
+    this.currentDate[2] = this.getdate()[2]
+
   },
   created () {
     setTimeout(() => {
@@ -244,6 +334,14 @@ export default {
     this.id = this.$route.params.userId
   },
   methods: {
+    getdate () {
+      var date = new Date()
+      var year = date.getFullYear()
+      var month = date.getMonth() + 1
+      var strDate = date.getDate()
+      let dateR = [year, month, strDate]
+      return dateR
+    },
     gotest () {
       axios.post('http://127.0.0.1:5000/userinfo', {
         name: this.name,
@@ -256,7 +354,20 @@ export default {
         setTimeout(() => {
           this.$router.push('./questionSet1')
         }, 800)
-        })
+      })
+    },
+    onConfirm ({ selectedValues }) {
+      this.sex = selectedValues[0]
+      this.ShowSex = false
+
+    },
+    ConfirmTime () {
+      this.birth = this.currentDate
+      this.ShowTime = false
+    },
+    ConfirmAcdemic ({ selectedValues }) {
+      this.degree = selectedValues[0]
+      this.ShowAcdemic = false
     }
   }
 };

@@ -15,6 +15,12 @@ app.use(TabbarItem)
 import { Switch } from 'vant'
 app.use(Switch)
 
+import { Picker } from 'vant'
+app.use(Picker)
+
+import { Popup } from 'vant'
+app.use(Popup)
+
 import { DatePicker } from 'vant'
 app.use(DatePicker)
 

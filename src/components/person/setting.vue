@@ -18,6 +18,7 @@
     </svg>
     <div class="text">我的帖子</div>
   </div>
+
   <div class="blank-1"></div>
   <div class="his" @click="go('./History')">
     <img class="icon-1" src="../../assets/icons/person/his.png" alt="" />
