@@ -255,7 +255,20 @@ export default {
   },
   methods: {
     login () {
-      this.$router.push('/Home')
+      axios.post('http://127.0.0.1:5000/login',{
+        account:this.account,
+        password:this.password
+      }).then(res=>{
+        if(res.data['message']==false){
+          showDialog({message:'账号或密码错误'})
+        }
+        else{
+            this.$router.push('/Home')
+        }
+      }).catch(error=>{
+        console.log(error);
+      })
+
     },
     // async login () {
     //   try {

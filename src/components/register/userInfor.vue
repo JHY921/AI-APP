@@ -116,7 +116,7 @@
               width: 114px;
               border: none;
             "
-            v-model="account"
+            v-model="name"
           />
         </div>
         <div
@@ -137,7 +137,7 @@
               width: 168px;
               border: none;
             "
-            v-model="account"
+            v-model="birth"
           />
         </div>
         <div
@@ -158,7 +158,7 @@
               width: 114px;
               border: none;
             "
-            v-model="account"
+            v-model="degree"
           />
         </div>
         <div
@@ -179,7 +179,7 @@
               width: 114px;
               border: none;
             "
-            v-model="account"
+            v-model="city"
           />
         </div>
         <div
@@ -189,19 +189,6 @@
             color: rgba(0, 103, 112, 1);
           "
         >
-          电话：
-          <input
-            style="
-              margin-left: 20px;
-              background-color: #ffffff;
-              border-radius: 24px;
-              box-shadow: 3px 4px 5px #0160752b inset;
-              height: 28px;
-              width: 168px;
-              border: none;
-            "
-            v-model="account"
-          />
         </div>
       </div>
       <div
@@ -246,7 +233,6 @@ export default {
       birth: '',
       degree: '',
       city: '',
-      tel: '',
       id: '',
       tonext: false
     }
@@ -259,21 +245,18 @@ export default {
   },
   methods: {
     gotest () {
-      this.tonext = !this.tonext
-      setTimeout(() => {
-        this.$router.push('./questionSet1')
-      }, 800)
-
       axios.post('http://127.0.0.1:5000/userinfo', {
         name: this.name,
         birth: this.birth,
         degree: this.degree,
         city: this.city,
-        tel: this.tel,
         id: this.id
       }).then(res => {
-        console.log('collect success')
-      })
+        this.tonext = !this.tonext
+        setTimeout(() => {
+          this.$router.push('./questionSet1')
+        }, 800)
+        })
     }
   }
 };

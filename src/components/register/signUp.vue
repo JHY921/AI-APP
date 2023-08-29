@@ -48,12 +48,12 @@
             rgba(143, 205, 211, 0) 90%
           );
           filter: blur(0px);
-          z-index: 10010;
+          z-index: 10;
         "
       ></div>
       <div
         style="
-          z-index: 10009;
+          z-index: 9;
           position: absolute;
           left: -4px;
           top: 320px;
@@ -71,14 +71,14 @@
 
       <img
         :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
-        style="z-index: 10011; position: absolute; left: 47%; top: 15%"
+        style="z-index: 11; position: absolute; left: 47%; top: 15%"
         src="../../assets/icons/register/signUp.png"
       />
 
       <div
         :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
         style="
-          z-index: 999999;
+          z-index: 999;
           position: absolute;
           left: 8%;
           top: 57%;
@@ -227,6 +227,8 @@
   
 <script>
 import axios from 'axios'
+import { showDialog } from 'vant';
+import 'vant/es/dialog/style'
 import UserInfor from './userInfor.vue'
 export default {
   data () {
@@ -239,13 +241,12 @@ export default {
       circle1Height: '350px',
       circle2Width: '250px',
       circle2Height: '250px',
-      circle1Zindex: '10009',
-      circle2Zindex: '10008',
+      circle1Zindex: '9',
+      circle2Zindex: '8',
       circle1Opa: 0.7,
       circle2Opa: 1,
       Skip: false,
       isRem: false,//记住密码
-      account: '',//账号
       password: '',//密码
       checkPassword: '',//确认密码
       phoneNumber: '',
@@ -257,7 +258,20 @@ export default {
   methods: {
 
     UserInfor () {
-      this.$router.push('./userinfor')
+      if(this.password!= this.checkPassword){
+        showDialog({message:'两次密码输入不一致'})
+      }
+      else{
+        axios.post('http://127.0.0.1:5000/register', {
+          tel:this.phoneNumber,
+          password:this.password
+      }).then(res=>{
+        console.log(res.data);
+        this.$router.push({name:'userinfor', params:{userId:res.data}})
+      }).catch(err=>{
+        console.log(err);
+      })
+      }
     },
     swapCircles () {
       // Swap positions with animation
