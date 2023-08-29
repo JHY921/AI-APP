@@ -98,7 +98,7 @@
           width: 100%;
         "
       >
-        <div style="margin-top: 20px">
+        <div>
           <label
             for="admin"
             style="
@@ -118,17 +118,26 @@
                 height: 28px;
                 width: 114px;
                 border: none;
+                text-align: center;
               "
-              @blur="checkadmin"
               v-model="name"
             />
           </label>
         </div>
-        <div style="color: red; margin: 5px">
+        <div
+          style="
+            margin-top: 7px;
+            margin-bottom: -7px;
+            color: red;
+            font-size: 6px;
+            opacity: 0.6;
+            margin-left: 80px;
+          "
+        >
           <span v-show="admin">用户名不符合要求</span>
         </div>
 
-        <div style="margin-top: 8px">
+        <div style="margin-top: 20px">
           <label
             for="sex"
             style="
@@ -374,20 +383,29 @@ export default {
       this.degree = selectedValues[0]
       this.ShowAcdemic = false
     },
-    checkadmin () {
+    checkadmin (value) {
       function isValidString (str) {
         // 创建一个正则表达式，用于匹配只包含数字和英文字符，长度在3到6个字符之间的字符串
         const regex = /^[0-9a-zA-Z]{3,6}$/
         // 使用正则表达式进行匹配
         return regex.test(str)
       }
-      if (isValidString(this.name) || !this.name) {
-        console.log("符合要求")
+      if (this.name === '') {
         this.admin = false
       } else {
-        console.log("不符合要求")
-        this.admin = true
+        if (isValidString(value)) {
+          console.log("符合要求")
+          this.admin = false
+        } else {
+          console.log("不符合要求")
+          this.admin = true
+        }
       }
+    }
+  },
+  watch: {
+    name (value) {
+      this.checkadmin(value)
     }
   }
 };

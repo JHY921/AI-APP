@@ -100,12 +100,18 @@
             "
             v-model="phoneNumber"
           />
-          <p
-            style="color: red; font-size: 6px; margin-left: 100px; opacity: 0.6"
-            v-if="istel"
+          <div
+            style="
+              margin-top: 3px;
+              margin-bottom: -2px;
+              color: red;
+              font-size: 6px;
+              opacity: 0.6;
+              margin-left: 100px;
+            "
           >
-            手机号格式错误
-          </p>
+            <span v-if="istel"> 手机号格式错误 </span>
+          </div>
         </div>
         <div style="font-size: 18px; color: #008c99; margin-bottom: 10px">
           密码：
@@ -140,12 +146,17 @@
             "
             v-model="checkPassword"
           />
-          <p
-            style="color: red; font-size: 6px; margin-left: 100px; opacity: 0.6"
-            v-if="ispassword"
-          >
-            两次密码输入不一致
-          </p>
+        </div>
+        <div
+          style="
+            margin-bottom: 8px;
+            color: red;
+            font-size: 6px;
+            opacity: 0.6;
+            margin-left: 100px;
+          "
+        >
+          <span v-if="ispassword">两次密码输入不一致</span>
         </div>
         <div style="font-size: 18px; color: #008c99">
           验证码：
@@ -307,19 +318,29 @@ export default {
       this.isRem = !this.isRem
     },
     validateTel (value) {
-      const pattern = /^1[3456789]\d{9}$/
-      if (!pattern.test(value)) {
-        this.istel = 1
-      } else {
+      if (this.phoneNumber === '') {
         this.istel = 0
+      } else {
+        const pattern = /^1[3456789]\d{9}$/
+        if (!pattern.test(value)) {
+          this.istel = 1
+        } else {
+          this.istel = 0
+        }
       }
+
     },
     checknum (value) {
-      if (this.password != value)
-        this.ispassword = 1
-      else
+      if (this.checkPassword === '') {
         this.ispassword = 0
+      } else {
+        if (this.password != value)
+          this.ispassword = 1
+        else
+          this.ispassword = 0
+      }
     }
+
   },
   watch: {
     phoneNumber (newValue) {
