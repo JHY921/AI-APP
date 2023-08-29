@@ -1,12 +1,5 @@
-<script>
+<script setup>
 import extraFunction from '../../components/extraFunction/extraFunction.vue'
-import { ref } from 'vue'
-export default {
-  setup () {
-    const active = ref(1)
-    return { active }
-  },
-};
 </script>
 <template>
   <extraFunction />
@@ -15,7 +8,7 @@ export default {
       <van-tabbar-item replace to="/Home" icon="home-o">首页</van-tabbar-item>
       <van-tabbar-item replace to="/Forum" icon="search">论坛</van-tabbar-item>
       <van-tabbar-item replace to="/extraFunction" icon="friends-o" info="5"
-        >xx</van-tabbar-item
+        >体验馆</van-tabbar-item
       >
       <van-tabbar-item replace to="/Person" icon="setting-o" info="20"
         >我的</van-tabbar-item
@@ -23,3 +16,12 @@ export default {
     </van-tabbar>
   </div>
 </template>
+<script>
+import { ref } from 'vue'
+export default {
+  setup () {
+    const active = ref(3)
+    return { active }
+  },
+};
+</script>
