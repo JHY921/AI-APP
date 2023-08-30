@@ -1,26 +1,34 @@
 <script>
 import { showToast } from 'vant'
-import { reactive } from 'vue';
+import { reactive } from 'vue'
 import axios from 'axios'
 export default {
   setup () {
     const onClickLeft = () => history.back()
     const onClickRight = () => showToast('按钮')
-    function post(){
+    function post () {
       let userId = this.$route.params.id
-      axios.post('https://localhost/postinfo',{
+      axios.post('https://localhost/postinfo', {
         userId: userId,
-        title:info.title,
-        passage:info.passage
+        title: info.title,
+        passage: info.passage
       })
     }
-    const info = reactive({title:'', passage:''})
+    const info = reactive({ title: '', passage: '' })
     return {
       onClickLeft,
       onClickRight,
       info
     }
   },
+  methods: {
+    save () {
+
+    },
+    post () {
+
+    }
+  }
 };
 </script>
 <template>
@@ -33,8 +41,8 @@ export default {
       <span class="headword">发布帖子</span>
     </template>
     <template #right>
-      <button class="save">保存</button>
-      <button class="post">发布</button>
+      <button @click="save" class="save">保存</button>
+      <button @click="post" class="post">发布</button>
     </template>
     <template #left>
       <van-icon name="arrow-left" color="rgba(0, 121, 148, 1)" />
@@ -47,7 +55,8 @@ export default {
       id="passage"
       rows="100"
       placeholder="想要写些什么"
-      class="passage" v-model="passage"
+      class="passage"
+      v-model="passage"
     ></textarea>
   </form>
   <van-action-bar>
