@@ -294,7 +294,7 @@ export default {
 
     UserInfor () {
       if (this.canpassword === 0 && this.ispassword === 0 && this.istel === 0 && this.password != 0 && this.checkPassword != 0 && this.phoneNumber != 0) {
-        axios.post('http://127.0.0.1:5000/register', {
+        axios.post('http://39.106.71.161:5000/register', {
           tel: this.phoneNumber,
           password: this.password
         }).then(res => {
@@ -355,16 +355,16 @@ export default {
       }
     },
     checkcanpassword (value) {
-      if (this.password === '') {
-        this.canpassword = 0
-      } else {
-        const pattern1 = /^(?![A-Za-z0-9]+$)(?![a-z0-9\\W]+$)(?![A-Za-z\\W]+$)(?![A-Z0-9\\W]+$)[a-zA-Z0-9\\W]{8,20}$/
-        if (!pattern1.test(value)) {
-          this.canpassword = 1
-        } else {
-          this.canpassword = 0
-        }
-      }
+      // if (this.password === '') {
+      //   this.canpassword = 0
+      // } else {
+      //   const pattern1 = /^(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]{6,12}$/
+      //   if (pattern1.test(value)) {
+      //     this.canpassword = 0
+      //   } else {
+      //     this.canpassword = 1
+      //   }
+      // }
     }
 
   },

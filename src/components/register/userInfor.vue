@@ -234,6 +234,17 @@
               v-model="degree"
             />
           </label>
+          <div
+            style="
+              margin-top: 30px;
+              color: red;
+              font-size: 15px;
+              opacity: 0.6;
+              margin-left: 70px;
+            "
+          >
+            <span v-show="msg">请把信息填写完整</span>
+          </div>
         </div>
         <div
           style="
@@ -243,6 +254,7 @@
           "
         ></div>
       </div>
+
       <div
         :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
         style="
@@ -315,6 +327,7 @@
 </template>
   
 <script>
+import { showToast } from 'vant'
 import { ref } from 'vue'
 import axios from 'axios'
 export default {
@@ -324,8 +337,9 @@ export default {
       name: '',
       birth: '',
       degree: '',
-      sex: ' ',
+      sex: '',
       id: '',
+      msg: false,
       tonext: false,
       columns: [
         { text: '男', value: '男' },
@@ -369,18 +383,28 @@ export default {
       return dateR
     },
     gotest () {
-      axios.post('http://127.0.0.1:5000/userinfo', {
-        name: this.name,
-        birth: this.birth,
-        degree: this.degree,
-        city: this.city,
-        id: this.id
-      }).then(res => {
-        this.tonext = !this.tonext
+      if (this.name != '' && this.sex != '' && this.degree != '' && this.birtn != '') {
+        this.msg = false
+        axios.post('http://39.106.71.161:5000/userinfo', {
+          name: this.name,
+          birth: this.birth,
+          degree: this.degree,
+          sex: this.sex,
+          id: this.id
+        }).then(res => {
+          this.tonext = !this.tonext
+          setTimeout(() => {
+            this.$router.push('./questionSet1')
+          }, 800)
+        })
+      } else {
+
+        this.msg = true
         setTimeout(() => {
-          this.$router.push('./questionSet1')
-        }, 800)
-      })
+          this.msg = false
+        }, 500)
+      }
+
     },
     onConfirm ({ selectedValues }) {
       this.sex = selectedValues[0]

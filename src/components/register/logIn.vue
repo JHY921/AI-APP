@@ -264,7 +264,7 @@ export default {
       if (this.account === '' || this.password === '') {
         showDialog({ message: '账号或密码不能为空' })
       } else {
-        axios.post('http://127.0.0.1:5000/login', {
+        axios.post('http://39.106.71.161:5000/login', {
           account: this.account,
           password: this.password
         }).then(res => {
