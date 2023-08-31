@@ -373,6 +373,7 @@ export default {
       this.loading = true
     }, 100)
     this.id = this.$route.params.userId
+    console.log(this.id)
   },
   methods: {
     getdate () {
@@ -394,6 +395,7 @@ export default {
           sex: this.sex,
           id: this.id
         }).then(res => {
+
           this.tonext = !this.tonext
           setTimeout(() => {
             this.$router.push('./questionSet1')

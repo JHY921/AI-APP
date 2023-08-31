@@ -300,7 +300,7 @@ export default {
           password: this.password
         }).then(res => {
           console.log(res.data)
-          this.$router.push({ name: 'userinfor', params: { userId: res.data } })
+          this.$router.push({ name: 'userinfo', params: { userId: res.data } })
         }).catch(err => {
           console.log(err)
         })

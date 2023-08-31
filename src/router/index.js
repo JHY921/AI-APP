@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const login = () => import('../views/register/login.vue')
 const SignUp = () => import('../views/register/signUp.vue')
 const extraFunction = () => import('../views/extraFunction/index.vue')
-const userinfor = () => import('../views/register/userinfo.vue')
+const userinfo = () => import('../views/register/userinfo.vue')
 
 
 const Home = () => import('../views/homepage/homepage.vue')
@@ -43,9 +43,9 @@ const router = createRouter({
       component: SignUp
     },
     {
-      path: '/userinfor',
-      name: 'userinfor',
-      component: userinfor
+      path: '/userinfo/:userId',
+      name: 'userinfo',
+      component: userinfo
     },
     {
       path: '/Home',
