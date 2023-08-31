@@ -264,7 +264,7 @@ export default {
       if (this.account === '' || this.password === '') {
         showDialog({ message: '账号或密码不能为空' })
       } else {
-        axios.post('http://39.106.71.161:5000/login', {
+        axios.post('http://this.GLOBAL.api/login', {
           account: this.account,
           password: this.password
         }).then(res => {
@@ -272,9 +272,13 @@ export default {
             showDialog({ message: '账号或密码错误' })
           }
           else {
+            const token = response.data.token
+
+            // 将令牌存储在本地存储中，以便后续请求使用
+            localStorage.setItem('token', token)
             showSuccessToast('登陆成功')
             setTimeout(() => {
-              this.$router.push('/Home')
+              this.$router.push({ name: 'Home', params: { userId: res.data } })
             }, 500) // 这里的500表示延迟时间，根据动画持续时间来调整
 
           }

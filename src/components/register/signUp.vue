@@ -294,7 +294,7 @@ export default {
 
     UserInfor () {
       if (this.canpassword === 0 && this.ispassword === 0 && this.istel === 0 && this.password != 0 && this.checkPassword != 0 && this.phoneNumber != 0) {
-        axios.post('http://39.106.71.161:5000/register', {
+        axios.post('http://this.api/register', {
           tel: this.phoneNumber,
           password: this.password
         }).then(res => {

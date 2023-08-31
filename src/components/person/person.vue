@@ -160,6 +160,16 @@ export default {
       fan: '65'
     }
   },
+  created () {
+    axios.get('http://39.106.71.161:5000/Person')
+      .then(response => {
+        // 将获取的数据赋值给组件的数据属性
+        this.fetchedData = response.data
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  },
   methods: {
     trans (a) {
       var num = Number(a)

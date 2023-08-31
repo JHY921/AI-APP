@@ -385,7 +385,7 @@ export default {
     gotest () {
       if (this.name != '' && this.sex != '' && this.degree != '' && this.birtn != '') {
         this.msg = false
-        axios.post('http://39.106.71.161:5000/userinfo', {
+        axios.post('http://this.GLOBAL.api/userinfo', {
           name: this.name,
           birth: this.birth,
           degree: this.degree,

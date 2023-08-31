@@ -34,12 +34,16 @@ app.use(NavBar)
 import { Toast } from 'vant'
 app.use(Toast)
 
+import GLOBAL from './api/global_variable'
+app.config.globalProperties.$GLOBAL = GLOBAL
 
 import router from './router'
 app.use(router)
+
 import { Cascader } from 'vant'
 //import store from './store'
 app.use(Cascader)
+
 app.mount('#app')
 
 
