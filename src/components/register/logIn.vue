@@ -233,6 +233,7 @@
 </template>
   
 <script>
+import api from '../../api/api'
 import axios from 'axios'
 import { showDialog } from 'vant'
 import 'vant/es/dialog/style'
@@ -264,7 +265,10 @@ export default {
       if (this.account === '' || this.password === '') {
         showDialog({ message: '账号或密码不能为空' })
       } else {
-        axios.post('http://this.GLOBAL.api/login', {
+        const url = `http://${api.api}/login`
+        console.log(url)
+        console.log(api.api)
+        axios.post(url, {
           account: this.account,
           password: this.password
         }).then(res => {
@@ -272,10 +276,7 @@ export default {
             showDialog({ message: '账号或密码错误' })
           }
           else {
-            const token = response.data.token
 
-            // 将令牌存储在本地存储中，以便后续请求使用
-            localStorage.setItem('token', token)
             showSuccessToast('登陆成功')
             setTimeout(() => {
               this.$router.push({ name: 'Home', params: { userId: res.data } })

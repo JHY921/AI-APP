@@ -263,7 +263,7 @@
 import axios from 'axios'
 import { showDialog } from 'vant'
 import 'vant/es/dialog/style'
-import UserInfor from './userInfor.vue'
+import api from '../../api/api'
 export default {
   data () {
     return {
@@ -294,7 +294,8 @@ export default {
 
     UserInfor () {
       if (this.canpassword === 0 && this.ispassword === 0 && this.istel === 0 && this.password != 0 && this.checkPassword != 0 && this.phoneNumber != 0) {
-        axios.post('http://this.api/register', {
+        const url = `http://${api.api}/login`
+        axios.post(url, {
           tel: this.phoneNumber,
           password: this.password
         }).then(res => {

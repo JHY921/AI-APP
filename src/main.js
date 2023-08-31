@@ -34,8 +34,10 @@ app.use(NavBar)
 import { Toast } from 'vant'
 app.use(Toast)
 
-import GLOBAL from './api/global_variable'
-app.config.globalProperties.$GLOBAL = GLOBAL
+//const api = '39.106.71.161:5000'
+const api = '192.168.1.102:5000'
+app.provide('$api', api)
+
 
 import router from './router'
 app.use(router)

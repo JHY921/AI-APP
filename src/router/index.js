@@ -48,24 +48,28 @@ const router = createRouter({
       component: userinfor
     },
     {
-      path: '/Home',
-      component: Home
+      path: '/Home/:userId',
+      component: Home,
+      name: 'Home',
     },
     {
       path: '/Monthlydata',
       component: Monthlydata
     },
     {
-      path: '/extraFunction',
-      component: extraFunction
+      path: '/extraFunction/:userId',
+      component: extraFunction,
+      name: 'extraFunction'
     },
     {
-      path: '/Forum',
-      component: Forum
+      path: '/Forum/:userId',
+      component: Forum,
+      name: 'Forum'
     },
     {
-      path: '/Person',
-      component: Person
+      path: '/Person/:userId',
+      component: Person,
+      name: 'Person'
     },
     {
       path: '/Forum_post',

@@ -327,6 +327,7 @@
 </template>
   
 <script>
+import api from '../../api/api'
 import { showToast } from 'vant'
 import { ref } from 'vue'
 import axios from 'axios'
@@ -384,8 +385,9 @@ export default {
     },
     gotest () {
       if (this.name != '' && this.sex != '' && this.degree != '' && this.birtn != '') {
+        const url = `http://${api.api}/login`
         this.msg = false
-        axios.post('http://this.GLOBAL.api/userinfo', {
+        axios.post(url, {
           name: this.name,
           birth: this.birth,
           degree: this.degree,
