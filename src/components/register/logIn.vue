@@ -279,7 +279,7 @@ export default {
 
             showSuccessToast('登陆成功')
             setTimeout(() => {
-              this.$router.push({ name: 'Home', params: { userId: res.data } })
+              this.$router.push('/Home')
             }, 500) // 这里的500表示延迟时间，根据动画持续时间来调整
 
           }

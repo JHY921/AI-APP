@@ -43,33 +43,33 @@ const router = createRouter({
       component: SignUp
     },
     {
-      path: '/userinfor/:userId',
+      path: '/userinfor',
       name: 'userinfor',
       component: userinfor
     },
     {
-      path: '/Home/:userId',
+      path: '/Home',
       component: Home,
-      name: 'Home',
+
     },
     {
       path: '/Monthlydata',
       component: Monthlydata
     },
     {
-      path: '/extraFunction/:userId',
+      path: '/extraFunction',
       component: extraFunction,
-      name: 'extraFunction'
+
     },
     {
-      path: '/Forum/:userId',
+      path: '/Forum',
       component: Forum,
-      name: 'Forum'
+
     },
     {
-      path: '/Person/:userId',
+      path: '/Person',
       component: Person,
-      name: 'Person'
+
     },
     {
       path: '/Forum_post',

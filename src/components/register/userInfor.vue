@@ -385,7 +385,7 @@ export default {
     },
     gotest () {
       if (this.name != '' && this.sex != '' && this.degree != '' && this.birtn != '') {
-        const url = `http://${api.api}/login`
+        const url = `http://${api.api}/userinfo`
         this.msg = false
         axios.post(url, {
           name: this.name,
@@ -400,7 +400,6 @@ export default {
           }, 800)
         })
       } else {
-
         this.msg = true
         setTimeout(() => {
           this.msg = false

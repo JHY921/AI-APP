@@ -294,7 +294,7 @@ export default {
 
     UserInfor () {
       if (this.canpassword === 0 && this.ispassword === 0 && this.istel === 0 && this.password != 0 && this.checkPassword != 0 && this.phoneNumber != 0) {
-        const url = `http://${api.api}/login`
+        const url = `http://${api.api}/register`
         axios.post(url, {
           tel: this.phoneNumber,
           password: this.password

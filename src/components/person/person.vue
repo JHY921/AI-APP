@@ -148,6 +148,7 @@
   </div>
 </template>
 <script >
+import api from '../../api/api'
 export default {
 
   components: {},
@@ -161,7 +162,8 @@ export default {
     }
   },
   created () {
-    axios.get('http://39.106.71.161:5000/Person')
+    const url = `http://${api.api}/login`
+    axios.get(url)
       .then(response => {
         // 将获取的数据赋值给组件的数据属性
         this.fetchedData = response.data
