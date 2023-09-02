@@ -398,7 +398,7 @@ export default {
 
           this.tonext = !this.tonext
           setTimeout(() => {
-            this.$router.push('./questionSet1')
+            this.$router.push('/intro')
           }, 800)
         })
       } else {

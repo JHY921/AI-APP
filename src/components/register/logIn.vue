@@ -330,7 +330,6 @@ export default {
       setTimeout(() => {
         this.$router.push('/signup')
       }, 300) // 这里的500表示延迟时间，根据动画持续时间来调整
-
     },
     changeInfor (prop1, prop2) {
       const tempW = this[prop1]

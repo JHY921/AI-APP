@@ -21,6 +21,7 @@ const notification = () => import('../views/forum/notification.vue')
 const useService = () => import('../views/person/useService.vue')
 const setting = () => import('../views/person/setting.vue')
 
+const intro = () => import('../views/questionSet/intro/intro.vue')
 const questionSet1 = () => import('../views/questionSet/quesJelly/quesJelly.vue')
 const questionSet2 = () => import('../views/questionSet/quesMult/quesMulti.vue')
 const questionSet3 = () => import('../views/questionSet/quesMult_v2/quesMult_v2.vue')
@@ -102,6 +103,10 @@ const router = createRouter({
     {
       path: '/useService',
       component: useService
+    },
+    {
+      path: '/intro',
+      component: intro
     },
     {
       path: '/questionSet1',
