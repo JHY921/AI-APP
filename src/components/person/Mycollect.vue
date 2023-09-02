@@ -55,10 +55,6 @@
   </div>
   <div class="content">
     <Mypost></Mypost>
-    <Mypost></Mypost>
-    <Mypost></Mypost>
-    <Mypost></Mypost>
-    <Mypost></Mypost>
   </div>
 </template>
 <script>

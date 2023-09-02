@@ -1,7 +1,7 @@
 <template>
   <div class="title">
     <div class="back"></div>
-    <div @click="go('./mypost')">
+    <div @click="go('./userLevel')">
       <div class="img">
         <van-image
           width="56"
@@ -113,38 +113,31 @@
     <div class="text1">收藏</div>
     <van-icon name="arrow" class="arrow-1" size="16px" />
   </div>
-
-  <div class="blank-1"></div>
-  <div class="his" @click="go('./History')">
-    <img class="icon-1" src="../../assets/icons/person/his.png" alt="" />
-    <div class="text1">历史记录</div>
-    <van-icon name="arrow" class="arrow-1" size="16px" />
-  </div>
-
-  <div class="gap1"></div>
-  <div class="class">
-    <img class="icon-2" src="../../assets/icons/person/play.png" alt="" />
-    <div class="text1">课程</div>
-    <van-icon name="arrow" class="arrow-1" size="16px" />
-  </div>
-
-  <div class="gap1"></div>
-  <div class="help">
-    <img class="icon-3" src="../../assets/icons/person/help.png" alt="" />
-    <div class="text1">帮助</div>
-    <van-icon name="arrow" class="arrow-1" size="16px" />
-  </div>
-  <div class="gap1"></div>
-  <div class="set" @click="go('./setting')">
-    <img class="icon-4" src="../../assets/icons/person/set.png" alt="" />
-    <div class="text1">设置</div>
-    <van-icon name="arrow" class="arrow-1" size="16px" />
-  </div>
-  <div class="gap1"></div>
-  <div class="wait" @click="go('./useService')">
-    <img class="icon-5" src="../../assets/icons/person/耳机.png" alt="" />
-    <div class="text1">客服</div>
-    <van-icon name="arrow" class="arrow-1" size="16px" />
+  <div style="height: 224px">
+    <div class="blank-1"></div>
+    <div class="his" @click="go('./History')">
+      <img class="icon-1" src="../../assets/icons/person/his.png" alt="" />
+      <div class="text1">历史记录</div>
+      <van-icon name="arrow" class="arrow-1" size="16px" />
+    </div>
+    <div class="gap1"></div>
+    <div class="class">
+      <img class="icon-2" src="../../assets/icons/person/play.png" alt="" />
+      <div class="text1">课程</div>
+      <van-icon name="arrow" class="arrow-1" size="16px" />
+    </div>
+    <div class="gap1"></div>
+    <div class="set" @click="go('./setting')">
+      <img class="icon-4" src="../../assets/icons/person/set.png" alt="" />
+      <div class="text1">设置</div>
+      <van-icon name="arrow" class="arrow-1" size="16px" />
+    </div>
+    <div class="gap1"></div>
+    <div class="wait" @click="go('./useService')">
+      <img class="icon-5" src="../../assets/icons/person/耳机.png" alt="" />
+      <div class="text1">客服</div>
+      <van-icon name="arrow" class="arrow-1" size="16px" />
+    </div>
   </div>
 </template>
 <script >
@@ -241,14 +234,6 @@ body {
   font-family: regular;
 }
 .class {
-  width: 100%;
-  height: 56px;
-  background-color: white;
-  position: relative;
-  font-size: 14px;
-  font-family: regular;
-}
-.help {
   width: 100%;
   height: 56px;
   background-color: white;

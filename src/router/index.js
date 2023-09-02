@@ -7,7 +7,8 @@ const userinfo = () => import('../views/register/userinfo.vue')
 
 
 const Home = () => import('../views/homepage/homepage.vue')
-const Monthlydata = () => import('../components/homepage/monthlydata.vue')
+const monthlycomp = () => import('../views/homepage/monthlycom.vue')
+
 const Forum = () => import('../views/forum/forum_index.vue')
 const Forum_post = () => import('../views/forum/forum_post.vue')
 const Personifo = () => import('../views/forum/Personifo.vue')
@@ -21,6 +22,7 @@ const notification = () => import('../views/forum/notification.vue')
 const useService = () => import('../views/person/useService.vue')
 const setting = () => import('../views/person/setUp/setUp.vue')
 const userLevel = () => import('../views/person/userLevel/userLevel.vue')
+
 
 const intro = () => import('../views/questionSet/intro/intro.vue')
 const questionSet1 = () => import('../views/questionSet/quesJelly/quesJelly.vue')
@@ -55,8 +57,8 @@ const router = createRouter({
 
     },
     {
-      path: '/Monthlydata',
-      component: Monthlydata
+      path: '/monthlycomp',
+      component: monthlycomp
     },
     {
       path: '/extraFunction',
@@ -132,6 +134,10 @@ const router = createRouter({
     {
       path: '/setting',
       component: setting
+    },
+    {
+      path: '/userLevel',
+      component: userLevel
     }
   ]
 })

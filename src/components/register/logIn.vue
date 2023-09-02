@@ -80,10 +80,18 @@
         :class="{ 'fade-out': Skip, 'fade-in': !Skip }"
         style="z-index: 99; position: absolute; left: 8%; top: 59%; width: 100%"
       >
-        <div style="font-size: 18px; margin-bottom: 20px; color: #008c99">
+        <div
+          style="
+            font-family: dyh;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #008c99;
+          "
+        >
           账号：
           <input
             style="
+              font-family: dyh;
               margin-left: 20px;
               background-color: #ffffff;
               border-radius: 24px;
@@ -96,11 +104,12 @@
             v-model="account"
           />
         </div>
-        <div style="font-size: 18px; color: #008c99">
+        <div style="font-family: dyh; font-size: 18px; color: #008c99">
           密码：
           <input
             type="password"
             style="
+              font-family: dyh;
               margin-left: 20px;
               background-color: #ffffff;
               border-radius: 24px;
@@ -125,7 +134,7 @@
             -webkit-transform: scale(0.9);
           "
         >
-          <span style="margin-right: 10px">是否记住密码</span>
+          <span style="font-family: dyh; margin-right: 10px">是否记住密码</span>
           <button
             @click="isRemember"
             :class="{ remPass: isRem }"
@@ -143,6 +152,7 @@
           <button
             @click="login"
             style="
+              font-family: dyh;
               width: 117px;
               height: 39px;
               background-color: #037585;
@@ -173,6 +183,7 @@
             <button
               @click="swapCircles"
               style="
+                font-family: dyh;
                 width: 70px;
                 height: 25px;
                 border: none;
@@ -199,6 +210,7 @@
         >
           <p
             style="
+              font-family: dyh;
               font-size: 12px;
               font-weight: 400;
               letter-spacing: 0px;
