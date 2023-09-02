@@ -148,6 +148,7 @@
   </div>
 </template>
 <script >
+import axios from 'axios'
 import api from '../../api/api'
 export default {
 
@@ -158,21 +159,26 @@ export default {
       account: '22330133',
       post: '22',
       concern: '35',
-      fan: '65'
+      fan: '65',
     }
   },
   created () {
-    const url = `http://${api.api}/login`
-    axios.get(url)
-      .then(response => {
-        // 将获取的数据赋值给组件的数据属性
-        this.fetchedData = response.data
-      })
-      .catch(error => {
-        console.error(error)
-      })
+    this.getApi()
   },
   methods: {
+    getApi () {
+      const url = `http://${api.api}/Person`
+      axios.get(url)
+        .then(res => {
+          console.log(res)
+          this.fan = res.data.fans
+          this.post = res.data.post
+          this.concern = res.data.follows
+        })
+        .catch(error => {
+          console.error(error)
+        })
+    },
     trans (a) {
       var num = Number(a)
       if (num >= 10000) {
