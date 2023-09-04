@@ -362,7 +362,7 @@ export default {
     },
     goStudy (id, num) {
       //跳转页面
-      console.log(id, num)
+      this.$router.push('/Courseplay')
     }
   },
   computed: {

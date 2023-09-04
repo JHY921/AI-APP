@@ -1,9 +1,9 @@
 
 <template>
   <div class="content">
-    <ballStage />
-    <Todo />
-    <Proccess @click="month" />
+    <ballStage style="margin: auto; margin-left: 12px" />
+    <Todo style="margin: auto" />
+    <Proccess @click="month" style="margin: auto; margin-top: 15px" />
   </div>
   <tabbar />
 </template>
@@ -22,7 +22,7 @@ export default {
   methods: {
     month () {
       this.$router.push('./monthlycomp')
-    }
+    },
 
   }
 }
@@ -30,9 +30,10 @@ export default {
 <style scoped>
 .content {
   margin: auto;
+  margin-top: 20px;
   width: 360px;
-  height: 100%;
-  overflow: auto;
+  height: 630px;
+  overflow: hidden;
 }
 </style>
 

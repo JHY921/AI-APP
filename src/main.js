@@ -35,7 +35,7 @@ import { Toast } from 'vant'
 app.use(Toast)
 
 //const api = '39.106.71.161:5000'
-const api = '127.0.0.1:5000'
+const api = 'localhost:5000'
 app.provide('$api', api)
 
 

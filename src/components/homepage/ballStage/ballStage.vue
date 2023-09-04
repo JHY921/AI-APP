@@ -504,7 +504,7 @@ svg {
 }
 .illustrate {
   position: absolute;
-  right: 12px;
+  right: 27px;
   top: 2.2px;
 }
 .ball {
