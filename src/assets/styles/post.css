@@ -1,3 +1,6 @@
+*{
+  overflow: auto;
+}
 #wrapper {
   top: 24px;
   width: 100%;

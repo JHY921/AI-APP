@@ -47,6 +47,7 @@ export default {
     <template #left>
       <van-icon name="arrow-left" color="rgba(0, 121, 148, 1)" />
     </template>
+
   </van-nav-bar>
   <form action="" class="text">
     <input type="text" placeholder="请输入标题" class="title" v-model="title" />
