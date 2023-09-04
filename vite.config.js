@@ -30,13 +30,14 @@ export default defineConfig({
   },
   devServer: {
     proxy: {
-      '/api': {
-        target: 'http://39.106.71.161',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
+      // '/api': {
+      //   target: 'http://39.106.71.161',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/api': ''
+      //   }
+      // }
+      proxy:'http://127.0.0.1:5000'
     }
   }
 })

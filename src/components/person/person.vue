@@ -161,7 +161,7 @@ export default {
   methods: {
     getApi () {
       const url = `http://${api.api}/Person`
-      axios.get(url)
+      axios.get(url, {headers:{ 'Authorization': 'Bearer ' + localStorage.getItem('token')}, withCredentials:true})
         .then(res => {
           console.log(res)
           this.fan = res.data.fans

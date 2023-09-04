@@ -283,12 +283,12 @@ export default {
         axios.post(url, {
           account: this.account,
           password: this.password
-        }).then(res => {
+        },{withCredentials:true}).then(res => {
           if (res.data['message'] == false) {
             showDialog({ message: '账号或密码错误' })
           }
           else {
-
+            localStorage.setItem('token', res.data.token);
             showSuccessToast('登陆成功')
             setTimeout(() => {
               this.$router.push('/Home')
