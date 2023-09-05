@@ -161,12 +161,14 @@ export default {
   methods: {
     getApi () {
       const url = `http://${api.api}/Person`
-      axios.get(url, {headers:{ 'Authorization': 'Bearer ' + localStorage.getItem('token')}, withCredentials:true})
+      axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
         .then(res => {
           console.log(res)
           this.fan = res.data.fans
           this.post = res.data.post
           this.concern = res.data.follows
+          this.name = res.data.name
+          this.account = res.data.account
         })
         .catch(error => {
           console.error(error)
@@ -285,6 +287,7 @@ body {
   font-weight: 300;
   font-size: 10px;
   top: 30px;
+  width: 30px;
 }
 .account {
   position: absolute;

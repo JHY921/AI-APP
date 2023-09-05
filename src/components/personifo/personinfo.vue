@@ -87,6 +87,8 @@
   <selforum class="forum"></selforum>
 </template>
 <script>
+import axios from 'axios'
+import api from '../../api/api'
 import selforum from './selforum.vue'
 export default {
   components: { selforum },
@@ -101,8 +103,25 @@ export default {
       isconcern: '已关注'
     }
   },
-
+  created () {
+    this.getApi()
+  },
   methods: {
+    getApi () {
+      const url = `http://${api.api}/Person`
+      axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
+        .then(res => {
+          console.log(res)
+          this.fan = res.data.fans
+          this.post = res.data.post
+          this.concern = res.data.follows
+          this.name = res.data.name
+          this.account = res.data.account
+        })
+        .catch(error => {
+          console.error(error)
+        })
+    },
     trans (a) {
       var num = Number(a)
       if (num >= 10000) {
