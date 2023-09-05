@@ -89,9 +89,11 @@
         <div
           style="
             position: relative;
-            width: auto;
+            width: 280px;
             height: auto;
             padding-top: 20px;
+            font-family: dyh;
+            font-size: 48px;
           "
         >
           {{ quesContainer }}
@@ -108,14 +110,23 @@
         "
       />
     </div>
-    <div class="answer_container">
+    <div
+      class="answer_container"
+      style="font-family: dyh; font-size: 25px; font-weight: 400; color: white"
+    >
       <img
         src="./ans1.png"
         style="width: 240px; margin-top: -55px; margin-left: -75px"
       />
       <div
         @click="chooseA"
-        style="width: 160px; height: 180px; position: absolute"
+        style="
+          width: 160px;
+          height: 180px;
+          position: absolute;
+          margin-top: 70px;
+          margin-left: 50px;
+        "
       >
         {{ quesA }}
         <!-- 题目区域     -->
@@ -130,9 +141,11 @@
           width: 200px;
           height: 120px;
           position: absolute;
-          margin-left: 180px;
+          margin-left: 280px;
+          margin-top: 50px;
         "
       >
+        {{ quesB }}
         <!-- 题目区域     -->
       </div>
       <img
@@ -145,11 +158,11 @@
           width: 160px;
           height: 140px;
           position: absolute;
-          margin-left: 140px;
-          margin-top: 120px;
+          margin-left: 200px;
+          margin-top: 180px;
         "
       >
-        {{ quesD }}
+        {{ quesC }}
       </div>
       <img
         src="./ans4.png"
@@ -161,7 +174,8 @@
           width: 180px;
           height: 160px;
           position: absolute;
-          margin-top: 200px;
+          margin-top: 280px;
+          margin-left: 50px;
         "
       >
         {{ quesD }}
@@ -176,11 +190,11 @@
           width: 180px;
           height: 160px;
           position: absolute;
-          margin-top: 200px;
-          margin-left: 220px;
+          margin-top: 300px;
+          margin-left: 280px;
         "
       >
-        {{ quesD }}
+        {{ quesE }}
         <!-- 题目区域     -->
       </div>
     </div>
@@ -407,7 +421,7 @@ img {
   height: 360px;
   width: 360px;
   margin: 0;
-  font-size: 0;
+
   background-image: radial-gradient(rgba(0, 87, 107, 0.9) 10%, transparent 0);
   background-size: 5px 5px;
   /* background-image:

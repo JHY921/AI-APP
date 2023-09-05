@@ -91,6 +91,7 @@
             width: auto;
             height: auto;
             padding-top: 20px;
+            font-family: dyh;
           "
         >
           {{ quesContainer }}
@@ -107,11 +108,11 @@
         "
       />
     </div>
-    <div class="answer_container">
+    <div class="answer_container" style="font-family: dyh; font-size: 80px">
       <div
         @click="chooseA"
         style="
-          line-height: 140px;
+          line-height: 80px;
           color: rgba(255, 255, 255, 1);
           vertical-align: top;
           font-size: 36px;
@@ -121,14 +122,16 @@
           background: rgba(0, 121, 148, 1);
           border-top-right-radius: 16px;
           border-bottom-right-radius: 16px;
+          padding-top: 50px;
         "
       >
-        &nbsp;&nbsp;&nbsp;&nbsp;{{ quesA }}
+        &nbsp;&nbsp;&nbsp;&nbsp;{{ quesA }},
+        <p>有开源项目或社区贡献</p>
       </div>
       <div
         @click="chooseB"
         style="
-          line-height: 140px;
+          line-height: 80px;
           color: rgba(255, 255, 255, 1);
           vertical-align: top;
           font-size: 36px;
@@ -138,9 +141,11 @@
           background: rgba(0, 92, 112, 1);
           border-top-left-radius: 16px;
           border-bottom-left-radius: 16px;
+          padding-top: 50px;
         "
       >
-        &nbsp;&nbsp;&nbsp;&nbsp;{{ quesB }}
+        &nbsp;&nbsp;&nbsp;&nbsp;{{ quesB }},
+        <p>没有相关贡献</p>
       </div>
     </div>
     <div class="return_label">
@@ -238,14 +243,15 @@
 </template>
   
 <script>
+import { showToast } from 'vant'
 export default {
   data () {
     return {
       nowQuesNum: 5,
       totalQuesNum: 5,
-      quesContainer: "此处是问题",
-      quesA: "选项A",
-      quesB: "选项B",
+      quesContainer: "是否有在开源项目或计算机社区中做出贡献？",
+      quesA: "是",
+      quesB: "否",
     }
   },
   methods: {
@@ -253,6 +259,7 @@ export default {
       history.back()
     },
     nextQuestion () {
+      showToast('注册成功，返回登录')
       this.$router.push('./login')
     },
     chooseA () {

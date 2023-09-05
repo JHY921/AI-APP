@@ -86,18 +86,18 @@
           vertical-align: middle;
         "
       >
-        <!-- <div style="position: relative; width: auto; height: auto; padding-top: 20px;">
-                    你觉得自己当前处于哪个阶段？
-                </div> -->
-        <img
-          src="./stage.png"
+        <div
           style="
-            width: 320px;
+            position: relative;
+            width: 280px;
             height: auto;
-            margin-top: 20px;
-            margin-left: 10px;
+            padding-top: 20px;
+            font-size: 48px;
+            font-family: dyh;
           "
-        />
+        >
+          请选择您最了解的领域？
+        </div>
       </div>
       <img
         src="./quesIcon.png"
@@ -110,7 +110,7 @@
         "
       />
     </div>
-    <div class="answer_container">
+    <div class="answer_container" style="font-family: dyh; text-align: center">
       <div
         style="
           position: absolute;
@@ -378,12 +378,12 @@ export default {
     return {
       nowQuesNum: 2,
       totalQuesNum: 5,
-      quesA: "这里是选项内容",
-      quesB: "这里是选项内容",
-      quesC: "这里是选项内容",
-      quesD: "这里是选项内容",
-      quesE: "这里是选项内容",
-      quesF: "这里是选项内容",
+      quesA: "网络安全",
+      quesB: "软件开发",
+      quesC: "数据科学和分析",
+      quesD: "人工智能和科学学习",
+      quesE: "其他",
+      quesF: "无",
     }
   },
   methods: {
@@ -470,7 +470,6 @@ export default {
   position: relative;
   height: 360px;
   width: 360px;
-  font-size: 0px;
 }
 
 .return_label {

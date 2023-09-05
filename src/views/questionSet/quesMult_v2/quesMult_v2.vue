@@ -88,9 +88,11 @@
         <div
           style="
             position: relative;
-            width: auto;
+            width: 280px;
             height: auto;
             padding-top: 20px;
+            font-family: dyh;
+            font-size: 48px;
           "
         >
           {{ quesContainer }}
@@ -107,7 +109,7 @@
         "
       />
     </div>
-    <div class="answer_container">
+    <div class="answer_container" style="font-family: dyh">
       <img
         src="./blockBackground.png"
         style="
@@ -320,13 +322,12 @@ export default {
     return {
       nowQuesNum: 3,
       totalQuesNum: 5,
-      quesContainer: "此处是问题",
-      quesA: "这里是选项内容",
-      quesB: "这里是选项内容",
-      quesC: "这里是选项内容",
-      quesD: "这里是选项内容",
-      quesE: "这里是选项内容",
-      quesF: "这里是选项内容",
+      quesContainer: "相关从事经验",
+      quesA: "略有了解/从未了解",
+      quesB: "1年以下",
+      quesC: "1-3年",
+      quesD: "3-5年",
+      quesE: "5年以上",
     }
   },
   methods: {

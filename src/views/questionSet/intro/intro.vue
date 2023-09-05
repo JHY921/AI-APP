@@ -137,9 +137,9 @@ export default {
   methods: {
     animateUp () {
       this.isAnimating = true
-      // setTimeout(() => {
-      //   this.$router.push('/questionSet1')
-      // }, 1000)
+      setTimeout(() => {
+        this.$router.push('/questionSet1')
+      }, 1000)
     }
   }
 }
