@@ -31,6 +31,8 @@ const questionSet3 = () => import('../views/questionSet/quesMult_v2/quesMult_v2.
 const questionSet4 = () => import('../views/questionSet/quesStage/quesStage.vue')
 const questionSet5 = () => import('../views/questionSet/quesTF/quesTF.vue')
 
+const ocr = ()=>import('../views/ocr/ocr.vue')
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -138,6 +140,10 @@ const router = createRouter({
     {
       path: '/userLevel',
       component: userLevel
+    },
+    {
+      path:'/ocr',
+      component:ocr
     }
   ]
 })
