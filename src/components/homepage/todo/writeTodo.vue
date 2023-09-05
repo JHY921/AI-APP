@@ -20,18 +20,18 @@
       <div class="time">
         <div class="begin">
           <span>开始</span>
-          <label for="" class="dateDisplay" @click="date1">
+          <label for="" class="dateDisplay" @click="date(1)">
             {{ hour1 }}:{{ minute1 }}
           </label>
         </div>
         <div class="end">
           <span>结束</span>
-          <label for="" class="dateDisplay" @click="date2">
+          <label for="" class="dateDisplay" @click="date(2)">
             {{ hour2 }}:{{ minute2 }}
           </label>
         </div>
       </div>
-      <div class="important">
+      <div class="important" @click="important">
         <label
           for=""
           style="
@@ -82,14 +82,17 @@
     <van-time-picker
       v-model="currentTime"
       title="选择时间"
-      v-show="timepick1"
+      v-show="timepick"
+      @confirm="ctime"
+      @cancel="timepick = !timepick"
     />
   </div>
 </template>
 <style scoped>
 .wrapper {
-  left: 394px;
-  top: 555px;
+  position: absolute;
+  left: 15px;
+  top: 100px;
   width: 328px;
   height: 191px;
   opacity: 1;
@@ -103,6 +106,7 @@
     #14849c 350.7%,
     #ffffff 381.5%
   );
+  z-index: 100000;
 }
 input::placeholder {
   color: #00000033;
@@ -169,6 +173,7 @@ input::placeholder {
   width: 100%;
   position: absolute;
   bottom: 0;
+  z-index: 100000;
 }
 </style>
 <script>
@@ -179,18 +184,34 @@ export default {
   },
   data () {
     return {
-
-      timepick1: false,
-      timepick2: false,
-      hour1: 0o0,
-      minute1: 0o0,
-      hour2: 0o0,
-      minute2: 0o0,
+      whichtime: 0,
+      timepick: false,
+      hour1: "00",
+      minute1: '00',
+      hour2: '00',
+      minute2: '00',
+      currentTime: [],
+      checked: false
     }
   },
   methods: {
-    date1 () {
-      this.timepick1 = !this.timepick1
+    date (index) {
+      this.timepick = !this.timepick
+      this.whichtime = index
+    },
+    ctime () {
+      if (this.whichtime == 1) {
+        console.log(this.currentTime)
+        this.hour1 = this.currentTime[0]
+        this.minute1 = this.currentTime[1]
+      } else {
+        this.hour2 = this.currentTime[0]
+        this.minute2 = this.currentTime[1]
+      }
+      this.timepick = !this.timepick
+    },
+    important () {
+      this.checked = !this.checked
     }
   }
 

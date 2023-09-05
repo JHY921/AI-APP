@@ -92,7 +92,7 @@
     <div
       @click="animateUp"
       class="animated-text"
-      :class="{ slide: isAnimationStarted }"
+      :class="{ slide: isAnimating }"
       style="
         margin-top: 30px;
         width: 100%;
@@ -124,22 +124,22 @@
   transition: transform 1s;
 }
 .slide {
-  transform: translateY(-30%);
+  transform: translateY(-300px);
 }
 </style>
 <script>
 export default {
   data () {
     return {
-      isAnimating: false
+      isAnimating: false,
     }
   },
   methods: {
     animateUp () {
       this.isAnimating = true
-      setTimeout(() => {
-        this.$router.push('/questionSet1')
-      }, 1000)
+      // setTimeout(() => {
+      //   this.$router.push('/questionSet1')
+      // }, 1000)
     }
   }
 }

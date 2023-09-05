@@ -13,6 +13,7 @@ export default {
       setTimeout(() => {
         this.isRotated = false
       }, 300)
+      this.$emit('addtodo')
     },
 
     todo () {

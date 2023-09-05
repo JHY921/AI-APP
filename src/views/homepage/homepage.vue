@@ -1,28 +1,39 @@
 
 <template>
-  <div class="content">
-    <ballStage style="margin: auto; margin-left: 12px" />
-    <Todo style="margin: auto" />
-    <Proccess @click="month" style="margin: auto; margin-top: 15px" />
+  <writeTodo v-if="iswritetodo" />
+  <div :class="{ covered: cover }">
+    <div class="content">
+      <ballStage style="margin: auto; margin-left: 12px" />
+      <Todo style="margin: auto" @addtodo="getadd" />
+      <Proccess @click="month" style="margin: auto; margin-top: 15px" />
+    </div>
   </div>
   <tabbar />
 </template>
 <script>
+
+import writeTodo from '../../components/homepage/todo/writeTodo.vue'
 import Todo from '../../components/homepage/todo/todo.vue'
 import ballStage from '../../components/homepage/ballStage/ballStage.vue'
 import Proccess from '../../components/homepage/proccess/proccess.vue'
 import tabbar from '../../components/tabbar.vue'
 export default {
-  components: { Todo, ballStage, Proccess, tabbar },
+  components: { Todo, ballStage, Proccess, tabbar, writeTodo },
   data () {
     return {
-
+      iswritetodo: false,
+      cover: false,
     }
   },
   methods: {
     month () {
       this.$router.push('./monthlycomp')
     },
+    getadd () {
+      console.log(this.iswritetodo)
+      this.iswritetodo = true
+      this.cover = true
+    }
 
   }
 }
@@ -34,6 +45,12 @@ export default {
   width: 360px;
   height: 630px;
   overflow: hidden;
+}
+.covered {
+  background-color: #e8f3f5;
+  z-index: 99999;
+  opacity: 0.2;
+  position: fixed;
 }
 </style>
 

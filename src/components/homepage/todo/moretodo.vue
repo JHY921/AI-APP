@@ -52,40 +52,25 @@
       </center>
     </div>
   </div>
-  <div class="todo-list">
+  <div
+    class="todo-list"
+    style="overflow: hidden; height: 586px; font-family: Medium"
+  >
     <div class="todo-item">
       <label>
         <input type="checkbox" />
         Todo1
         <span class="check-button"></span>
-      </label>
-    </div>
-    <div class="todo-item">
-      <label>
-        <input type="checkbox" />
-        Todo1
-        <span class="check-button"></span>
-      </label>
-    </div>
-    <div class="todo-item">
-      <label>
-        <input type="checkbox" />
-        Todo1
-        <span class="check-button"></span>
-      </label>
-    </div>
-    <div class="todo-item">
-      <label>
-        <input type="checkbox" />
-        Todo1
-        <span class="check-button"></span>
-      </label>
-    </div>
-    <div class="todo-item">
-      <label>
-        <input type="checkbox" />
-        Todo1
-        <span class="check-button"></span>
+        <span
+          style="
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0px;
+            color: rgba(255, 255, 255, 1);
+            margin-left: 200px;
+          "
+          >{{ time1 }}-{{ time2 }}</span
+        >
       </label>
     </div>
   </div>
@@ -119,20 +104,15 @@
   height: 64px;
   opacity: 1;
   border-radius: 0px 6px, 6px, 0px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(20, 132, 156, 1) 96.06%,
-    rgba(0, 69, 84, 1) 100%
-  );
-  font-family: regular;
+  background: url("./待办单组1.png");
+  background-size: cover;
+  width: 360px;
+  height: 64px;
   line-height: 64px;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0px;
   color: rgba(0, 100, 122, 1);
-  text-align: left;
-  vertical-align: top;
 }
 </style>
 <script>
@@ -140,7 +120,9 @@ export default {
   components: {},
   data () {
     return {
-      n: 0
+      n: 0,
+      time1: '6:00',
+      time2: '7:00'
     }
   },
   methods: {
