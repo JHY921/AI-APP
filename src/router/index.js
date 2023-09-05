@@ -7,12 +7,15 @@ const userinfo = () => import('../views/register/userinfo.vue')
 
 
 const Home = () => import('../views/homepage/homepage.vue')
+
+const moretodo = () => import('../views/homepage/moretodo.vue')
 const monthlycomp = () => import('../views/homepage/monthlycom.vue')
 
 const Forum = () => import('../views/forum/forum_index.vue')
 const Forum_post = () => import('../views/forum/forum_post.vue')
 const Personifo = () => import('../views/forum/Personifo.vue')
 const Course = () => import('../views/forum/course.vue')
+const Courseplay = () => import('../components/forum/course/courseplay.vue')
 
 const Person = () => import('../views/person/person.vue')
 const History = () => import('../views/person/history.vue')
@@ -59,6 +62,10 @@ const router = createRouter({
 
     },
     {
+      path: '/moretodo',
+      component: moretodo
+    },
+    {
       path: '/monthlycomp',
       component: monthlycomp
     },
@@ -88,6 +95,10 @@ const router = createRouter({
     {
       path: '/Course',
       component: Course
+    },
+    {
+      path: '/Courseplay',
+      component: Courseplay
     },
     {
       path: '/History',

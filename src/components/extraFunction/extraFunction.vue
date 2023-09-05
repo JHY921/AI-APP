@@ -1,6 +1,5 @@
 <template>
-  <div class="total">
-    <div class="status_bar"></div>
+  <div class="total" style="margin-top: 20px">
     <div class="funcContainer">
       <div class="funcA" @click="functionA">
         <div
@@ -242,17 +241,6 @@ export default {
   height: 640px;
   overflow: hidden;
   background: white;
-}
-
-.status_bar {
-  position: relative;
-  left: 0px;
-  top: 0px;
-  width: 360px;
-  height: 24px;
-  opacity: 1;
-  background: rgba(158, 152, 152, 0.4);
-  z-index: 99999;
 }
 
 .funcContainer {

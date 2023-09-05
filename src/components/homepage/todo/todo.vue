@@ -13,7 +13,13 @@ export default {
       setTimeout(() => {
         this.isRotated = false
       }, 300)
+      this.$emit('addtodo')
     },
+
+    todo () {
+      this.$router.push('./moretodo')
+    }
+
   },
 }
 </script>
@@ -48,7 +54,7 @@ export default {
     <ul>
       <li v-for="(task, index) in tasks" :key="index"></li>
     </ul>
-    <div class="alltodo">
+    <div class="alltodo" @click="todo">
       <span>查看更多事项...</span>
     </div>
     <span class="word">开始你的计划吧</span>
