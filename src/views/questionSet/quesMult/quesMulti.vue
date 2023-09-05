@@ -376,8 +376,8 @@
 export default {
   data () {
     return {
-      nowQuesNum: 1,
-      totalQuesNum: 6,
+      nowQuesNum: 2,
+      totalQuesNum: 5,
       quesA: "这里是选项内容",
       quesB: "这里是选项内容",
       quesC: "这里是选项内容",

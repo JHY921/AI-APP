@@ -285,6 +285,7 @@
 </template>
   
 <script>
+import { showToast } from 'vant'
 export default {
   data () {
     return {
@@ -301,7 +302,7 @@ export default {
   },
   methods: {
     lastQuestion () {
-      history.back()
+      showToast('已经是第一个问题')
     },
     nextQuestion () {
       this.$router.push('./questionSet2')

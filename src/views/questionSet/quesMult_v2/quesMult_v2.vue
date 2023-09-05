@@ -318,8 +318,8 @@
 export default {
   data () {
     return {
-      nowQuesNum: 1,
-      totalQuesNum: 6,
+      nowQuesNum: 3,
+      totalQuesNum: 5,
       quesContainer: "此处是问题",
       quesA: "这里是选项内容",
       quesB: "这里是选项内容",

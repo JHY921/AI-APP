@@ -305,8 +305,8 @@
 export default {
   data () {
     return {
-      nowQuesNum: 1,
-      totalQuesNum: 6,
+      nowQuesNum: 4,
+      totalQuesNum: 5,
     }
   },
   methods: {

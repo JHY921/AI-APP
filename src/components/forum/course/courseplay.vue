@@ -100,7 +100,7 @@
               color: rgba(116, 139, 144, 0.56);
               font-family: thin;
             "
-            >{{ content }}</span
+            >{{ course.course_content }}</span
           >
         </div>
       </div>
@@ -249,7 +249,7 @@
               font-family: regular;
               color: rgba(45, 105, 140, 0.7);
             "
-            >{{ courses }}</span
+            >{{ course.course_title }}</span
           >
           <span
             v-if="isstudy"
@@ -282,7 +282,7 @@
 export default {
   data () {
     return {
-      courses: [],
+      course: [],
       title: 'vdvsdvs',
       content: 'dvvsdvsdvsvdsvsdv',
       name: 'cdscdsc',
