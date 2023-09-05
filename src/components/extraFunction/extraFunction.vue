@@ -201,24 +201,25 @@
 </template>
   
 <script>
+import { showToast } from 'vant'
 export default {
   data () {
     return {
-      funcA: "功能名称",
+      funcA: "图片识别文字",
       funcB: "功能名称",
-      funcC: "功能名称",
+      funcC: "更多功能静待开发...",
       funcD: "功能名称",
     }
   },
   methods: {
     functionA () {
-      console.log("1")
+      this.$router.push('./ocr')
     },
     functionB () {
       console.log("1")
     },
     functionC () {
-      console.log("1")
+      showToast('静待开发')
     },
     functionD () {
       console.log("1")
