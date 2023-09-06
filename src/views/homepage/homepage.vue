@@ -1,11 +1,21 @@
 
 <template>
-  <div :class="{ covered: cover }">
-    <div class="content">
-      <ballStage style="margin: auto; margin-left: 12px" />
-      <Todo style="margin: auto" />
-      <Proccess @click="month" style="margin: auto; margin-top: 15px" />
-    </div>
+  <div class="content">
+    <ballStage
+      style="margin: auto; margin-left: 12px"
+      :class="{ covered: cover }"
+    />
+
+    <Todo
+      style="margin: auto"
+      @getadd="this.cover = true"
+      @cover="this.cover = false"
+    />
+    <Proccess
+      @click="month"
+      style="margin: auto; margin-top: 15px"
+      :class="{ covered: cover }"
+    />
   </div>
   <tabbar />
 </template>
@@ -20,14 +30,13 @@ export default {
   components: { Todo, ballStage, Proccess, tabbar },
   data () {
     return {
-
+      cover: false,
     }
   },
   methods: {
     month () {
       this.$router.push('./monthlycomp')
     },
-
   }
 }
 </script>
@@ -41,9 +50,8 @@ export default {
 }
 .covered {
   background-color: #e8f3f5;
-  z-index: 99999;
+
   opacity: 0.2;
-  position: fixed;
 }
 </style>
 

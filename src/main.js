@@ -46,6 +46,9 @@ import { Cascader } from 'vant'
 //import store from './store'
 app.use(Cascader)
 
+import { Overlay } from 'vant'
+app.use(Overlay)
+
 app.mount('#app')
 
 
