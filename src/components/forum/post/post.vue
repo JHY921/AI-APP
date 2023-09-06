@@ -257,6 +257,8 @@
 
 
 <script>
+import axios from 'axios'
+import api from '../../../api/api'
 
 export default {
   data () {
@@ -283,7 +285,25 @@ export default {
 
     },
     postText () {
-
+      if(this.imageSrc){
+        var imgdate = this.imageSrc.split(',')[1]
+      }
+      else{
+        var imgdate = null
+      }
+      console.log(this.imageSrc);
+      console.log(imgdate);
+      axios.post(`http://${api.api}/forum/post`, {
+        title:this.title,
+        tag: this.tagList,
+        passage:this.passage,
+        img:imgdate,
+      },
+      {headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials:true}).then(res=>{
+        console.log(res.data);
+      }).catch(err=>{
+        console.log(err);
+      })
     },
     addTag () {
       this.showingInput = true

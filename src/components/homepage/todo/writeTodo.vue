@@ -15,6 +15,7 @@
           margin-bottom: 12px;
           padding-left: 16px;
         "
+        v-model="todo"
         placeholder="请输入代办"
       />
       <div class="time">
@@ -73,6 +74,7 @@
           letter-spacing: 0px;
           color: rgba(247, 247, 248, 1);
         "
+        @click="create"
       >
         创建
       </button>
@@ -191,7 +193,8 @@ export default {
       hour2: '00',
       minute2: '00',
       currentTime: [],
-      checked: false
+      checked: false,
+      todo:''
     }
   },
   methods: {
@@ -212,6 +215,11 @@ export default {
     },
     important () {
       this.checked = !this.checked
+    },
+    create(){
+      console.log('todo', this.todo);
+      console.log(this.hour1, this.hour2,this.minute1, this.minute2);
+      console.log(this.checked);
     }
   }
 
