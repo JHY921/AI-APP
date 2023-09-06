@@ -2,6 +2,7 @@
   <div class="wrapper">
     <form action="">
       <input
+        v-model="todo"
         type="text"
         style="
           width: 296px;
@@ -55,6 +56,7 @@
         />
       </div>
       <button
+        @click="thing"
         style="
           margin-left: 128px;
           width: 72px;
@@ -177,6 +179,7 @@ input::placeholder {
 }
 </style>
 <script>
+import { showToast } from 'vant'
 export default {
   setup () {
     const checked = true
@@ -191,7 +194,9 @@ export default {
       hour2: '00',
       minute2: '00',
       currentTime: [],
-      checked: false
+      checked: false,
+      todo: '',
+      things: []
     }
   },
   methods: {
@@ -211,7 +216,23 @@ export default {
       this.timepick = !this.timepick
     },
     important () {
-      this.checked = !this.checked
+      this.checked = true
+    }
+    ,
+    thing () {
+      if (this.todo === '' || this.hour1 > this.hour2 || (this.hour1 === this.hour2 && this.minute1 > this.minute2)) {
+        showToast('请仔细检查')
+      } else {
+        this.things[0] = this.todo
+        this.things[1] = this.hour1
+        this.things[2] = this.minute1
+        this.things[3] = this.hour2
+        this.things[4] = this.minute2
+        this.things[5] = this.checked
+        console.log(this.things)
+        this.$emit('thing', 'things')
+      }
+
     }
   }
 

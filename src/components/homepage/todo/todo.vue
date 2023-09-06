@@ -1,31 +1,7 @@
-<script>
-export default {
-  data () {
-    return {
-      isRotated: false,
-      newTask: "",
-      tasks: [],
-    }
-  },
-  methods: {
-    rotateButton () {
-      this.isRotated = true
-      setTimeout(() => {
-        this.isRotated = false
-      }, 300)
-      this.$emit('addtodo')
-    },
-
-    todo () {
-      this.$router.push('./moretodo')
-    }
-
-  },
-}
-</script>
 
 <template>
-  <div class="wrapper">
+  <writeTodo v-if="iswritetodo" />
+  <div class="wrapper" @addtodo="getadd">
     <div class="addtodo">
       <span>
         <img
@@ -52,7 +28,7 @@ export default {
       </button>
     </div>
     <ul>
-      <li v-for="(task, index) in tasks" :key="index"></li>
+      <li v-for="(task, index) in tasks" :key="index" @thing="thing"></li>
     </ul>
     <div class="alltodo" @click="todo">
       <span>查看更多事项...</span>
@@ -63,3 +39,40 @@ export default {
 <style scoped>
 @import "../../../assets/styles/todo.css";
 </style>
+<script>
+import writeTodo from './writeTodo.vue'
+export default {
+  components: { writeTodo },
+  data () {
+    return {
+      isRotated: false,
+      newTask: "",
+      tasks: [],
+      iswritetodo: false,
+      cover: false,
+    }
+  },
+  methods: {
+    rotateButton () {
+      this.isRotated = true
+      setTimeout(() => {
+        this.isRotated = false
+      }, 300)
+      this.$emit('addtodo')
+    },
+
+    todo () {
+      this.$router.push('./moretodo')
+    },
+    thing (data) {
+      console.log(data)
+    },
+    getadd () {
+      console.log(this.iswritetodo)
+      this.iswritetodo = true
+      this.cover = true
+    }
+
+  },
+}
+</script>
