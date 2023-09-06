@@ -7,7 +7,9 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 import * as d3 from 'd3'
+import api from '../../../api/api'
 export default {
   data () {
     return {
@@ -134,43 +136,98 @@ export default {
         .text('优秀')
       var mark = svg.append('g')
       var tt = svg.append('g')
-      for (var i = 0; i < 4; i++) {
-        for (var j = 0; j < 7; j++) {
-          mark.append('circle')
-            .attr('cx', width * 0.35 + j * 30)
-            .attr('cy', 25 + i * 29)
-            .attr('r', 9)
-            .attr('fill', 'rgba(218, 235, 239, 1)')
-            .attr('filter', 'url(#shadow)')
-          tt.append('text')
-            .attr('x', width * 0.35 - 3 + j * 30)
-            .attr('y', 25 + i * 29)
-            .attr('font-size', 8)
-            .attr('fill', 'black')
-            .attr('text-anchor', 'middle')
-            .text(`${i * 7 + j + 1}`)
-        }
-      }
-      for (var i = 0; i < this.day - 28; i++) {
-        mark.append('circle')
-          .attr('cx', width * 0.35 + i * 30)
-          .attr('cy', 141)
-          .attr('r', 9)
-          .attr('fill', 'rgba(218, 235, 239, 1)')
-          .attr('filter', 'url(#shadow)')
-        tt.append('text')
-          .attr('x', width * 0.35 - 3 + i * 30)
-          .attr('y', 141)
-          .attr('font-size', 8)
-          .attr('fill', 'black')
-          .attr('text-anchor', 'middle')
-          .text(`${29 + i}`)
-      }
+      axios.get(`http://${api.api}/home/process`)
+        .then(res=>{
+          var rend = res.data
+          console.log(rend);
+          for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 7; j++) {
+              mark.append('circle')
+                .attr('cx', width * 0.35 + j * 30)
+                .attr('cy', 25 + i * 29)
+                .attr('r', 9)
+                .attr('fill', function(){
+                  if(rend[i*7+j]<=0.25){
+                    return 'rgba(218, 235, 239, 1)'
+                  }
+                  else if(rend[i*7+j]<=0.5){
+                    return 'rgba(147, 198, 209, 1)'
+                  }
+                  else if(rend[i*7+j]<=0.75){
+                    return 'rgba(52, 148, 169, 1)'
+                  }
+                  else if(rend[i*7+j]==-1){
+                    return 'rgba(218, 235, 239, 1)'
+                  }
+                  else {
+                    return 'rgba(0, 100, 122, 1)'
+                  }
+                })
+                .attr('filter', 'url(#shadow)')
+                .attr('id', `circle${i*7+j+1}`)
+              tt.append('text')
+                .attr('x', width * 0.35 - 3 + j * 30)
+                .attr('y', 25 + i * 29)
+                .attr('font-size', 8)
+                .attr('fill', function(){
+                  if(rend[i*7+j]>=0.75){
+                    return 'white'
+                  }
+                  else{
+                    return 'black'
+                  }
+                })
+                .attr('text-anchor', 'middle')
+                .text(`${i * 7 + j + 1}`)
+                .attr('id', `text${i*7+j+1}`)
+            }
+          }
+          for (var i = 0; i < this.day - 28; i++) {
+            mark.append('circle')
+              .attr('cx', width * 0.35 + i * 30)
+              .attr('cy', 141)
+              .attr('r', 9)
+              .attr('fill', function(){
+                  if(rend[28+i]<=0.25){
+                    return 'rgba(218, 235, 239, 1)'
+                  }
+                  else if(rend[28+i]<=0.5){
+                    return 'rgba(147, 198, 209, 1)'
+                  }
+                  else if(rend[28+i]<=0.75){
+                    return 'rgba(52, 148, 169, 1)'
+                  }
+                  else if(rend[28+i]==-1){
+                    return 'rgba(218, 235, 239, 1)'
+                  }
+                  else {
+                    return 'rgba(0, 100, 122, 1)'
+                  }
+                })
+              .attr('filter', 'url(#shadow)')
+              .attr('id', `circle${29+i}`)
+            tt.append('text')
+              .attr('x', width * 0.35 - 3 + i * 30)
+              .attr('y', 141)
+              .attr('font-size', 8)
+              .attr('fill', function(){
+                  if(rend[28+i]>=0.75){
+                    return 'white'
+                  }
+                  else{
+                    return 'black'
+                  }
+                })
+              .attr('text-anchor', 'middle')
+              .text(`${29 + i}`)
+              .attr('id', `text${29+i}`)
+          }
+        })
     },
     redraw () {
       d3.select("#con svg").remove() // 清除旧的 SVG 元素
       this.draw() // 创建新的图形
-    }
+    },
 
   },
   mounted () {
