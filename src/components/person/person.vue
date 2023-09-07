@@ -287,7 +287,7 @@ body {
   font-weight: 300;
   font-size: 10px;
   top: 30px;
-  width: 30px;
+  width: 50px;
 }
 .account {
   position: absolute;
@@ -299,7 +299,7 @@ body {
 }
 .arrow {
   position: absolute;
-  right: 35px;
+  right: 28px;
   top: 95px;
 }
 .post {

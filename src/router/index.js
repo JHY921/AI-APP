@@ -121,27 +121,33 @@ const router = createRouter({
       component: useService
     },
     {
-      path: '/intro',
+      path: '/intro/:userId',
+      name:'intro',
       component: intro
     },
     {
-      path: '/questionSet1',
+      path: '/questionSet1/:userId',
+      name:'questionSet1',
       component: questionSet1
     },
     {
-      path: '/questionSet2',
+      path: '/questionSet2/:userId',
+      name:'questionSet2',
       component: questionSet2
     },
     {
-      path: '/questionSet3',
+      path: '/questionSet3/:userId',
+      name:'questionSet3',
       component: questionSet3
     },
     {
-      path: '/questionSet4',
+      path: '/questionSet4/:userId',
+      name:'questionSet4',
       component: questionSet4
     },
     {
-      path: '/questionSet5',
+      path: '/questionSet5/:userId',
+      name:'questionSet5',
       component: questionSet5
     },
     {

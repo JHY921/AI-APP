@@ -373,6 +373,7 @@
 </template>
   
 <script>
+import quest from '../../../api/question'
 export default {
   data () {
     return {
@@ -384,31 +385,41 @@ export default {
       quesD: "人工智能和科学学习",
       quesE: "其他",
       quesF: "无",
+      id:'',
     }
+  },
+  created(){
+    this.id = this.$route.params.userId
   },
   methods: {
     lastQuestion () {
       history.back()
     },
     nextQuestion () {
-      this.$router.push('./questionSet3')
+      this.$router.push({name:'questionSet3', params:{userId:this.id}})
     },
     chooseA () {
+      quest[1] =1
       console.log(1)
     },
     chooseB () {
+      quest[1] = 2
       console.log(1)
     },
     chooseC () {
+      quest[1] =  3
       console.log(1)
     },
     chooseD () {
+      quest[1] = 4
       console.log(1)
     },
     chooseE () {
+      quest[1] =  5
       console.log(1)
     },
     chooseF () {
+      quest[1] = 6
       console.log(1)
     },
   }
