@@ -193,6 +193,7 @@ export default {
       checked: false,
       todo: '',
       things: []
+
     }
   },
   methods: {

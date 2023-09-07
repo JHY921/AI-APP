@@ -17,13 +17,15 @@
         height="50"
       />
       <button @click="rotateButton">
-        <div :class="{ rotate: isRotated }">
+        <div :style="{ transform: `rotate(${rotationDegree}deg)` }">
           <img
             @click="getadd"
             src="../../../assets/icons/homepage/todo/加号icon.png"
             alt=""
             width="30"
             height="30"
+            id="rotatable-image"
+            style="margin-left: 20px"
           />
         </div>
       </button>
@@ -35,7 +37,7 @@
         @thing="thing"
         :class="[
           `item-color-${index}`,
-          { 'slide-out': activeIndex == task[7] },
+          { 'slide-out': activeIndex1 == task[7] },
         ]"
         style="position: relative"
       >
@@ -65,7 +67,7 @@
             font-family: Regular;
             color: rgba(255, 255, 255, 1);
             position: absolute;
-            right: 45px;
+            right: 65px;
             padding-top: 15px;
           "
           >预计时间：{{ task[1] }} :{{ task[2] }}-{{ task[3] }}:
@@ -74,7 +76,7 @@
         <div
           style="
             position: absolute;
-            right: 15px;
+            right: 12px;
             width: 13px;
             height: 13px;
             transform: rotate(16.72deg);
@@ -91,12 +93,24 @@
           @click="toggleCompletion(task)"
         >
           <span
-            v-if="activeIndex === index"
+            v-if="activeIndex === task[7]"
             class="fade-in"
             style="font-size: 15px; color: aliceblue"
             >&#10003;</span
           >
         </div>
+        <img
+          src="./删除.png"
+          style="
+            width: 17px;
+            height: 18px;
+            margin-top: 14px;
+            position: absolute;
+            right: 38px;
+          "
+          alt=""
+          @click="deletetodo(task)"
+        />
       </li>
     </ul>
     <div class="alltodo" @click="todo" style="margin-top: -15px">
@@ -128,7 +142,7 @@
 }
 .fade-in {
   opacity: 0;
-  animation: fadeIn 1s ease-in forwards;
+  animation: fadeIn 0.01s ease-in forwards;
 }
 
 @keyframes fadeIn {
@@ -148,17 +162,19 @@
 import writeTodo from './writeTodo.vue'
 export default {
   created () {
-
     this.init()
   },
   components: { writeTodo },
   data () {
     return {
-      isRotated: false,
       newTask: "",
       tasks: [],
       iswritetodo: false,
       activeIndex: -1, // 用于跟踪哪个项目要展示动画
+      activeIndex1: -1,
+      buttondelete: 'false',//是否要切换到删除事件
+      // rotationDegree: 0,
+      // deletetask: [],
     }
   },
   computed: {
@@ -171,11 +187,26 @@ export default {
       this.iswritetodo = false
     },
     rotateButton () {
-      this.isRotated = true
-      setTimeout(() => {
-        this.isRotated = false
-      }, 300)
+      // console.log(this.buttondelete)
+      // if (this.buttondelete) {
+      //   this.tasks.splice(this.deletetask[7], 1)
+      //   for (let i = 0; i < this.tasks.length; i++) {
+      //     this.tasks[i][7] = i
+      //   }
+      //   const imageElement = document.getElementById('rotatable-image')
+      //   const centerX = imageElement.clientWidth + imageElement.clientWidth / 2 - 30
+      //   const centerY = imageElement.clientHeight + imageElement.clientHeight / 2 + 80
+      //   imageElement.style.transformOrigin = `${centerX}px ${centerY}px`
+      //   this.rotationDegree = -22
+      //   imageElement.style.transform = `rotate(${this.rotationDegree}deg)`
+      //   this.buttondelete = false
+      // }
+      // else {
+
       this.$emit('addtodo')
+
+      // }
+
     },
 
     todo () {
@@ -192,7 +223,6 @@ export default {
     gething (data) {
       this.iswritetodo = false
       this.tasks[this.tasks.length] = data
-
       this.tasks.sort((a, b) => {
         if (a[1] == b[1] && a[2] == b[2]) {
           if (a[3] == b[3]) {
@@ -220,12 +250,33 @@ export default {
     toggleCompletion (task) {
       // 设置要展示动画的项目索引
       this.activeIndex = task[7]
+      this.activeIndex1 = task[7]
       setTimeout(() => {
         this.tasks[this.activeIndex][6] = true
         this.activeIndex = -1
+        this.activeIndex1 = -1
       }, 1000)
       console.log(this.tasks)
     },
+    deletetodo (task) {
+      // this.buttondelete = true
+      // const imageElement = document.getElementById('rotatable-image')
+      // const centerX = imageElement.clientWidth + imageElement.clientWidth / 2 - 30
+      // const centerY = imageElement.clientHeight + imageElement.clientHeight / 2 + 80
+      // imageElement.style.transformOrigin = `${centerX}px ${centerY}px`
+      // this.rotationDegree = 22
+      // imageElement.style.transform = `rotate(${this.rotationDegree}deg)`
+      // this.deletetask = deletetask
+      this.activeIndex1 = task[7]
+      setTimeout(() => {
+        this.tasks.splice(task[7], 1)
+        for (let i = 0; i < this.tasks.length; i++) {
+          this.tasks[i][7] = i
+        }
+        this.activeIndex1 = -1
+      }, 1000)
+      console.log(this.tasks)
+    }
   },
 }
 </script>
