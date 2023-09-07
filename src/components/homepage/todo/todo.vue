@@ -1,6 +1,6 @@
 
 <template>
-  <writeTodo v-if="iswritetodo" style="z-index: 999999" @thing="gething" />
+  <writeTodo v-if="iswritetodo" @thing="gething" />
   <div class="wrapper">
     <div class="addtodo" style="z-index: 15">
       <span>
@@ -33,7 +33,10 @@
         v-for="(task, index) in tasksItems"
         :key="index"
         @thing="thing"
-        :class="`item-color-${index}`"
+        :class="[
+          `item-color-${index}`,
+          { 'slide-out': activeIndex == task[7] },
+        ]"
         style="position: relative"
       >
         <img
@@ -85,11 +88,11 @@
             margin-top: 13px;
           "
           :class="{ circle: true, completed: completed }"
-          @click="toggleCompletion(index)"
+          @click="toggleCompletion(task)"
         >
           <span
-            v-if="tasks[index][6]"
-            class="checkmark"
+            v-if="activeIndex === index"
+            class="fade-in"
             style="font-size: 15px; color: aliceblue"
             >&#10003;</span
           >
@@ -123,10 +126,31 @@
   z-index: -20;
   margin-top: -24px;
 }
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slide-out {
+  transition: transform 1s;
+  transform: translateX(-100%); /* 右滑动 */
+}
 </style>
 <script>
 import writeTodo from './writeTodo.vue'
 export default {
+  created () {
+
+    this.init()
+  },
   components: { writeTodo },
   data () {
     return {
@@ -134,14 +158,18 @@ export default {
       newTask: "",
       tasks: [],
       iswritetodo: false,
+      activeIndex: -1, // 用于跟踪哪个项目要展示动画
     }
   },
   computed: {
     tasksItems () {
-      return this.tasks.filter((task, index) => task[6] == false && index < 4)
+      return this.tasks.filter((task, index) => task[6] === false && index < 4)
     },
   },
   methods: {
+    init () {
+      this.iswritetodo = false
+    },
     rotateButton () {
       this.isRotated = true
       setTimeout(() => {
@@ -164,6 +192,7 @@ export default {
     gething (data) {
       this.iswritetodo = false
       this.tasks[this.tasks.length] = data
+
       this.tasks.sort((a, b) => {
         if (a[1] == b[1] && a[2] == b[2]) {
           if (a[3] == b[3]) {
@@ -182,12 +211,21 @@ export default {
         }
         return -1
       })
+      for (let i = 0; i < this.tasks.length; i++) {
+        this.tasks[i][7] = i
+      }
       console.log(this.tasks)
       this.$emit('cover')
     },
-    toggleCompletion (index) {
-      this.tasks[index][6] = true
-    }
+    toggleCompletion (task) {
+      // 设置要展示动画的项目索引
+      this.activeIndex = task[7]
+      setTimeout(() => {
+        this.tasks[this.activeIndex][6] = true
+        this.activeIndex = -1
+      }, 1000)
+      console.log(this.tasks)
+    },
   },
 }
 </script>
