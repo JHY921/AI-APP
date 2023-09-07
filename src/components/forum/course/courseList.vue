@@ -182,7 +182,6 @@
             display: inline-block;
             width: 100px;
             height: 65px;
-            background-color: #007994;
             margin-top: 10px;
             margin-right: 10px;
             margin-bottom: 0px;
@@ -192,7 +191,7 @@
           <img
             :src="course.course_cover"
             alt="封面"
-            style="max-width: 100%; max-height: 100%; border-radius: 10px"
+            style="width: 100px; height: 65px; border-radius: 10px"
           />
         </div>
         <div
@@ -203,15 +202,15 @@
             margin-top: 10px;
           "
         >
-          <div style="height: 33px; overflow: auto">
+          <div style="height: 36px;">
             <span
               style="
                 font-size: 14px;
                 font-weight: 700;
                 letter-spacing: 0px;
-                line-height: 16.41px;
                 color: rgba(0, 0, 0, 1);
                 text-align: left;
+                height: 34px;
               "
             >
               {{ course.course_title }}
@@ -509,7 +508,7 @@ h3 {
 .course_container {
   display: inline-block;
   vertical-align: top;
-  overflow: hidden;
+  overflow: auto;
   width: 220px;
   height: 568px;
 }
