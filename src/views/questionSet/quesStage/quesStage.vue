@@ -302,30 +302,39 @@
 </template>
   
 <script>
+import quest from '../../../api/question'
 export default {
   data () {
     return {
       nowQuesNum: 4,
       totalQuesNum: 5,
+      id:'',
     }
+  },
+  created(){
+    this.id = this.$route.params.userId
   },
   methods: {
     lastQuestion () {
       history.back()
     },
     nextQuestion () {
-      this.$router.push('./questionSet5')
+      this.$router.push({name:'questionSet5', params:{userId:this.id}})
     },
     chooseA () {
+      quest[3]=1
       console.log(1)
     },
     chooseB () {
+      quest[3]=2
       console.log(1)
     },
     chooseC () {
+      quest[3]=3
       console.log(1)
     },
     chooseD () {
+      quest[3]=4
       console.log(1)
     },
   }

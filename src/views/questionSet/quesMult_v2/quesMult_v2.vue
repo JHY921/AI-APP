@@ -317,6 +317,7 @@
 </template>
   
 <script>
+import quest from '../../../api/question'
 export default {
   data () {
     return {
@@ -328,31 +329,41 @@ export default {
       quesC: "1-3年",
       quesD: "3-5年",
       quesE: "5年以上",
+      id:'',
     }
+  },
+  created(){
+    this.id = this.$route.params.userId
   },
   methods: {
     lastQuestion () {
       history.back()
     },
     nextQuestion () {
-      this.$router.push('./questionSet4')
+      this.$router.push({name:'questionSet4', params:{userId:this.id}})
     },
     chooseA () {
+      quest[2] = 1
       console.log(1)
     },
     chooseB () {
+      quest[2] = 2
       console.log(1)
     },
     chooseC () {
+      quest[2] = 3
       console.log(1)
     },
     chooseD () {
+      quest[2] = 4
       console.log(1)
     },
     chooseE () {
+      quest[2] = 5
       console.log(1)
     },
     chooseF () {
+      quest[2] = 6
       console.log(1)
     },
   }
