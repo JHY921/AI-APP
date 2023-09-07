@@ -25,7 +25,7 @@ const notification = () => import('../views/forum/notification.vue')
 const useService = () => import('../views/person/useService.vue')
 const setting = () => import('../views/person/setUp/setUp.vue')
 const userLevel = () => import('../views/person/userLevel/userLevel.vue')
-
+const vedio = () => import('../components/forum/vedio/vedio.vue')
 
 const intro = () => import('../views/questionSet/intro/intro.vue')
 const questionSet1 = () => import('../views/questionSet/quesJelly/quesJelly.vue')
@@ -85,6 +85,11 @@ const router = createRouter({
 
     },
     {
+      path: '/vedio',
+      component: vedio,
+
+    },
+    {
       path: '/Forum_post',
       component: Forum_post
     },
@@ -122,32 +127,32 @@ const router = createRouter({
     },
     {
       path: '/intro/:userId',
-      name:'intro',
+      name: 'intro',
       component: intro
     },
     {
       path: '/questionSet1/:userId',
-      name:'questionSet1',
+      name: 'questionSet1',
       component: questionSet1
     },
     {
       path: '/questionSet2/:userId',
-      name:'questionSet2',
+      name: 'questionSet2',
       component: questionSet2
     },
     {
       path: '/questionSet3/:userId',
-      name:'questionSet3',
+      name: 'questionSet3',
       component: questionSet3
     },
     {
       path: '/questionSet4/:userId',
-      name:'questionSet4',
+      name: 'questionSet4',
       component: questionSet4
     },
     {
       path: '/questionSet5/:userId',
-      name:'questionSet5',
+      name: 'questionSet5',
       component: questionSet5
     },
     {

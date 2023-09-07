@@ -2,61 +2,64 @@
 import Swiper from 'swiper'
 import 'swiper/css/swiper.min.css'
 export default {
-    name: "zan",
-    data() {
-        return {
+  name: "zan",
+  data () {
+    return {
 
-        };
-    },
-    methods: {
-        goToPersonifo() {
-            this.$router.push('/Personifo');
-        },
-        goToCourse() {
-            this.$router.push('/Course');
-        },
-        goToHeat() {
-            this.$router.push('/Forum_heat');
-        }
-    },
-    mounted(){
-      new Swiper('.swiper-container',{
-        loop:true,
-        pagination:'.swiper-pagination',
-        nextButton:'.swiper-button-next',
-        prevButton:'.swiper-button-prev',
-        scrollbar:'.swiper-scrollbar',
-      })
     }
+  },
+  methods: {
+    go (path) {
+      this.$router.push(path)
+    },
+  },
+  mounted () {
+    new Swiper('.swiper-container', {
+      loop: true,
+      pagination: '.swiper-pagination',
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      scrollbar: '.swiper-scrollbar',
+    })
+  }
 }
 </script>
 <template>
-    <div class="items">
-      <div class="item-info">
-        <img
-          src="../../assets/icons/forum/forumarea/课程.png"
-          @click="goToCourse"
-        />
-        <p>课程</p>
-      </div>
-      <div class="item-info">
-        <img src="../../assets/icons/forum/forumarea/学习工具.png" />
-        <p>学习工具</p>
-      </div>
-      <div class="item-info">
-        <img src="../../assets/icons/forum/forumarea/资源.png" />
-        <p>资源</p>
-      </div>
-      <div class="item-info">
-        <img src="../../assets/icons/forum/forumarea/更多.png" />
-        <p>更多</p>
-      </div>
+  <div class="items">
+    <div class="item-info">
+      <img
+        src="../../assets/icons/forum/forumarea/课程.png"
+        @click="go('/Course')"
+      />
+      <p>课程</p>
     </div>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <img src="../../assets/icons/forum/forumarea/banner1.png" class="swiper-slide">
-        <img src="../../assets/icons/forum/forumarea/banner1.png" class="swiper-slide">
-        <img src="../../assets/icons/forum/forumarea/banner1.png" class="swiper-slide">
+    <div class="item-info" @click="go('/vedio')">
+      <img src="../../assets/icons/forum/forumarea/学习工具.png" />
+      <p>轻松学习</p>
+    </div>
+    <div class="item-info">
+      <img src="../../assets/icons/forum/forumarea/资源.png" />
+      <p>资源</p>
+    </div>
+    <div class="item-info">
+      <img src="../../assets/icons/forum/forumarea/更多.png" />
+      <p>更多</p>
+    </div>
+  </div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <img
+        src="../../assets/icons/forum/forumarea/banner1.png"
+        class="swiper-slide"
+      />
+      <img
+        src="../../assets/icons/forum/forumarea/banner1.png"
+        class="swiper-slide"
+      />
+      <img
+        src="../../assets/icons/forum/forumarea/banner1.png"
+        class="swiper-slide"
+      />
     </div>
     <div class="block1"></div>
     <div class="block2"></div>
@@ -64,10 +67,9 @@ export default {
     <div class="block4"></div>
     <!-- 分页器 -->
     <div class="swiper-pagination"></div>
-    </div>
+  </div>
 </template>
 <style>
-
 .block1 {
   position: absolute;
   left: 44.1%;
@@ -154,7 +156,7 @@ export default {
   transform: scale(0.8);
   color: rgba(0, 121, 148, 1);
 }
-.swiper-container{
+.swiper-container {
   width: 90%;
   height: 83px;
   margin: auto;
