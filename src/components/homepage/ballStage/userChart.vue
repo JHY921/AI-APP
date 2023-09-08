@@ -286,36 +286,372 @@
 
 
 <script>
-
+import { ref, onMounted } from 'vue';
+import * as echarts from 'echarts';
 
 export default {
-  name: 'BarChart',
+    name: 'BarChart',
+    setup() {
+        const chartInstance = ref(null);
+        onMounted(() => {
+            chartInstance.value = echarts.init(document.getElementById('gaugeChart'));
+            chartInstance.value.setOption({
+                grid: { // 让图表占满容器
+                    top: "0px",
+                    left: "0px",
+                    right: "0px",
+                    bottom: "0px"
+                },
+                // width:800,
+                // height:800,
+                title: {
+                    text: `距离xx还有`,
+                    left: 'center',
+                    y: 10,
+                    textStyle: {
+                        color: '#60787D',
+                    }
+                },
+                color: ["rgba(182, 224, 219, 1)", "rgba(0, 96, 117, 1)"],
+                series: [
+                    {
+                        type: 'gauge',
+                        center: ['50%', '60%'],
+                        startAngle: 220,
+                        endAngle: -40,
+                        splitNumber: 10,
+                        progress: {
+                            show: true,
+                            width: 12,//外盘蓝色粗细
+                            roundCap: false,
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                width: 8,//底盘粗细
+                                // color: [
+                                //     [1, new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                                //         {
+                                //             offset: 0.1,
+                                //             color: "#FFC600"
+                                //         },
+                                //         {
+                                //             offset: 0.6,
+                                //             color: "#30D27C"
+                                //         },
+                                //         {
+                                //             offset: 1,
+                                //             color: "#0B95FF"
+                                //         }
+                                //     ])
+                                //     ]
+                                // ]渐变色处理
+                            }
+                        },
+                        axisTick: {
+                            width: 1,
+                            splitNumber: 1,
+                            length: 2,
+                        },
+                        splitLine: {
+                            length: 5,//灰色引导竖线长度
+                            lineStyle: {
+                                width: 1,
+                                color: '#096375',
+                            }
+                        },
+                        pointer: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: false,
+                        },
+                        // axisLabel: {
+                        //     distance: 10,//仪表数字距离
+                        //     color: '#999',
+                        //     fontSize: 10//指示数值大小
+                        // },
 
-  data () {
-    return {
+                        title: {
+                            show: false,
+                        },
+                        detail: {
+                            valueAnimation: true,
+                            fontSize: 20,//黑色数值大小
+                            offsetCenter: [0, '0%'],//文字位置
+                            formatter: '{value} %',//单位
+                            color: '#004554',
+                        },
+                        data: [
+                            {
+                                value: 70
+                            }
+                        ]
+                    }
+                ]
+            });
+
+        });
+
+        onMounted(() => {
+            var chartDom = document.getElementById('stackedLine');
+            var myChart = echarts.init(chartDom);
+            var option;
+            var xAxisData = [];
+            var data1 = [];
+            var data2 = [];
+            for (var i = 0; i < 100; i++) {
+                xAxisData.push('数据' + i);
+                data1.push(i);
+                data2.push(2 * i);
+            }//数据
+            option = {
+                grid: { // 让图表占满容器
+                    top: "50px",
+                    left: "30px",
+                    right: "30px",
+                    bottom: "30px"
+                },
+                title: [
+                    {
+                        text: '数据介绍',
+                        x: 20,
+                        y: 10,
+                        textStyle: {
+                            color: '#528C99',
+                        },
+                    },
+                    {
+                        subtext: '注释：这里是注释内容',
+                        x: 105,
+                        y: 5,
+                        subtextStyle: {
+                            color: "#707F82",
+                        },
+                    },
+                ],
+
+                // legend: {
+                //     data: ['bar', 'bar2']
+                // },
+                toolbox: {
+                    // // y: 'bottom',
+                    // feature: {
+                    //     magicType: {
+                    //         type: ['stack']
+                    //     },
+                    //     dataView: {},
+                    //     saveAsImage: {
+                    //         pixelRatio: 2
+                    //     }
+                    // }下载，导出图片等功能
+                },
+                tooltip: {},//提示框
+                xAxis: {
+                    data: xAxisData,
+                    splitLine: {
+                        show: true,
+                    }
+                },
+                yAxis: {
+                    splitLine: {
+                        show: true,
+                    }
+                },
+                series: [
+                    {
+                        name: 'bar',
+                        type: 'bar',
+                        data: data1,
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        animationDelay: function (idx) {
+                            return idx * 10;
+                        }
+                    },
+                    {
+                        name: 'bar2',
+                        type: 'bar',
+                        data: data2,
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        animationDelay: function (idx) {
+                            return idx * 10 + 100;
+                        }
+                    }
+                ],
+                animationEasing: 'elasticOut',
+                animationDelayUpdate: function (idx) {
+                    return idx * 5;
+                }
+            };
+
+            option && myChart.setOption(option);
+        });
+
+        onMounted(() => {
+            var chartDom = document.getElementById('pieChart');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                grid: { // 让图表占满容器
+                    top: "0px",
+                    left: "0px",
+                    right: "0px",
+                    bottom: "0px"
+                },
+                // legend: {
+                //     top: 'bottom'
+                // },指示面板（可点击隐藏）
+                toolbox: {
+                },
+                series: [
+                    {
+                        color: ['#00626B', '#528C99', '#68AAB9', '#C9E2E8', '#66AFBF'],
+                        name: 'Nightingale Chart',
+                        type: 'pie',
+                        avoidLabelOverlap: true,
+                        minAngle: 22,
+                        radius: [0, 80],
+                        center: ['50%', '50%'],
+                        //roseType: 'area',南丁格尔玫瑰图
+                        label: {
+                            show: true, // 隐藏数据和指示线
+                            normal: {
+                                position: 'inner',
+                            }
+                        },
+                        // labelLine: {
+                        //     show: true, // 隐藏
+                        //     length:1,
+                        //     length2:1,
+                        //     smooth:true,
+                        // },
+                        itemStyle: {
+                            borderRadius: 10
+                        },
+                        data: [
+                            { value: 40, name: 'rose 1' },
+                            { value: 38, name: 'rose 2' },
+                            { value: 32, name: 'rose 3' },
+                            { value: 40, name: 'rose 4' },
+                            { value: 50, name: 'rose5' },
+                        ]
+                    }
+                ]
+            };
+
+            option && myChart.setOption(option);
+        })
+        onMounted(() => {
+            var chartDom = document.getElementById('barChart');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                color: ['#B8DAE1', '#66AFBF', '#007994'],
+                grid: { // 让图表占满容器
+                    top: "40px",
+                    left: "35px",
+                    right: "30px",
+                    bottom: "50px"
+                },
+                title: {
+                    text: "数据介绍",
+                    x: 140,
+                    y: 10,
+                    textStyle: {
+                        color: '#025466',
+                    },
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                },
+                yAxis: {
+                    type: 'value',
+                    // axisLine: {
+                    //     show: true,//y轴
+                    // },
+                    // splitLine:{
+                    //     show:true,
+                    // }
+                },
+                legend: {
+                    data: ['数据1', '数据2', '数据3'],
+                    y:180,
+                    x:10,
+                },
+                series: [
+
+                    {
+                        name:'数据1',
+                        itemStyle: {
+                            normal: {
+                                barBorderRadius: [20, 20, 0, 0]//柱形图圆角设置
+                            }
+                        },
+                        data: [
+                            101, 200, 150, 80, 70, 110, 130
+                        ],
+                        type: 'bar'
+                    },
+                    {
+                        name:'数据2',
+                        itemStyle: {
+                            normal: {
+                                barBorderRadius: [20, 20, 0, 0]//柱形图圆角设置
+                            }
+                        },
+                        data: [110, 210, 310, 410, 501, 610, 100],
+                        type: 'bar',
+                    },
+                    {
+                        name:'数据3',
+                        itemStyle: {
+                            normal: {
+                                barBorderRadius: [20, 20, 0, 0]//柱形图圆角设置
+                            }
+                        },
+                        data: [120, 210, 301, 430, 540, 610, 300],
+                        type: 'bar',
+                    },
+                ]
+            };
+
+            option && myChart.setOption(option);
+        })
+        return {
+            chartInstance
+        };
+    },
+    data() {
+        return {
+        };
+    },
+    methods: {
+        click_follow() {
+            alert("follow");
+        },
+        backTolast() {
+            alert("back");
+        },
+        moreInfor() {
+            alert("more");
+        },
+        pieData1() {
+
+        },
+        pieData2() {
+
+        },
+        pieData3() {
+
+        },
     }
-  },
-  methods: {
-    click_follow () {
-      alert("follow")
-    },
-    backTolast () {
-      alert("back")
-    },
-    moreInfor () {
-      alert("more")
-    },
-    pieData1 () {
-
-    },
-    pieData2 () {
-
-    },
-    pieData3 () {
-
-    },
-  }
-}
+};
 // export default {
 //     data() {
 //         return {
