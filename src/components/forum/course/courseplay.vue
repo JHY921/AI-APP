@@ -50,7 +50,7 @@
               transform: translateY(-50%);
             "
           >
-            课程播放
+            学习网站
           </span>
         </center>
       </div>

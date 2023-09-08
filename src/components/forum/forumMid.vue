@@ -37,7 +37,7 @@ export default {
       <img src="../../assets/icons/forum/forumarea/学习工具.png" />
       <p>轻松学习</p>
     </div>
-    <div class="item-info">
+    <div class="item-info" @click="go('/resource')">
       <img src="../../assets/icons/forum/forumarea/资源.png" />
       <p>资源</p>
     </div>

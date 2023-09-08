@@ -8,6 +8,8 @@ const userinfo = () => import('../views/register/userinfo.vue')
 
 const Home = () => import('../views/homepage/homepage.vue')
 
+
+const userChart = () => import('../components/homepage/ballStage/userChart.vue')
 const moretodo = () => import('../views/homepage/moretodo.vue')
 const monthlycomp = () => import('../views/homepage/monthlycom.vue')
 
@@ -16,6 +18,7 @@ const Forum_post = () => import('../views/forum/forum_post.vue')
 const Personifo = () => import('../views/forum/Personifo.vue')
 const Course = () => import('../views/forum/course.vue')
 const Courseplay = () => import('../components/forum/course/courseplay.vue')
+const resource = () => import('../components/forum/resource/resource.vue')
 
 const Person = () => import('../views/person/person.vue')
 const History = () => import('../views/person/history.vue')
@@ -62,6 +65,11 @@ const router = createRouter({
 
     },
     {
+      path: '/userChart',
+      component: userChart,
+
+    },
+    {
       path: '/moretodo',
       component: moretodo
     },
@@ -82,6 +90,11 @@ const router = createRouter({
     {
       path: '/Person',
       component: Person,
+
+    },
+    {
+      path: '/resource',
+      component: resource,
 
     },
     {

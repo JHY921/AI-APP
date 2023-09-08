@@ -38,7 +38,7 @@
               transform: translateY(-50%);
             "
           >
-            课程目录
+            资源网站
           </span>
         </center>
       </div>

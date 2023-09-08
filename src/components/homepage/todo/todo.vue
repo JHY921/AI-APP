@@ -162,6 +162,7 @@
 import writeTodo from './writeTodo.vue'
 export default {
   created () {
+
     this.init()
   },
   components: { writeTodo },
