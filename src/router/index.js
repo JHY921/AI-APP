@@ -85,12 +85,10 @@ const router = createRouter({
     {
       path: '/Forum',
       component: Forum,
-
     },
     {
       path: '/Person',
       component: Person,
-
     },
     {
       path: '/resource',
