@@ -1,15 +1,39 @@
 <script>
 import 'vant/es/nav-bar'
+import axios from 'axios'
+import api from '../../api/api'
 export default {
   data () {
     return {
+      imgurl:null,
+      content:null
       //   notification: data
     }
   },
   methods: {
     back () {
       history.back()
-    }
+    },
+    upload(){
+      this.$refs.fileInput.click();
+    },
+    handlefile(event){
+      const file = event.target.files[0]
+      if(file){
+        this.imgurl = URL.createObjectURL(file)
+        console.log('file', file)
+        console.log(URL.createObjectURL(file));
+        const formdate = new FormData()
+        formdate.append('image',file)
+        console.log('formdate', formdate);
+        axios.post(`http://${api.api}/ocr`, formdate)
+            .then(res=>{
+              console.log(res.data);
+            }).catch(err=>{
+              console.log(err);
+            })
+      }
+    },
   },
 }
 </script>
@@ -28,10 +52,12 @@ export default {
     </div>
     <div class="ocr">
       <div class="photo-show">
-        <img class="add-cross" src="./内容增添.png" />
+        <img :src="imgurl" alt="" v-if="imgurl" style="width: 268px;, height: 268px;">
+        <img class="add-cross" src="./内容增添.png" v-if="!imgurl"/>
       </div>
       <div class="album-import-button">
-        <img class="album-import-icon" src="./相册.png" />
+        <input type="file" ref="fileInput" style="display: none;" @change="handlefile"> 
+        <img class="album-import-icon" src="./相册.png" @click="upload"/>
         <img class="album-import-text" src="./相册导入文字.png" />
       </div>
       <div class="photo-import-button">

@@ -179,6 +179,8 @@ input::placeholder {
 <script>
 import { showToast } from 'vant'
 import 'vant/es/toast/style'
+import axios from 'axios'
+import api from '../../../api/api'
 export default {
 
   data () {
@@ -227,6 +229,9 @@ export default {
         console.log(this.things)
         this.$emit('thing', this.things)
         this.checked = false
+        // axios.post(`http://${api.api}/writeTodo`,{
+        //   thing:this.things
+        // },{headers:{ 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
       }
 
     }
