@@ -13,6 +13,11 @@ export default {
     ];
     return { images };
   },
+  methods:{
+    go (path) {
+      this.$router.push(path)
+    },
+  }
 };
 
 </script>
