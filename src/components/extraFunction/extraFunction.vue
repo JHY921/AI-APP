@@ -206,7 +206,7 @@ export default {
   data () {
     return {
       funcA: "图片识别文字",
-      funcB: "功能名称",
+      funcB: "智能识物",
       funcC: "更多功能静待开发...",
       funcD: "功能名称",
     }
@@ -216,7 +216,7 @@ export default {
       this.$router.push('./ocr')
     },
     functionB () {
-      console.log("1")
+      this.$router.push('./objOcr')
     },
     functionC () {
       showToast('静待开发')

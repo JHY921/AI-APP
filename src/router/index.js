@@ -38,6 +38,7 @@ const questionSet4 = () => import('../views/questionSet/quesStage/quesStage.vue'
 const questionSet5 = () => import('../views/questionSet/quesTF/quesTF.vue')
 
 const ocr = () => import('../views/extraFunction/ocr/ocr.vue')
+const objOcr = () => import('../components/extraFunction/objOcr.vue')
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -62,12 +63,10 @@ const router = createRouter({
     {
       path: '/Home',
       component: Home,
-
     },
     {
       path: '/userChart',
       component: userChart,
-
     },
     {
       path: '/moretodo',
@@ -80,7 +79,6 @@ const router = createRouter({
     {
       path: '/extraFunction',
       component: extraFunction,
-
     },
     {
       path: '/Forum',
@@ -177,6 +175,10 @@ const router = createRouter({
     {
       path: '/ocr',
       component: ocr
+    },
+    {
+      path:'/objOcr',
+      component:objOcr
     }
   ]
 })
