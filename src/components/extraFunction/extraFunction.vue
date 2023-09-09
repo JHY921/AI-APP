@@ -208,7 +208,7 @@ export default {
       funcA: "图片识别文字",
       funcB: "智能识物",
       funcC: "更多功能静待开发...",
-      funcD: "功能名称",
+      funcD: "视频总结",
     }
   },
   methods: {
@@ -222,7 +222,7 @@ export default {
       showToast('静待开发')
     },
     functionD () {
-      console.log("1")
+      this.$router.push('./videoOcr')
     },
   }
 };

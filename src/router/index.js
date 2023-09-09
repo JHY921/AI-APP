@@ -39,6 +39,7 @@ const questionSet5 = () => import('../views/questionSet/quesTF/quesTF.vue')
 
 const ocr = () => import('../views/extraFunction/ocr/ocr.vue')
 const objOcr = () => import('../components/extraFunction/objOcr.vue')
+const videoOcr = () => import('../components/extraFunction/videoOcr.vue')
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -177,8 +178,12 @@ const router = createRouter({
       component: ocr
     },
     {
-      path:'/objOcr',
-      component:objOcr
+      path: '/objOcr',
+      component: objOcr
+    },
+    {
+      path:'/videoOcr',
+      component:videoOcr
     }
   ]
 })
