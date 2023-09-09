@@ -160,9 +160,10 @@
 </style>
 <script>
 import writeTodo from './writeTodo.vue'
+import axios from 'axios'
+import api from '../../../api/api'
 export default {
   created () {
-
     this.init()
   },
   components: { writeTodo },
@@ -186,6 +187,21 @@ export default {
   methods: {
     init () {
       this.iswritetodo = false
+      const url = `http://${api.api}/home/todo`
+      axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
+        .then(res => {
+          console.log(res)
+          if (res.data.tasks.tasks.length != 0) {
+            this.tasks = res.data.tasks.tasks
+            console.log(this.tasks)
+          } else {
+            this.tasks = []
+          }
+        })
+        .catch(error => {
+          console.error(error)
+        })
+      console.log(this.tasks)
     },
     rotateButton () {
       // console.log(this.buttondelete)
@@ -246,6 +262,14 @@ export default {
         this.tasks[i][7] = i
       }
       console.log(this.tasks)
+      axios.post(`http://${api.api}/home/todo/add`, {
+        tasks: this.tasks
+      },
+        { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true }).then(res => {
+          console.log(res.data)
+        }).catch(err => {
+          console.log(err)
+        })
       this.$emit('cover')
     },
     toggleCompletion (task) {
