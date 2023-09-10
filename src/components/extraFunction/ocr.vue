@@ -1,4 +1,6 @@
 <script>
+import { showToast } from 'vant'
+import 'vant/es/toast/style'
 import 'vant/es/nav-bar'
 import axios from 'axios'
 import api from '../../api/api'
@@ -7,8 +9,11 @@ export default {
     return {
       imgurl: null,
       content: [],
-      result: ''
+      result: '',
       //   notification: data
+      iscamera: false,
+      videoWidth: 268,
+      videoHeight: 268,
     }
   },
   methods: {
@@ -19,6 +24,7 @@ export default {
       this.$refs.fileInput.click()
     },
     handlefile (event) {
+      this.iscamera = false
       const file = event.target.files[0]
       if (file) {
         this.imgurl = URL.createObjectURL(file)
@@ -32,6 +38,9 @@ export default {
             this.content = res.data
             console.log(this.content)
             console.log(res.data)
+            if (this.result != '') {
+              this.result = ''
+            }
             for (let i = 0; i < this.content.length; i++) {
               this.result = this.result + this.content[i]
             }
@@ -40,6 +49,73 @@ export default {
           })
       }
     },
+    copy () {
+      if (this.result != '') {
+        showToast('复制成功')
+      } else {
+        showToast('内容为空')
+      }
+    },
+    getCompetence () {
+      this.iscamera = true
+      var _this = this
+      this.thisCancas = document.getElementById('canvasCamera')
+      this.thisContext = this.thisCancas.getContext('2d')
+      this.thisVideo = document.getElementById('videoCamera')
+      // 旧版本浏览器可能根本不支持mediaDevices，我们首先设置一个空对象
+      if (navigator.mediaDevices === undefined) {
+        navigator.mediaDevices = {}
+      }
+      // 一些浏览器实现了部分mediaDevices，我们不能只分配一个对象
+      // 使用getUserMedia，因为它会覆盖现有的属性。
+      // 这里，如果缺少getUserMedia属性，就添加它。
+      if (navigator.mediaDevices.getUserMedia === undefined) {
+        navigator.mediaDevices.getUserMedia = function (constraints) {
+          // 首先获取现存的getUserMedia(如果存在)
+          var getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.getUserMedia
+          // 有些浏览器不支持，会返回错误信息
+          // 保持接口一致
+          if (!getUserMedia) {
+            return Promise.reject(new Error('getUserMedia is not implemented in this browser'))
+          }
+          // 否则，使用Promise将调用包装到旧的navigator.getUserMedia
+          return new Promise(function (resolve, reject) {
+            getUserMedia.call(navigator, constraints, resolve, reject)
+          })
+        }
+      }
+      var constraints = { audio: false, video: { width: this.videoWidth, height: this.videoHeight, transform: 'scaleX(-1)' } }
+      navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+        // 旧的浏览器可能没有srcObject
+        if ('srcObject' in _this.thisVideo) {
+          _this.thisVideo.srcObject = stream
+        } else {
+          // 避免在新的浏览器中使用它，因为它正在被弃用。
+          _this.thisVideo.src = window.URL.createObjectURL(stream)
+        }
+        _this.thisVideo.onloadedmetadata = function (e) {
+          _this.thisVideo.play()
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+    },
+    setImage () {
+      var _this = this
+      // 点击，canvas画图
+      _this.thisContext.drawImage(_this.thisVideo, 0, 0, _this.videoWidth, _this.videoHeight)
+      // 获取图片base64链接
+      var image = this.thisCancas.toDataURL('image/png')
+      this.imgurl = image
+      this.iscamera = false
+
+
+    },
+    stopNavigator () {
+      this.thisVideo.srcObject.getTracks()[0].stop()
+      this.iscamera = false
+    }
+
   },
 }
 </script>
@@ -58,11 +134,71 @@ export default {
     </div>
     <div class="ocr">
       <div class="photo-show">
+        <div v-show="iscamera">
+          <video
+            id="videoCamera"
+            :width="videoWidth"
+            :height="videoHeight"
+            autoplay
+          ></video>
+          <canvas
+            style="display: none"
+            id="canvasCamera"
+            :width="videoWidth"
+            :height="videoHeight"
+          ></canvas>
+          <div style="margin-top: -20px; margin-left: 45px">
+            <button
+              v-if="iscamera"
+              style="
+                opacity: 1;
+                border-radius: 30px;
+                background: linear-gradient(
+                  90deg,
+                  rgba(0, 79, 94, 1) 0%,
+                  rgba(0, 121, 148, 0.57) 100%
+                );
+                box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.22);
+                border: 0;
+                color: white;
+                width: 60px;
+                margin-right: 30px;
+                font-family: dyh;
+                height: 25px;
+              "
+              @click="setImage"
+            >
+              拍照
+            </button>
+            <button
+              v-if="iscamera"
+              style="
+                opacity: 1;
+                border-radius: 30px;
+                background: linear-gradient(
+                  90deg,
+                  rgba(0, 79, 94, 1) 0%,
+                  rgba(0, 121, 148, 0.57) 100%
+                );
+                box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.22);
+                border: 0;
+                color: white;
+                width: 100px;
+                font-family: dyh;
+                height: 25px;
+              "
+              @click="stopNavigator"
+            >
+              关闭摄像头
+            </button>
+          </div>
+        </div>
         <img
+          v-show="!iscamera"
           :src="imgurl"
           alt=""
           v-if="imgurl"
-          style="width: 268px;, height: 268px;"
+          style="width: 268px; height: 268px"
         />
         <img class="add-cross" src="./内容增添.png" v-if="!imgurl" />
       </div>
@@ -77,12 +213,12 @@ export default {
         <img class="album-import-text" src="./相册导入文字.png" />
       </div>
       <div class="photo-import-button">
-        <img class="photo-import-icon" src="./相机.png" />
+        <img
+          class="photo-import-icon"
+          src="./相机.png"
+          @click="getCompetence"
+        />
         <img class="photo-import-text" src="./拍照导入文字.png" />
-      </div>
-      <div class="reidentification-button">
-        <img class="reidentification-import-icon" src="./文字识别.png" />
-        <img class="reidentification-import-text" src="./重新识别文字.png" />
       </div>
     </div>
     <div class="identify-result">
@@ -95,7 +231,7 @@ export default {
           {{ result }}
         </div>
         <img src="./复制.png" class="copy" />
-        <p class="copy-span">一键复制</p>
+        <p class="copy-span" @click="copy">一键复制</p>
       </div>
     </div>
   </div>
