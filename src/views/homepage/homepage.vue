@@ -4,6 +4,7 @@
     <ballStage
       style="margin: auto; margin-left: 12px"
       :class="{ covered: cover }"
+      @click="go"
     />
 
     <Todo
@@ -37,6 +38,9 @@ export default {
     month () {
       this.$router.push('./monthlycomp')
     },
+    go () {
+      this.$router.push('./userChart')
+    }
   }
 }
 </script>

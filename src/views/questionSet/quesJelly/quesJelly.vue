@@ -300,6 +300,7 @@
   
 <script>
 import { showToast } from 'vant'
+import 'vant/es/toast/style'
 import qust from '../../../api/question'
 export default {
   data () {
@@ -313,10 +314,10 @@ export default {
       quesD: "Python",
       quesE: "其他",
       quesF: "无",
-      id:'',
+      id: '',
     }
   },
-  created(){
+  created () {
     this.id = this.$route.params.userId
   },
   methods: {
@@ -324,31 +325,31 @@ export default {
       showToast('已经是第一个问题')
     },
     nextQuestion () {
-      console.log('quest', qust[0]);
-      this.$router.push({name:'questionSet2', params:{userId:this.id}})
+      console.log('quest', qust[0])
+      this.$router.push({ name: 'questionSet2', params: { userId: this.id } })
     },
     chooseA () {
-      qust[0]= 1
+      qust[0] = 1
       console.log(1)
     },
     chooseB () {
-      qust[0]=2
+      qust[0] = 2
       console.log(1)
     },
     chooseC () {
-      qust[0]=3
+      qust[0] = 3
       console.log(1)
     },
     chooseD () {
-      qust[0]=4
+      qust[0] = 4
       console.log(1)
     },
     chooseE () {
-      qust[0]=5
+      qust[0] = 5
       console.log(1)
     },
     chooseF () {
-      qust[0]=6
+      qust[0] = 6
       console.log(1)
     },
   }

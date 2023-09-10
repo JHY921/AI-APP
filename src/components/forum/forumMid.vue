@@ -1,36 +1,30 @@
 <script>
-import Swiper from 'swiper'
-import 'swiper/css/swiper.min.css'
-export default {
-  name: "zan",
-  data () {
-    return {
+import { createApp } from 'vue';
+import { Swipe, SwipeItem } from 'vant';
 
-    }
+const app = createApp();
+app.use(Swipe);
+app.use(SwipeItem);
+export default {
+  setup() {
+    const images = [
+      'https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg',
+      'https://fastly.jsdelivr.net/npm/@vant/assets/apple-2.jpeg',
+    ];
+    return { images };
   },
-  methods: {
+  methods:{
     go (path) {
       this.$router.push(path)
     },
-  },
-  mounted () {
-    new Swiper('.swiper-container', {
-      loop: true,
-      pagination: '.swiper-pagination',
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      scrollbar: '.swiper-scrollbar',
-    })
   }
-}
+};
+
 </script>
 <template>
   <div class="items">
     <div class="item-info">
-      <img
-        src="../../assets/icons/forum/forumarea/课程.png"
-        @click="go('/Course')"
-      />
+      <img src="../../assets/icons/forum/forumarea/课程.png" @click="go('/Course')" />
       <p>课程</p>
     </div>
     <div class="item-info" @click="go('/vedio')">
@@ -46,30 +40,24 @@ export default {
       <p>更多</p>
     </div>
   </div>
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <img
-        src="../../assets/icons/forum/forumarea/banner1.png"
-        class="swiper-slide"
-      />
-      <img
-        src="../../assets/icons/forum/forumarea/banner1.png"
-        class="swiper-slide"
-      />
-      <img
-        src="../../assets/icons/forum/forumarea/banner1.png"
-        class="swiper-slide"
-      />
-    </div>
-    <div class="block1"></div>
-    <div class="block2"></div>
-    <div class="block3"></div>
-    <div class="block4"></div>
-    <!-- 分页器 -->
-    <div class="swiper-pagination"></div>
+  <div style="margin-left: 16px; margin-right: 16px; margin-top: 10px; width: 328px; height: 120px; border-radius: 10px; overflow: hidden;">
+    <van-swipe :autoplay="3000" lazy-render :width="328" :height="120">
+      <van-swipe-item v-for="image in images" :key="image">
+        <img :src="image" style="width: 328px; height: auto; border-radius: 10px;" />
+      </van-swipe-item>
+    </van-swipe>
   </div>
 </template>
 <style>
+.my-swipe .van-swipe-item {
+  color: #fff;
+  font-size: 20px;
+  line-height: 150px;
+  text-align: center;
+  width: 360px;
+  height: 160px;
+}
+
 .block1 {
   position: absolute;
   left: 44.1%;
@@ -81,6 +69,7 @@ export default {
   background: rgba(255, 255, 255, 1);
   z-index: 999;
 }
+
 .block2 {
   /* left: 171.23px; */
   left: 47.2%;
@@ -94,6 +83,7 @@ export default {
   z-index: 999;
   position: absolute;
 }
+
 .block3 {
   /* left: 181.46px; */
   margin-left: 50.32%;
@@ -107,6 +97,7 @@ export default {
   z-index: 999;
   position: absolute;
 }
+
 .block4 {
   position: absolute;
   /* left: 191.69px; */
@@ -120,6 +111,7 @@ export default {
   background: rgba(255, 255, 255, 1);
   z-index: 999;
 }
+
 .items {
   position: relative;
   width: 90%;
@@ -135,6 +127,7 @@ export default {
   flex-direction: row;
   justify-content: flex-start;
 }
+
 .item-info {
   height: 58px;
   width: 25%;
@@ -142,12 +135,14 @@ export default {
   text-align: center;
   font-size: 8px;
 }
+
 .items img {
   padding-top: 8px;
   width: 42px;
   margin: auto;
   height: 42px;
 }
+
 .item-info p {
   font-weight: 600;
   padding-bottom: 1px;
@@ -156,12 +151,14 @@ export default {
   transform: scale(0.8);
   color: rgba(0, 121, 148, 1);
 }
+
 .swiper-container {
   width: 90%;
   height: 83px;
   margin: auto;
   position: relative;
 }
+
 .swiper-container img {
   width: 100%;
 }

@@ -246,7 +246,7 @@
 import { showToast } from 'vant'
 import quest from '../../../api/question'
 import api from '../../../api/api'
-import axios from 'axios';
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -255,10 +255,10 @@ export default {
       quesContainer: "是否有在开源项目或计算机社区中做出贡献？",
       quesA: "是",
       quesB: "否",
-      id:'',
+      id: '',
     }
   },
-  created(){
+  created () {
     this.id = this.$route.params.userId
   },
   methods: {
@@ -266,24 +266,25 @@ export default {
       history.back()
     },
     nextQuestion () {
-      console.log(quest);
-      axios.post(`http://${api.api}/question`,{
-        qa:quest,
-        userId:this.id
-      }).then(res=>{
-        console.log(res.data);
+      console.log(quest)
+      axios.post(`http://${api.api}/question`, {
+        qa: quest,
+        userId: this.id
+      }).then(res => {
+        console.log(res.data)
         showToast('注册成功，返回登录')
         this.$router.push('../login')
-      }).catch(err=>{
-        console.log(err);
+      }).catch(err => {
+        console.log(err)
       })
+
     },
     chooseA () {
-      quest[4]=1
+      quest[4] = 1
       console.log(1)
     },
     chooseB () {
-      quest[4]=2
+      quest[4] = 2
       console.log(1)
     },
   }

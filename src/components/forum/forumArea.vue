@@ -54,7 +54,9 @@ export default {
           <div class="blank"></div>
         </div>
       </van-tab>
-      <van-tab title="关注" name="c"> 123 </van-tab>
+      <van-tab title="关注" name="c"> 
+        <forumPost />
+      </van-tab>
     </van-tabs>
   </div>
   <Crisscross />
