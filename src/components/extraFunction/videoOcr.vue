@@ -60,6 +60,12 @@ export default {
             }, 1000);
 
         },
+        playVideo() {
+            this.$refs.videoPlayer.play();
+        },
+        pauseVideo() {
+            this.$refs.videoPlayer.pause();
+        },
     },
 }
 </script>
@@ -76,7 +82,10 @@ export default {
             </div> -->
             <div ref="videoContainer" class="photo-show">
                 <video ref="videoPlayer" controls style="width: 100%; height: 100%; object-fit: contain;"></video>
+                <button @click="playVideo" style="position: absolute; margin-left: 100px;">播放</button>
+                <button @click="pauseVideo" style="position: absolute;">暂停</button>
             </div>
+
             <div class="album-import-button">
                 <input type="file" ref="videoInput" style="display: none;" accept="video/*" @change="handlefile">
                 <img class="album-import-icon" src="./相册.png" @click="openVideoDialog" />
@@ -116,7 +125,7 @@ export default {
 
 .ocr-page {
     width: 360px;
-    height: 648px;
+    height: 640px;
     position: relative;
     margin-left: 0px;
     background-color: rgba(235, 235, 235, 1);
@@ -170,11 +179,10 @@ export default {
 }
 
 .ocr {
-    position: absolute;
-    left: 0px;
-    top: 57px;
     width: 360px;
-    height: 315px;
+    height: 400px;
+    margin-top: -10px;
+    margin-bottom: 10px;
     overflow-x: hidden;
     opacity: 1;
     border-radius: 10px;
@@ -186,9 +194,8 @@ export default {
 
 .photo-show {
     float: left;
-    left: 16px;
     top: 31px;
-    width: 268px;
+    width: 360px;
     height: 268px;
     opacity: 1;
     background: rgba(233, 233, 233, 1);
@@ -206,9 +213,9 @@ export default {
 
 .album-import-button {
     position: relative;
-    left: 288px;
-    top: 57px;
-    width: 121px;
+    top: 310px;
+    left: 60px;
+    width: 54px;
     height: 54px;
     opacity: 1;
     border-radius: 30px;
@@ -221,7 +228,7 @@ export default {
 .album-import-icon {
     position: absolute;
     z-index: 999;
-    left: 16px;
+    left: 12px;
     top: 12px;
     width: 32px;
     height: 32px;
@@ -231,7 +238,7 @@ export default {
 .album-import-text {
     position: absolute;
     z-index: 999;
-    left: 20px;
+    left: 3px;
     top: 60px;
     width: 45px;
     height: 17px;
@@ -240,9 +247,9 @@ export default {
 
 .photo-import-button {
     position: relative;
-    left: 288px;
-    top: 84px;
-    width: 121px;
+    left: 160px;
+    top: 256px;
+    width: 54px;
     height: 54px;
     opacity: 1;
     border-radius: 30px;
@@ -255,8 +262,8 @@ export default {
 .photo-import-icon {
     position: absolute;
     z-index: 999;
-    left: 16px;
-    top: 12px;
+    left: 12px;
+    top: 10px;
     width: 32px;
     height: 32px;
     opacity: 1;
@@ -265,7 +272,7 @@ export default {
 .photo-import-text {
     position: absolute;
     z-index: 999;
-    left: 20px;
+    left: 4px;
     top: 60px;
     width: 45px;
     height: 17px;
@@ -273,9 +280,9 @@ export default {
 }
 
 .reidentification-button {
-    left: 288px;
-    top: 108px;
-    width: 121px;
+    top: 202px;
+    left: 260px;
+    width: 54px;
     height: 54px;
     opacity: 1;
     border-radius: 30px;
@@ -289,8 +296,8 @@ export default {
 .reidentification-import-icon {
     position: absolute;
     z-index: 999;
-    left: 16px;
-    top: 12px;
+    left: 12px;
+    top: 10px;
     width: 32px;
     height: 32px;
     opacity: 1;
@@ -299,7 +306,7 @@ export default {
 .reidentification-import-text {
     position: absolute;
     z-index: 999;
-    left: 20px;
+    left: 5px;
     top: 60px;
     width: 45px;
     height: 17px;
@@ -309,7 +316,6 @@ export default {
 .identify-result {
     left: 0px;
     /* top: 364px; */
-    top: 320px;
     width: 360px;
     height: 261px;
     opacity: 1;
@@ -401,4 +407,5 @@ export default {
     color: rgba(0, 79, 97, 0.55);
     text-align: left;
     vertical-align: top;
-}</style>
+}
+</style>
