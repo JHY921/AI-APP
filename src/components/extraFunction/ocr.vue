@@ -5,8 +5,9 @@ import api from '../../api/api'
 export default {
   data () {
     return {
-      imgurl:null,
-      content:null
+      imgurl: null,
+      content: [],
+      result: ''
       //   notification: data
     }
   },
@@ -14,24 +15,29 @@ export default {
     back () {
       history.back()
     },
-    upload(){
-      this.$refs.fileInput.click();
+    upload () {
+      this.$refs.fileInput.click()
     },
-    handlefile(event){
+    handlefile (event) {
       const file = event.target.files[0]
-      if(file){
+      if (file) {
         this.imgurl = URL.createObjectURL(file)
         console.log('file', file)
-        console.log(URL.createObjectURL(file));
+        console.log(URL.createObjectURL(file))
         const formdate = new FormData()
-        formdate.append('image',file)
-        console.log('formdate', formdate);
+        formdate.append('image', file)
+        console.log('formdate', formdate)
         axios.post(`http://${api.api}/ocr`, formdate)
-            .then(res=>{
-              console.log(res.data);
-            }).catch(err=>{
-              console.log(err);
-            })
+          .then(res => {
+            this.content = res.data
+            console.log(this.content)
+            console.log(res.data)
+            for (let i = 0; i < this.content.length; i++) {
+              this.result = this.result + this.content[i]
+            }
+          }).catch(err => {
+            console.log(err)
+          })
       }
     },
   },
@@ -52,12 +58,22 @@ export default {
     </div>
     <div class="ocr">
       <div class="photo-show">
-        <img :src="imgurl" alt="" v-if="imgurl" style="width: 268px;, height: 268px;">
-        <img class="add-cross" src="./内容增添.png" v-if="!imgurl"/>
+        <img
+          :src="imgurl"
+          alt=""
+          v-if="imgurl"
+          style="width: 268px;, height: 268px;"
+        />
+        <img class="add-cross" src="./内容增添.png" v-if="!imgurl" />
       </div>
       <div class="album-import-button">
-        <input type="file" ref="fileInput" style="display: none;" @change="handlefile"> 
-        <img class="album-import-icon" src="./相册.png" @click="upload"/>
+        <input
+          type="file"
+          ref="fileInput"
+          style="display: none"
+          @change="handlefile"
+        />
+        <img class="album-import-icon" src="./相册.png" @click="upload" />
         <img class="album-import-text" src="./相册导入文字.png" />
       </div>
       <div class="photo-import-button">
@@ -76,21 +92,7 @@ export default {
       </div>
       <div class="result-frame">
         <div class="result-content">
-          <p>我在干嘛</p>
-          <p>你在干嘛</p>
-          <p>我在干嘛</p>
-          <p>你在干嘛</p>
-          <p>我在干嘛</p>
-          <p>你在干嘛</p>
-          <p>我在干嘛</p>
-          <p>你在干嘛</p>
-          <p>我在干嘛</p>
-          <p>你在干嘛</p>
-          <p>我在干嘛</p>
-          <p>我在干嘛</p>
-          <p>你在干嘛</p>
-          <p>我在干嘛</p>
-          <p>你在干嘛</p>
+          {{ result }}
         </div>
         <img src="./复制.png" class="copy" />
         <p class="copy-span">一键复制</p>
