@@ -8,16 +8,25 @@ import heat from './heat/heat.vue'
 import heat1 from './heat/heat1.vue'
 import heat2 from './heat/heat2.vue'
 import heat3 from './heat/heat3.vue'
-
+import axios from 'axios'
+import api from '../../api/api'
 export default {
   name: "zan",
   data () {
     return {
-
+      heat_info:null
     }
   },
   methods: {
 
+  },
+  created(){
+    axios.get(`http://${api.api}/forum_heat`).then(res=>{
+      // console.log(res.data[0].name);
+      this.heat_info = res.data
+    }).catch(err=>{
+      console.log(err);
+    })
   },
   components: { Crisscross, forumHeader, forumMid, forumPost, heat, heat1, heat2, heat3 }
 }
@@ -32,16 +41,16 @@ export default {
       </van-tab>
       <van-tab title="热门" name="b">
         <div id="body">
-          <heat1 class="heat1"></heat1>
-          <heat2 class="heat2"></heat2>
-          <heat3 class="heat3"></heat3>
-          <heat class="heat" tt="4"></heat>
-          <heat class="heat" tt="5"></heat>
-          <heat  class="heat" tt="6"></heat>
-          <heat  class="heat" tt="7"></heat>
-          <heat  class="heat" tt="8"></heat>
-          <heat class="heat" tt="9"></heat>
-          <heat  class="heat" tt="10"></heat>
+          <heat1 class="heat1" :item="heat_info[0]"></heat1>
+          <heat2 class="heat2"  :item="heat_info[1]"></heat2>
+          <heat3 class="heat3"   :item="heat_info[2]"></heat3>
+          <heat class="heat" tt="4"  :item="heat_info[3]"></heat>
+          <heat class="heat" tt="5"  :item="heat_info[4]"></heat>
+          <heat  class="heat" tt="6"  :item="heat_info[5]"></heat>
+          <heat  class="heat" tt="7"  :item="heat_info[6]"></heat>
+          <heat  class="heat" tt="8"  :item="heat_info[7]"></heat>
+          <heat class="heat" tt="9"  :item="heat_info[8]"></heat>
+          <heat  class="heat" tt="10"  :item="heat_info[9]"></heat>
           <div class="blank"></div>
         </div>
       </van-tab>

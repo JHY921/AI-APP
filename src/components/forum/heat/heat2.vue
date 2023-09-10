@@ -1,20 +1,28 @@
 <template>
     <div class="heat">
         <div class="number"><div class="txt">2</div></div>
-        <div class="title">{{ tit }}</div>
-        <div class="username">{{ username }}</div>
-        <div class="dau">浏览{{ dau }}</div>
+        <div class="title">{{ item.title }}</div>
+        <div class="username">{{ item.name }}</div>
+        <div class="dau">浏览{{ item.through }}</div>
     </div>
 </template>
 <script>
 export default{
+    props: {
+        item: {
+            type: Object,
+            required: true,
+            default: () => ({
+                title: '',
+                name: '',
+                through: 0
+            })
+        }
+    },
     data(){
         return{
-            tit:'Spring FrameWork从入门到NB-定制Bean',
-            username:'weixin_44612246',
-            dau:1792,
         }
-    }
+    },
 }
 </script>
 <style scoped>

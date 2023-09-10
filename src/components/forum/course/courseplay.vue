@@ -61,7 +61,7 @@
       style="background-color: white; border-radius: 0px 0px 10px 10px"
     >
       <video style="width: 360px; height: 248px; opacity: 1" controls>
-        <source src="movie.mp4" type="video/mp4" />
+        <source src="http://127.0.0.1:5000/video/hmbb.mp4" type="video/mp4" />
         <source src="movie.ogg" type="video/ogg" />
       </video>
 
