@@ -192,7 +192,6 @@ export default {
     },
     sendAdvice() {
       this.isShowSendAdvice = true;
-      console.log(1);
     },
     cancelAdvice() {
       this.isShowSendAdvice = false;
