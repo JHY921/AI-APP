@@ -181,7 +181,7 @@ export default {
   },
   computed: {
     tasksItems () {
-      return this.tasks.filter((task, index) => task[6] === false && index < 3)
+      return this.tasks.filter((task, index) => task[6] === false).slice(0, 3)
     },
   },
   methods: {
