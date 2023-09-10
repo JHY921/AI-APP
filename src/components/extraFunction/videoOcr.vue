@@ -20,19 +20,19 @@ export default {
         handlefile(event) {
             const file = event.target.files[0];
             const videoContainer = this.$refs.videoContainer;
-
+            console.log(file);
             if (file && file.type.includes('video')) {
                 const reader = new FileReader();
-
+                console.log("do if true");
                 reader.onload = () => {
-                    const videoElement = document.createElement('video');
+                    const videoElement = document.getElementById('videoBox');
                     videoElement.src = reader.result;
 
-                    // 清空容器并添加新的视频元素
-                    while (videoContainer.firstChild) {
-                        videoContainer.removeChild(videoContainer.firstChild);
-                    }
-                    videoContainer.appendChild(videoElement);
+                    // // 清空容器并添加新的视频元素
+                    // while (videoContainer.firstChild) {
+                    //     videoContainer.removeChild(videoContainer.firstChild);
+                    // }
+                    // videoContainer.appendChild(videoElement);
                 };
 
                 reader.readAsDataURL(file);
@@ -81,9 +81,7 @@ export default {
                 <img class="add-cross" src="./内容增添.png" v-if="!imgurl" />
             </div> -->
             <div ref="videoContainer" class="photo-show">
-                <video ref="videoPlayer" controls style="width: 100%; height: 100%; object-fit: contain;"></video>
-                <button @click="playVideo" style="position: absolute; margin-left: 100px;">播放</button>
-                <button @click="pauseVideo" style="position: absolute;">暂停</button>
+                <video ref="videoPlayer" id="videoBox" controls style="width: 100%; height: 100%; object-fit: contain;"></video>
             </div>
 
             <div class="album-import-button">
