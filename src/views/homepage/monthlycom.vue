@@ -1,5 +1,5 @@
 <script setup>
-import monthlycomp from '../../components/homepage/monthlycomp.vue';
+import monthlycomp from '../../components/homepage/monthlydata.vue';
 </script>
 <template>
   <monthlycomp />
