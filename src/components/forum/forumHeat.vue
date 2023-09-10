@@ -63,12 +63,6 @@ export default {
     rgba(0, 85, 114, 0.05) 100%
   );
 }
-#body {
-  width: 100%;
-  height: 500px;
-  overflow: scroll;
-  /* margin-top: 118px; */
-}
 #footer {
   width: 100%;
   height: 40px;
@@ -76,6 +70,13 @@ export default {
   bottom: 0;
   background-color: rgb(249, 249, 249);
 }
+#body {
+  width: 100%;
+  height: 500px;
+  overflow: scroll;
+  /* margin-top: 118px; */
+}
+
 
 .heat1 {
   margin-top: 8px;
