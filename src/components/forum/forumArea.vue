@@ -3,7 +3,7 @@
 import Crisscross from './crisscross.vue'
 import forumHeader from './forumHeader.vue'
 import forumMid from './forumMid.vue'
-import forumPost from './forumpost.vue'
+import forumPost from './forumPost.vue'
 import heat from './heat/heat.vue'
 import heat1 from './heat/heat1.vue'
 import heat2 from './heat/heat2.vue'
@@ -14,7 +14,7 @@ export default {
   name: "zan",
   data () {
     return {
-      heat_info: null
+      heat_info: []
     }
   },
   methods: {
@@ -28,7 +28,7 @@ export default {
       console.log(err)
     })
   },
-  components: { Crisscross, forumHeader, forumMid, forumPost, heat, heat1, heat2, heat3 }
+  components: { Crisscross, forumHeader, forumMid, forumPost, heat, heat1, heat2, heat3 },
 }
 </script>
 <template>

@@ -52,6 +52,7 @@ export default {
       height: 120px;
       border-radius: 10px;
       overflow: hidden;
+      border: 1px solid rgba(0, 121, 148, 1);
     "
   >
     <van-swipe :autoplay="3000" lazy-render :width="328" :height="120">
