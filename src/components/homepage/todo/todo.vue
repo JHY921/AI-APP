@@ -181,7 +181,7 @@ export default {
   },
   computed: {
     tasksItems () {
-      return this.tasks.filter((task, index) => task[6] === false && index < 4)
+      return this.tasks.filter((task, index) => task[6] === false && index < 3)
     },
   },
   methods: {
@@ -191,8 +191,8 @@ export default {
       axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
         .then(res => {
           console.log(res)
-          if (res.data.tasks.tasks.length != 0) {
-            this.tasks = res.data.tasks.tasks
+          if (res.data.tasks.length != 0) {
+            this.tasks = res.data.tasks
             console.log(this.tasks)
           } else {
             this.tasks = []
