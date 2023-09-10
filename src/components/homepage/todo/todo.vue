@@ -227,7 +227,7 @@ export default {
     },
 
     todo () {
-      this.$router.push('./moretodo')
+      this.$router.push('/moretodo')
     },
     thing (data) {
       console.log(data)
