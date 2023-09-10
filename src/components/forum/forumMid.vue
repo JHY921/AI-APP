@@ -1,19 +1,19 @@
 <script>
-import { createApp } from 'vue';
-import { Swipe, SwipeItem } from 'vant';
+import { createApp } from 'vue'
+import { Swipe, SwipeItem } from 'vant'
 
-const app = createApp();
-app.use(Swipe);
-app.use(SwipeItem);
+const app = createApp()
+app.use(Swipe)
+app.use(SwipeItem)
 export default {
-  setup() {
+  setup () {
     const images = [
       'https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg',
       'https://fastly.jsdelivr.net/npm/@vant/assets/apple-2.jpeg',
-    ];
-    return { images };
+    ]
+    return { images }
   },
-  methods:{
+  methods: {
     go (path) {
       this.$router.push(path)
     },
@@ -24,7 +24,10 @@ export default {
 <template>
   <div class="items">
     <div class="item-info">
-      <img src="../../assets/icons/forum/forumarea/课程.png" @click="go('/Course')" />
+      <img
+        src="../../assets/icons/forum/forumarea/课程.png"
+        @click="go('/Course')"
+      />
       <p>课程</p>
     </div>
     <div class="item-info" @click="go('/vedio')">
@@ -40,10 +43,23 @@ export default {
       <p>更多</p>
     </div>
   </div>
-  <div style="margin-left: 16px; margin-right: 16px; margin-top: 10px; width: 328px; height: 120px; border-radius: 10px; overflow: hidden;">
+  <div
+    style="
+      margin-left: 16px;
+      margin-right: 16px;
+      margin-top: 10px;
+      width: 328px;
+      height: 120px;
+      border-radius: 10px;
+      overflow: hidden;
+    "
+  >
     <van-swipe :autoplay="3000" lazy-render :width="328" :height="120">
       <van-swipe-item v-for="image in images" :key="image">
-        <img :src="image" style="width: 328px; height: auto; border-radius: 10px;" />
+        <img
+          :src="image"
+          style="width: 328px; height: auto; border-radius: 10px"
+        />
       </van-swipe-item>
     </van-swipe>
   </div>

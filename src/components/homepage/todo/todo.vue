@@ -113,7 +113,7 @@
         />
       </li>
     </ul>
-    <div class="alltodo" @click="todo" style="margin-top: -15px">
+    <div class="alltodo" style="margin-top: -15px" @click="todo">
       <span>查看更多事项...</span>
     </div>
     <span class="word">开始你的计划吧</span>
