@@ -280,8 +280,17 @@ export default {
         this.tasks[this.activeIndex][6] = true
         this.activeIndex = -1
         this.activeIndex1 = -1
+        axios.post(`http://${api.api}/home/todo/df`, {
+          tasks: this.tasks
+        },
+          { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true }).then(res => {
+            console.log(res.data)
+          }).catch(err => {
+            console.log(err)
+          })
       }, 1000)
       console.log(this.tasks)
+
     },
     deletetodo (task) {
       // this.buttondelete = true
@@ -295,12 +304,23 @@ export default {
       this.activeIndex1 = task[7]
       setTimeout(() => {
         this.tasks.splice(task[7], 1)
-        for (let i = 0; i < this.tasks.length; i++) {
-          this.tasks[i][7] = i
+        if (task[7] != 0) {
+          for (let i = 0; i < this.tasks.length; i++) {
+            this.tasks[i][7] = i
+          }
         }
         this.activeIndex1 = -1
+        axios.post(`http://${api.api}/home/todo/df`, {
+          tasks: this.tasks
+        },
+          { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true }).then(res => {
+            console.log(res.data)
+          }).catch(err => {
+            console.log(err)
+          })
       }, 1000)
       console.log(this.tasks)
+
     }
   },
 }
