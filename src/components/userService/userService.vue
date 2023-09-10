@@ -102,8 +102,9 @@
 </template>
   
 <script>
-import axios from 'axios'
 
+import axios from 'axios'
+import api from '../../api/api'
 export default {
   data () {
     return {
@@ -114,7 +115,8 @@ export default {
   created () {
   },
   mounted () {
-    axios.get('http://127.0.0.1:5000/api/get_data')
+    const url = `http://${api.api}/home/todo`
+    axios.get(url)
       .then(response => {
         const data = response.data
         console.log(data)
@@ -133,8 +135,9 @@ export default {
       }
 
       try {
+        const url1 = `http://${api.api}/home/todo`
         var str = ""
-        const response = await axios.post('http://127.0.0.1:5000/api/post_service', formData)
+        const response = await axios.post(url1, formData)
         console.log(response.data)
 
         str = '<div class="userTalk" style="margin:10px; padding:10px;height:auto; width:fit-content;width:-webkit-fit-content;width:-moz-fit-content; background: rgba(122, 133, 135, 0.13);border-radius:10px;border-top-right-radius:0px;margin-bottom:35px; display:block; text-align:right;margin-left:auto;">'
