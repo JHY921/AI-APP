@@ -39,7 +39,10 @@ export default {
             default: () => ({
                 month:'',
                 day: '',
-                task:[]
+                task:[],
+                plan_time:0,
+                true_time:0,
+                true_do:0
             })
     }
   },
@@ -48,33 +51,14 @@ export default {
       // month: 8,
       // day: 7,
       length: this.item.tasks.length-1,
-      // hour: 3,
-      todo: this.item.tasks.length,
+      hour: this.item.true_time,
+      todo: this.item.true_do,
       state: '良好',
-      plan_time: 0,
+      plan_time: this.item.plan_time,
       shouldone: this.item.tasks.length,
     }
   },
   computed: {
-    hour(){        
-      var hour_time =0
-      var sd =0
-      var all = 0
-      if(this.item!=null){
-        var thing = this.item.tasks
-        for(var i =0;i<thing.length;i++){
-          var t = thing[i][3]*60+thing[i][4]-thing[i][2]*60-thing[i][1]
-          all += t
-          if(thing[6]==1){
-            sd+=1
-            hour_time += t
-          }
-        }
-      }
-      this.todo = sd
-      this.plan_time = all
-      return Math.round(hour_time/60/100)
-    },
     backTolast () {
       history.back()
     },
