@@ -42,54 +42,6 @@
           </span>
         </center>
       </div>
-      <!--js计算适配width-->
-      <div
-        style="
-          display: inline-block;
-          width: 40px;
-          height: 100%;
-          vertical-align: top;
-          position: relative;
-          left: 77%;
-          top: 25%;
-        "
-        @click="moreInfor"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="20"
-          height="4"
-          viewBox="0 0 20 4"
-          fill="none"
-        >
-          <g opacity="1" transform="translate(0 0)  rotate(0)">
-            <g opacity="1" transform="translate(0 0)  rotate(0)">
-              <path
-                id="圆形 2"
-                fill-rule="evenodd"
-                style="fill: #007994"
-                opacity="1"
-                d="M2 0C0.9 0 0 0.9 0 2C0 3.1 0.9 4 2 4C3.1 4 4 3.1 4 2C4 0.9 3.1 0 2 0Z"
-              ></path>
-              <path
-                id="圆形 2"
-                fill-rule="evenodd"
-                style="fill: #007994"
-                opacity="1"
-                d="M10 0C8.9 0 8 0.9 8 2C8 3.1 8.9 4 10 4C11.1 4 12 3.1 12 2C12 0.9 11.1 0 10 0Z"
-              ></path>
-              <path
-                id="圆形 2"
-                fill-rule="evenodd"
-                style="fill: #007994"
-                opacity="1"
-                d="M18 0C16.9 0 16 0.9 16 2C16 3.1 16.9 4 18 4C19.1 4 20 3.1 20 2C20 0.9 19.1 0 18 0Z"
-              ></path>
-            </g>
-          </g>
-        </svg>
-      </div>
     </div>
 
     <transition name="color-transition">

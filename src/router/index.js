@@ -182,8 +182,8 @@ const router = createRouter({
       component: objOcr
     },
     {
-      path:'/videoOcr',
-      component:videoOcr
+      path: '/videoOcr',
+      component: videoOcr
     }
   ]
 })
