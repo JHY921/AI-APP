@@ -59,7 +59,7 @@ export default {
     <img
       @click="go('./notification')"
       class="message-remind"
-      src="../../assets/icons/forum/forumarea/提醒.png"
+      src="./remind.png"
     />
   </div>
   <!-- <div class="popular" @click="goToHeat">

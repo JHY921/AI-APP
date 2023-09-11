@@ -1,4 +1,5 @@
 <script>
+import { index } from 'd3';
 import data from './forumArea.json'
 export default {
     name: "zan",
@@ -6,8 +7,8 @@ export default {
         return {
             liked: false,
             content: '关注',
-            bg_color: "#fef0f0",
-            ft_color: "#f56c6c",
+            ft_color: "#fef0f0",
+            bg_color: "rgba(0, 121, 148, 1)",
             likeshow: true,
             collectshow: true,
             likeCount: 1000,
@@ -15,14 +16,18 @@ export default {
             commentCount: 100000,
             data: data,
             show: true,
+            isLike:[false],
+            isSub:[false],
         };
     },
     methods: {
-        like() {
+        like(index) {
+            this.isLike[index]=!this.isLike[index];
             this.likeshow = !this.likeshow;
             this.likeCount = !this.likeshow ? this.likeCount + 1 : this.likeCount - 1;
         },
-        collect() {
+        collect(index) {
+            this.isSub[index]=!this.isSub[index];
             this.collectshow = !this.collectshow;
             this.collectCount = !this.collectshow ? this.collectCount + 1 : this.collectCount - 1;
         },
@@ -33,29 +38,30 @@ export default {
             this.liked = !this.liked;
             if (this.liked) {
                 this.content = "已关注";
-                this.bg_color = "#f56c6c";
+                this.bg_color = "rgba(122, 141, 145, 1)";
                 this.ft_color = "#fef0f0";
+
             }
             else {
                 this.content = "关注";
-                this.bg_color = "#fef0f0";
-                this.ft_color = "#f56c6c";
+                this.bg_color = "rgba(0, 121, 148, 1)";
+                this.ft_color = "#fef0f0";
             }
         },
         change() {
-            this.bg_color = "#ff9999";
+            this.bg_color = "rgba(0, 121, 148, 1)";
             this.ft_color = "#fef0f0";
         },
-        goback() {
-            if (this.liked) {
-                this.bg_color = "#f56c6c";
-                this.ft_color = "#fef0f0";
-            }
-            else {
-                this.bg_color = "#fef0f0";
-                this.ft_color = "#f56c6c";
-            }
-        },
+        // goback() {
+        //     if (this.liked) {
+        //         this.bg_color = "rgba(0, 121, 148, 1)";
+        //         this.ft_color = "#fef0f0";
+        //     }
+        //     else {
+        //         this.bg_color = "rgba(0, 121, 148, 1)";
+        //         this.ft_color = "#f56c6c";
+        //     }
+        // },
         goToPersonifo() {
             this.$router.push('/Personifo');
         },
@@ -71,9 +77,9 @@ export default {
 <template>
     <div id="body">
       <ul class="post-list">
-        <li class="each-post" v-for="item in data.forumArea">
+        <li class="each-post" v-for="(item,index) in data.forumArea">
          <div id="each-post">
-           <p class="post-title">{{item['post-title']}}</p>
+           <p class="post-title" style="padding-right: 20px;">{{item['post-title']}}</p>
            <div class="user-info">
               <img
                 class="user-avator"
@@ -88,7 +94,7 @@ export default {
               <button
                 @click="favor"
                 class="button"
-                style="{background-color: bg_color,color:ft_color,}"
+                :style="{ backgroundColor: bg_color, color: ft_color }"
                 @mouseenter="change()"
                 @mouseleave="goback()"
               >
@@ -100,18 +106,24 @@ export default {
                 {{ item.content }}
               </p>
             </div>
-         <div class="page-view"><span>浏览量</span><span>{{ item.view }}</span></div>
+         <div class="page-view"><span>浏览量&nbsp;</span><span>{{ item.view }}</span></div>
         <div class="icon">
-            <div class="like" @click="like">
+            <div class="like" @click="like(index)">
                 <img
                   src="../../assets/icons/forum/forumarea/like.png"
                   class="likesbox"
                   @click="clicklikes"
                 />
+                <img src="./redColor.png"
+                  style="position: absolute; width: 50px; height: auto; margin-top: -16px; margin-left: -8px;"
+                  v-if="isLike[index]">
                 <p>{{ likeCount }}</p>
               </div>
-             <div class="collect" @click="collect">
+             <div class="collect" @click="collect(index)">
                 <img src="../../assets/icons/forum/forumarea/collect.png" />
+                <img src="./isSub.png"
+                  style="position: absolute; width: 50px; height: auto; margin-top: -16px; margin-left: -8px;"
+                  v-if="isSub[index]">
                 <p>{{ collectCount }}</p>
               </div>
               <div class="comment" @click="comment">
@@ -170,7 +182,7 @@ export default {
 .each-post {
   background-color: rgb(255, 255, 255);
   margin: auto;
-  height: 164px;
+  height: 176px;
   width: 98.8%;
   color: black;
   border-radius: 10px;
@@ -198,7 +210,7 @@ export default {
   margin-top: 22px;
   color: black;
   width: 96%;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   height: 34.4px;
   margin-bottom: 0.3%;
@@ -211,23 +223,23 @@ export default {
   color: rgb(0, 0, 0);
   width: 100%;
   height: 34px;
+  margin-top: 5px;
   display: flex;
   align-items: center;
   flex-direction: row;
 }
 .button {
   position: absolute;
-  margin-top: -1.4%;
+  margin-top: -5px;
   right: 9.3%;
   border-radius: 8px;
-  color: #ffffff;
+  border: none;
   font-weight: 900;
-  background: rgba(0, 121, 148, 1);
   border-radius: 20px;
   padding: 3px 14px;
   text-align: center;
-  font-size: 7px;
-  -webkit-transform: scale(0.7);
+  font-size: 13px;
+  -webkit-transform: scale(0.9);
 }
 .user-avator {
   border-radius: 50%;
@@ -251,7 +263,7 @@ export default {
 .ms-content {
   width: 96%;
   height: 39px;
-  margin-top: -1.5%;
+  margin-top: 0px;
   color: rgb(140, 139, 139);
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -271,7 +283,7 @@ export default {
   font-size: 9px;
 }
 .icon {
-  margin-top: -4.5%;
+  margin-top: -12px;
   width: 30%;
   height: 100%;
   float: right;
