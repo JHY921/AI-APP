@@ -38,7 +38,7 @@ export default {
       <img src="../../assets/icons/forum/forumarea/资源.png" />
       <p>资源</p>
     </div>
-    <div class="item-info">
+    <div class="item-info" @click="go('/goodsContainer')">
       <img src="../../assets/icons/forum/forumarea/更多.png" />
       <p>更多</p>
     </div>

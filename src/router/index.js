@@ -42,6 +42,10 @@ const objOcr = () => import('../components/extraFunction/objOcr.vue')
 const videoOcr = () => import('../components/extraFunction/videoOcr.vue')
 const chat = () => import('../components/extraFunction/chat.vue')
 
+const goodsContainer=()=>import('../components/forum/purchase/goodsContainer.vue')
+const goodsState=()=>import('../components/forum/purchase/goodsState.vue')
+const userPos=()=>import('../components/forum/purchase/userPos.vue')
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -190,6 +194,18 @@ const router = createRouter({
     {
       path: '/videoOcr',
       component: videoOcr
+    },
+    {
+      path:'/goodsContainer',
+      component:goodsContainer
+    },
+    {
+      path:'/goodsState',
+      component:goodsState
+    },
+    {
+      path:'/userPos',
+      component:userPos
     }
   ]
 })

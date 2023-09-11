@@ -44,25 +44,22 @@
                 border-radius: 10px;
                 background: linear-gradient(0deg, rgba(255, 255, 255, 0.58) 0%, rgba(0, 115, 140, 0.2) 100%);
                 box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);
-                " @click="go('/goodsState')">
-                <img src="./bills.png"
-                    style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
+                ">
+                <img src="./bills.png" style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
                 <span style="font-size: 12px; color: rgba(0, 121, 148, 1);vertical-align: top;
                     transform: scale(0.5);">
                     &nbsp;我的订单
-                </span>
+                </span>   
             </div>
             <div style="display: inline-block; vertical-align: top; width: 56px; height: 64px; background-color: #007994;
                 border-radius: 10px;
                 background: linear-gradient(0deg, rgba(255, 255, 255, 0.58) 0%, rgba(0, 115, 140, 0.2) 100%);
-                box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);
-                "  @click="go('/userPos')">
-                <img src="./position.png"
-                    style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
+                box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);">
+                <img src="./position.png" style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
                 <span style="font-size: 12px; color: rgba(0, 121, 148, 1);vertical-align: top;
                     transform: scale(0.5);">
                     &nbsp;我的地址
-                </span>
+                </span>       
             </div>
         </div>
         <div class="pageContainer" style="width: 360px; height: 512px;">
@@ -93,15 +90,17 @@
                         </strong>
                         <span style="font-size: 10px; font-weight: 400; letter-spacing: 0px; color: rgba(93, 102, 105, 0.49);
                             text-align: left;vertical-align: top;">
-                            &nbsp;&nbsp;&nbsp;&nbsp;点数：
+                                &nbsp;&nbsp;&nbsp;&nbsp;点数：
                         </span>
                         <span style="font-size: 16px; font-weight: 700; letter-spacing: 0px;
                             color: rgba(0, 121, 148, 1);
                             text-align: left; vertical-align: top;">
                             {{ goods.price }}
                         </span>
-                        <img src="./buyGoods.png" style="position: relative; width: 24px; height: 24px;
-                                margin-left: 40px;margin-top: -2px;" @click="buyGoods(goods.name)">
+                        <img src="./buyGoods.png"
+                            style="position: relative; width: 24px; height: 24px;
+                                margin-left: 40px;margin-top: -2px;"
+                            @click="buyGoods(goods.name)">
                     </div>
                 </div>
             </div>
@@ -122,37 +121,37 @@ export default {
             courseContent: [],
             isVip: true,
             isFollow: true,
-            points: 444,
+            points:444,
             goodsList: [
-                {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "商品名填充填充"
+                { 
+                    price: 180, 
+                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
+                    name: "商品名填充填充" 
                 },
-                {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "样例2"
+                { 
+                    price: 180, 
+                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
+                    name: "样例2" 
                 },
-                {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "商品名填充填充"
+                { 
+                    price: 180, 
+                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
+                    name: "商品名填充填充" 
                 },
-                {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "商品名填充填充"
+                { 
+                    price: 180, 
+                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
+                    name: "商品名填充填充" 
                 },
-                {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "商品名填充填充"
+                { 
+                    price: 180, 
+                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
+                    name: "商品名填充填充" 
                 },
-                {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "商品名填充填充"
+                { 
+                    price: 180, 
+                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
+                    name: "商品名填充填充" 
                 },
             ],
         };
@@ -161,11 +160,8 @@ export default {
         backTolast() {
             history.back();
         },
-        buyGoods(name) {
+        buyGoods(name){
             alert(name);
-        },
-        go(path) {
-            this.$router.push(path)
         },
     },
     setup() {

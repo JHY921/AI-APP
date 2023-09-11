@@ -28,7 +28,8 @@ export default {
       />
       <form>
         <input
-          style="transform: scale(0.8); margin-left: -4%"
+          style="transform: scale(0.8); margin-left: -4%;
+          height: 24px;"
           type="text"
           v-model="inputText"
           placeholder="前端开发就业前景"
