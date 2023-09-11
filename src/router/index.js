@@ -29,6 +29,7 @@ const useService = () => import('../views/person/useService.vue')
 const setting = () => import('../views/person/setUp/setUp.vue')
 const userLevel = () => import('../views/person/userLevel/userLevel.vue')
 const vedio = () => import('../components/forum/vedio/vedio.vue')
+const personCourse=()=>import('../components/person/personCourse.vue')
 
 const intro = () => import('../views/questionSet/intro/intro.vue')
 const questionSet1 = () => import('../views/questionSet/quesJelly/quesJelly.vue')
@@ -206,6 +207,10 @@ const router = createRouter({
     {
       path:'/userPos',
       component:userPos
+    },
+    {
+      path:'/personCourse',
+      component:personCourse
     }
   ]
 })

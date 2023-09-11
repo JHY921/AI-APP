@@ -85,7 +85,7 @@
                     <div style="background: rgba(255, 255, 255, 1);
                         box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
                         width: 160px; height: 72px; border-radius: 10px;
-                        position: relative; top: -10%;">
+                        position: relative; top: -10%; margin-bottom: 10px;">
                         <strong>
                             <p style="text-align: left; line-height: 40px; color: rgba(0, 100, 122, 1);">
                                 &nbsp;&nbsp;&nbsp;{{ goods.name }}
@@ -100,7 +100,7 @@
                             text-align: left; vertical-align: top;">
                             {{ goods.price }}
                         </span>
-                        <img src="./buyGoods.png" style="position: relative; width: 24px; height: 24px;
+                        <img src="./buyGoods.png" style="position: absolute; width: 24px; height: 24px;
                                 margin-left: 40px;margin-top: -2px;" @click="buyGoods(goods.name)">
                     </div>
                 </div>
@@ -125,24 +125,24 @@ export default {
             points: 444,
             goodsList: [
                 {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "商品名填充填充"
+                    price: 18000,
+                    img: "https://res.vmallres.com/cmscdn/CN/2023-09/96b34ecd27fa417684c109461d890ae6.png",
+                    name: "华为MATE60 PRO"
                 },
                 {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "样例2"
+                    price: 25000,
+                    img: "https://res.vmallres.com/cmscdn/CN/2023-09/d490cae3db5e4d089f005065d5ffe5e9.jpg",
+                    name: "华为MATE X5"
                 },
                 {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "商品名填充填充"
+                    price: 10000,
+                    img: "https://res.vmallres.com/cmscdn/CN/2023-05/78089ce80f134d27a8e26fab2592332d.png",
+                    name: "华为畅享系列"
                 },
                 {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "商品名填充填充"
+                    price: 12000,
+                    img: "https://res.vmallres.com/cmscdn/CN/2023-05/2fa0b145cbdc460aa22a510ed2832275.png",
+                    name: "华为NOVA系列"
                 },
                 {
                     price: 180,
@@ -170,8 +170,8 @@ export default {
     },
     setup() {
         const images = [
-            'https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg',
-            'https://fastly.jsdelivr.net/npm/@vant/assets/apple-2.jpeg',
+            'https://res.vmallres.com/cmscdn/CN/2023-09/7ac451fcfabf429fb90c20e327dbd2ab.jpg',
+            'https://res.vmallres.com/cmscdn/CN/2023-08/0b2372bf003a4293ba7df466c1f64af7.jpg',
         ];
         return { images };
     },

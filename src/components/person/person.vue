@@ -121,7 +121,7 @@
       <van-icon name="arrow" class="arrow-1" size="16px" />
     </div>
     <div class="gap1"></div>
-    <div class="class">
+    <div class="class" @click="go('./personCourse')">
       <img class="icon-2" src="../../assets/icons/person/play.png" alt="" />
       <div class="text1">课程</div>
       <van-icon name="arrow" class="arrow-1" size="16px" />
