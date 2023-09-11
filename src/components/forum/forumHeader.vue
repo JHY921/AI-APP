@@ -19,7 +19,7 @@ export default {
     <img
       src="../../assets/icons/forum/forumarea/头像.png"
       class="avator"
-      @click="go('/Personifo')"
+      @click="go('/Person')"
     />
     <div class="search">
       <img
@@ -28,7 +28,8 @@ export default {
       />
       <form>
         <input
-          style="transform: scale(0.8); margin-left: -4%"
+          style="transform: scale(0.8); margin-left: -4%;
+          height: 24px;"
           type="text"
           v-model="inputText"
           placeholder="前端开发就业前景"
@@ -59,7 +60,7 @@ export default {
     <img
       @click="go('./notification')"
       class="message-remind"
-      src="../../assets/icons/forum/forumarea/提醒.png"
+      src="./remind.png"
     />
   </div>
   <!-- <div class="popular" @click="goToHeat">

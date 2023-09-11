@@ -35,10 +35,12 @@ export default {
   <div class="second-page">
     <forumHeader></forumHeader>
     <van-tabs v-model:active="activeName" swipeable>
+      <!-- <div style="width: 328px; height: 30px; border-radius: 10px; overflow: hidden;"> -->
       <van-tab title="推荐" name="a">
         <forumMid />
         <forumPost />
       </van-tab>
+      <!-- </div> -->
       <van-tab title="热门" name="b">
         <div id="body">
           <heat1 class="heat1" :item="heat_info[0]"></heat1>

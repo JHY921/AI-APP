@@ -44,22 +44,25 @@
                 border-radius: 10px;
                 background: linear-gradient(0deg, rgba(255, 255, 255, 0.58) 0%, rgba(0, 115, 140, 0.2) 100%);
                 box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);
-                ">
-                <img src="./bills.png" style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
+                " @click="go('/goodsState')">
+                <img src="./bills.png"
+                    style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
                 <span style="font-size: 12px; color: rgba(0, 121, 148, 1);vertical-align: top;
                     transform: scale(0.5);">
                     &nbsp;我的订单
-                </span>   
+                </span>
             </div>
             <div style="display: inline-block; vertical-align: top; width: 56px; height: 64px; background-color: #007994;
                 border-radius: 10px;
                 background: linear-gradient(0deg, rgba(255, 255, 255, 0.58) 0%, rgba(0, 115, 140, 0.2) 100%);
-                box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);">
-                <img src="./position.png" style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
+                box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);
+                "  @click="go('/userPos')">
+                <img src="./position.png"
+                    style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
                 <span style="font-size: 12px; color: rgba(0, 121, 148, 1);vertical-align: top;
                     transform: scale(0.5);">
                     &nbsp;我的地址
-                </span>       
+                </span>
             </div>
         </div>
         <div class="pageContainer" style="width: 360px; height: 512px;">
@@ -82,7 +85,7 @@
                     <div style="background: rgba(255, 255, 255, 1);
                         box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
                         width: 160px; height: 72px; border-radius: 10px;
-                        position: relative; top: -10%;">
+                        position: relative; top: -10%; margin-bottom: 10px;">
                         <strong>
                             <p style="text-align: left; line-height: 40px; color: rgba(0, 100, 122, 1);">
                                 &nbsp;&nbsp;&nbsp;{{ goods.name }}
@@ -90,17 +93,15 @@
                         </strong>
                         <span style="font-size: 10px; font-weight: 400; letter-spacing: 0px; color: rgba(93, 102, 105, 0.49);
                             text-align: left;vertical-align: top;">
-                                &nbsp;&nbsp;&nbsp;&nbsp;点数：
+                            &nbsp;&nbsp;&nbsp;&nbsp;点数：
                         </span>
                         <span style="font-size: 16px; font-weight: 700; letter-spacing: 0px;
                             color: rgba(0, 121, 148, 1);
                             text-align: left; vertical-align: top;">
                             {{ goods.price }}
                         </span>
-                        <img src="./buyGoods.png"
-                            style="position: relative; width: 24px; height: 24px;
-                                margin-left: 40px;margin-top: -2px;"
-                            @click="buyGoods(goods.name)">
+                        <img src="./buyGoods.png" style="position: absolute; width: 24px; height: 24px;
+                                margin-left: 40px;margin-top: -2px;" @click="buyGoods(goods.name)">
                     </div>
                 </div>
             </div>
@@ -121,53 +122,56 @@ export default {
             courseContent: [],
             isVip: true,
             isFollow: true,
-            points:444,
+            points: 444,
             goodsList: [
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "商品名填充填充" 
+                {
+                    price: 18000,
+                    img: "https://res.vmallres.com/cmscdn/CN/2023-09/96b34ecd27fa417684c109461d890ae6.png",
+                    name: "华为MATE60 PRO"
                 },
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "样例2" 
+                {
+                    price: 25000,
+                    img: "https://res.vmallres.com/cmscdn/CN/2023-09/d490cae3db5e4d089f005065d5ffe5e9.jpg",
+                    name: "华为MATE X5"
                 },
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "商品名填充填充" 
+                {
+                    price: 10000,
+                    img: "https://res.vmallres.com/cmscdn/CN/2023-05/78089ce80f134d27a8e26fab2592332d.png",
+                    name: "华为畅享系列"
                 },
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "商品名填充填充" 
+                {
+                    price: 12000,
+                    img: "https://res.vmallres.com/cmscdn/CN/2023-05/2fa0b145cbdc460aa22a510ed2832275.png",
+                    name: "华为NOVA系列"
                 },
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "商品名填充填充" 
+                {
+                    price: 180,
+                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
+                    name: "商品名填充填充"
                 },
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "商品名填充填充" 
+                {
+                    price: 180,
+                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
+                    name: "商品名填充填充"
                 },
             ],
         };
     },
     methods: {
         backTolast() {
-            alert("back");
+            history.back();
         },
-        buyGoods(name){
+        buyGoods(name) {
             alert(name);
+        },
+        go(path) {
+            this.$router.push(path)
         },
     },
     setup() {
         const images = [
-            'https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg',
-            'https://fastly.jsdelivr.net/npm/@vant/assets/apple-2.jpeg',
+            'https://res.vmallres.com/cmscdn/CN/2023-09/7ac451fcfabf429fb90c20e327dbd2ab.jpg',
+            'https://res.vmallres.com/cmscdn/CN/2023-08/0b2372bf003a4293ba7df466c1f64af7.jpg',
         ];
         return { images };
     },

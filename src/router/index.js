@@ -29,6 +29,7 @@ const useService = () => import('../views/person/useService.vue')
 const setting = () => import('../views/person/setUp/setUp.vue')
 const userLevel = () => import('../views/person/userLevel/userLevel.vue')
 const vedio = () => import('../components/forum/vedio/vedio.vue')
+const personCourse=()=>import('../components/person/personCourse.vue')
 
 const intro = () => import('../views/questionSet/intro/intro.vue')
 const questionSet1 = () => import('../views/questionSet/quesJelly/quesJelly.vue')
@@ -40,6 +41,11 @@ const questionSet5 = () => import('../views/questionSet/quesTF/quesTF.vue')
 const ocr = () => import('../views/extraFunction/ocr/ocr.vue')
 const objOcr = () => import('../components/extraFunction/objOcr.vue')
 const videoOcr = () => import('../components/extraFunction/videoOcr.vue')
+const chat = () => import('../components/extraFunction/chat.vue')
+
+const goodsContainer=()=>import('../components/forum/purchase/goodsContainer.vue')
+const goodsState=()=>import('../components/forum/purchase/goodsState.vue')
+const userPos=()=>import('../components/forum/purchase/userPos.vue')
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -103,6 +109,11 @@ const router = createRouter({
     {
       path: '/vedio',
       component: vedio,
+
+    },
+    {
+      path: '/chat',
+      component: chat,
 
     },
     {
@@ -190,6 +201,22 @@ const router = createRouter({
     {
       path: '/videoOcr',
       component: videoOcr
+    },
+    {
+      path:'/goodsContainer',
+      component:goodsContainer
+    },
+    {
+      path:'/goodsState',
+      component:goodsState
+    },
+    {
+      path:'/userPos',
+      component:userPos
+    },
+    {
+      path:'/personCourse',
+      component:personCourse
     }
   ]
 })
