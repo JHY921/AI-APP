@@ -36,7 +36,33 @@
         </center>
       </div>
     </div>
-    <div id="talk_container" style="height: 528px; width: 360px"></div>
+    <div id="talk_container" style="height: 528px; width: 360px">
+      <div class="" style="display: flex; flex-direction: row; margin-top: 15px">
+        <img
+          src="./图标.png"
+          style="width: 34px; height: 34px; margin-left: 16px"
+          alt=""
+        />
+        <div
+          class="adminAns"
+          style="
+            margin-left: 10px;
+            padding: 10px;
+            height: auto;
+            width: fit-content;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            background: rgba(56, 56, 56, 0.11);
+            border-radius: 10px;
+            border-top-left-radius: 0px;
+            margin-bottom: 35px;
+            display: block;
+          "
+        >
+          您好！有什么我可以帮助您的吗？
+        </div>
+      </div>
+    </div>
     <div class="interactive_label">
       <div>
         <input
@@ -95,7 +121,7 @@ export default {
   created () {
   },
   mounted () {
-    const url = `http://${api.api}/home/todo`
+    const url = `http://${api.api}/Spark`
     axios.get(url)
       .then(response => {
         const data = response.data
@@ -115,19 +141,25 @@ export default {
       }
 
       try {
-        const url1 = `http://${api.api}/home/todo`
-        var str = ""
+        const url1 = `http://${api.api}/Spark`
+        var str =  
+      '<div style="display: flex; flex-direction: row; margin-top: 15px">'+
+       '<img src="./图标.png" style="width: 34px; height: 34px; margin-left: 16px" alt=""/>'
+       +'<div class="adminAns"style="margin-left: 10px; padding: 10px;height: auto;width: fit-content;width: -webkit-fit-content;width: -moz-fit-content;background: rgba(56, 56, 56, 0.11);border-radius: 10px; border-top-left-radius: 0px;margin-bottom: 35px;display: block;">'
+      +this.questionInfor+'</div>'+'</div>'
+     
+    
         const response = await axios.post(url1, formData)
         console.log(response.data)
 
-        str = '<div class="userTalk" style="margin:10px; padding:10px;height:auto; width:fit-content;width:-webkit-fit-content;width:-moz-fit-content; background: rgba(122, 133, 135, 0.13);border-radius:10px;border-top-right-radius:0px;margin-bottom:35px; display:block; text-align:right;margin-left:auto;">'
+        str = '<div class="userTalk" style="margin:10px; padding:10px;height:auto; width:fit-content;width:-webkit-fit-content;width:-moz-fit-content; background: rgba(201, 201, 201, 1);border-radius:10px;border-top-right-radius:0px;margin-bottom:35px; display:block; text-align:right;margin-left:auto;">'
           + this.questionInfor +
           '</div>'
         var Words = document.getElementById("talk_container")
         Words.innerHTML = Words.innerHTML + str
         this.questionInfor = ""
 
-        str = '<div class="adminAns" style="margin-left:10px;padding:10px; height:auto;width:fit-content;width:-webkit-fit-content;width:-moz-fit-content; background: rgba(0, 121, 148, 0.11);border-radius:10px;border-top-left-radius:0px;margin-bottom:35px; display:block;">'
+        str = '<div class="adminAns" style="margin-left:10px;padding:10px; height:auto;width:fit-content;width:-webkit-fit-content;width:-moz-fit-content; background: rgba(56, 56, 56, 0.11);border-radius:10px;border-top-left-radius:0px;margin-bottom:35px; display:block;">'
           + response.data +
           '</div>'
         var Answer = document.getElementById("talk_container")
