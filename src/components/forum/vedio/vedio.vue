@@ -467,14 +467,14 @@ export default {
       ],
       videoList: [{
         url: "http://39.106.71.161:5000/video/1.mp4",
-        cover: "http://39.106.71.161:5000/video/1.png",
+        cover: "http://39.106.71.161:5000/video/11.jpg",
         introduce: 'chatgpt到底有多智能?',
         name: '@张先生',
         like: '1000+',
         comment: '500+'
       }, {
         url: "http://39.106.71.161:5000/video/2.mp4",
-        cover: "http://39.106.71.161:5000/video/2.png",
+        cover: "http://39.106.71.161:5000/video/22.jpg",
         introduce: '人工智能专业千万别去这四个方向',
         name: '芯机叔Talk',
         like: '700+',
@@ -482,14 +482,14 @@ export default {
 
       }, {
         url: "http://39.106.71.161:5000/video/3.mp4",
-        cover: "http://39.106.71.161:5000/video/3.png",
+        cover: "http://39.106.71.161:5000/video/33.jpg",
         introduce: '计算机专业最大的问题',
         name: '计算机队长',
         like: '200+',
         comment: '50+'
       }, {
         url: "http://39.106.71.161:5000/video/4.mp4",
-        cover: "http://39.106.71.161:5000/video/4.png",
+        cover: "http://39.106.71.161:5000/video/44.jpg",
         introduce: '输入文字生成视频',
         name: '景可远',
         like: '300+',

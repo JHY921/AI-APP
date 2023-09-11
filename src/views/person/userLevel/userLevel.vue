@@ -116,8 +116,8 @@
           >
             <img src="./userPhoto.png" style="width: 46px; height: 46px" />
           </div>
-          <div style="display: inline-block; margin-top: 5px">
-            <strong>{{ userID }}</strong>
+          <div style="display: inline-block; ">
+            <strong style="margin-top: -2px">{{ userID }}</strong>
           </div>
         </div>
         <div
