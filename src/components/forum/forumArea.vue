@@ -22,7 +22,7 @@ export default {
   },
   created () {
     axios.get(`http://${api.api}/forum_heat`).then(res => {
-      // console.log(res.data[0].name);
+      console.log(res.data[0]);
       this.heat_info = res.data
     }).catch(err => {
       console.log(err)

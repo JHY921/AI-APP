@@ -7,7 +7,7 @@ const userinfo = () => import('../views/register/userinfo.vue')
 
 
 const Home = () => import('../views/homepage/homepage.vue')
-
+const postContent =()=>import('../components/forum/postContent.vue')
 
 const userChart = () => import('../components/homepage/ballStage/userChart.vue')
 const moretodo = () => import('../views/homepage/moretodo.vue')
@@ -76,6 +76,12 @@ const router = createRouter({
     {
       path: '/monthlycomp',
       component: monthlycomp
+    },
+    {
+      path:'/postContent/:pgId',      
+      name:'postContent',
+      component:postContent,
+
     },
     {
       path: '/extraFunction',

@@ -19,18 +19,19 @@
   <div class="text">我的帖子</div>
   <svg class="more" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="292" height="50" viewBox="0 0 292 50" fill="none"><g opacity="1"  transform="translate(0 0)  rotate(0)"><g opacity="1"  transform="translate(292 50)  rotate(0)"><path id="圆形 2" fill-rule="evenodd" style="fill:#007994" opacity="1" d="M-290 -50C-291.1 -50 -292 -49.1 -292 -48C-292 -46.9 -291.1 -46 -290 -46C-288.9 -46 -288 -46.9 -288 -48C-288 -49.1 -288.9 -50 -290 -50Z"></path><path id="圆形 2" fill-rule="evenodd" style="fill:#007994" opacity="1" d="M-282 -50C-283.1 -50 -284 -49.1 -284 -48C-284 -46.9 -283.1 -46 -282 -46C-280.9 -46 -280 -46.9 -280 -48C-280 -49.1 -280.9 -50 -282 -50Z"></path><path id="圆形 2" fill-rule="evenodd" style="fill:#007994" opacity="1" d="M-274 -50C-275.1 -50 -276 -49.1 -276 -48C-276 -46.9 -275.1 -46 -274 -46C-272.9 -46 -272 -46.9 -272 -48C-272 -49.1 -272.9 -50 -274 -50Z"></path></g></g></svg>
 </div>
-<div class="content">
-    <forumPost></forumPost>
-    <forumPost></forumPost>
-    <forumPost></forumPost>
-    <forumPost></forumPost>
-    <forumPost></forumPost>
-</div>
+<Mypost></Mypost>
+<!-- <div class="content">
+    <Mypost></Mypost>
+    <Mypost></Mypost>
+    <Mypost></Mypost>
+    <Mypost></Mypost>
+    <Mypost></Mypost>
+</div> -->
 </template>
 <script>
-import forumPost from '../forum/forumPost.vue'
+import Mypost from './post_com.vue'
 export default{
-components:{forumPost},
+components:{Mypost},
 data(){
     return{
 
@@ -74,7 +75,7 @@ data(){
 .more{
 position: absolute;
 left: 321px;
-top: 24px;
+top: 35px;
 }
 .content {
   margin-top: 78px;

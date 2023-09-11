@@ -1,5 +1,5 @@
 <template>
-  <div class="heat">
+  <div class="heat" @click="gotopost">
     <div class="number">
       <div class="txt">{{ tt }}</div>
     </div>
@@ -17,7 +17,8 @@ export default {
             default: () => ({
                 title: '',
                 name: '',
-                through: 0
+                through: 0,
+                _id:''
             })
         },
         tt:{
@@ -29,6 +30,11 @@ export default {
     return {
     }
   },
+  methods:{
+    gotopost(){
+      this.$router.push({ name: 'postContent', params:{pgId: this.item._id }})
+    }
+  }
 }
 </script>
 <style scoped>

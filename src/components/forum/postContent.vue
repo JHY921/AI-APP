@@ -50,7 +50,7 @@
                 <div style="display: inline-block; position:relative; width: 130px; height: 100%;">
                     <span style="font-size: 16px;font-weight: 400;letter-spacing: 0px; color: rgba(0, 0, 0, 1);
                             position: relative;">
-                        IDIDIDIDI
+                        {{passageData.name}}
                     </span>
                     <svg v-if="isVip" transform="translate(0,3)" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -108,7 +108,7 @@
                 color: rgba(0, 0, 0, 1);text-align: left;vertical-align: top;">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ passageData.description }}
                 </p>
-                <img style="max-width: 90%; height: auto; margin-left: 20px; margin-right: 20px; margin-bottom: 20px;"
+                <img v-if="passageData.image" style="max-width: 90%; height: auto; margin-left: 20px; margin-right: 20px; margin-bottom: 20px;"
                     :src="passageData.image" alt="image1" />
                 <div class="tags" style="display: inline-block; width: auto; height: 18px; background: rgba(83, 204, 238, 0.42);
                                     margin-left: 20px; margin-bottom: 8px; font-size: 14px;"
@@ -180,12 +180,15 @@
 </template>
 
 <script>
+import axios from 'axios';
+import api from '../../api/api'
 export default {
     data() {
         return {
             isVip: true,
             passageData: [],
             commentInfor: "",
+            psg:''
         };
     },
     created() {
@@ -203,11 +206,20 @@ export default {
             alert(this.commentInfor);
         },
         loadJsonData() {
-            const passageData = require('./data.json');
-            this.passageData = passageData;
-            console.log(this.passageData.image);
+            // const passageData = require('./data.json');
+            // this.passageData = passageData;
+            // console.log(this.passageData.image);
         },
     },
+    created(){
+        this.psg = this.$route.params.pgId
+        axios.post(`http://${api.api}/postcontent`,{pgId:this.psg}).then(res=>{
+            console.log(res.data);
+            this.passageData = res.data
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
 
 }
 </script>
