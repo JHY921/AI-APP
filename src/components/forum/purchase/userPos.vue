@@ -3,7 +3,24 @@
 
         <div class="status_bar">
         </div>
-
+        <div class="changePos"
+            style="position: absolute; width: 360px; height: 260px;
+                background-color: rgb(218, 218, 218);
+                margin-top: 180px; border-radius: 10px;
+                opacity: 1; z-index: 9999;"
+                v-if="isShowChangePos">
+            <input style="margin-top: 20px;" v-model="userPosition[posIndex].name">
+            <input v-model="userPosition[posIndex].city">
+            <input style="margin-bottom: 40px;" v-model="userPosition[posIndex].position">
+            <button style="width: 155px; height: 40px; border-radius: 10px; border: none;
+                font-size: 20px; color: #007994; margin-left: 20px;" @click="cancelPos">
+                退出
+            </button>
+            <button style="width: 155px; height: 40px; border-radius: 10px; border: none;
+                font-size: 20px; color: #007994; margin-left: 10px;" @click="confirmPos">
+                确定
+            </button>
+        </div>
         <div class="return_label">
             <div @click="backTolast" style="display: inline-block; width: 40px; height: 100%;">
                 <svg transform="translate(13,16)" xmlns="http://www.w3.org/2000/svg"
@@ -25,82 +42,35 @@
             </div>
             <!--js计算适配width-->
         </div>
-        <div class="inforContainer" style="margin-top: 8px; width: 360px; height: 72px;">
-            <div style="display: inline-block; vertical-align: top; width: 200px; height: 64px; margin-right: 8px;
-                margin-left: 16px;border-radius: 10px;
-                background: linear-gradient(0deg, rgba(255, 255, 255, 0.58) 0%, rgba(0, 115, 140, 0.2) 100%);
+        <div style="height: 568px; width: 360px;">
+            <div v-for="(position, index) in userPosition" style="height: 160px; width: 360px; font-size: 0px;
                 box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);
-                color: rgba(0, 121, 148, 1);">
-                <strong>
-                    <span style="margin-top: 25px;">&nbsp;&nbsp;&nbsp;&nbsp;当前积分数：</span>
-                </strong>
-                <strong>
-                    <span style="font-size: 24px;color: rgba(0, 94, 115, 1); line-height: 60px;">
-                        &nbsp;{{ points }}
-                    </span>
-                </strong>
-            </div>
-            <div style="display: inline-block; vertical-align: top; width: 56px; height: 64px; background-color: #007994;margin-right: 8px;
-                border-radius: 10px;
-                background: linear-gradient(0deg, rgba(255, 255, 255, 0.58) 0%, rgba(0, 115, 140, 0.2) 100%);
-                box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);
-                ">
-                <img src="./bills.png" style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
-                <span style="font-size: 12px; color: rgba(0, 121, 148, 1);vertical-align: top;
-                    transform: scale(0.5);">
-                    &nbsp;我的订单
-                </span>   
-            </div>
-            <div style="display: inline-block; vertical-align: top; width: 56px; height: 64px; background-color: #007994;
-                border-radius: 10px;
-                background: linear-gradient(0deg, rgba(255, 255, 255, 0.58) 0%, rgba(0, 115, 140, 0.2) 100%);
-                box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);">
-                <img src="./position.png" style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
-                <span style="font-size: 12px; color: rgba(0, 121, 148, 1);vertical-align: top;
-                    transform: scale(0.5);">
-                    &nbsp;我的地址
-                </span>       
-            </div>
-        </div>
-        <div class="pageContainer" style="width: 360px; height: 512px;">
-            <div class="swiperContainer" style="width: 327px; height: 102px; margin-left: 17px; margin-right: 16px;
-                border-radius: 10px;">
-                <van-swipe :autoplay="3000" lazy-render>
-                    <van-swipe-item v-for="image in images" :key="image">
-                        <img :src="image" style="width: 327px; height: 102px;" />
-                    </van-swipe-item>
-                </van-swipe>
-            </div>
-            <div class="goodsContainer" style="margin-top: 8px; width: 360px; height: 402px;
-                padding-left: 8px; overflow: auto;">
-                <div v-for="goods in goodsList" :key="goods" style="height: 210px; width: 160px; display: inline-block; vertical-align: top;
-                        margin-top: 8px; overflow: visible; margin-left: 8px;">
-                    <div style="height: 156px; width: 160px; overflow: visible;
-                        box-shadow:0px 0px 10px 1px rgba(0, 0, 0, 0.1); border-radius: 10px;">
-                        <img :src="goods.img" style="width: 160px; height: 156px; border-radius: 10px;">
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 1);
-                        box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-                        width: 160px; height: 72px; border-radius: 10px;
-                        position: relative; top: -10%;">
-                        <strong>
-                            <p style="text-align: left; line-height: 40px; color: rgba(0, 100, 122, 1);">
-                                &nbsp;&nbsp;&nbsp;{{ goods.name }}
-                            </p>
-                        </strong>
-                        <span style="font-size: 10px; font-weight: 400; letter-spacing: 0px; color: rgba(93, 102, 105, 0.49);
-                            text-align: left;vertical-align: top;">
-                                &nbsp;&nbsp;&nbsp;&nbsp;点数：
-                        </span>
-                        <span style="font-size: 16px; font-weight: 700; letter-spacing: 0px;
-                            color: rgba(0, 121, 148, 1);
-                            text-align: left; vertical-align: top;">
-                            {{ goods.price }}
-                        </span>
-                        <img src="./buyGoods.png"
-                            style="position: relative; width: 24px; height: 24px;
-                                margin-left: 40px;margin-top: -2px;"
-                            @click="buyGoods(goods.name)">
+                border-radius: 10px; margin-bottom: 16px; background-color: white;">
+                <div style="display: inline-block; width: 72px; height: 100%;
+                    line-height: 160px; font-size: 16px; font-weight: 700; color: rgba(0, 121, 148, 1);
+                    text-align: left;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;地址{{ index + 1 }}
+                </div>
+                <div style="display: inline-block; width: 288px; height: 100%; overflow: hidden;">
+                    <div style="margin: 20px; width: 248px; height: 120px;
+                        border: 1px solid  rgba(0, 94, 115, 1); border-radius: 10px;
+                        font-size: 12px; font-weight: 400;
+                        text-align: left;">
+                        <img src="./changePos.png" style="position: absolute; width: 60px;
+                            margin-top: 10px; margin-left: 175px; z-index: 0;" @click="changePos(index)">
+                        <p style="text-align: left; color: rgba(0, 94, 115, 1);
+                            font-size: 14px;font-weight: 500;margin: 20px;margin-bottom: 10px; margin-top: 15px;">
+                            收货人：{{ position.name }}
+                        </p>
+                        <p style="text-align: left; color: rgba(0, 94, 115, 1);
+                            font-size: 14px;font-weight: 500;margin: 20px; margin-top: 10px; margin-bottom: 10px;">
+                            所属地区：{{ position.city }}
+                        </p>
+                        <p style="text-align: left; color: rgba(0, 94, 115, 1);
+                            font-size: 14px;font-weight: 500;margin: 20px; margin-top: 10px; margin-bottom: 0;">
+                            详细地址：{{ position.position }}
+                        </p>
+
                     </div>
                 </div>
             </div>
@@ -118,40 +88,27 @@ app.use(SwipeItem);
 export default {
     data() {
         return {
+            posIndex:0,
+            isShowChangePos:false,
             courseContent: [],
             isVip: true,
             isFollow: true,
-            points:444,
-            goodsList: [
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "商品名填充填充" 
+            points: 444,
+            userPosition: [
+                {
+                    name: "姜广涵1",
+                    city: "浙江省杭州市1",
+                    position: "白杨街道杭州电子科技大学1"
                 },
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "样例2" 
+                {
+                    name: "姜广涵2",
+                    city: "浙江省杭州市2",
+                    position: "白杨街道杭州电子科技大学2"
                 },
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "商品名填充填充" 
-                },
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "商品名填充填充" 
-                },
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "商品名填充填充" 
-                },
-                { 
-                    price: 180, 
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg", 
-                    name: "商品名填充填充" 
+                {
+                    name: "姜广涵3",
+                    city: "浙江省杭州市3",
+                    position: "白杨街道杭州电子科技大学3"
                 },
             ],
         };
@@ -160,8 +117,19 @@ export default {
         backTolast() {
             history.back();
         },
-        buyGoods(name){
+        buyGoods(name) {
             alert(name);
+        },
+        changePos(index) {
+            this.isShowChangePos=true;
+            this.posIndex=index;
+            //this.userPosition[index]
+        },
+        confirmPos(index){
+            this.isShowChangePos=false;
+        },
+        cancelPos(){
+            this.isShowChangePos=false;
         },
     },
     setup() {
@@ -177,9 +145,17 @@ export default {
 <style>
 * {
     margin: 0px;
-    overflow: hidden;
+    overflow: auto;
 }
-
+input{
+    width: 316px;
+    height: 30px;
+    margin: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
+}
 p {
     text-align: center;
 }
@@ -193,6 +169,7 @@ h3 {
 .total {
     height: 640px;
     width: 360px;
+    background: rgb(207, 207, 207, .3);
 }
 
 .status_bar {
