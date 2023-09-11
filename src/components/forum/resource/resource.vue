@@ -99,63 +99,18 @@
         :key="course.course_id"
         v-show="course.course_id === clickedCourse"
       >
-        <img
-          v-bind:id="'Add' + course.course_number"
-          src="./add.png"
-          @click="addCourse(course.course_id, course.course_number)"
-          style="
-            display: block;
-            position: relative;
-            width: 60px;
-            height: auto;
-            margin: 0px;
-            padding: 0px;
-            margin-left: 150px;
-          "
-        />
 
-        <img
-          v-bind:id="'cancelAdd' + course.course_number"
-          src="./alreadyAdd.png"
-          @click="cancelAddCourse(course.course_id, course.course_number)"
-          style="
-            display: none;
-            position: relative;
-            width: 60px;
-            height: auto;
-            margin: 0px;
-            padding: 0px;
-            margin-left: 150px;
-          "
-        />
-        <!-- <img src="./alreadyAdd.png"> -->
-        <div
-          style="
-            display: inline-block;
-            width: 100px;
-            height: 65px;
-            margin-top: 10px;
-            margin-right: 10px;
-            margin-bottom: 0px;
-            border-radius: 10px;
-          "
-        >
-          <img
-            :src="course.course_cover"
-            alt="封面"
-            style="width: 100px; height: 65px; border-radius: 10px"
-          />
-        </div>
         <div
           style="
             display: inline-block;
             vertical-align: top;
             width: 99px;
             margin-top: 10px;
+       
           "
         >
-          <div style="height: 36px">
-            <span
+          <div style="height: 22px;margin-left: 5px;">
+            <p
               style="
                 font-size: 14px;
                 font-weight: 700;
@@ -163,57 +118,42 @@
                 color: rgba(0, 0, 0, 1);
                 text-align: left;
                 height: 34px;
+                width: 200px;
               "
             >
               {{ course.course_title }}
-            </span>
+            </p>
           </div>
-          <div style="height: 25px; margin-top: 10px">
+          <div style=" margin-left: 5px;width: 300px;">
             <p
               style="
                 font-size: 12px;
                 font-weight: 400;
                 letter-spacing: 0px;
-                line-height: 9.38px;
+                line-height:15px;
                 color: rgba(0, 0, 0, 0.6);
                 text-align: left;
                 vertical-align: middle;
-                margin-top: 5px;
                 -webkit-transform-origin-x: 0;
                 -webkit-transform: scale(0.8);
+                width: 300px;
               "
             >
-              课程来源：{{ course.course_source }}
-            </p>
-            <p
-              style="
-                font-size: 6px;
-                font-weight: 400;
-                letter-spacing: 0px;
-                line-height: 7.03px;
-                color: rgba(0, 0, 0, 0.4);
-                text-align: left;
-                vertical-align: middle;
-                margin-top: 5px;
-                -webkit-transform-origin-x: 0;
-                -webkit-transform: scale(0.7);
-              "
-            >
-              时长：{{ course.course_time }}
+             网址：{{ course.course_source }}
             </p>
           </div>
         </div>
         <img
           src="./study.png"
           style="
-            position: relative;
+          position: relative;
             width: 50px;
             height: auto;
-            margin: 5px;
+            margin-left: 160px;
+     
             padding: 0px;
-            left: 65%;
           "
-          @click="goStudy(course.course_id, course.course_number)"
+          @click="goStudy()"
         />
         <hr style="border: 3px solid rgba(110, 120, 122, 0.1)" />
       </div>
@@ -233,7 +173,6 @@ export default {
       moveIndex: -1,
       listPosition: [],
       isClick: true,
-      isAddCourse: "./add.png",
       selectedCourse: null,
     }
   },
@@ -241,42 +180,9 @@ export default {
     this.loadJsonData()
   },
   methods: {
-    click_follow () {
-      alert("follow")
-    },
     backTolast () {
       history.back()
     },
-    moreInfor () {
-      alert("more")
-    },
-    // loadJsonData() {
-    //     const courseData = require('./courseList.json');
-    //     const courseContent = require('./courseData.json');
-
-    //     this.courseData = courseData;
-    //     this.courseContent = courseContent;
-    //     console.log("222", this.courseContent);
-    //     // fetch("http://localhost:8081/courseList")
-    //     //     .then(response => response.json())
-    //     //     .then(data => {
-    //     //         const courseData = data; // 将获取的数据赋值给courseData
-    //     //         this.courseData = courseData.res[0];
-    //     //     })
-    //     //     .catch(error => {
-    //     //         console.error(error);
-    //     //     });
-    //     // fetch("http://localhost:8081/courseContent")
-    //     //     .then(response => response.json())
-    //     //     .then(data => {
-    //     //         const courseContent = data; 
-    //     //         this.courseContent = courseContent.res[0];
-    //     //     })
-    //     //     .catch(error => {
-    //     //         console.error(error);
-    //     //     });
-
-    // },
     async loadJsonData () {
       const courseData = await import('./courseList.json')
       const courseContent = await import('./courseData.json')
@@ -295,22 +201,7 @@ export default {
       }
       console.log(this.isClick)
     },
-    addCourse (id, num) {//关注课程
-      this.selectedCourse = id
-      var element1 = document.getElementById("Add" + num)
-      element1.style.display = "none"
-      var element2 = document.getElementById("cancelAdd" + num)
-      element2.style.display = "block"
-      console.log("add", id, num)
-    },
-    cancelAddCourse (id, num) {//取消关注课程
-      this.selectedCourse = null
-      var element1 = document.getElementById("Add" + num)
-      element1.style.display = "block"
-      var element2 = document.getElementById("cancelAdd" + num)
-      element2.style.display = "none"
-      console.log("cancel", id, num)
-    },
+
     goStudy (id, num) {
       //跳转页面
       this.$router.push('/Courseplay')
@@ -334,11 +225,6 @@ export default {
   display: block;
 }
 
-#Add {
-}
-
-#cancelAdd {
-}
 
 .isMove {
   /* border-left: 10px solid blue; */
@@ -467,6 +353,6 @@ h3 {
 
 .course_detail {
   width: 236px;
-  height: 140px;
+  height: 75px;
 }
 </style>

@@ -2,14 +2,12 @@
   <div class="title">
     <div class="back"></div>
     <div @click="go('./userLevel')">
-      <div class="img">
-        <van-image
-          width="56"
+      <div class="img" radius="10">
+        <img :src=url width="56"
           height="56"
-          radius="10"
-          lazy-load
-          src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
-        />
+          
+          lazy-load alt="">
+        
       </div>
       <div class="info">
         <div class="name">{{ name }}</div>
@@ -153,6 +151,7 @@ export default {
       post: '22',
       concern: '35',
       fan: '65',
+      url:'',
     }
   },
   created () {
@@ -169,6 +168,8 @@ export default {
           this.concern = res.data.follows
           this.name = res.data.name
           this.account = res.data.account
+          this.url=res.data.image
+          console.log(res.data.image)
         })
         .catch(error => {
           console.error(error)
