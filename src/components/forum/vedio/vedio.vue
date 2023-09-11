@@ -89,7 +89,6 @@
               preload="auto"
               :poster="item.cover"
               :src="item.url"
-              :playOrPause="playOrPause"
               x-webkit-airplay="allow"
               x5-video-orientation="portrait"
               @click="pauseVideo"
@@ -123,43 +122,43 @@
               @click="playvideo"
             />
           </div>
+          <!--  右侧标签 -->
+          <div class="right_tabs">
+            <div>
+              <van-icon
+                :name="likeName"
+                color="#ee0a24"
+                size="40"
+                :badge="item.like"
+                @click="likeIt"
+              />
+              <p></p>
+              <van-icon
+                name="chat"
+                size="40"
+                color="white"
+                :badge="item.comment"
+                @click="show = true"
+              />
+              <p></p>
+              <van-icon
+                name="share"
+                color="white"
+                size="40"
+                @click="share = true"
+              />
+            </div>
+          </div>
+
+          <!--  下部信息 -->
+          <div class="botton_tabs">
+            <p class="video_info_title">{{ item.name }}</p>
+            <p class="video_info_content">
+              {{ item.introduce }}
+            </p>
+          </div>
         </van-swipe-item>
       </van-swipe>
-      <!--  右侧标签 -->
-      <div class="right_tabs">
-        <div>
-          <van-icon
-            :name="likeName"
-            color="#ee0a24"
-            size="40"
-            badge="100+"
-            @click="likeIt"
-          />
-          <p></p>
-          <van-icon
-            name="chat"
-            size="40"
-            color="white"
-            badge="48"
-            @click="show = true"
-          />
-          <p></p>
-          <van-icon
-            name="share"
-            color="white"
-            size="40"
-            @click="share = true"
-          />
-        </div>
-      </div>
-
-      <!--  下部信息 -->
-      <div class="botton_tabs">
-        <p class="video_info_title">@张先生</p>
-        <p class="video_info_content">
-          这车性能真的不错，底盘低，加速快，开车体验真好啊，高速上开车平稳，超车也很容易！
-        </p>
-      </div>
     </div>
     <!-- 评论面板 -->
     <van-action-sheet v-model:show="show" @select="onSelectPingLun">
@@ -168,7 +167,7 @@
           <van-cell title="热门评论" class="article-title">
             <!-- 展示五条 -->
             <template #label>
-              <van-cell title="徐女士">
+              <van-cell title="TL">
                 <!-- 使用 icon 插槽来自定义左侧图标 -->
                 <template #icon>
                   <div class="" style="margin-right: 0.23rem">
@@ -177,17 +176,15 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                      src="http://39.106.71.161:5000/video/1.jpg"
                     />
                   </div>
                 </template>
                 <template #label>
                   <div class="ping_lun_info">
-                    <div class="pin_lun_detail">
-                      这仅仅是规定，还是出台一个法律保护企业微妙，否则一旦出现问题，肯定第一就找企业。
-                    </div>
+                    <div class="pin_lun_detail">未来谁都可能是导演</div>
                     <div class="ping_lun_other">
-                      <span class="pnglun_date">3天前-发布</span>
+                      <span class="pnglun_date">4天前-发布</span>
                       <van-icon
                         name="good-job-o"
                         class="pinglun_label"
@@ -201,13 +198,13 @@
                         round
                         color="#7232dd"
                         @click="detailShow = true"
-                        >评论 12</van-tag
+                        >评论 18</van-tag
                       >
                     </div>
                   </div>
                 </template>
               </van-cell>
-              <van-cell title="徐女士">
+              <van-cell title="王还是不是个横说竖说">
                 <!-- 使用 icon 插槽来自定义左侧图标 -->
                 <template #icon>
                   <div class="" style="margin-right: 0.23rem">
@@ -216,37 +213,37 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                      src="http://39.106.71.161:5000/video/2.jpg"
                     />
                   </div>
                 </template>
                 <template #label>
                   <div class="ping_lun_info">
                     <div class="pin_lun_detail">
-                      这仅仅是规定，还是出台一个法律保护企业微妙，否则一旦出现问题，肯定第一就找企业。
-                    </div>
-                    <div class="ping_lun_other">
-                      <span class="pnglun_date">3天前-发布</span>
-                      <van-icon
-                        name="good-job-o"
-                        class="pinglun_label"
-                        size="1.2rem"
-                        badge="99+"
-                        color="#ee0a24"
-                      />
-                      <van-tag
-                        plain
-                        class="pinglun_label"
-                        round
-                        color="#7232dd"
-                        @click="detailShow = true"
-                        >评论 12</van-tag
-                      >
+                      我直接输入一本水浒传
+                      <div class="ping_lun_other">
+                        <span class="pnglun_date">3天前-发布</span>
+                        <van-icon
+                          name="good-job-o"
+                          class="pinglun_label"
+                          size="1.2rem"
+                          badge="50+"
+                          color="#ee0a24"
+                        />
+                        <van-tag
+                          plain
+                          class="pinglun_label"
+                          round
+                          color="#7232dd"
+                          @click="detailShow = true"
+                          >评论 8</van-tag
+                        >
+                      </div>
                     </div>
                   </div>
                 </template>
               </van-cell>
-              <van-cell title="徐女士">
+              <van-cell title="一块橘子皮">
                 <!-- 使用 icon 插槽来自定义左侧图标 -->
                 <template #icon>
                   <div class="" style="margin-right: 0.23rem">
@@ -255,22 +252,22 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                      src="http://39.106.71.161:5000/video/3.jpg"
                     />
                   </div>
                 </template>
                 <template #label>
                   <div class="ping_lun_info">
                     <div class="pin_lun_detail">
-                      这仅仅是规定，还是出台一个法律保护企业微妙，否则一旦出现问题，肯定第一就找企业。
+                      对不会画画的人来说，以后的梦可以画下来了，太棒了。
                     </div>
                     <div class="ping_lun_other">
-                      <span class="pnglun_date">3天前-发布</span>
+                      <span class="pnglun_date">2天前-发布</span>
                       <van-icon
                         name="good-job-o"
                         class="pinglun_label"
                         size="1.2rem"
-                        badge="99+"
+                        badge="30+"
                         color="#ee0a24"
                       />
                       <van-tag
@@ -289,7 +286,7 @@
           </van-cell>
           <van-cell title="最新评论" class="article-title">
             <template #label>
-              <van-cell title="徐女士">
+              <van-cell title="Noah_x">
                 <!-- 使用 icon 插槽来自定义左侧图标 -->
                 <template #icon>
                   <div class="" style="margin-right: 0.23rem">
@@ -298,22 +295,20 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                      src="http://39.106.71.161:5000/video/4.jpg"
                     />
                   </div>
                 </template>
                 <template #label>
                   <div class="ping_lun_info">
-                    <div class="pin_lun_detail">
-                      这仅仅是规定，还是出台一个法律保护企业微妙，否则一旦出现问题，肯定第一就找企业。
-                    </div>
+                    <div class="pin_lun_detail">以后小说家可以言出法随</div>
                     <div class="ping_lun_other">
-                      <span class="pnglun_date">3天前-发布</span>
+                      <span class="pnglun_date">1小时前</span>
                       <van-icon
                         name="good-job-o"
                         class="pinglun_label"
                         size="1.2rem"
-                        badge="99+"
+                        badge="10+"
                         color="#ee0a24"
                       />
                       <van-tag
@@ -322,13 +317,13 @@
                         round
                         color="#7232dd"
                         @click="detailShow = true"
-                        >评论 12</van-tag
+                        >评论 1</van-tag
                       >
                     </div>
                   </div>
                 </template>
               </van-cell>
-              <van-cell title="徐女士">
+              <van-cell title="无缺">
                 <!-- 使用 icon 插槽来自定义左侧图标 -->
                 <template #icon>
                   <div class="" style="margin-right: 0.23rem">
@@ -337,22 +332,20 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                      src="http://39.106.71.161:5000/video/5.jpg"
                     />
                   </div>
                 </template>
                 <template #label>
                   <div class="ping_lun_info">
-                    <div class="pin_lun_detail">
-                      这仅仅是规定，还是出台一个法律保护企业微妙，否则一旦出现问题，肯定第一就找企业。
-                    </div>
+                    <div class="pin_lun_detail">视频不错，赞一个⊙０⊙</div>
                     <div class="ping_lun_other">
-                      <span class="pnglun_date">3天前-发布</span>
+                      <span class="pnglun_date">2小时前</span>
                       <van-icon
                         name="good-job-o"
                         class="pinglun_label"
                         size="1.2rem"
-                        badge="99+"
+                        badge="5+"
                         color="#ee0a24"
                       />
                       <van-tag
@@ -361,13 +354,13 @@
                         round
                         color="#7232dd"
                         @click="detailShow = true"
-                        >评论 12</van-tag
+                        >评论 0</van-tag
                       >
                     </div>
                   </div>
                 </template>
               </van-cell>
-              <van-cell title="徐女士">
+              <van-cell title="原来是个梦">
                 <!-- 使用 icon 插槽来自定义左侧图标 -->
                 <template #icon>
                   <div class="" style="margin-right: 0.23rem">
@@ -382,16 +375,14 @@
                 </template>
                 <template #label>
                   <div class="ping_lun_info">
-                    <div class="pin_lun_detail">
-                      这仅仅是规定，还是出台一个法律保护企业微妙，否则一旦出现问题，肯定第一就找企业。
-                    </div>
+                    <div class="pin_lun_detail">我有个大胆的想法</div>
                     <div class="ping_lun_other">
-                      <span class="pnglun_date">3天前-发布</span>
+                      <span class="pnglun_date">5小时前</span>
                       <van-icon
                         name="good-job-o"
                         class="pinglun_label"
                         size="1.2rem"
-                        badge="99+"
+                        badge="20+"
                         color="#ee0a24"
                       />
                       <van-tag
@@ -400,7 +391,7 @@
                         round
                         color="#7232dd"
                         @click="detailShow = true"
-                        >评论 12</van-tag
+                        >评论 2</van-tag
                       >
                     </div>
                   </div>
@@ -475,25 +466,34 @@ export default {
         ],
       ],
       videoList: [{
-        url: "https://video.pearvideo.com/mp4/third/20201124/cont-1708555-15126082-104309-hd.mp4",
-        cover: "https://image-cn2.tvcbook.com/daq/2020/11/17/d73b7026-287d-11eb-9c33-02420a0008fb.png!cover-780-439",
+        url: "http://39.106.71.161:5000/video/1.mp4",
+        cover: "http://39.106.71.161:5000/video/1.png",
+        introduce: 'chatgpt到底有多智能?',
+        name: '@张先生',
+        like: '1000+',
+        comment: '500+'
+      }, {
+        url: "http://39.106.71.161:5000/video/2.mp4",
+        cover: "http://39.106.71.161:5000/video/2.png",
+        introduce: '人工智能专业千万别去这四个方向',
+        name: '芯机叔Talk',
+        like: '700+',
+        comment: '200+'
 
       }, {
-        url: "https://video.pearvideo.com/mp4/third/20201124/cont-1708555-15126082-104309-hd.mp4",
-        cover: "https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439",
-
+        url: "http://39.106.71.161:5000/video/3.mp4",
+        cover: "http://39.106.71.161:5000/video/3.png",
+        introduce: '计算机专业最大的问题',
+        name: '计算机队长',
+        like: '200+',
+        comment: '50+'
       }, {
-        url: "https://video.pearvideo.com/mp4/third/20201124/cont-1708555-15126082-104309-hd.mp4",
-        cover: "https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439",
-      }, {
-        url: "https://video.pearvideo.com/mp4/third/20201124/cont-1708555-15126082-104309-hd.mp4",
-        cover: "https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439",
-      }, {
-        url: "https://video.pearvideo.com/mp4/third/20201124/cont-1708555-15126082-104309-hd.mp4",
-        cover: "https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439",
-      }, {
-        url: "https://video.pearvideo.com/mp4/third/20201124/cont-1708555-15126082-104309-hd.mp4",
-        cover: "https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439",
+        url: "http://39.106.71.161:5000/video/4.mp4",
+        cover: "http://39.106.71.161:5000/video/4.png",
+        introduce: '输入文字生成视频',
+        name: '景可远',
+        like: '300+',
+        comment: '60+'
       }],
       isVideoShow: true,
       playOrPause: true,

@@ -319,11 +319,7 @@ li {
   border-radius: 0px 6px 6px 0px;
   position: absolute;
   right: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(226, 184, 184, 1) 100%
-  );
+  background-image: linear-gradient(90deg, #9c2a2a -125.4%, #f5dede 57.8%);
   border-radius: 6px 0px, 0px, 6px;
 }
 .item-color-1 .time {
@@ -347,11 +343,7 @@ li {
   border-radius: 0px 6px 6px 0px;
   position: absolute;
   right: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(226, 184, 184, 1) 100%
-  );
+  background-image: linear-gradient(90deg, #9c2a2a -125.4%, #f5dede 57.8%);
   border-radius: 6px 0px, 0px, 6px;
 }
 .item-color-2 .time {
@@ -375,11 +367,7 @@ li {
   border-radius: 0px 6px 6px 0px;
   position: absolute;
   right: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(226, 184, 184, 1) 100%
-  );
+  background-image: linear-gradient(90deg, #9c2a2a -125.4%, #f5dede 57.8%);
   border-radius: 6px 0px, 0px, 6px;
 }
 .item-color-3 .time {

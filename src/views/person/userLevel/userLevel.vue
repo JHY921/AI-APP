@@ -116,11 +116,8 @@
           >
             <img src="./userPhoto.png" style="width: 46px; height: 46px" />
           </div>
-          <div style="display: inline-block; vertical-align: top">
+          <div style="display: inline-block; margin-top: 5px">
             <strong>{{ userID }}</strong>
-            <p style="color: grey; font-size: 12px; margin-top: 6px">
-              ID:{{ userNum }}
-            </p>
           </div>
         </div>
         <div
@@ -321,6 +318,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+import api from '../../../api/api'
 export default {
   data () {
     return {
@@ -328,9 +327,7 @@ export default {
       userSex: "男",
       userBirth: "2004-9-1",
       userDegree: "本科在读",
-      userIntro: "无",
       userPhoneNum: "18157455023",
-      userNum: "22330133",
       empiricalValue: 100,
       totalEmpir: 1800,
       percentage: 30,
@@ -345,6 +342,21 @@ export default {
     },
 
   },
+  created () {
+    const url = `http://${api.api}/Person`
+    axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
+      .then(res => {
+        console.log(res.data)
+        this.userID = res.data.name
+        this.userSex = res.data.sex
+        this.userPhoneNum = res.data.account
+        this.userBirth = res.data.birth[0] + '-' + res.data.birth[1] + '-' + res.data.birth[2]
+        this.userDegree = res.data.degree
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
   // watch: {
   //     percentage() {
   //         // 当percentage变化时，更新进度条的颜色

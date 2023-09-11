@@ -19,7 +19,7 @@ export default {
     <img
       src="../../assets/icons/forum/forumarea/头像.png"
       class="avator"
-      @click="go('/Personifo')"
+      @click="go('/Person')"
     />
     <div class="search">
       <img

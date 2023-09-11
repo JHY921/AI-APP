@@ -207,7 +207,7 @@ export default {
     return {
       funcA: "图片识别文字",
       funcB: "智能识物",
-      funcC: "更多功能静待开发...",
+      funcC: "聊天",
       funcD: "视频总结",
     }
   },
@@ -219,7 +219,7 @@ export default {
       this.$router.push('./objOcr')
     },
     functionC () {
-      showToast('静待开发')
+      this.$router.push('./chat')
     },
     functionD () {
       this.$router.push('./videoOcr')
