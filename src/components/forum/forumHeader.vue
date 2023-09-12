@@ -15,6 +15,9 @@ export default {
     },
     goindex () {
       this.$router.push({ name: 'Personifo', params: { userId: this.userId } })
+    },
+    search () {
+      this.$router.push('./searchview')
     }
   },
   created () {
@@ -47,12 +50,9 @@ export default {
           type="text"
           v-model="inputText"
           placeholder="前端开发就业前景"
-          @input="changevalue($event)"
-          ref="getValue"
         />
       </form>
-      <p @click="cancel" v-show="show" style="color: grey">取消</p>
-      <p @click="search" v-show="!show">搜索</p>
+      <p @click="search">搜索</p>
     </div>
     <div class="my-history">
       <div class="history" v-show="show">
