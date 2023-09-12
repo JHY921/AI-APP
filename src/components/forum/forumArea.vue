@@ -57,7 +57,7 @@ export default {
         </div>
       </van-tab>
       <van-tab title="关注" name="c">
-        <div>
+        <div style="overflow: auto">
           <followerPost />
         </div>
       </van-tab>
@@ -105,9 +105,6 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 #footer {
   width: 100%;
@@ -160,24 +157,24 @@ export default {
   width: 100%;
   height: 32px;
 }
-#van-tabs-1-0{
+#van-tabs-1-0 {
   border-radius: 10px;
 }
-#van-tabs-1-1{
+#van-tabs-1-1 {
   border-radius: 10px;
 }
-#van-tabs-1-2{
+#van-tabs-1-2 {
   border-radius: 10px;
 }
 </style>
 <style>
-#van-tabs-1-0{
+#van-tabs-1-0 {
   border-radius: 10px;
 }
-#van-tabs-1-1{
+#van-tabs-1-1 {
   border-radius: 10px;
 }
-#van-tabs-1-2{
+#van-tabs-1-2 {
   border-radius: 10px;
 }
 </style>
