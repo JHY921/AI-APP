@@ -3,7 +3,7 @@
 import Crisscross from './crisscross.vue'
 import forumHeader from './forumHeader.vue'
 import forumMid from './forumMid.vue'
-import forumPost from './forumPost.vue'
+import followerPost from './followerPost.vue'
 import heat from './heat/heat.vue'
 import heat1 from './heat/heat1.vue'
 import heat2 from './heat/heat2.vue'
@@ -22,13 +22,13 @@ export default {
   },
   created () {
     axios.get(`http://${api.api}/forum_heat`).then(res => {
-      console.log(res.data[0]);
+      console.log(res.data[0])
       this.heat_info = res.data
     }).catch(err => {
       console.log(err)
     })
   },
-  components: { Crisscross, forumHeader, forumMid, forumPost, heat, heat1, heat2, heat3 },
+  components: { Crisscross, forumHeader, forumMid, followerPost, heat, heat1, heat2, heat3 },
 }
 </script>
 <template>
@@ -57,7 +57,9 @@ export default {
         </div>
       </van-tab>
       <van-tab title="关注" name="c">
-        <forumPost />
+        <div>
+          <followerPost />
+        </div>
       </van-tab>
     </van-tabs>
   </div>

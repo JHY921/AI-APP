@@ -158,7 +158,7 @@ export default {
     </ul>
   </div>
 </template>
-<style>
+<style scoped>
 * {
   margin: 0px;
   padding: 0px;

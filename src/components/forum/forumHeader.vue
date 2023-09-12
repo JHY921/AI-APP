@@ -97,7 +97,7 @@ export default {
       <div class="bg" :class="{'left1':active == 2,'left2 focus-on':active == 3,'recommend':active==1}"></div>
     </view> -->
 </template>
-<style>
+<style scoped>
 #top {
   display: flex;
   flex-direction: row;

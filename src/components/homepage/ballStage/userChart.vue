@@ -235,7 +235,70 @@
     </div>
   </div>
 </template>
+<style scoped>
+.glassContainer {
+  float: right;
+  width: 140px;
+  height: 60px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: rgba(0, 94, 115, 0.96);
+  border-bottom-left-radius: 10px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 130, 173, 0.104);
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 8px;
+  /* border: 2px rgba(255,255,255,0.4) solid;
+    border-bottom: 2px rgba(40,40,40,0.35) solid;
+    border-right: 2px rgba(40,40,40,0.35) solid; */
+}
 
+.chartsBlock {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 80%,
+    rgba(198, 229, 235, 0.4) 100%
+  );
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+* {
+  margin: 0px;
+  overflow: auto;
+}
+
+.total {
+  height: 640px;
+  width: 360px;
+  background: rgba(158, 152, 152, 0.2);
+}
+
+.status_bar {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 360px;
+  height: 24px;
+  opacity: 1;
+  background: rgba(158, 152, 152, 0.4);
+}
+
+.return_label {
+  position: relative;
+  width: 360px;
+  height: 48px;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+</style>
 
 <script>
 import { ref, onMounted } from 'vue'
@@ -623,67 +686,3 @@ export default {
 // }
 </script>
 
-<style>
-.glassContainer {
-  float: right;
-  width: 140px;
-  height: 60px;
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: rgba(0, 94, 115, 0.96);
-  border-bottom-left-radius: 10px;
-  backdrop-filter: blur(6px);
-  background-color: rgba(0, 130, 173, 0.104);
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 8px;
-  /* border: 2px rgba(255,255,255,0.4) solid;
-    border-bottom: 2px rgba(40,40,40,0.35) solid;
-    border-right: 2px rgba(40,40,40,0.35) solid; */
-}
-
-.chartsBlock {
-  position: relative;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 80%,
-    rgba(198, 229, 235, 0.4) 100%
-  );
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  margin-top: 10px;
-  overflow: auto;
-}
-
-* {
-  margin: 0px;
-  overflow: auto;
-}
-
-.total {
-  height: 640px;
-  width: 360px;
-  background: rgba(158, 152, 152, 0.2);
-}
-
-.status_bar {
-  position: relative;
-  left: 0px;
-  top: 0px;
-  width: 360px;
-  height: 24px;
-  opacity: 1;
-  background: rgba(158, 152, 152, 0.4);
-}
-
-.return_label {
-  position: relative;
-  width: 360px;
-  height: 48px;
-  opacity: 1;
-  background-color: rgba(255, 255, 255, 1);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 8px;
-  overflow: hidden;
-}
-</style>

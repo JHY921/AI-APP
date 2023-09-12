@@ -372,7 +372,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .hide {
   display: none;
 }

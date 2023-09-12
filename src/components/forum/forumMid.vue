@@ -65,7 +65,7 @@ export default {
     </van-swipe>
   </div>
 </template>
-<style>
+<style scoped>
 .my-swipe .van-swipe-item {
   color: #fff;
   font-size: 20px;
