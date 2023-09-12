@@ -40,7 +40,7 @@ export default {
     </div>
     <div class="item-info" @click="go('/goodsContainer')">
       <img src="../../assets/icons/forum/forumarea/更多.png" />
-      <p>更多</p>
+      <p>兑换商城</p>
     </div>
   </div>
   <div

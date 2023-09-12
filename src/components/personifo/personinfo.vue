@@ -22,14 +22,7 @@
       </svg>
       <div class="text">用户主页</div>
     </div>
-    <van-image
-      width="52"
-      height="52"
-      radius="10"
-      class="img"
-      lazy-load
-      src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
-    />
+    <img width="52" height="52" radius="10" class="img" :src="url" />
     <div class="username">
       {{ name }}&emsp;&nbsp;<svg
         class="vip"
@@ -100,7 +93,8 @@ export default {
       concern: 35,
       fan: 65,
       isvip: true,
-      isconcern: '已关注'
+      isconcern: '已关注',
+      url: ''
     }
   },
   created () {
@@ -117,6 +111,7 @@ export default {
           this.concern = res.data.follows
           this.name = res.data.name
           this.account = res.data.account
+          this.url = res.data.image
         })
         .catch(error => {
           console.error(error)

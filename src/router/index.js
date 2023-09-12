@@ -7,7 +7,7 @@ const userinfo = () => import('../views/register/userinfo.vue')
 
 
 const Home = () => import('../views/homepage/homepage.vue')
-const postContent =()=>import('../components/forum/postContent.vue')
+const postContent = () => import('../components/forum/postContent.vue')
 
 const userChart = () => import('../components/homepage/ballStage/userChart.vue')
 const moretodo = () => import('../views/homepage/moretodo.vue')
@@ -29,7 +29,7 @@ const useService = () => import('../views/person/useService.vue')
 const setting = () => import('../views/person/setUp/setUp.vue')
 const userLevel = () => import('../views/person/userLevel/userLevel.vue')
 const vedio = () => import('../components/forum/vedio/vedio.vue')
-const personCourse=()=>import('../components/person/personCourse.vue')
+const personCourse = () => import('../components/person/personCourse.vue')
 
 const intro = () => import('../views/questionSet/intro/intro.vue')
 const questionSet1 = () => import('../views/questionSet/quesJelly/quesJelly.vue')
@@ -43,9 +43,9 @@ const objOcr = () => import('../components/extraFunction/objOcr.vue')
 const videoOcr = () => import('../components/extraFunction/videoOcr.vue')
 const chat = () => import('../components/extraFunction/chat.vue')
 
-const goodsContainer=()=>import('../components/forum/purchase/goodsContainer.vue')
-const goodsState=()=>import('../components/forum/purchase/goodsState.vue')
-const userPos=()=>import('../components/forum/purchase/userPos.vue')
+const goodsContainer = () => import('../components/forum/purchase/goodsContainer.vue')
+const goodsState = () => import('../components/forum/purchase/goodsState.vue')
+const userPos = () => import('../components/forum/purchase/userPos.vue')
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -84,9 +84,9 @@ const router = createRouter({
       component: monthlycomp
     },
     {
-      path:'/postContent/:pgId',      
-      name:'postContent',
-      component:postContent,
+      path: '/postContent/:pgId',
+      name: 'postContent',
+      component: postContent,
 
     },
     {
@@ -121,7 +121,8 @@ const router = createRouter({
       component: Forum_post
     },
     {
-      path: '/Personifo',
+      path: '/Personifo/:userId',
+      name: 'Personifo',
       component: Personifo
     },
     {
@@ -203,20 +204,20 @@ const router = createRouter({
       component: videoOcr
     },
     {
-      path:'/goodsContainer',
-      component:goodsContainer
+      path: '/goodsContainer',
+      component: goodsContainer
     },
     {
-      path:'/goodsState',
-      component:goodsState
+      path: '/goodsState',
+      component: goodsState
     },
     {
-      path:'/userPos',
-      component:userPos
+      path: '/userPos',
+      component: userPos
     },
     {
-      path:'/personCourse',
-      component:personCourse
+      path: '/personCourse',
+      component: personCourse
     }
   ]
 })
