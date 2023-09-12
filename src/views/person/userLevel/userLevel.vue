@@ -344,7 +344,7 @@ export default {
       empiricalValue: 100,
       totalEmpir: 1800,
       percentage: 30,
-      url: ''
+      url: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg'
     }
   },
   methods: {
@@ -364,9 +364,8 @@ export default {
           withCredentials: true
         })
           .then(res => {
-            console.log(res)
+            console.log(res.data)
             this.url = res.data
-            this.getImage()
           })
           .catch(error => {
             console.error(error)
@@ -376,26 +375,13 @@ export default {
     upload () {
       this.$refs.fileInput.click()
     },
-    getImage () {
-      const url = `http://${api.api}/portrait`
-      axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
-        .then(res => {
-          const filename = res.data // 你的图片文件名
-          console.log(res.data)
-          this.url = `http://localhost/portrait/${filename}`
-          console.log(this.url)
-        })
-        .catch(error => {
-          console.error(error)
-        })
-    }
   },
   created () {
-    this.getImage()
     const url = `http://${api.api}/Person`
     axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
       .then(res => {
         console.log(res.data)
+        this.url = res.data.image
         this.userID = res.data.name
         this.userSex = res.data.sex
         this.userPhoneNum = res.data.account

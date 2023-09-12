@@ -3,11 +3,7 @@
     <div class="back"></div>
     <div @click="go('./userLevel')">
       <div class="img" radius="10">
-        <img :src=url width="56"
-          height="56"
-          
-          lazy-load alt="">
-        
+        <img :src="url" width="56" height="56" lazy-load alt="" />
       </div>
       <div class="info">
         <div class="name">{{ name }}</div>
@@ -146,12 +142,12 @@ export default {
   components: {},
   data () {
     return {
-      name: 'OSIR4',
-      account: '22330133',
-      post: '22',
-      concern: '35',
-      fan: '65',
-      url:'',
+      name: '',
+      account: '',
+      post: '',
+      concern: '',
+      fan: '',
+      url: '',
     }
   },
   created () {
@@ -168,7 +164,7 @@ export default {
           this.concern = res.data.follows
           this.name = res.data.name
           this.account = res.data.account
-          this.url=res.data.image
+          this.url = res.data.image
           console.log(res.data.image)
         })
         .catch(error => {

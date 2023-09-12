@@ -7,16 +7,23 @@
       class="searchwrapper"
       style="display: flex; flex-direction: row; background-color: white"
     >
-      <span
+      <div
+        @click="back"
         style="
           margin-top: 4.4%;
-          margin-left: 20px;
-          margin-right: 10px;
-          padding-top: 5px;
-          color: #007994;
+          margin-left: 10px;
+          margin-right: 5px;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: #f3f3f3;
+          text-align: center;
         "
-        >&lt;</span
       >
+        <span style="color: #007994; margin-top: 3.5px; display: inline-block"
+          >&lt;</span
+        >
+      </div>
       <div class="search">
         <img
           src="../../assets/icons/forum/forumarea/搜索.png"
@@ -26,10 +33,10 @@
           <input
             style="transform: scale(0.8); margin-left: -4%; height: 24px"
             type="text"
-            placeholder="前端开发就业前景"
+            v-model="text"
           />
         </form>
-        <p @click="search" v-show="!show">搜索</p>
+        <p @click="search" v-show="!show" style="padding-left: 22px">搜索</p>
       </div>
     </div>
   </div>
@@ -44,7 +51,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 290px;
+  width: 270px;
   height: 24px;
   opacity: 1;
   border-radius: 12px;
@@ -88,7 +95,13 @@
 export default {
   data () {
     return {
-
+      text: '前端开发就业前景'
+    }
+  }
+  ,
+  methods: {
+    back () {
+      history.back()
     }
   }
 }
