@@ -222,11 +222,10 @@
                 font-size: 12px;
                 font-weight: 400;
                 letter-spacing: 0px;
-                line-height: 9.38px;
                 color: rgba(0, 0, 0, 0.6);
                 text-align: left;
                 vertical-align: middle;
-                margin-top: 5px;
+                margin-top: -3px;
                 -webkit-transform-origin-x: 0;
                 -webkit-transform: scale(0.8);
               "
@@ -238,11 +237,10 @@
                 font-size: 6px;
                 font-weight: 400;
                 letter-spacing: 0px;
-                line-height: 7.03px;
                 color: rgba(0, 0, 0, 0.4);
                 text-align: left;
                 vertical-align: middle;
-                margin-top: 5px;
+                margin-top: -5px;
                 -webkit-transform-origin-x: 0;
                 -webkit-transform: scale(0.7);
               "
@@ -458,6 +456,7 @@ h3 {
   height: 48px;
   opacity: 1;
   background-color: rgba(255, 255, 255, 1);
+  border-radius: 0px;
   border-bottom-right-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }

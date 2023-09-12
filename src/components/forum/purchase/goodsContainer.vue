@@ -101,7 +101,7 @@
                             {{ goods.price }}
                         </span>
                         <img src="./buyGoods.png" style="position: absolute; width: 24px; height: 24px;
-                                margin-left: 40px;margin-top: -2px;" @click="buyGoods(goods.name)">
+                                margin-left: 30px;margin-top: -2px;" @click="buyGoods(goods.name)">
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@ export default {
             history.back();
         },
         buyGoods(name) {
-            alert(name);
+            console.log(name);
         },
         go(path) {
             this.$router.push(path)
