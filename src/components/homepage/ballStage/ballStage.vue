@@ -396,6 +396,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+import api from '../../../api/api'
 export default {
   data () {
     return {
@@ -404,6 +406,16 @@ export default {
       moveX: 0,
       numStage: 1,
     }
+  },
+  created(){
+    axios.get(`http://${api.api}/ballstage`, {
+      headers:{'Authorization': 'Bearer '+ localStorage.getItem('token')},
+      withCredentials:true
+    }).then(res=>{
+      console.log(res.data);
+    }).catch(err=>{
+      console.log(err);
+    })
   },
   methods: {
     changeinfo () {
