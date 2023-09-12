@@ -53,7 +53,7 @@
       </g>
     </svg>
   </div>
-  <Mypost></Mypost>
+  <post1></post1>
   <!-- <div class="content">
     <Mypost></Mypost>
     <Mypost></Mypost>
@@ -63,9 +63,9 @@
 </div> -->
 </template>
 <script>
-import Mypost from './post_com.vue'
+import post1 from './post_com.vue'
 export default {
-  components: { Mypost },
+  components: { post1 },
   data () {
     return {
 

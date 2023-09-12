@@ -55,7 +55,7 @@
     </svg>
   </div>
   <div class="content">
-    <post1/>
+    <post1 />
   </div>
 </template>
 <script>
@@ -99,7 +99,7 @@ export default {
   justify-content: center;
   align-items: center;
   z-index: 999;
-  margin-bottom:8px;
+  margin-bottom: 8px;
 }
 .text {
   color: #00576bab;
