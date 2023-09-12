@@ -99,17 +99,15 @@
         :key="course.course_id"
         v-show="course.course_id === clickedCourse"
       >
-
         <div
           style="
             display: inline-block;
             vertical-align: top;
             width: 99px;
             margin-top: 10px;
-       
           "
         >
-          <div style="height: 22px;margin-left: 5px;">
+          <div style="height: 22px; margin-left: 5px">
             <p
               style="
                 font-size: 14px;
@@ -124,13 +122,13 @@
               {{ course.course_title }}
             </p>
           </div>
-          <div style=" margin-left: 5px;width: 300px;">
+          <div style="margin-left: 5px; width: 300px">
             <p
               style="
                 font-size: 12px;
                 font-weight: 400;
                 letter-spacing: 0px;
-                line-height:15px;
+                line-height: 15px;
                 color: rgba(0, 0, 0, 0.6);
                 text-align: left;
                 vertical-align: middle;
@@ -139,21 +137,21 @@
                 width: 300px;
               "
             >
-             网址：{{ course.course_source }}
+              网址：{{ course.course_source }}
             </p>
           </div>
         </div>
         <img
           src="./study.png"
           style="
-          position: relative;
+            position: relative;
             width: 50px;
             height: auto;
             margin-left: 160px;
-     
+
             padding: 0px;
           "
-          @click="goStudy()"
+          @click="goStudy(course.course_source)"
         />
         <hr style="border: 3px solid rgba(110, 120, 122, 0.1)" />
       </div>
@@ -202,9 +200,9 @@ export default {
       console.log(this.isClick)
     },
 
-    goStudy (id, num) {
+    goStudy (url) {
       //跳转页面
-      this.$router.push('/Courseplay')
+      window.open(url, '_self')
     }
   },
   computed: {
@@ -224,7 +222,6 @@ export default {
 .appear {
   display: block;
 }
-
 
 .isMove {
   /* border-left: 10px solid blue; */

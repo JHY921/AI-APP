@@ -50,7 +50,13 @@
       "course_id": 3,
       "course_name": "视频",
       "total_number": 5,
-      "subcategories": []
+      "subcategories": [
+        {
+          "subcategory_id": 401,
+          "subcategory_name": "视频网站",
+          "subcategory_number": 1
+        }
+      ]
     }
   ]
 }
