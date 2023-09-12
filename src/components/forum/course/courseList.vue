@@ -205,12 +205,12 @@
           <div style="height: 36px">
             <span
               style="
-                font-size: 14px;
+                display: inline-block;
+                font-size: 12px;
+                width: 100px;
                 font-weight: 700;
-                letter-spacing: 0px;
                 color: rgba(0, 0, 0, 1);
                 text-align: left;
-                height: 34px;
               "
             >
               {{ course.course_title }}
@@ -230,7 +230,7 @@
                 -webkit-transform: scale(0.8);
               "
             >
-              课程来源：{{ course.course_source }}
+              来源：{{ course.course_source }}
             </p>
             <p
               style="
@@ -241,6 +241,7 @@
                 text-align: left;
                 vertical-align: middle;
                 margin-top: -5px;
+                margin-left: 1px;
                 -webkit-transform-origin-x: 0;
                 -webkit-transform: scale(0.7);
               "

@@ -336,23 +336,20 @@ import api from '../../../api/api'
 export default {
   data () {
     return {
-      userID: "OSIR4",
-      userSex: "男",
-      userBirth: "2004-9-1",
-      userDegree: "本科在读",
-      userPhoneNum: "18157455023",
+      userID: "",
+      userSex: "",
+      userBirth: "",
+      userDegree: "",
+      userPhoneNum: "",
       empiricalValue: 100,
       totalEmpir: 1800,
       percentage: 30,
-      url: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg'
+      url: ''
     }
   },
   methods: {
     backTolast () {
       history.back()
-    },
-    moreInfor () {
-      alert("more")
     },
     changeimg (event) {
       const url = `http://${api.api}/changeimg`
@@ -369,6 +366,7 @@ export default {
           .then(res => {
             console.log(res)
             this.url = res.data
+            this.getImage()
           })
           .catch(error => {
             console.error(error)
@@ -378,13 +376,26 @@ export default {
     upload () {
       this.$refs.fileInput.click()
     },
+    getImage () {
+      const url = `http://${api.api}/portrait`
+      axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
+        .then(res => {
+          const filename = res.data // 你的图片文件名
+          console.log(res.data)
+          this.url = `http://localhost/portrait/${filename}`
+          console.log(this.url)
+        })
+        .catch(error => {
+          console.error(error)
+        })
+    }
   },
   created () {
+    this.getImage()
     const url = `http://${api.api}/Person`
     axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
       .then(res => {
         console.log(res.data)
-        this.url = res.data.image
         this.userID = res.data.name
         this.userSex = res.data.sex
         this.userPhoneNum = res.data.account
