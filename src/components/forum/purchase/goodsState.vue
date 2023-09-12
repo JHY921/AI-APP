@@ -80,33 +80,14 @@ export default {
         return {
             MyGoodsList: [
                 {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "商品名填充填充",
+                    price: 18000,
+                    img: "https://res.vmallres.com/cmscdn/CN/2023-09/96b34ecd27fa417684c109461d890ae6.png",
+                    name: "华为MATE60 PRO",
                     position: "样例地址",
                     phone: "18157089890",
                     orderNumber: "13548979384579345739",
                     isSned: true
                 },
-                {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "样例2",
-                    position: "样例地址",
-                    phone: "18157089890",
-                    orderNumber: "13548979384579345739",
-                    isSned: false
-                },
-                {
-                    price: 180,
-                    img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-                    name: "商品名填充填充",
-                    position: "样例地址",
-                    phone: "18157089890",
-                    orderNumber: "13548979384579345739",
-                    isSned: true
-                },
-
             ],
         };
     },

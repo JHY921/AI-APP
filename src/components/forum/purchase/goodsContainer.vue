@@ -1,6 +1,30 @@
 <template>
     <div class="total">
+        <van-notify v-model:show="showTips" type="success">
+            <van-icon name="bell" style="margin-right: 4px;" />
+            <span>兑换成功: )</span>
+        </van-notify>
+        <van-notify v-model:show="showFailTips" type="warning">
+            <van-icon name="bell" style="margin-right: 4px;" />
+            <span>积分不足: (</span>
+        </van-notify>
+        <!-- <van-dialog v-model:show="showCheck" title="" show-cancel-button>
+        </van-dialog> -->
+        <!-- <van-button type="primary" @click="showDialog">显示确认弹窗</van-button> -->
+        <div class="sendAdvice" style="position: absolute; width: 360px; height: 160px; background-color: rgb(218, 218, 218);
+            margin-top: 240px; border-radius: 10px; opacity: 1;z-index: 999999;
+            color: #007994;" v-if="isShowSendAdvice">
+            <p style="font-size: 20px; font-weight: 600;">是否确认花费{{ choosePrice }}积分购买{{ chooseGoods }}</p>
 
+            <button style="width: 155px; height: 40px; border-radius: 10px; border: none;
+                font-size: 20px; color: #007994; margin-left: 20px;" @click="cancelAdvice">
+                取消
+            </button>
+            <button style="width: 155px; height: 40px; border-radius: 10px; border: none;
+                font-size: 20px; color: #007994; margin-left: 10px;" @click="confirmAdvice">
+                确认
+            </button>
+        </div>
         <div class="status_bar">
         </div>
 
@@ -36,7 +60,7 @@
                 </strong>
                 <strong>
                     <span style="font-size: 24px;color: rgba(0, 94, 115, 1); line-height: 60px;">
-                        &nbsp;{{ points }}
+                        {{ points }}
                     </span>
                 </strong>
             </div>
@@ -56,7 +80,7 @@
                 border-radius: 10px;
                 background: linear-gradient(0deg, rgba(255, 255, 255, 0.58) 0%, rgba(0, 115, 140, 0.2) 100%);
                 box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);
-                "  @click="go('/userPos')">
+                " @click="go('/userPos')">
                 <img src="./position.png"
                     style="width: 24px; height: 24px; margin: 16px; margin-bottom: 0px; margin-top: 12px;">
                 <span style="font-size: 12px; color: rgba(0, 121, 148, 1);vertical-align: top;
@@ -101,7 +125,7 @@
                             {{ goods.price }}
                         </span>
                         <img src="./buyGoods.png" style="position: absolute; width: 24px; height: 24px;
-                                margin-left: 30px;margin-top: -2px;" @click="buyGoods(goods.name)">
+                                margin-left: 30px;margin-top: -2px;" @click="buyGoods(goods.name, goods.price)">
                     </div>
                 </div>
             </div>
@@ -112,17 +136,22 @@
 <script>
 import { createApp } from 'vue';
 import { Swipe, SwipeItem } from 'vant';
+import { Notify } from 'vant';
+import { Dialog } from 'vant';
+import { showConfirmDialog } from 'vant';
+import 'vant/lib/index.css'
 
-const app = createApp();
-app.use(Swipe);
-app.use(SwipeItem);
 export default {
     data() {
         return {
+            isShowSendAdvice: false,
             courseContent: [],
             isVip: true,
             isFollow: true,
-            points: 444,
+            points: 24000,
+            showTips: false,
+            showFailTips: false,
+            showCheck: false,
             goodsList: [
                 {
                     price: 18000,
@@ -155,14 +184,41 @@ export default {
                     name: "商品名填充填充"
                 },
             ],
+            chooseGoods: "",
+            choosePrice: 0,
         };
     },
     methods: {
+        showDialog(name,price) {
+            showConfirmDialog({
+                title: '是否确认兑换',
+                message: name,
+            })
+                .then(() => {
+                    this.showTips = true;
+                    this.points-=price;
+                    setTimeout(() => {
+                        this.showTips = false;
+                    }, 2000);
+                })
+                .catch(() => {
+                });
+        },
         backTolast() {
             history.back();
         },
-        buyGoods(name) {
-            console.log(name);
+        buyGoods(name, price) {
+            if (this.points > price) {
+                this.showDialog(name,price);
+                this.chooseGoods = name;
+                this.choosePrice = price;
+                this.showCheck = true;
+            } else {
+                this.showFailTips = true;
+                setTimeout(() => {
+                    this.showFailTips = false;
+                }, 2000);
+            }
         },
         go(path) {
             this.$router.push(path)
@@ -185,12 +241,6 @@ export default {
 }
 
 p {
-    text-align: center;
-}
-
-h1,
-h2,
-h3 {
     text-align: center;
 }
 
