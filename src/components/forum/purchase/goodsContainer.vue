@@ -139,7 +139,6 @@ import { Swipe, SwipeItem } from 'vant';
 import { Notify } from 'vant';
 import { Dialog } from 'vant';
 import { showConfirmDialog } from 'vant';
-import 'vant/lib/index.css'
 
 export default {
     data() {
@@ -235,13 +234,10 @@ export default {
 </script>
 
 <style>
+@import url('vant/lib/index.css');
 * {
     margin: 0px;
     overflow: hidden;
-}
-
-p {
-    text-align: center;
 }
 
 .total {

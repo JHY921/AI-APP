@@ -42,7 +42,7 @@
                         已支付：{{ goodsState.price }}积分
                     </p>
                     <p style="font-size: 10px;font-weight: 400;color: rgba(62, 70, 71, 0.5);">
-                        收获地址：{{ goodsState.position }}
+                        收货地址：{{ goodsState.position }}
                     </p>
                     <p style="font-size: 10px;font-weight: 400;color: rgba(62, 70, 71, 0.5);">
                         联系电话：{{ goodsState.phone }}
