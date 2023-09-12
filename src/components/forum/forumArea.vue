@@ -63,7 +63,7 @@ export default {
   </div>
   <Crisscross />
 </template>
-<style  scoped>
+<style scoped>
 :root {
   background: #268da3;
   --van-tabs-bottom-bar-color: #268da3;
@@ -157,5 +157,25 @@ export default {
 .blank {
   width: 100%;
   height: 32px;
+}
+#van-tabs-1-0{
+  border-radius: 10px;
+}
+#van-tabs-1-1{
+  border-radius: 10px;
+}
+#van-tabs-1-2{
+  border-radius: 10px;
+}
+</style>
+<style>
+#van-tabs-1-0{
+  border-radius: 10px;
+}
+#van-tabs-1-1{
+  border-radius: 10px;
+}
+#van-tabs-1-2{
+  border-radius: 10px;
 }
 </style>
