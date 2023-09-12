@@ -19,7 +19,7 @@ const Personifo = () => import('../views/forum/Personifo.vue')
 const Course = () => import('../views/forum/course.vue')
 const Courseplay = () => import('../components/forum/course/courseplay.vue')
 const resource = () => import('../components/forum/resource/resource.vue')
-const searchview = () => import('../components/forum/searchview.vue')
+const searchview = () => import('../components/forum/search/searchview.vue')
 
 const Person = () => import('../views/person/person.vue')
 const History = () => import('../views/person/history.vue')
