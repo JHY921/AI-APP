@@ -121,10 +121,10 @@ export default {
       points: 444,
       userPosition: [
         {
-          name: "HTML5+CSS3基础概述",
+          name: "Python基础语法讲解",
           source: "论坛",
-          time: "16:20",
-          img: "https://img.js.design/assets/smartFill/img420164da758808.jpg",
+          time: "30：23",
+          img: "https://img.js.design/assets/smartFill/img431164da758808.jpg",
           studyTimeH: 0,
           studyTimeM: 1,
         },

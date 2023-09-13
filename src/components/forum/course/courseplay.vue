@@ -61,7 +61,7 @@
       style="background-color: white; border-radius: 0px 0px 10px 10px"
     >
       <video style="width: 360px; height: 200px; opacity: 1" controls>
-        <source src="http://127.0.0.1:5000/video/hmbb.mp4" type="video/mp4" />
+        <source src="http://127.0.0.1:5000/video/python.mp4" type="video/mp4" />
         <source src="movie.ogg" type="video/ogg" />
       </video>
 
@@ -248,7 +248,7 @@
               font-family: regular;
               color: rgba(45, 105, 140, 0.7);
             "
-            >HTML5基础</span
+            >入门与基础</span
           >
           <span
             v-if="isstudy"
@@ -295,14 +295,14 @@
           </span>
           <span
             style="
-              margin-right: 125px;
+              margin-right: 155px;
               font-size: 14px;
               font-weight: 700;
               letter-spacing: 0px;
               font-family: regular;
               color: rgba(45, 105, 140, 0.7);
             "
-            >CSS3样式设计</span
+            >数据结构</span
           >
           <span
             v-if="isstudy"
@@ -349,14 +349,14 @@
           </span>
           <span
             style="
-              margin-right: 115px;
+              margin-right: 155px;
               font-size: 14px;
               font-weight: 700;
               letter-spacing: 0px;
               font-family: regular;
               color: rgba(45, 105, 140, 0.7);
             "
-            >响应式Web设计</span
+            >控制流程</span
           >
           <span
             v-if="isstudy"
@@ -403,14 +403,14 @@
           </span>
           <span
             style="
-              margin-right: 30px;
+              margin-right: 85px;
               font-size: 14px;
               font-weight: 700;
               letter-spacing: 0px;
               font-family: regular;
               color: rgba(45, 105, 140, 0.7);
             "
-            >高级HTML5+CSS3技巧和实践</span
+            >错误处理与文件操作</span
           >
           <span
             v-if="isstudy"
@@ -444,8 +444,8 @@ export default {
   data () {
     return {
       course: [],
-      title: 'HTML5+CSS3概述',
-      content: '深入探讨HTML5和CSS3，帮助学生掌握现代网页设计与开发的关键技能和最佳实践。',
+      title: 'Python基础语法讲解',
+      content: '探讨Python基础语法，帮助学生掌握python语言的关键技能和最佳实践。',
       name: 'OSiR4',
       img: '',
       time: '1分钟',
