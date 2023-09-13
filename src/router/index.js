@@ -48,8 +48,6 @@ const goodsContainer = () => import('../components/forum/purchase/goodsContainer
 const goodsState = () => import('../components/forum/purchase/goodsState.vue')
 const userPos = () => import('../components/forum/purchase/userPos.vue')
 
-const heat1=()=>import('../components/forum/heat/heat.vue');
-
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -227,10 +225,6 @@ const router = createRouter({
       path: '/searchview',
       component: searchview
     },
-    {
-      path:'/heat1',
-      component:heat1,
-    }
   ]
 })
 

@@ -303,7 +303,8 @@
 <script>
 import { ref, onMounted } from 'vue'
 import * as echarts from 'echarts'
-
+import axios from 'axios'
+import api from '../../../api/api'
 export default {
   name: 'BarChart',
   setup () {
@@ -645,6 +646,16 @@ export default {
   data () {
     return {
     }
+  },
+  created(){
+    axios.get(`http://${api.api}/userChat`, {
+      headers:{'Authorization': 'Bearer '+localStorage.getItem('token')},
+      withCredentials:true
+    }).then(res=>{
+      console.log(res.data);
+    }).catch(err=>{
+      console.log(err);
+    })
   },
   methods: {
     click_follow () {
