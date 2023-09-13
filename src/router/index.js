@@ -47,6 +47,7 @@ const chat = () => import('../components/extraFunction/chat.vue')
 const goodsContainer = () => import('../components/forum/purchase/goodsContainer.vue')
 const goodsState = () => import('../components/forum/purchase/goodsState.vue')
 const userPos = () => import('../components/forum/purchase/userPos.vue')
+const info = () => import('../components/person/info.vue')
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -58,6 +59,10 @@ const router = createRouter({
     {
       path: '/login',
       component: login
+    },
+    {
+      path: '/info',
+      component: info
     },
     {
       path: '/signup',
@@ -86,7 +91,7 @@ const router = createRouter({
     },
     {
       // path: '/postContent/:pgId',
-      path:'/postContent',
+      path: '/postContent',
       name: 'postContent',
       component: postContent,
 

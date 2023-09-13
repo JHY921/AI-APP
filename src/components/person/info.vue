@@ -2,127 +2,162 @@
 export default {
   data () {
     return {
-      checked:true,
-      checked1:true,
-      checked2:true,
-      checked3:true,
-      checked4:true,
-      checked5:true,
+      checked: true,
+      checked1: true,
+      checked2: true,
+      checked3: true,
+      checked4: true,
+      checked5: true,
     }
   },
   methods: {
-    onChange({detail}){
-      this.setDate({checked:detail});
+    onChange ({ detail }) {
+      this.setDate({ checked: detail })
     },
-    onChange1({detail}){
-      this.setDate({checked1:detail});
+    onChange1 ({ detail }) {
+      this.setDate({ checked1: detail })
     },
-    onChange2({detail}){
-      this.setDate({checked2:detail});
+    onChange2 ({ detail }) {
+      this.setDate({ checked2: detail })
     },
-    onChange3({detail}){
-      this.setDate({checked3:detail});
+    onChange3 ({ detail }) {
+      this.setDate({ checked3: detail })
     },
-    onChange4({detail}){
-      this.setDate({checked4:detail});
+    onChange4 ({ detail }) {
+      this.setDate({ checked4: detail })
     },
-    onChange5({detail}){
-      this.setDate({checked5:detail});
+    onChange5 ({ detail }) {
+      this.setDate({ checked5: detail })
     },
+    back () {
+      history.back()
+    }
   },
 }
 </script>
 <template>
   <div class="info">
     <van-nav-bar
-        title="消息通知"
-        right-text=""
-        left-arrow
-        bind:click-left="onClickLeft"
-        bind:click-right="onClickRight"
-        @click-left="back"
+      title="消息通知"
+      right-text=""
+      left-arrow
+      bind:click-left="onClickLeft"
+      bind:click-right="onClickRight"
+      @click-left="back"
     />
     <van-cell-group class="van-cell-group">
-    <van-cell title="通知显示消息详情" value="内容" class="van-cell">
-    <van-switch v-model="checked" bind:change="onChange" active-color="#148d87" inactive-color="#ffffff" class="switch"/>
-    </van-cell>
+      <van-cell title="通知显示消息详情" value="内容" class="van-cell">
+        <van-switch
+          v-model="checked"
+          bind:change="onChange"
+          active-color="#148d87"
+          inactive-color="#ffffff"
+          class="switch"
+        />
+      </van-cell>
     </van-cell-group>
     <div class="shadow">
-      <p>微信未打开时</p>
+      <p>未打开时</p>
     </div>
     <van-cell-group class="van-cell-group">
-    <van-cell title="消息通知" value="内容" class="van-cell">
-    <van-switch v-model="checked1" bind:change="onChange1" active-color="#148d87" inactive-color="#ffffff" class="switch"/>
-    </van-cell>
+      <van-cell title="消息通知" value="内容" class="van-cell">
+        <van-switch
+          v-model="checked1"
+          bind:change="onChange1"
+          active-color="#148d87"
+          inactive-color="#ffffff"
+          class="switch"
+        />
+      </van-cell>
     </van-cell-group>
     <div class="shadow">
-      <p>微信打开时</p>
+      <p>打开时</p>
     </div>
     <van-cell-group class="van-cell-group">
-    <van-cell title="消息通知横幅" value="内容" class="van-cell">
-    <van-switch v-model="checked2" bind:change="onChange2" active-color="#148d87" inactive-color="#ffffff" class="switch"/>
-    </van-cell>
-    <van-cell title="消息提示音" value="内容" class="van-cell">
-    <van-switch v-model="checked3" bind:change="onChange3" active-color="#148d87" inactive-color="#ffffff" class="switch"/>
-    </van-cell>
-    <van-cell title="语音视频通话来电铃声" value="内容" class="van-cell">
-    <van-switch v-model="checked4" bind:change="onChange4" active-color="#148d87" inactive-color="#ffffff" class="switch"/>
-    </van-cell>  
-    <van-cell title="振动" value="内容" class="van-cell">
-    <van-switch v-model="checked5" bind:change="onChange5" active-color="#148d87" inactive-color="#ffffff" class="switch"/>
-    </van-cell>    
-  </van-cell-group>
-  <div class="shadow">
+      <van-cell title="消息通知横幅" value="内容" class="van-cell">
+        <van-switch
+          v-model="checked2"
+          bind:change="onChange2"
+          active-color="#148d87"
+          inactive-color="#ffffff"
+          class="switch"
+        />
+      </van-cell>
+      <van-cell title="消息提示音" value="内容" class="van-cell">
+        <van-switch
+          v-model="checked3"
+          bind:change="onChange3"
+          active-color="#148d87"
+          inactive-color="#ffffff"
+          class="switch"
+        />
+      </van-cell>
+      <van-cell title="振动" value="内容" class="van-cell">
+        <van-switch
+          v-model="checked5"
+          bind:change="onChange5"
+          active-color="#148d87"
+          inactive-color="#ffffff"
+          class="switch"
+        />
+      </van-cell>
+    </van-cell-group>
+    <div class="shadow">
       <p>提示音与铃声</p>
     </div>
     <van-cell-group class="van-cell-group">
-      <van-cell title="消息提示音" is-link value="默认" arrow-direction="right" />
-  </van-cell-group>
+      <van-cell
+        title="消息提示音"
+        is-link
+        value="默认"
+        arrow-direction="right"
+      />
+    </van-cell-group>
   </div>
 </template>
-<style>
-.switch{
+<style scoped>
+.switch {
   /* right:0px; */
-  float:right;
-  right:0px;
-  width:50px;
-  height:30px;
-  margin-top:1px;
+  float: right;
+  right: 0px;
+  width: 50px;
+  height: 30px;
+  margin-top: 1px;
   transform: scale(0.74);
 }
-.info{
-  background-color:#e1e1e1;
-  height:640px;
-  width:100%;
+.info {
+  background-color: #e1e1e1;
+  height: 640px;
+  width: 100%;
 }
-.van-cell-group{
-  top:1px;
+.van-cell-group {
+  top: 1px;
   box-shadow: 0px 0.6px 0px #b3b3b3;
 }
-.van-cell{
-  height:50px;
+.van-cell {
+  height: 50px;
 }
-.shadow{
-  width:100%;
-  height:30px;
+.shadow {
+  width: 100%;
+  height: 30px;
   background-color: #e1e1e1;
   font-size: 12px;
 }
-.shadow p{
-  padding-top:9px; 
+.shadow p {
+  padding-top: 9px;
   padding-left: 15px;
-  color:#707070;
+  color: #707070;
 }
-.van-cell__title{
+.van-cell__title {
   font-size: 14px;
   line-height: 33px;
   font-weight: 600;
 }
-.van-cell__value{
-  line-height:33px;
+.van-cell__value {
+  line-height: 33px;
 }
-.van-icon-arrow{
-  line-height:32px;
+.van-icon-arrow {
+  line-height: 32px;
 }
 
 .van-nav-bar__title {
@@ -134,11 +169,12 @@ export default {
   color: #007994 !important;
   /* font-size:16px; */
 }
- .van-nav-bar__text {
+.van-nav-bar__text {
   color: rgba(0, 121, 148, 1);
   font-weight: 700;
   font-size: 24px;
-}.van-nav-bar__arrow {
+}
+.van-nav-bar__arrow {
   color: rgba(0, 121, 148, 1);
   font-weight: 600;
   transform: scale(1.1);
