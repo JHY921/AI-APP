@@ -9,7 +9,7 @@ export default {
             "user_name":"Vince_13",
             "user-vip":true,
             "user-behavior":"评论了您的帖子",
-            "user-behavior-icon":"require(../../assets/info-icon/评论1.png)",
+            "user-behavior-icon":"../../assets/info-icon/评论1.png",
             "date":"9-6"
         },
         {
@@ -76,6 +76,14 @@ export default {
       history.back()
     }
   },
+  setup() {
+    const getImageUrl = (name) => {
+        return new URL(`${name}`, import.meta.url).href
+    }
+  return {
+    getImageUrl
+  }
+}
 }
 </script>
 <template>
@@ -118,7 +126,7 @@ export default {
         <p class="user-name">{{item.user_name }}</p>
         <img src="../../../assets/info-icon/皇冠.png" class="vip" />
         <p class="behavior">{{ item['user-behavior'] }}</p>
-        <img :src="item.userbehavior" class="behavior-icon" />
+        <img :src="getImageUrl(item['user-behavior-icon'])" class="behavior-icon" />
         <p class="date">{{ item['date'] }}</p>
       </div>
       <div class="detail">
