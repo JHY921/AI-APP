@@ -50,7 +50,7 @@
               transform: translateY(-50%);
             "
           >
-            学习网站
+            视频详情
           </span>
         </center>
       </div>
@@ -60,7 +60,7 @@
       class="introduce"
       style="background-color: white; border-radius: 0px 0px 10px 10px"
     >
-      <video style="width: 360px; height: 248px; opacity: 1" controls>
+      <video style="width: 360px; height: 200px; opacity: 1" controls>
         <source src="http://127.0.0.1:5000/video/hmbb.mp4" type="video/mp4" />
         <source src="movie.ogg" type="video/ogg" />
       </video>
@@ -78,7 +78,7 @@
             vertical-align: top;
           "
         >
-          {{ course.course_title }}
+          {{ title }}
         </p>
         <div style="margin-top: 11px; margin-bottom: 11px">
           <span
@@ -100,7 +100,7 @@
               color: rgba(116, 139, 144, 0.56);
               font-family: thin;
             "
-            >{{ course.course_content }}</span
+            >{{ content }}</span
           >
         </div>
       </div>
@@ -117,11 +117,10 @@
         "
       >
         <div class="img">
-          <van-image
+          <img
             width="36"
             height="36"
             radius="10"
-            lazy-load
             src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
           />
         </div>
@@ -160,7 +159,7 @@
             font-family: regular;
           "
         >
-          添加课程
+          已添加
         </button>
       </div>
     </div>
@@ -231,25 +230,187 @@
           <span
             style="
               margin-left: 16px;
-              margin-right: 30px;
+              margin-right: 10px;
               font-size: 16px;
               font-weight: 700;
               letter-spacing: 0px;
               font-family: res;
               color: rgba(45, 105, 140, 1);
             "
-            >第一章:</span
-          >
+            >第一章:
+          </span>
           <span
             style="
-              margin-right: 160px;
+              margin-right: 140px;
               font-size: 14px;
               font-weight: 700;
               letter-spacing: 0px;
               font-family: regular;
               color: rgba(45, 105, 140, 0.7);
             "
-            >{{ course.course_title }}</span
+            >HTML5基础</span
+          >
+          <span
+            v-if="isstudy"
+            style="
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: thin;
+              color: rgba(119, 139, 150, 0.23);
+            "
+            >已学习</span
+          >
+          <span
+            v-else
+            style="
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: thin;
+              color: rgba(115, 118, 120, 0.49);
+            "
+            >未学习</span
+          >
+        </div>
+        <div
+          class="course-item"
+          style="
+            height: 56px;
+            line-height: 56px;
+            border-bottom: 0.4px solid rgba(0, 69, 84, 0.09);
+          "
+        >
+          <span
+            style="
+              margin-left: 16px;
+              margin-right: 10px;
+              font-size: 16px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: res;
+              color: rgba(45, 105, 140, 1);
+            "
+            >第二章:
+          </span>
+          <span
+            style="
+              margin-right: 125px;
+              font-size: 14px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: regular;
+              color: rgba(45, 105, 140, 0.7);
+            "
+            >CSS3样式设计</span
+          >
+          <span
+            v-if="isstudy"
+            style="
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: thin;
+              color: rgba(119, 139, 150, 0.23);
+            "
+            >已学习</span
+          >
+          <span
+            v-else
+            style="
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: thin;
+              color: rgba(115, 118, 120, 0.49);
+            "
+            >未学习</span
+          >
+        </div>
+        <div
+          class="course-item"
+          style="
+            height: 56px;
+            line-height: 56px;
+            border-bottom: 0.4px solid rgba(0, 69, 84, 0.09);
+          "
+        >
+          <span
+            style="
+              margin-left: 16px;
+              margin-right: 10px;
+              font-size: 16px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: res;
+              color: rgba(45, 105, 140, 1);
+            "
+            >第三章:
+          </span>
+          <span
+            style="
+              margin-right: 115px;
+              font-size: 14px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: regular;
+              color: rgba(45, 105, 140, 0.7);
+            "
+            >响应式Web设计</span
+          >
+          <span
+            v-if="isstudy"
+            style="
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: thin;
+              color: rgba(119, 139, 150, 0.23);
+            "
+            >已学习</span
+          >
+          <span
+            v-else
+            style="
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: thin;
+              color: rgba(115, 118, 120, 0.49);
+            "
+            >未学习</span
+          >
+        </div>
+        <div
+          class="course-item"
+          style="
+            height: 56px;
+            line-height: 56px;
+            border-bottom: 0.4px solid rgba(0, 69, 84, 0.09);
+          "
+        >
+          <span
+            style="
+              margin-left: 16px;
+              margin-right: 10px;
+              font-size: 16px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: res;
+              color: rgba(45, 105, 140, 1);
+            "
+            >第四章:
+          </span>
+          <span
+            style="
+              margin-right: 30px;
+              font-size: 14px;
+              font-weight: 700;
+              letter-spacing: 0px;
+              font-family: regular;
+              color: rgba(45, 105, 140, 0.7);
+            "
+            >高级HTML5+CSS3技巧和实践</span
           >
           <span
             v-if="isstudy"
@@ -283,11 +444,11 @@ export default {
   data () {
     return {
       course: [],
-      title: 'vdvsdvs',
-      content: 'dvvsdvsdvsvdsvsdv',
-      name: 'cdscdsc',
+      title: 'HTML5+CSS3概述',
+      content: '深入探讨HTML5和CSS3，帮助学生掌握现代网页设计与开发的关键技能和最佳实践。',
+      name: 'OSiR4',
       img: '',
-      time: '45分钟',
+      time: '1分钟',
       isstudy: false,
       theme: 'scdscs'
     }

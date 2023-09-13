@@ -85,7 +85,8 @@ const router = createRouter({
       component: monthlycomp
     },
     {
-      path: '/postContent/:pgId',
+      // path: '/postContent/:pgId',
+      path:'/postContent',
       name: 'postContent',
       component: postContent,
 
@@ -223,7 +224,7 @@ const router = createRouter({
     {
       path: '/searchview',
       component: searchview
-    }
+    },
   ]
 })
 
