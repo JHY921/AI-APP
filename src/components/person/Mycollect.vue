@@ -19,12 +19,7 @@
     <div class="text">我的收藏</div>
   </div>
   <div class="content">
-    <li
-      style="list-style: none"
-      v-for="(item, index) in postList"
-      :key="index"
-      :class="[`item-color-${index}`, { 'slide-out': activeIndex1 == task[7] }]"
-    >
+    <li style="list-style: none" v-for="(item, index) in postList" :key="index">
       <div
         style="
           border-radius: 10px;
