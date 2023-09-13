@@ -412,7 +412,7 @@ export default {
       headers:{'Authorization': 'Bearer '+ localStorage.getItem('token')},
       withCredentials:true
     }).then(res=>{
-      console.log(res.data);
+      this.numStage = res.data
     }).catch(err=>{
       console.log(err);
     })
