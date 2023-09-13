@@ -372,24 +372,24 @@ export default {
           name: "HONOR荣耀"
         },
         {
-          price: 10000,
-          img: "https://gw.alicdn.com/imgextra/i2/2214081813903/O1CN01m95AaP1ehcgYW1aIX_!!2214081813903.jpg_Q75.jpg_.webp",
-          name: "OPPO K11x 5G"
+          price: 59.9,
+          img: "https://gw.alicdn.com/imgextra/i1/2206722135782/O1CN01bQFCEZ1saCsoZjBBw_!!2206722135782.jpg_Q75.jpg_.webp",
+          name: "猫人袜子女春夏"
         },
         {
           price: 12000,
-          img: "https://res.vmallres.com/cmscdn/CN/2023-05/2fa0b145cbdc460aa22a510ed2832275.png",
-          name: "华为NOVA系列"
+          img: "https://gw.alicdn.com/imgextra/i3/2207489273283/O1CN01b9n5Vg1a7f9tLm0dZ_!!2207489273283.jpg_Q75.jpg_.webp",
+          name: "白色法式复古衬衫上衣"
         },
         {
           price: 180,
-          img: "https://gw.alicdn.com/imgextra/i2/2206829987398/O1CN01M1cboo24WKxdUOqdw_!!0-item_pic.jpg_Q75.jpg_.webp",
-          name: "红米note11Tpro"
+          img: "https://img.alicdn.com/imgextra/i2/110893047/O1CN01mlg3XF1YNZUSoJAte_!!0-saturn_solar.jpg_468x468q75.jpg_.webp",
+          name: "人工智能AI时代"
         },
         {
           price: 180,
-          img: "https://gw.alicdn.com/imgextra/i2/3851598352/O1CN01NbLNjI2BZGneuoOjo_!!0-item_pic.jpg_Q75.jpg_.webp",
-          name: " 华为90Pro"
+          img: "https://gw.alicdn.com/imgextra/i1/856755458/O1CN013KbWoE1qBoVXz4VeU_!!856755458.jpg_Q75.jpg_.webp",
+          name: " Eternelle法国永恒玫瑰花项链"
         },
       ],
       chooseGoods: "",
