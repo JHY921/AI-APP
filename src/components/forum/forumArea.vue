@@ -73,6 +73,7 @@ export default {
 * {
   margin: 0px;
   padding: 0px;
+  overflow: hidden;
 }
 .second-page >>> .van-tabs__wrap {
   border-radius: 0px 0px, 10px, 10px;
