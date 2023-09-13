@@ -25,21 +25,23 @@
             <!--js计算适配width-->
         </div>
         <div style="height: 568px; width: 360px;">
-            <div v-for="(position, index) in userPosition" style="height: 140px; width: 360px; font-size: 0px;
+            <div v-for="(position, index) in userPosition" style=" height: 140px; width: 360px; font-size: 0px;
                 box-shadow: 0px 1px 3px  rgba(0, 0, 0, 0.1), 0px 1px 2px  rgba(0, 0, 0, 0.06);
                 margin-bottom: 10px; background-color: white;">
-                <img :src="position.img" style="width: 120px; height: 100px; margin: 20px; border-radius: 10px;">
-                <div style="display: inline-block; width: 200px; height: 100%;">
-                    <div style="font-size: 18px;font-weight: 600;margin-top: 16px;">
+                <img :src="position.img" style="width: 120px; height: 100px; margin: 20px;margin-right: 12px; border-radius: 10px;">
+                <div style="display: inline-block; width: 200px; height: 100px;
+                    vertical-align: top; margin-top: 20px;">
+                    <div style="height: 42px; width: 200px; font-size: 18px;font-weight: 600;">
                         {{ position.name }}
                     </div>
-                    <div style="font-size: 12px;color: grey; margin-top: 8px;">
+                    <div style="height: 16px; font-size: 12px;color: grey;">
                         课程来源：{{ position.source }}
                     </div>
-                    <div style="font-size: 12px;color: grey;">
+                    <div style="height: 20px; font-size: 12px;color: grey;">
                         时长：{{ position.time }}
                     </div>
-                    <div style="font-size: 16px; color: #007994; font-weight: 600;">
+                    <div style="font-size: 18px; color: #007994;
+                        font-weight: 600;">
                         已学习：{{ studyTimeH }}时{{ studyTimeM }}分
                     </div>
                 </div>
@@ -68,22 +70,22 @@ export default {
             points: 444,
             userPosition: [
                 {
-                    name: "这里是课程名字的位置（占位）",
-                    source:"XXXX",
-                    time:"XX",
-                    img:"https://img.js.design/assets/smartFill/img421164da758808.jpg"
+                    name: "HTML5+CSS3基础概述",
+                    source:"论坛",
+                    time:"16:20",
+                    img:"https://img.js.design/assets/smartFill/img420164da758808.jpg"
                 },
                 {
-                    name: "这里是课程名字的位置（占位）",
-                    source:"XXXX",
-                    time:"XX",
-                    img:"https://img.js.design/assets/smartFill/img421164da758808.jpg"
+                    name: "移动端技术精讲",
+                    source:"论坛",
+                    time:"19:13",
+                    img:"https://img.js.design/assets/smartFill/img431164da758808.jpg"
                 },
                 {
-                    name: "这里是课程名字的位置（占位）",
-                    source:"XXXX",
-                    time:"XX",
-                    img:"https://img.js.design/assets/smartFill/img421164da758808.jpg"
+                    name: "Python基础环境搭建",
+                    source:"CSDN",
+                    time:"24:47",
+                    img:"https://img.js.design/assets/smartFill/img423164da758808.jpg"
                 },
             ],
         };
