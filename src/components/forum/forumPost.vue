@@ -231,7 +231,7 @@
   }
 }
 </style>
-<script>
+<script scoped>
 export default {
   components: {},
   data () {

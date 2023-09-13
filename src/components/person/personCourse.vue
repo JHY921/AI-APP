@@ -39,7 +39,7 @@
                     <div style="font-size: 12px;color: grey;">
                         时长：{{ position.time }}
                     </div>
-                    <div style="font-size: 16px; color: #007994; font-weight: 600;">
+                    <div style="font-size: 18px; color: #007994; font-weight: 600;">
                         已学习：{{ studyTimeH }}时{{ studyTimeM }}分
                     </div>
                 </div>
@@ -68,22 +68,22 @@ export default {
             points: 444,
             userPosition: [
                 {
-                    name: "这里是课程名字的位置（占位）",
-                    source:"XXXX",
-                    time:"XX",
-                    img:"https://img.js.design/assets/smartFill/img421164da758808.jpg"
+                    name: "HTML5+CSS3基础概述",
+                    source:"论坛",
+                    time:"16:20",
+                    img:"https://img.js.design/assets/smartFill/img420164da758808.jpg"
                 },
                 {
-                    name: "这里是课程名字的位置（占位）",
-                    source:"XXXX",
-                    time:"XX",
-                    img:"https://img.js.design/assets/smartFill/img421164da758808.jpg"
+                    name: "移动端技术精讲",
+                    source:"论坛",
+                    time:"19:13",
+                    img:"https://img.js.design/assets/smartFill/img431164da758808.jpg"
                 },
                 {
-                    name: "这里是课程名字的位置（占位）",
-                    source:"XXXX",
-                    time:"XX",
-                    img:"https://img.js.design/assets/smartFill/img421164da758808.jpg"
+                    name: "Python基础环境搭建",
+                    source:"CSDN",
+                    time:"24:47",
+                    img:"https://img.js.design/assets/smartFill/img423164da758808.jpg"
                 },
             ],
         };
