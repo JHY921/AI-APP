@@ -111,11 +111,7 @@ export default {
   position: absolute;
   left: 21.5px;
 }
-.more {
-  position: absolute;
-  left: 321px;
-  top: 24px;
-}
+
 .tit {
   position: relative;
   margin-top: 59px;

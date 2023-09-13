@@ -17,57 +17,272 @@
       ></path>
     </svg>
     <div class="text">历史记录</div>
-    <svg
-      class="more"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      width="292"
-      height="50"
-      viewBox="0 0 292 50"
-      fill="none"
-    >
-      <g opacity="1" transform="translate(0 0)  rotate(0)">
-        <g opacity="1" transform="translate(292 50)  rotate(0)">
-          <path
-            id="圆形 2"
-            fill-rule="evenodd"
-            style="fill: #007994"
-            opacity="1"
-            d="M-290 -50C-291.1 -50 -292 -49.1 -292 -48C-292 -46.9 -291.1 -46 -290 -46C-288.9 -46 -288 -46.9 -288 -48C-288 -49.1 -288.9 -50 -290 -50Z"
-          ></path>
-          <path
-            id="圆形 2"
-            fill-rule="evenodd"
-            style="fill: #007994"
-            opacity="1"
-            d="M-282 -50C-283.1 -50 -284 -49.1 -284 -48C-284 -46.9 -283.1 -46 -282 -46C-280.9 -46 -280 -46.9 -280 -48C-280 -49.1 -280.9 -50 -282 -50Z"
-          ></path>
-          <path
-            id="圆形 2"
-            fill-rule="evenodd"
-            style="fill: #007994"
-            opacity="1"
-            d="M-274 -50C-275.1 -50 -276 -49.1 -276 -48C-276 -46.9 -275.1 -46 -274 -46C-272.9 -46 -272 -46.9 -272 -48C-272 -49.1 -272.9 -50 -274 -50Z"
-          ></path>
-        </g>
-      </g>
-    </svg>
   </div>
   <div class="content">
-    <Mypost></Mypost>
-    <Mypost></Mypost>
-    <Mypost></Mypost>
-    <Mypost></Mypost>
-    <Mypost></Mypost>
+    <li style="list-style: none" v-for="(item, index) in postList" :key="index">
+      <div
+        style="
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 1);
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+          margin: auto;
+          margin-top: 10px;
+          width: 350px;
+        "
+      >
+        <div style="margin-left: 16px">
+          <span
+            style="
+              font-size: 16px;
+              font-weight: 500;
+              letter-spacing: 0px;
+              line-height: 18.75px;
+              color: rgba(0, 0, 0, 1);
+              text-align: left;
+              vertical-align: top;
+              font-family: res;
+              display: inline-block;
+              margin-top: 15px;
+            "
+            >{{ item.title }}</span
+          >
+        </div>
+        <div
+          style="
+            margin-left: 16px;
+            margin-bottom: 15px;
+            height: 100px;
+            margin-top: 3px;
+          "
+        >
+          <span
+            style="
+              /** 文本1 */
+              font-size: 9px;
+              font-weight: 400;
+              letter-spacing: 0px;
+              line-height: 10.55px;
+              color: rgba(125, 125, 125, 1);
+            "
+            >{{ item.context }}</span
+          >
+        </div>
+
+        <div style="display: flex; flex-direction: row; position: relative">
+          <div
+            style="
+              /** 文本3 */
+              font-size: 6px;
+              font-weight: 300;
+              letter-spacing: 0px;
+              color: rgba(181, 181, 181, 1);
+              margin-left: 16px;
+              width: 64px;
+              display: flex;
+              flex-direction: row;
+              position: absolute;
+              bottom: 10px;
+            "
+          >
+            <div>浏览：</div>
+            <div>{{ item.browse }}</div>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              position: absolute;
+              right: 15px;
+              bottom: 10px;
+            "
+          >
+            <div class="like" style="margin-right: 12px">
+              <img
+                width="20"
+                height="20"
+                src="../../assets/icons/forum/forumarea/like.png"
+                alt=""
+              />
+              <div
+                style="
+                  /** 文本2 */
+                  font-size: 2px;
+                  font-weight: 400;
+                  letter-spacing: 0px;
+                  line-height: 10.55px;
+                  color: rgba(0, 0, 0, 1);
+                  font-family: Medium;
+                "
+              >
+                {{ item.like }}
+              </div>
+            </div>
+            <div class="collect" style="margin-right: 12px">
+              <img
+                width="20"
+                height="20"
+                src="../../assets/icons/forum/forumarea/collect.png"
+                alt=""
+              />
+              <div
+                style="
+                  /** 文本2 */
+                  font-size: 2px;
+                  font-weight: 400;
+                  letter-spacing: 0px;
+                  line-height: 10.55px;
+                  color: rgba(0, 0, 0, 1);
+                  font-family: Medium;
+                "
+              >
+                {{ item.comment }}
+              </div>
+            </div>
+            <div class="comment" style="margin-right: 5px">
+              <img
+                width="20"
+                height="20"
+                src="../../assets/icons/forum/forumarea/comment.png"
+                alt=""
+              />
+              <div
+                style="
+                  /** 文本2 */
+                  font-size: 2px;
+                  font-weight: 400;
+                  letter-spacing: 0px;
+                  line-height: 10.55px;
+                  color: rgba(0, 0, 0, 1);
+                  font-family: Medium;
+                "
+              >
+                {{ item.comment }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
   </div>
 </template>
 <script>
-import Mypost from './post_com.vue'
+
 export default {
-  components: { Mypost },
+  components: {},
   data () {
     return {
+      postList: [
+        {
+          title: '人工智能新十年的变与不变',
+          context: 'ChatGPT、Bard、Bing……近期大模型的快速发展引发了广泛讨论。面对这场突如其来的变革，人类应该如何保持清醒和理性？在《新程序员》特...',
+          browse: 875,
+          like: 241,
+          collect: 14,
+          comment: 58
 
+        },
+        {
+          title: '“再见了，TypeScript！”，Ruby on Rails 之父 DHH 也因“类型”遭劝退',
+          context: '作为 JavaScript 的一个超集，TypeScript 在微软内部沉淀两年后，带着弥补 JavaScript 在开发大型应用中遇到的种种问题的使命，于 2012 年 10 月正式面世...',
+          browse: 1523,
+          like: 11,
+          collect: 22,
+          comment: 52
+
+        },
+        {
+          title: '前端工程师个人的价值在哪里（换一个人能不能做？）【前端晋升必看】',
+          context: '最近脉脉上这张图片在前端圈子中火了起来。这个故事中“毫无人性”的评委在晋升中对前端同学提出了两个置疑点：1.业务方向是产品经理...',
+          browse: 2524,
+          like: 254,
+          collect: 223,
+          comment: 44
+
+        },
+        {
+          title: '与 Java 17 相比，Java 21 究竟有多快？',
+          context: '随着 Java 21 的发布已经进入了倒计时阶段，你可能想知道它与 Java 17 相比，有什么不同以及是否应该升级。基于此，开源软件公司 Timefold 进行了梳理与实测，借助自家的 Timefold Solver 工具分享了 Java 21 的真实...',
+          browse: 244,
+          like: 22,
+          collect: 5,
+          comment: 5
+
+        },
+        {
+          title: '计算机网络基础知识（非常详细',
+          context: '七层模型，亦称 OSI（Open System Interconnection）参考模型，即开放式系统互联，是网络通信的标准模型。一般称为 OSI 参考模型或七层模型...',
+          browse: 644,
+          like: 25,
+          collect: 15,
+          comment: 25
+
+        },
+        {
+          title: '算法：贪心---跳一跳',
+          context: '给你一个非负整数数组 nums ，你最初位于数组的 第一个下标 。数组中的每个元素代表你在该位置可以跳跃的最大长度。判断你是否能够到达最后一个下标...',
+          browse: 521,
+          like: 2,
+          collect: 25,
+          comment: 15
+
+        },
+        {
+          title: '计算机竞赛 大数据商城人流数据分析与可视化 - python 大数据分析',
+          context: '随着当今个人手机终端的普及，出行群体中手机拥有率和使用率已达到相当高的比例，手机移动网络也基本实现了城乡空间区域的全覆盖。根据手机信号在真实地理空间上的覆盖情况，将手机用户时间序列的手机定位数...',
+          browse: 626,
+          like: 25,
+          collect: 27,
+          comment: 8
+        },
+        {
+          title: 'Linux命令(79)之tr',
+          context: 'linux命令之tr 1.tr介绍linux命令 tr用于转换或删除文件中的字符。tr命令只能对标准输入进行操作，不能直接对文件进行操作 2.tr用法tr [参数] [标准输入]...',
+          browse: 573,
+          like: 25,
+          collect: 10,
+          comment: 13
+        },
+        {
+          title: '【Python】爬虫基础',
+          context: '最近，chatGPT很热火，博主也玩了一下~ 确实，它还可以写代码！ 问了它几个关于职业发展的问题，与粉丝们分享，请见下文爬虫是一种模拟浏览器实现，用以抓取网站信息的程序或者脚本。常见的爬虫有三大类： ...',
+          browse: 245,
+          like: 24,
+          collect: 25,
+          comment: 11
+        },
+        {
+          title: '一分钟整明白web前端和Java后端的就业前景',
+          context: '前端：前端即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网...',
+          browse: 87,
+          like: 12,
+          collect: 21,
+          comment: 8
+        },
+        {
+          title: 'CentOS系统环境搭建（二十）——CentOS7安装chat GPT进阶',
+          context: 'CentOS7安装chat GPT进阶 Welcome to the AI era! 基于上一篇文章CentOS系统环境搭建（十九）——CentOS7安装chat GPT，我们用docker20安装了chatGPT。但，总感觉不够好。...',
+          browse: 584,
+          like: 44,
+          collect: 22,
+          comment: 9
+        },
+        {
+          title: 'vite + react + typescript + uni-app + node 开发一个生态系统',
+          context: '使用 vite + react + typescript + uni-app + node 来开发一个简易的生态系统案例，包含 APP，H5，微信小程序，控制台，服务端...',
+          browse: 44,
+          like: 4,
+          collect: 0,
+          comment: 1
+        },
+        {
+          title: 'MySQL基础【学习至基本语句】',
+          context: '一、安装与配置 1、安装 yum install -y mysql-server.x86_64 2、MySQL安装完成后，启动报错，查看MySQL的状态，发现是3306端口被占用...',
+          browse: 84,
+          like: 12,
+          collect: 5,
+          comment: 7
+        },
+      ]
     }
   },
   methods: {
@@ -79,11 +294,9 @@ export default {
 </script>
 <style scoped>
 .title {
-  position: fixed;
-  left: 0px;
-  top: 0px;
+  margin-top: 24px;
   width: 360px;
-  height: 72px;
+  height: 48px;
   opacity: 1;
   border-radius: 0px 0px, 10px, 10px;
   background-color: white;
@@ -104,13 +317,5 @@ export default {
 .arrow {
   position: absolute;
   left: 21.5px;
-}
-.more {
-  position: absolute;
-  left: 321px;
-  top: 24px;
-}
-.content {
-  margin-top: 78px;
 }
 </style>
