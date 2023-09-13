@@ -1,18 +1,18 @@
 <template>
-    <div id="body">
-      <heat1 class="heat1"></heat1>
-      <heat2 class="heat2"></heat2>
-      <heat3 class="heat3"></heat3>
-      <heat class="heat" tt="4"></heat>
-      <heat class="heat" tt="5"></heat>
-      <heat class="heat" tt="6"></heat>
-      <heat class="heat" tt="7"></heat>
-      <heat class="heat" tt="8"></heat>
-      <heat class="heat" tt="9"></heat>
-      <heat class="heat" tt="10"></heat>
-      <div class="blank"></div>
-    </div>
-    <!-- <div id="footer">
+  <div id="body">
+    <heat1 class="heat1"></heat1>
+    <heat2 class="heat2"></heat2>
+    <heat3 class="heat3"></heat3>
+    <heat class="heat" tt="4"></heat>
+    <heat class="heat" tt="5"></heat>
+    <heat class="heat" tt="6"></heat>
+    <heat class="heat" tt="7"></heat>
+    <heat class="heat" tt="8"></heat>
+    <heat class="heat" tt="9"></heat>
+    <heat class="heat" tt="10"></heat>
+    <div class="blank"></div>
+  </div>
+  <!-- <div id="footer">
   </div> -->
 </template>
 <script>
@@ -63,18 +63,18 @@ export default {
     rgba(0, 85, 114, 0.05) 100%
   );
 }
-#body {
-  width: 100%;
-  height: 500px;
-  overflow: scroll;
-  /* margin-top: 118px; */
-}
 #footer {
   width: 100%;
   height: 40px;
   position: absolute;
   bottom: 0;
   background-color: rgb(249, 249, 249);
+}
+#body {
+  width: 100%;
+  height: 500px;
+  overflow: scroll;
+  /* margin-top: 118px; */
 }
 
 .heat1 {

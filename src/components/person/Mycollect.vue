@@ -1,4 +1,5 @@
 <template>
+  <div class="status_bar"></div>
   <div class="title">
     <svg
       @click="back"
@@ -54,13 +55,13 @@
     </svg>
   </div>
   <div class="content">
-    <Mypost></Mypost>
+    <post1 />
   </div>
 </template>
 <script>
-import Mypost from './post_com.vue'
+import post1 from './post_com.vue'
 export default {
-  components: { Mypost },
+  components: { post1 },
   data () {
     return {
 
@@ -74,12 +75,21 @@ export default {
 }
 </script>
 <style scoped>
-.title {
-  position: fixed;
+.status_bar {
+  position: relative;
   left: 0px;
   top: 0px;
   width: 360px;
-  height: 72px;
+  height: 24px;
+  opacity: 1;
+  background: rgba(158, 152, 152, 0.4);
+}
+.title {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 360px;
+  height: 48px;
   opacity: 1;
   border-radius: 0px 0px, 10px, 10px;
   background-color: white;
@@ -89,6 +99,7 @@ export default {
   justify-content: center;
   align-items: center;
   z-index: 999;
+  margin-bottom: 8px;
 }
 .text {
   color: #00576bab;
@@ -105,8 +116,5 @@ export default {
   position: absolute;
   left: 321px;
   top: 24px;
-}
-.content {
-  margin-top: 78px;
 }
 </style>

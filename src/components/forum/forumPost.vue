@@ -1,4 +1,5 @@
 <script>
+
 import data from './forumArea.json'
 export default {
     name: "zan",
@@ -181,7 +182,7 @@ export default {
         goToHeat() {
             this.$router.push('/Forum_heat');
         }
-    },
+      }
 }
 </script>
 <template>
@@ -314,8 +315,9 @@ export default {
                 {{ item.content }}
               </p>
             </div>
+          </div>
          <div class="page-view"><span>浏览量</span><span>{{ item.view }}</span></div>
-        <div class="icon">
+         <div class="icon">
             <div class="like" @click="like">
                 <img
                   src="../../assets/icons/forum/forumarea/like.png"
@@ -332,13 +334,12 @@ export default {
                 <img src="../../assets/icons/forum/forumarea/comment.png" />
                 <p>{{ commentCount }}</p>
               </div>
-          </div>
-          </div> 
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
-<style>
+<style scoped>
 * {
   margin: 0px;
   padding: 0px;
@@ -349,16 +350,16 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none;
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     display: none;
   }
 }
-.history{
-  width:280px;
-  height:20px;
-  z-index:999;
-  margin-top:40px;
-  left:90px;
+.history {
+  width: 280px;
+  height: 20px;
+  z-index: 999;
+  margin-top: 40px;
+  left: 90px;
   position: fixed;
   display: flex;
   flex-direction: row;
@@ -384,7 +385,7 @@ export default {
 .each-post {
   background-color: rgb(255, 255, 255);
   margin: auto;
-  height: 164px;
+  height: 176px;
   width: 98.8%;
   color: black;
   border-radius: 10px;
@@ -412,7 +413,7 @@ export default {
   margin-top: 22px;
   color: black;
   width: 96%;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   height: 34.4px;
   margin-bottom: 0.3%;
@@ -425,23 +426,23 @@ export default {
   color: rgb(0, 0, 0);
   width: 100%;
   height: 34px;
+  margin-top: 5px;
   display: flex;
   align-items: center;
   flex-direction: row;
 }
 .button {
   position: absolute;
-  margin-top: -1.4%;
+  margin-top: -5px;
   right: 9.3%;
   border-radius: 8px;
-  color: #ffffff;
+  border: none;
   font-weight: 900;
-  background: rgba(0, 121, 148, 1);
   border-radius: 20px;
   padding: 3px 14px;
   text-align: center;
-  font-size: 7px;
-  -webkit-transform: scale(0.7);
+  font-size: 13px;
+  -webkit-transform: scale(0.9);
 }
 .user-avator {
   border-radius: 50%;
@@ -449,12 +450,12 @@ export default {
   height: 24px;
   margin-top: -4px;
 }
-.user-name{
-  font-weight: 400; 
-  font-size: 12px; 
-  width:90px;
-  margin-top:-3px;
-  margin-left:15px;
+.user-name {
+  font-weight: 400;
+  font-size: 12px;
+  width: 90px;
+  margin-top: -3px;
+  margin-left: 15px;
   letter-spacing: 0px;
   line-height: 14.06px;
   color: rgba(0, 0, 0, 1);
@@ -465,7 +466,7 @@ export default {
 .ms-content {
   width: 96%;
   height: 39px;
-  margin-top: -1.5%;
+  margin-top: 0px;
   color: rgb(140, 139, 139);
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -485,7 +486,7 @@ export default {
   font-size: 9px;
 }
 .icon {
-  margin-top: -4.5%;
+  margin-top: -12px;
   width: 30%;
   height: 100%;
   float: right;
@@ -498,9 +499,9 @@ export default {
 }
 .icon p {
   transform: scale(0.6);
-  width:35px;
-  height:30px;
-  margin:auto;
+  width: 35px;
+  height: 30px;
+  margin: auto;
   margin-top: -13%;
 }
 .icon div {
@@ -511,15 +512,15 @@ export default {
   flex-direction: column;
   text-align: center;
 }
-.like{
-  width:50px;
-  height:50px;
+.like {
+  width: 50px;
+  height: 50px;
 }
 .icon img {
   width: 18px;
   height: 18px;
   vertical-align: middle;
-  margin:auto;
+  margin: auto;
 }
 .content span {
   font-size: 9px;

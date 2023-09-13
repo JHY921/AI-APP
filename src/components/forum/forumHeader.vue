@@ -1,14 +1,36 @@
 <script>
+import axios from 'axios'
+import api from '../../api/api'
 export default {
   data () {
     return {
-      active: 1
+      active: 1,
+      url: '',
+      userId: '',
     }
   },
   methods: {
     go (path) {
       this.$router.push(path)
     },
+    goindex () {
+      this.$router.push({ name: 'Personifo', params: { userId: this.userId } })
+    },
+    search () {
+      this.$router.push('./searchview')
+    }
+  },
+  created () {
+    const url = `http://${api.api}/Person`
+    axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
+      .then(res => {
+        console.log(res.data.image)
+        this.url = res.data.image
+        this.userId = res.data.userId
+      })
+      .catch(error => {
+        console.error(error)
+      })
   }
 }
 
@@ -16,11 +38,7 @@ export default {
 <template>
   <div id="top">
     <!-- <div>头像+搜索框+消息通知</div> -->
-    <img
-      src="../../assets/icons/forum/forumarea/头像.png"
-      class="avator"
-      @click="go('/Personifo')"
-    />
+    <img :src="url" class="avator" @click="goindex('/Personifo')" />
     <div class="search">
       <img
         src="../../assets/icons/forum/forumarea/搜索.png"
@@ -28,16 +46,13 @@ export default {
       />
       <form>
         <input
-          style="transform: scale(0.8); margin-left: -4%"
+          style="transform: scale(0.8); margin-left: -4%; height: 24px"
           type="text"
           v-model="inputText"
           placeholder="前端开发就业前景"
-          @input="changevalue($event)"
-          ref="getValue"
         />
       </form>
-      <p @click="cancel" v-show="show" style="color: grey">取消</p>
-      <p @click="search" v-show="!show">搜索</p>
+      <p @click="search">搜索</p>
     </div>
     <div class="my-history">
       <div class="history" v-show="show">
@@ -59,7 +74,7 @@ export default {
     <img
       @click="go('./notification')"
       class="message-remind"
-      src="../../assets/icons/forum/forumarea/提醒.png"
+      src="./remind.png"
     />
   </div>
   <!-- <div class="popular" @click="goToHeat">
@@ -82,7 +97,7 @@ export default {
       <div class="bg" :class="{'left1':active == 2,'left2 focus-on':active == 3,'recommend':active==1}"></div>
     </view> -->
 </template>
-<style>
+<style scoped>
 #top {
   display: flex;
   flex-direction: row;

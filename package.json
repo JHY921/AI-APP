@@ -25,6 +25,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/cli-plugin-vuex": "~4.5.19",
+    "echarts": "^5.4.3",
+    "less": "^4.2.0",
     "vite": "^4.4.9"
   },
   "type": "module",

@@ -2,6 +2,7 @@
   <div class="wrapper">
     <form action="">
       <input
+        v-model="todo"
         type="text"
         style="
           width: 296px;
@@ -31,9 +32,8 @@
           </label>
         </div>
       </div>
-      <div class="important" @click="important">
+      <div class="important">
         <label
-          for=""
           style="
             margin-top: 12px;
             margin-left: 16px;
@@ -55,6 +55,7 @@
         />
       </div>
       <button
+        @click="thing"
         style="
           margin-left: 128px;
           width: 72px;
@@ -97,7 +98,6 @@
   height: 191px;
   opacity: 1;
   border-radius: 20px;
-
   background-image: linear-gradient(
     180deg,
     #1a7780 -71.1%,
@@ -106,7 +106,7 @@
     #14849c 350.7%,
     #ffffff 381.5%
   );
-  z-index: 100000;
+  z-index: 9999;
 }
 input::placeholder {
   color: #00000033;
@@ -177,11 +177,12 @@ input::placeholder {
 }
 </style>
 <script>
+import { showToast } from 'vant'
+import 'vant/es/toast/style'
+import axios from 'axios'
+import api from '../../../api/api'
 export default {
-  setup () {
-    const checked = true
-    return { checked }
-  },
+
   data () {
     return {
       whichtime: 0,
@@ -191,7 +192,10 @@ export default {
       hour2: '00',
       minute2: '00',
       currentTime: [],
-      checked: false
+      checked: false,
+      todo: '',
+      things: []
+
     }
   },
   methods: {
@@ -210,8 +214,26 @@ export default {
       }
       this.timepick = !this.timepick
     },
-    important () {
-      this.checked = !this.checked
+
+    thing () {
+      if (this.todo === '' || this.hour1 > this.hour2 || (this.hour1 === this.hour2 && this.minute1 > this.minute2)) {
+        showToast('请仔细检查')
+      } else {
+        this.things[0] = this.todo//具体事情
+        this.things[1] = this.hour1//开始时间的小时
+        this.things[2] = this.minute1//开始时间的分钟
+        this.things[3] = this.hour2//结束时间的小时
+        this.things[4] = this.minute2//结束时间的分钟
+        this.things[5] = this.checked//这件事情是否重要
+        this.things[6] = false//事情是否完成
+        console.log(this.things)
+        this.$emit('thing', this.things)
+        this.checked = false
+        // axios.post(`http://${api.api}/writeTodo`,{
+        //   thing:this.things
+        // },{headers:{ 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
+      }
+
     }
   }
 

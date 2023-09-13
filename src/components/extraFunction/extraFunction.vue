@@ -201,27 +201,28 @@
 </template>
   
 <script>
+import { showToast } from 'vant'
 export default {
   data () {
     return {
-      funcA: "功能名称",
-      funcB: "功能名称",
-      funcC: "功能名称",
-      funcD: "功能名称",
+      funcA: "图片识别文字",
+      funcB: "智能识物",
+      funcC: "聊天",
+      funcD: "视频总结",
     }
   },
   methods: {
     functionA () {
-      console.log("1")
+      this.$router.push('./ocr')
     },
     functionB () {
-      console.log("1")
+      this.$router.push('./objOcr')
     },
     functionC () {
-      console.log("1")
+      this.$router.push('./chat')
     },
     functionD () {
-      console.log("1")
+      this.$router.push('./videoOcr')
     },
   }
 };

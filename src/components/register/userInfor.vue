@@ -398,7 +398,7 @@ export default {
 
           this.tonext = !this.tonext
           setTimeout(() => {
-            this.$router.push('/intro')
+            this.$router.push({ name: 'intro', params: { userId:this.id} })
           }, 800)
         })
       } else {

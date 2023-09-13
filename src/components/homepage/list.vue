@@ -9,12 +9,26 @@
 </template>
 <script>
 export default{
+    props:{
+        task:Array,
+        default:()=>[]
+    },
     data(){
         return{
-            iscomplish:0,
-            time1:'9:00',
-            time2:'11:30',
-            sth:'前端框架学习'
+        }
+    },
+    computed:{
+        sth(){
+            return this.task && this.task.length > 0 ? this.task[0] : null;
+        },
+        time1(){
+            return this.task && this.task.length > 0 ? this.task[1]+':'+this.task[2]:'00:00'
+        },
+        time2(){
+            return this.task && this.task.length > 0 ? this.task[3]+':'+this.task[4]:'00:00'
+        },
+        iscomplish(){
+            return this.task && this.task.length > 0 ? this.task[6]:0
         }
     }
 }

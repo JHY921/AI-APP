@@ -258,6 +258,10 @@
 
 <script>
 
+import 'vant/es/toast/style'
+import axios from 'axios'
+import api from '../../../api/api'
+import { showToast } from 'vant'
 export default {
   data () {
     return {
@@ -283,6 +287,31 @@ export default {
 
     },
     postText () {
+      if (this.imageSrc) {
+        var imgdate = this.imageSrc.split(',')[1]
+      }
+      else {
+        var imgdate = null
+      }
+      console.log(this.imageSrc)
+      console.log(imgdate)
+      if (this.title != '' && this.passage.length != '') {
+        axios.post(`http://${api.api}/forum/post`, {
+          title: this.title,
+          tag: this.tagList,
+          passage: this.passage,
+          img: imgdate,
+        },
+          { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true }).then(res => {
+            console.log(res.data)
+          }).catch(err => {
+            console.log(err)
+          })
+        showToast('发表成功')
+        this.$router.push('/forum')
+      } else {
+        showToast('内容不能为空')
+      }
 
     },
     addTag () {

@@ -9,6 +9,7 @@
   flex-direction: column;
   background: url('../../assets/icons/homepage/todo/list.svg');
   border-radius: 10px;
+  margin: auto;
 }
 .addtodo {
   display: flex;
@@ -22,7 +23,7 @@
   border-radius: 10px;
   height: 56px;
   width: 100%;
-  z-index: 10000;
+  z-index: 10;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .addtodo img {
@@ -107,4 +108,5 @@ li {
   color: #b8c8d550;
   font-family: dyh;
   margin-bottom: 10px;
+  z-index: -100;
 }

@@ -46,6 +46,12 @@ import { Cascader } from 'vant'
 //import store from './store'
 app.use(Cascader)
 
+import { Overlay } from 'vant'
+app.use(Overlay)
+
+import { Swipe, SwipeItem } from "vant"
+app.use(Swipe).use(SwipeItem)
+
 app.mount('#app')
 
 

@@ -109,18 +109,28 @@
             margin-top: 30px;
             color: black;
             font-size: 18px;
+            display: flex;
+            flex-direction: row;
           "
         >
-          <div
-            style="display: inline-block; margin-left: 30px; margin-right: 20px"
-          >
-            <img src="./userPhoto.png" style="width: 46px; height: 46px" />
-          </div>
-          <div style="display: inline-block; vertical-align: top">
-            <strong>{{ userID }}</strong>
-            <p style="color: grey; font-size: 12px; margin-top: 6px">
-              ID:{{ userNum }}
-            </p>
+          <img
+            :src="url"
+            style="width: 46px; height: 46px; margin-left: 40px"
+          />
+          <strong style="margin-top: 8px; margin-left: 20px">{{
+            userID
+          }}</strong>
+          <input
+            ref="fileInput"
+            style="display: none"
+            type="file"
+            @change="changeimg"
+          />
+          <div style="margin-left: 110px; margin-top: 15px" @click="upload">
+            <span style="font-family: thin; font-size: 10px">更换头像</span>
+            <span style="font-family: thin; font-size: 10px; margin-left: 8px"
+              >&gt;</span
+            >
           </div>
         </div>
         <div
@@ -216,10 +226,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;用户名：<span style="color: grey"
           >&nbsp;&nbsp;{{ userID }}</span
         >
-        <img
+        <!-- <img
           src="./arrow_G.png"
           style="width: 12px; float: right; margin: 16px"
-        />
+        /> -->
       </div>
       <center>
         <hr style="width: 296px; border: 0.6px solid rgba(0, 121, 148, 0.1)" />
@@ -238,10 +248,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;性别：<span style="color: grey"
           >&nbsp;&nbsp;{{ userSex }}</span
         >
-        <img
+        <!-- <img
           src="./arrow_G.png"
           style="width: 12px; float: right; margin: 16px"
-        />
+        /> -->
       </div>
       <center>
         <hr style="width: 296px; border: 0.6px solid rgba(0, 121, 148, 0.1)" />
@@ -260,10 +270,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;生日：<span style="color: grey"
           >&nbsp;&nbsp;{{ userBirth }}</span
         >
-        <img
+        <!-- <img
           src="./arrow_G.png"
           style="width: 12px; float: right; margin: 16px"
-        />
+        /> -->
       </div>
       <center>
         <hr style="width: 296px; border: 0.6px solid rgba(0, 121, 148, 0.1)" />
@@ -282,10 +292,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;学历：<span style="color: grey"
           >&nbsp;&nbsp;{{ userDegree }}</span
         >
-        <img
+        <!-- <img
           src="./arrow_G.png"
           style="width: 12px; float: right; margin: 16px"
-        />
+        /> -->
       </div>
       <center>
         <hr style="width: 296px; border: 0.6px solid rgba(0, 121, 148, 0.1)" />
@@ -308,10 +318,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;手机号：<span style="color: grey"
           >&nbsp;&nbsp;{{ userPhoneNum }}</span
         >
-        <img
+        <!-- <img
           src="./arrow_G.png"
           style="width: 12px; float: right; margin: 16px"
-        />
+        /> -->
       </div>
       <center>
         <hr style="width: 296px; border: 0.6px solid rgba(0, 121, 148, 0.1)" />
@@ -321,30 +331,68 @@
 </template>
 
 <script>
+import axios from 'axios'
+import api from '../../../api/api'
 export default {
   data () {
     return {
-      userID: "OSIR4",
-      userSex: "男",
-      userBirth: "2004-9-1",
-      userDegree: "本科在读",
-      userIntro: "无",
-      userPhoneNum: "18157455023",
-      userNum: "22330133",
+      userID: "",
+      userSex: "",
+      userBirth: "",
+      userDegree: "",
+      userPhoneNum: "",
       empiricalValue: 100,
       totalEmpir: 1800,
       percentage: 30,
+      url: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg'
     }
   },
   methods: {
     backTolast () {
       history.back()
     },
-    moreInfor () {
-      alert("more")
+    changeimg (event) {
+      const url = `http://${api.api}/changeimg`
+      const file = event.target.files[0]
+      if (file) {
+        const formdate = new FormData()
+        formdate.append('image', file)
+        axios.post(url, formdate, {
+          headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          withCredentials: true
+        })
+          .then(res => {
+            console.log(res.data)
+            this.url = res.data
+          })
+          .catch(error => {
+            console.error(error)
+          })
+      }
     },
-
+    upload () {
+      this.$refs.fileInput.click()
+    },
   },
+  created () {
+    const url = `http://${api.api}/Person`
+    axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
+      .then(res => {
+        console.log(res.data)
+        this.url = res.data.image
+        this.userID = res.data.name
+        this.userSex = res.data.sex
+        this.userPhoneNum = res.data.account
+        this.userBirth = res.data.birth[0] + '-' + res.data.birth[1] + '-' + res.data.birth[2]
+        this.userDegree = res.data.degree
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
+}
   // watch: {
   //     percentage() {
   //         // 当percentage变化时，更新进度条的颜色
@@ -356,7 +404,6 @@ export default {
   //     },
   // },
 
-}
 </script>
 
 <style scoped>

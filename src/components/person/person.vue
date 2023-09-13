@@ -2,14 +2,8 @@
   <div class="title">
     <div class="back"></div>
     <div @click="go('./userLevel')">
-      <div class="img">
-        <van-image
-          width="56"
-          height="56"
-          radius="10"
-          lazy-load
-          src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
-        />
+      <div class="img" radius="10">
+        <img :src="url" width="56" height="56" lazy-load alt="" />
       </div>
       <div class="info">
         <div class="name">{{ name }}</div>
@@ -121,7 +115,7 @@
       <van-icon name="arrow" class="arrow-1" size="16px" />
     </div>
     <div class="gap1"></div>
-    <div class="class">
+    <div class="class" @click="go('./personCourse')">
       <img class="icon-2" src="../../assets/icons/person/play.png" alt="" />
       <div class="text1">课程</div>
       <van-icon name="arrow" class="arrow-1" size="16px" />
@@ -148,11 +142,12 @@ export default {
   components: {},
   data () {
     return {
-      name: 'OSIR4',
-      account: '22330133',
-      post: '22',
-      concern: '35',
-      fan: '65',
+      name: '',
+      account: '',
+      post: '',
+      concern: '',
+      fan: '',
+      url: '',
     }
   },
   created () {
@@ -169,6 +164,8 @@ export default {
           this.concern = res.data.follows
           this.name = res.data.name
           this.account = res.data.account
+          this.url = res.data.image
+          console.log(res.data.image)
         })
         .catch(error => {
           console.error(error)
@@ -287,7 +284,7 @@ body {
   font-weight: 300;
   font-size: 10px;
   top: 30px;
-  width: 30px;
+  width: 50px;
 }
 .account {
   position: absolute;
@@ -299,7 +296,7 @@ body {
 }
 .arrow {
   position: absolute;
-  right: 35px;
+  right: 28px;
   top: 95px;
 }
 .post {

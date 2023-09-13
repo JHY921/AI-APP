@@ -132,15 +132,19 @@ export default {
   data () {
     return {
       isAnimating: false,
+      id:''
     }
   },
   methods: {
     animateUp () {
       this.isAnimating = true
       setTimeout(() => {
-        this.$router.push('/questionSet1')
+        this.$router.push({ name: 'questionSet1', params: { userId:this.id} })
       }, 1000)
     }
+  },
+  created(){
+    this.id = this.$route.params.userId
   }
 }
 </script>

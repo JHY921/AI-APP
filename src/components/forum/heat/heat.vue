@@ -1,21 +1,38 @@
 <template>
-  <div class="heat">
+  <div class="heat" @click="gotopost">
     <div class="number">
       <div class="txt">{{ tt }}</div>
     </div>
-    <div class="title">{{ tit }}</div>
-    <div class="username">{{ username }}</div>
-    <div class="dau">浏览{{ dau }}</div>
+    <div class="title">{{ item.title }}</div>
+    <div class="username">{{ item.name }}</div>
+    <div class="dau">浏览{{ item.through }}</div>
   </div>
 </template>
 <script>
 export default {
-  props: ['tt'],
+  props: {
+        item: {
+            type: Object,
+            required: true,
+            default: () => ({
+                title: '',
+                name: '',
+                through: 0,
+                _id:''
+            })
+        },
+        tt:{
+          type: String,
+          default:()=>'0'
+        }
+    },
   data () {
     return {
-      tit: 'Spring FrameWork从入门到NB-定制Bean',
-      username: 'weixin_44612246',
-      dau: 1792,
+    }
+  },
+  methods:{
+    gotopost(){
+      this.$router.push({ name: 'postContent', params:{pgId: this.item._id }})
     }
   }
 }

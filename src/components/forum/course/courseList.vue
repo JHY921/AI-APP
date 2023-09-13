@@ -38,7 +38,7 @@
               transform: translateY(-50%);
             "
           >
-            帖子内容
+            课程目录
           </span>
         </center>
       </div>
@@ -182,7 +182,6 @@
             display: inline-block;
             width: 100px;
             height: 65px;
-            background-color: #007994;
             margin-top: 10px;
             margin-right: 10px;
             margin-bottom: 0px;
@@ -192,7 +191,7 @@
           <img
             :src="course.course_cover"
             alt="封面"
-            style="max-width: 100%; max-height: 100%; border-radius: 10px"
+            style="width: 100px; height: 65px; border-radius: 10px"
           />
         </div>
         <div
@@ -203,13 +202,13 @@
             margin-top: 10px;
           "
         >
-          <div style="height: 33px; overflow: auto">
+          <div style="height: 36px">
             <span
               style="
-                font-size: 14px;
+                display: inline-block;
+                font-size: 12px;
+                width: 100px;
                 font-weight: 700;
-                letter-spacing: 0px;
-                line-height: 16.41px;
                 color: rgba(0, 0, 0, 1);
                 text-align: left;
               "
@@ -223,27 +222,26 @@
                 font-size: 12px;
                 font-weight: 400;
                 letter-spacing: 0px;
-                line-height: 9.38px;
                 color: rgba(0, 0, 0, 0.6);
                 text-align: left;
                 vertical-align: middle;
-                margin-top: 5px;
+                margin-top: -3px;
                 -webkit-transform-origin-x: 0;
                 -webkit-transform: scale(0.8);
               "
             >
-              课程来源：{{ course.course_source }}
+              来源：{{ course.course_source }}
             </p>
             <p
               style="
                 font-size: 6px;
                 font-weight: 400;
                 letter-spacing: 0px;
-                line-height: 7.03px;
                 color: rgba(0, 0, 0, 0.4);
                 text-align: left;
                 vertical-align: middle;
-                margin-top: 5px;
+                margin-top: -5px;
+                margin-left: 1px;
                 -webkit-transform-origin-x: 0;
                 -webkit-transform: scale(0.7);
               "
@@ -374,7 +372,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .hide {
   display: none;
 }
@@ -459,6 +457,7 @@ h3 {
   height: 48px;
   opacity: 1;
   background-color: rgba(255, 255, 255, 1);
+  border-radius: 0px;
   border-bottom-right-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -509,7 +508,7 @@ h3 {
 .course_container {
   display: inline-block;
   vertical-align: top;
-  overflow: hidden;
+  overflow: auto;
   width: 220px;
   height: 568px;
 }

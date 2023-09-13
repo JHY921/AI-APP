@@ -54,27 +54,161 @@
   </div>
   <div
     class="todo-list"
-    style="overflow: hidden; height: 586px; font-family: Medium"
+    style="overflow: auto; height: 450px; font-family: Medium"
   >
-    <div class="todo-item">
-      <label>
-        <input type="checkbox" />
-        Todo1
-        <span class="check-button"></span>
-        <span
+    <div class="doing">
+      <li
+        v-for="(task, index) in tasksdoing"
+        :key="index"
+        :class="[
+          `item-color-${index}`,
+          { 'slide-out': activeIndex == task[7] },
+        ]"
+      >
+        <div
+          v-if="activeIndex == task[7]"
+          class="slider-in"
           style="
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 0px;
-            color: rgba(255, 255, 255, 1);
-            margin-left: 200px;
+            width: 0;
+            height: 64px;
+            background-color: #007994;
+            overflow: hidden;
+            z-index: 100;
           "
-          >{{ time1 }}-{{ time2 }}</span
         >
-      </label>
+          <span
+            style="
+              font-size: 36px;
+              font-family: dyh;
+              font-weight: 400;
+              letter-spacing: 0px;
+              margin-left: 50px;
+              color: rgba(255, 255, 255, 1);
+
+              line-height: 64px;
+              text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white,
+                0 0 40px white;
+            "
+            >已完成</span
+          >
+          <img
+            src="./勾.png"
+            style="width: 35px; height: 35px; margin-left: 130px"
+            alt=""
+          />
+        </div>
+        <img
+          src="./重要事项@3x.png"
+          v-if="task[5]"
+          style="width: 14px; height: 31.78px; position: absolute; left: 0px"
+          alt=""
+        />
+        <div
+          v-if="!(activeIndex == task[7])"
+          style="
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 25px;
+            background: rgba(210, 225, 228, 1);
+            box-shadow: inset -2px 2px 2px rgba(0, 4, 5, 0.2);
+            margin-right: 10px;
+            margin-left: 15px;
+          "
+          :class="{ circle: true, completed: completed }"
+          @click="toggleCompletion(task)"
+        >
+          <span
+            v-if="activeIndex === task[7]"
+            class="fade-in"
+            style="font-size: 15px; color: #49828f"
+            >&#10003;</span
+          >
+        </div>
+        <span v-if="!(activeIndex == task[7])">{{ task[0] }} </span>
+        <div v-if="!(activeIndex == task[7])" class="timewrapper">
+          <span class="time"
+            >{{ task[1] + " " + ":" + " " + task[2] + " " }}-{{
+              " " + task[3] + " " + ":" + " " + task[4]
+            }}</span
+          >
+          <span
+            class="time1"
+            v-if="index > 0"
+            style="
+              position: absolute;
+
+              font-size: 12px;
+              font-weight: 400;
+              letter-spacing: 0px;
+              line-height: 14.4px;
+
+              text-align: left;
+              vertical-align: top;
+              font-family: dyh;
+            "
+            >{{ calculate(task) }}</span
+          >
+        </div>
+      </li>
+    </div>
+    <div class="success">
+      <li v-for="(task, index) in tasksFinish" :key="index">
+        <img
+          src="./重要事项@3x.png"
+          v-if="task[5]"
+          style="width: 14px; height: 31.78px; position: absolute; left: 0px"
+          alt=""
+        />
+        <div
+          style="
+            width: 13px;
+            height: 13px;
+
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 25px;
+            background: rgba(210, 225, 228, 1);
+            box-shadow: inset -2px 2px 2px rgba(0, 4, 5, 0.2);
+            margin-right: 10px;
+          "
+        ></div>
+        <span style="text-decoration: line-through">{{ task[0] }} </span>
+        <div style="position: absolute; right: 0; width: 64px; height: 64px">
+          <span
+            style="
+              width: 100px;
+              position: absolute;
+              right: 60px;
+              font-size: 12px;
+              font-weight: 500;
+              color: rgba(122, 122, 122, 0.73);
+            "
+            >{{ task[1] + " " + ":" + " " + task[2] + " " }}-{{
+              " " + task[3] + " " + ":" + " " + task[4]
+            }}</span
+          >
+          <span
+            style="
+              position: absolute;
+              right: 25px;
+              top: 20px;
+              font-size: 12px;
+              font-weight: 400;
+              color: rgba(148, 148, 148, 0.59);
+            "
+            >已完成</span
+          >
+        </div>
+      </li>
     </div>
   </div>
-  <div class="success"></div>
+
   <div
     style="
       position: absolute;
@@ -85,7 +219,7 @@
       opacity: 1;
       /** 文本1 */
       font-family: res;
-      font-size: 96px;
+      font-size: 83.5px;
       font-weight: 900;
       letter-spacing: 0px;
       line-height: 112.51px;
@@ -98,13 +232,166 @@
   </div>
 </template>
 <style scoped>
-.todo-item {
+.slider-in {
+  animation: sliderIn 0.5s ease-in forwards;
+}
+@keyframes sliderIn {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.01s ease-in forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  font-family: Medium;
+  list-style-type: none;
+  border-radius: 0px 6px, 6px, 0px;
+  width: 360px;
+  height: 64px;
+  line-height: 64px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  color: rgba(0, 100, 122, 1);
+  background: url("./待办单组5.png");
+  background-size: 175px 64px;
+}
+.timewrapper {
+  height: 64px;
+  width: 200px;
+  border-radius: 0px 6px 6px 0px;
+  position: absolute;
+  right: 0;
+  background: rgba(214, 214, 214, 1);
+  border-radius: 6px 0px, 0px, 6px;
+}
+.time {
+  position: absolute;
+  right: 60px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  color: rgba(122, 122, 122, 0.73);
+}
+.time1 {
+  right: 30px;
+  top: 40px;
+  color: rgba(122, 122, 122, 0.73);
+}
+.item-color-0 {
+  background: url("./待办单组1.png");
+  background-size: cover;
+}
+.item-color-0 .timewrapper {
+  background: transparent !important;
+  border-radius: 6px 0px, 0px, 6px;
+}
+.item-color-0 .time {
+  right: 30px;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
+}
+
+.item-color-1 {
+  background: url("./待办单组2.png");
+  background-size: 236px 64px;
+}
+.item-color-1 .timewrapper {
+  height: 64px;
+  width: 140px;
+  border-radius: 0px 6px 6px 0px;
+  position: absolute;
+  right: 0;
+  background-image: linear-gradient(90deg, #9c2a2a -125.4%, #f5dede 57.8%);
+  border-radius: 6px 0px, 0px, 6px;
+}
+.item-color-1 .time {
+  right: 45px;
+  top: -5px;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
+}
+.item-color-1 .time1 {
+  right: 45px;
+  top: 35px;
+  color: rgba(84, 0, 0, 0.59);
+}
+.item-color-2 {
+  background: url("./待办单组3.png");
+  background-size: 216px 64px;
+}
+.item-color-2 .timewrapper {
+  height: 64px;
+  width: 160px;
+  border-radius: 0px 6px 6px 0px;
+  position: absolute;
+  right: 0;
+  background-image: linear-gradient(90deg, #9c2a2a -125.4%, #f5dede 57.8%);
+  border-radius: 6px 0px, 0px, 6px;
+}
+.item-color-2 .time {
+  right: 65px;
+  top: -5px;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
+}
+.item-color-2 .time1 {
+  right: 65px;
+  top: 35px;
+  color: rgba(84, 0, 0, 0.59);
+}
+.item-color-3 {
+  background: url("./待办单组4.png");
+  background-size: 198px 64px;
+}
+.item-color-3 .timewrapper {
+  height: 64px;
+  width: 160px;
+  border-radius: 0px 6px 6px 0px;
+  position: absolute;
+  right: 0;
+  background-image: linear-gradient(90deg, #9c2a2a -125.4%, #f5dede 57.8%);
+  border-radius: 6px 0px, 0px, 6px;
+}
+.item-color-3 .time {
+  right: 75px;
+  top: -5px;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
+}
+.item-color-3 .time1 {
+  right: 75px;
+  top: 35px;
+  color: rgba(84, 0, 0, 0.59);
+}
+.success li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  font-family: Medium;
+  list-style-type: none;
   padding-left: 15px;
   width: 360px;
   height: 64px;
   opacity: 1;
   border-radius: 0px 6px, 6px, 0px;
-  background: url("./待办单组1.png");
   background-size: cover;
   width: 360px;
   height: 64px;
@@ -113,23 +400,87 @@
   font-weight: 500;
   letter-spacing: 0px;
   color: rgba(0, 100, 122, 1);
+  background: rgba(214, 214, 214, 1);
 }
 </style>
 <script>
+import axios from 'axios'
+import api from '../../../api/api'
 export default {
   components: {},
   data () {
     return {
       n: 0,
-      time1: '6:00',
-      time2: '7:00'
+      tasks: [],
+      activeIndex: -1, // 用于跟踪哪个项目要展示动画
+      hournow: 0,
     }
   },
   methods: {
+    calculate (task) {
+      const number1 = parseInt(task[1], 10)
+      const number2 = parseInt(task[2], 10)
+      const time = Math.floor((number1 * 60 + number2 - this.hournow) / 60)
+      if (time >= 4) {
+        let str = '距离开始时间较远'
+        return str
+      }
+      let str1 = '剩余' + time + "小时开始"
+      return str1
+    },
     backTolast () {
       history.back()
-    }
-  }
+    },
+    toggleCompletion (task) {
+      // 设置要展示动画的项目索引
+      this.activeIndex = task[7]
+      this.activeIndex1 = task[7]
+      setTimeout(() => {
+        this.tasks[this.activeIndex][6] = true
+        this.activeIndex = -1
+        this.activeIndex1 = -1
+        axios.post(`http://${api.api}/home/todo/df`, {
+          tasks: this.tasks
+        },
+          { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true }).then(res => {
+            console.log(res.data)
+          }).catch(err => {
+            console.log(err)
+          })
+      }, 1000)
+      console.log(this.tasks)
+
+    },
+  },
+  created () {
+    const url = `http://${api.api}/home/todo`
+    axios.get(url, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }, withCredentials: true })
+      .then(res => {
+        console.log(res)
+        if (res.data.tasks.length != 0) {
+          this.tasks = res.data.tasks
+          this.n = this.tasks.length
+        } else {
+          this.tasks = []
+        }
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    const d = new Date()
+
+    this.hournow = d.getHours() * 60 + d.getMinutes()
+
+  },
+  computed: {
+    tasksdoing () {
+      return this.tasks.filter((task, index) => task[6] === false)
+    },
+    tasksFinish () {
+      return this.tasks.filter((task, index) => task[6] === true)
+    },
+
+  },
 
 }
 </script>

@@ -1,0 +1,62 @@
+{
+  "courses": [
+    {
+      "course_id": 1,
+      "course_name": "搜索",
+      "total_number": 3,
+      "subcategories": [
+        {
+          "subcategory_id": 101,
+          "subcategory_name": "搜索引擎",
+          "subcategory_number": 1
+        }
+      ]
+    },
+    {
+      "course_id": 2,
+      "course_name": "编程",
+      "total_number": 2,
+      "subcategories": [
+        {
+          "subcategory_id": 201,
+          "subcategory_name": "编程实践",
+          "subcategory_number": 1
+        },
+        {
+          "subcategory_id": 202,
+          "subcategory_name": "编程学习",
+          "subcategory_number": 2
+        }
+      ]
+    },
+    {
+      "course_id": 3,
+      "course_name": "阅读",
+      "total_number": 5,
+      "subcategories": [
+        {
+          "subcategory_id": 301,
+          "subcategory_name": "社区论坛",
+          "subcategory_number": 1
+        },
+        {
+          "subcategory_id": 302,
+          "subcategory_name": "电子书资源",
+          "subcategory_number": 2
+        }
+      ]
+    },
+    {
+      "course_id": 3,
+      "course_name": "视频",
+      "total_number": 5,
+      "subcategories": [
+        {
+          "subcategory_id": 401,
+          "subcategory_name": "视频网站",
+          "subcategory_number": 1
+        }
+      ]
+    }
+  ]
+}
