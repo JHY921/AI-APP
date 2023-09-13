@@ -76,8 +76,7 @@
       <div class="numb">{{ trans(fan) }}</div>
     </div>
   </div>
-  <selforum class="forum"></selforum>
-  <selforum class="forum"></selforum>
+  <div><selforum class="forum" style="overflow: auto"></selforum></div>
 </template>
 <script>
 import axios from 'axios'
@@ -147,7 +146,7 @@ body {
   left: 0px;
   top: 0px;
   width: 360px;
-  height: 72px;
+  height: 54px;
   opacity: 1;
   border-radius: 0px 0px, 10px, 10px;
   background-color: white;
