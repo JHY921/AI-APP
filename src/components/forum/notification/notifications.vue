@@ -13,7 +13,7 @@ export default {
             "date":"9-6"
         },
         {
-            "user-avator": "https://img-blog.csdnimg.cn/df2c3d1a6d3f49d5a528068f762315c4.png?x-oss-process=image/resize,m_fixed,h_300,image/format,png",
+            "user-avator": "https://devpress.csdnimg.cn/20b481c56e4b457f84f916543e3b6193.png",
             "user_name":"Eolink_2",
             "user-vip":true,
             "user-behavior":"赞了您的帖子",
@@ -21,7 +21,7 @@ export default {
             "date":"9-2"
         },
         {
-            "user-avator": "https://img-blog.csdnimg.cn/20201014180756918.png?x-oss-process=image/resize,m_fixed,h_64,w_64",
+            "user-avator": "https://p1.ssl.qhimgs1.com/sdr/400__/t0150eb36e5b72d85a7.jpg",
             "user_name":"灿烂人生",
             "user-vip":true,
             "user-behavior":"关注了您",
@@ -29,7 +29,7 @@ export default {
             "date":"7-28"
         },
         {
-            "user-avator": "https://img-blog.csdnimg.cn/img_convert/47e8ac703689458575c212c2394535e4.jpeg",
+            "user-avator": "https://ps.ssl.qhimg.com/t01349dcc95e8fa6c37.jpg",
             "user_name":"我太蓝了啊",
             "user-vip":true,
             "user-behavior":"评论了您的帖子",
@@ -114,12 +114,12 @@ export default {
     </div>
     <div class="info-detail">
       <div class="detail" v-for="(item, index) in notification" :key="index">
-        <img :src="item.avator" class="avator-icon" />
-        <p class="user-name">{{ item.user_name }}</p>
+        <img :src="item['user-avator']" class="avator-icon" />
+        <p class="user-name">{{item.user_name }}</p>
         <img src="../../../assets/info-icon/皇冠.png" class="vip" />
-        <p class="behavior">{{ item.behavior }}</p>
+        <p class="behavior">{{ item['user-behavior'] }}</p>
         <img :src="item.userbehavior" class="behavior-icon" />
-        <p class="date">{{ item.date }}</p>
+        <p class="date">{{ item['date'] }}</p>
       </div>
       <div class="detail">
         <img
