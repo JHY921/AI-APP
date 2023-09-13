@@ -363,33 +363,33 @@ export default {
       goodsList: [
         {
           price: 18000,
-          img: "https://res.vmallres.com/cmscdn/CN/2023-09/96b34ecd27fa417684c109461d890ae6.png",
-          name: "华为MATE60 PRO"
+          img: "	https://img.zcool.cn/community/01b7785dedd40ca801213853bb4d33.jpg@3000w_1l_2o_100sh.jpg",
+          name: "中性笔"
         },
         {
           price: 25000,
-          img: "https://img.alicdn.com/imgextrahttps://img.alicdn.com/imgextra/i2/2619156178/O1CN011vWwkt1vVZkpPxtfm_!!2619156178-0-alimamacc.jpg_468x468q75.jpg_.webp",
-          name: "HONOR荣耀"
+          img: "	https://th.bing.com/th/id/OIP.pm0jlXfAd3kweB8_qSaJEgHaE6?w=293&h=194&c=7&r=0&o=5&dpr=1.7&pid=1.7",
+          name: "笔记本"
         },
         {
-          price: 59.9,
-          img: "https://gw.alicdn.com/imgextra/i1/2206722135782/O1CN01bQFCEZ1saCsoZjBBw_!!2206722135782.jpg_Q75.jpg_.webp",
-          name: "猫人袜子女春夏"
+          price: 36000,
+          img: "	https://cbu01.alicdn.com/img/ibank/2018/960/214/9170412069_1052252572.jpg",
+          name: "杯子"
         },
         {
-          price: 12000,
-          img: "https://gw.alicdn.com/imgextra/i3/2207489273283/O1CN01b9n5Vg1a7f9tLm0dZ_!!2207489273283.jpg_Q75.jpg_.webp",
-          name: "白色法式复古衬衫上衣"
+          price: 40000,
+          img: "https://th.bing.com/th/id/OIP.Ktkg_BWpDn0C9tdO7q6AQQHaHa?pid=ImgDet&rs=1",
+          name: "鼠标"
         },
         {
-          price: 180,
-          img: "https://img.alicdn.com/imgextra/i2/110893047/O1CN01mlg3XF1YNZUSoJAte_!!0-saturn_solar.jpg_468x468q75.jpg_.webp",
-          name: "人工智能AI时代"
+          price: 56000,
+          img: "https://cdn.ptpress.cn/pubcloud/bookImg/null/20211215EF34D436.jpg",
+          name: "人工智能"
         },
         {
-          price: 180,
-          img: "https://gw.alicdn.com/imgextra/i1/856755458/O1CN013KbWoE1qBoVXz4VeU_!!856755458.jpg_Q75.jpg_.webp",
-          name: " Eternelle法国永恒玫瑰花项链"
+          price: 100000,
+          img: "https://dsdcp.smartmidea.net/mcsp/prod/20210422/1619029369860.jpg",
+          name: "词典笔"
         },
       ],
       chooseGoods: "",
@@ -434,8 +434,8 @@ export default {
   },
   setup () {
     const images = [
-      'https://res.vmallres.com/cmscdn/CN/2023-09/7ac451fcfabf429fb90c20e327dbd2ab.jpg',
-      'https://res.vmallres.com/cmscdn/CN/2023-08/0b2372bf003a4293ba7df466c1f64af7.jpg',
+      'https://pic4.zhimg.com/v2-75c92ad744aac7754e99f09ad1d3d992_r.jpg?source=1940ef5c',
+      'https://bpic.588ku.com/back_origin_min_pic/21/05/26/83f7ade8c6b8e303945678050d1a5c3c.jpg!/fw/750/quality/99/unsharp/true/compress/true',
     ]
     return { images }
   },
