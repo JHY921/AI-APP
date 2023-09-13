@@ -368,13 +368,13 @@ export default {
         },
         {
           price: 25000,
-          img: "https://res.vmallres.com/cmscdn/CN/2023-09/d490cae3db5e4d089f005065d5ffe5e9.jpg",
-          name: "华为MATE X5"
+          img: "https://img.alicdn.com/imgextrahttps://img.alicdn.com/imgextra/i2/2619156178/O1CN011vWwkt1vVZkpPxtfm_!!2619156178-0-alimamacc.jpg_468x468q75.jpg_.webp",
+          name: "HONOR荣耀"
         },
         {
           price: 10000,
-          img: "https://res.vmallres.com/cmscdn/CN/2023-05/78089ce80f134d27a8e26fab2592332d.png",
-          name: "华为畅享系列"
+          img: "https://gw.alicdn.com/imgextra/i2/2214081813903/O1CN01m95AaP1ehcgYW1aIX_!!2214081813903.jpg_Q75.jpg_.webp",
+          name: "OPPO K11x 5G"
         },
         {
           price: 12000,
@@ -383,13 +383,13 @@ export default {
         },
         {
           price: 180,
-          img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-          name: "商品名填充填充"
+          img: "https://gw.alicdn.com/imgextra/i2/2206829987398/O1CN01M1cboo24WKxdUOqdw_!!0-item_pic.jpg_Q75.jpg_.webp",
+          name: "红米note11Tpro"
         },
         {
           price: 180,
-          img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-          name: "商品名填充填充"
+          img: "https://gw.alicdn.com/imgextra/i2/3851598352/O1CN01NbLNjI2BZGneuoOjo_!!0-item_pic.jpg_Q75.jpg_.webp",
+          name: " 华为90Pro"
         },
       ],
       chooseGoods: "",
