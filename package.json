@@ -33,6 +33,9 @@
   "usingComponents": {
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-tabbar": "@vant/weapp/tabbar/index",
-    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-cell":"@vant/weapp/cell/index",
+    "van-cell-group":"@vant/weapp/cell-group/index",
+    "van-switch":"@vant/weapp/switch/index"
   }
 }
