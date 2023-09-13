@@ -4,69 +4,69 @@ export default {
   data () {
     return {
       notification: [
-      {
-            "user-avator": "https://devpress.csdnimg.cn/20b481c56e4b457f84f916543e3b6193.png",
-            "user_name":"Vince_13",
-            "user-vip":true,
-            "user-behavior":"评论了您的帖子",
-            "user-behavior-icon":"../../assets/info-icon/评论1.png",
-            "date":"9-6"
+        {
+          "user-avator": "https://devpress.csdnimg.cn/20b481c56e4b457f84f916543e3b6193.png",
+          "user_name": "Vince_13",
+          "user-vip": true,
+          "user-behavior": "评论了您的帖子",
+          "user-behavior-icon": "../../assets/info-icon/评论1.png",
+          "date": "9-6"
         },
         {
-            "user-avator": "https://devpress.csdnimg.cn/20b481c56e4b457f84f916543e3b6193.png",
-            "user_name":"Eolink_2",
-            "user-vip":true,
-            "user-behavior":"赞了您的帖子",
-            "user-behavior-icon":"../../assets/info-icon/点赞1.png",
-            "date":"9-2"
+          "user-avator": "https://pic4.zhimg.com/v2-eea7512ef1bb31c5c25635eeed230028_r.jpg",
+          "user_name": "Eolink_2",
+          "user-vip": true,
+          "user-behavior": "赞了您的帖子",
+          "user-behavior-icon": "../../assets/info-icon/点赞1.png",
+          "date": "9-2"
         },
         {
-            "user-avator": "https://p1.ssl.qhimgs1.com/sdr/400__/t0150eb36e5b72d85a7.jpg",
-            "user_name":"灿烂人生",
-            "user-vip":true,
-            "user-behavior":"关注了您",
-            "user-behavior-icon":"../../assets/info-icon/喜欢1.png",
-            "date":"7-28"
+          "user-avator": "https://p1.ssl.qhimgs1.com/sdr/400__/t0150eb36e5b72d85a7.jpg",
+          "user_name": "灿烂一瞬",
+          "user-vip": true,
+          "user-behavior": "关注了您",
+          "user-behavior-icon": "../../assets/info-icon/喜欢1.png",
+          "date": "7-28"
         },
         {
-            "user-avator": "https://ps.ssl.qhimg.com/t01349dcc95e8fa6c37.jpg",
-            "user_name":"我太蓝了啊",
-            "user-vip":true,
-            "user-behavior":"评论了您的帖子",
-            "user-behavior-icon":"../../assets/info-icon/评论1.png",
-            "date":"8-25"
+          "user-avator": "https://pic3.zhimg.com/v2-40b422221d65c72d5a2ac80b7f9907be_r.jpg?source=1940ef5c",
+          "user_name": "我太蓝了啊",
+          "user-vip": true,
+          "user-behavior": "评论了您的帖子",
+          "user-behavior-icon": "../../assets/info-icon/评论1.png",
+          "date": "8-25"
         },
         {
-            "user-avator": "https://ps.ssl.qhimg.com/t01349dcc95e8fa6c37.jpg",
-            "user_name":"Want595",
-            "user-vip":true,
-            "user-behavior":"赞了您的评论",
-            "user-behavior-icon":"../../assets/info-icon/点赞1.png",
-            "date":"8-20"
+          "user-avator": "https://ps.ssl.qhimg.com/t01349dcc95e8fa6c37.jpg",
+          "user_name": "Want595",
+          "user-vip": true,
+          "user-behavior": "赞了您的评论",
+          "user-behavior-icon": "../../assets/info-icon/点赞1.png",
+          "date": "8-20"
         },
         {
-            "user-avator": "https://p1.ssl.qhimgs1.com/sdr/400__/t0150eb36e5b72d85a7.jpg",
-            "user_name":"趣味人生",
-            "user-vip":true,
-            "user-behavior":"赞了您的评论",
-            "user-behavior-icon":"../../assets/info-icon/点赞1.png",
-            "date":"8-10"
+          "user-avator": "https://pic2.zhimg.com/v2-192469cb6f528128f6d11fa9c71c7af7_r.jpg?source=1940ef5c",
+          "user_name": "趣味人生",
+          "user-vip": true,
+          "user-behavior": "赞了您的评论",
+          "user-behavior-icon": "../../assets/info-icon/点赞1.png",
+          "date": "8-10"
         },
         {
-            "user-avator": "https://p1.ssl.qhimgs1.com/sdr/400__/t0193c794c8b078f3b1.jpg",
-            "user_name":"OSIR4",
-            "user-vip":true,
-            "user-behavior":"评论了您的帖子",
-            "user-behavior-icon":"../../assets/info-icon/评论1.png",
-            "date":"8-6"
+          "user-avator": "https://p1.ssl.qhimgs1.com/sdr/400__/t0193c794c8b078f3b1.jpg",
+          "user_name": "DWJJ4",
+          "user-vip": true,
+          "user-behavior": "评论了您的帖子",
+          "user-behavior-icon": "../../assets/info-icon/评论1.png",
+          "date": "8-6"
         },
         {
-            "user-avator": "https://ps.ssl.qhimg.com/t01349dcc95e8fa6c37.jpg",
-            "user_name":"Want595",
-            "user-vip":true,
-            "user-behavior":"评论了您的帖子",
-            "user-behavior-icon":"../../assets/info-icon/评论1.png",
-            "date":"7-28"
+          "user-avator": "https://pic4.zhimg.com/v2-8edca58913aa25e47f721bbe955b814c_r.jpg?source=1940ef5c",
+          "user_name": "向前冲",
+          "user-vip": true,
+          "user-behavior": "评论了您的帖子",
+          "user-behavior-icon": "../../assets/info-icon/评论1.png",
+          "date": "7-28"
         }
       ]
     }
@@ -76,14 +76,14 @@ export default {
       history.back()
     }
   },
-  setup() {
+  setup () {
     const getImageUrl = (name) => {
-        return new URL(`${name}`, import.meta.url).href
+      return new URL(`${name}`, import.meta.url).href
     }
-  return {
-    getImageUrl
+    return {
+      getImageUrl
+    }
   }
-}
 }
 </script>
 <template>
@@ -123,11 +123,14 @@ export default {
     <div class="info-detail">
       <div class="detail" v-for="(item, index) in notification" :key="index">
         <img :src="item['user-avator']" class="avator-icon" />
-        <p class="user-name">{{item.user_name }}</p>
+        <p class="user-name">{{ item.user_name }}</p>
         <img src="../../../assets/info-icon/皇冠.png" class="vip" />
-        <p class="behavior">{{ item['user-behavior'] }}</p>
-        <img :src="getImageUrl(item['user-behavior-icon'])" class="behavior-icon" />
-        <p class="date">{{ item['date'] }}</p>
+        <p class="behavior">{{ item["user-behavior"] }}</p>
+        <img
+          :src="getImageUrl(item['user-behavior-icon'])"
+          class="behavior-icon"
+        />
+        <p class="date">{{ item["date"] }}</p>
       </div>
       <div class="detail">
         <img
