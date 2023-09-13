@@ -1,32 +1,36 @@
 {
     "forumArea": [
         {
-            "post-title": "Customizing the Nature of aBean既新奇博杜函数",
-            "user_avator":"../../assets/icons/forum/forumarea/photo.jpg",
-            "user_name":"基彭伯格",
-            "content":"Customizing the Nature of aBean，最早准备跳过这部分内容，但是觉得这部分内容是SpringBean生命周期中的一个重要部分可能会影响通往NB之路，所以还是要真学习一下Spring通过三种类型的接口实现对Bean行为或状态的改变或定制...",
-            "view":"400"
+            "post-title": "百模大战的赢家最终会是开源模型 | 近匠",
+            "user_avator":"../../assets/icons/forum/forumarea/Eolink_avator.png",
+            "user_name":"Eolin",
+            "content":"IT 领域已经在历史上证明过多人开发往往能带来更好的结果。期待未来有更好的开源大模型，让不同的公司可以利用它们自由地探索不一样的应用模式。",
+            "view":"900",
+            "id":1
         },
         {
-            "post-title": "Customizing the Nature of aBean",
-            "user_avator":"../../assets/icons/forum/forumarea/photo.jpg",
-            "user_name":"基彭伯格",
-            "content":"Customizing the Nature of aBean，最早准备跳过这部分内容，但是觉得这部分内容是SpringBean生命周期中的一个重要部分可能会影响通往NB之路，所以还是要真学习一下Spring通过三种类型的接口实现对Bean行为或状态的改变或定制...",
-            "view":"400"
+            "post-title": "华夏银行吴永飞：人工智能GPU算力资源池化应用研究",
+            "user_avator":"../../assets/icons/forum/forumarea/Vince_13.png",
+            "user_name":"Vince_13",
+            "content":"商业银行在客服、营销、风控等领域持续运用人工智能技术赋能业务发展，在提升金融效率和用户体验等方面取得显著成效。人工智能金融领域应用的模型训练和推理过程都需要强大的算力支撑，随着ChatGPT等大模型的出现，中高端GPU算力成本不断攀升。",
+            "view":"525",
+            "id":2
         },
         {
-            "post-title": "Customizing the Nature of aBean",
-            "user_avator":"../../assets/icons/forum/forumarea/photo.jpg",
-            "user_name":"基彭伯格",
-            "content":"Customizing the Nature of aBean，最早准备跳过这部分内容，但是觉得这部分内容是SpringBean生命周期中的一个重要部分可能会影响通往NB之路，所以还是要真学习一下Spring通过三种类型的接口实现对Bean行为或状态的改变或定制...",
-            "view":"400"
+            "post-title": "人机融合的经验与人类的或机器的经验不同",
+            "user_avator":"../../assets/icons/forum/forumarea/人机_avator.png",
+            "user_name":"人机与认知",
+            "content":"机器的经验是通过机器学习算法和大量的数据训练得来的。机器通过对数据的处理和分析学习到模式和规律，并将这些学习到的知识应用于问题解决和决策中。机器的经验更加注重于数据和模型，以及对大规模数据的处理和分析能力。",
+            "view":"422",
+            "id":3
         },
         {
-            "post-title": "Customizing the Nature of aBean",
+            "post-title": "蚂蚁金融大模型正式发布，开放业内最大金融AI专属任务评测集“Fin-Eval”",
             "user_avator":"../../assets/icons/forum/forumarea/photo.jpg",
             "user_name":"基彭伯格",
-            "content":"Customizing the Nature of aBean，最早准备跳过这部分内容，但是觉得这部分内容是SpringBean生命周期中的一个重要部分可能会影响通往NB之路，所以还是要真学习一下Spring通过三种类型的接口实现对Bean行为或状态的改变或定制...",
-            "view":"400"
+            "content":"蚂蚁金融大模型基于蚂蚁自研基础大模型，针对金融产业深度定制，底层算力集群达到万卡规模。该大模型聚焦真实的金融场景需求，在“认知、生成、专业知识、专业逻辑、合规性”五大维度28类金融专属任务中表现突出，在“研判观点提取”等众多领域达到行业专家水平",
+            "view":"400",
+            "id":4
         }
     ]
 }

@@ -368,28 +368,28 @@ export default {
         },
         {
           price: 25000,
-          img: "https://res.vmallres.com/cmscdn/CN/2023-09/d490cae3db5e4d089f005065d5ffe5e9.jpg",
-          name: "华为MATE X5"
+          img: "https://img.alicdn.com/imgextrahttps://img.alicdn.com/imgextra/i2/2619156178/O1CN011vWwkt1vVZkpPxtfm_!!2619156178-0-alimamacc.jpg_468x468q75.jpg_.webp",
+          name: "HONOR荣耀"
         },
         {
-          price: 10000,
-          img: "https://res.vmallres.com/cmscdn/CN/2023-05/78089ce80f134d27a8e26fab2592332d.png",
-          name: "华为畅享系列"
+          price: 59.9,
+          img: "https://gw.alicdn.com/imgextra/i1/2206722135782/O1CN01bQFCEZ1saCsoZjBBw_!!2206722135782.jpg_Q75.jpg_.webp",
+          name: "猫人袜子女春夏"
         },
         {
           price: 12000,
-          img: "https://res.vmallres.com/cmscdn/CN/2023-05/2fa0b145cbdc460aa22a510ed2832275.png",
-          name: "华为NOVA系列"
+          img: "https://gw.alicdn.com/imgextra/i3/2207489273283/O1CN01b9n5Vg1a7f9tLm0dZ_!!2207489273283.jpg_Q75.jpg_.webp",
+          name: "白色法式复古衬衫上衣"
         },
         {
           price: 180,
-          img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-          name: "商品名填充填充"
+          img: "https://img.alicdn.com/imgextra/i2/110893047/O1CN01mlg3XF1YNZUSoJAte_!!0-saturn_solar.jpg_468x468q75.jpg_.webp",
+          name: "人工智能AI时代"
         },
         {
           price: 180,
-          img: "https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg",
-          name: "商品名填充填充"
+          img: "https://gw.alicdn.com/imgextra/i1/856755458/O1CN013KbWoE1qBoVXz4VeU_!!856755458.jpg_Q75.jpg_.webp",
+          name: " Eternelle法国永恒玫瑰花项链"
         },
       ],
       chooseGoods: "",

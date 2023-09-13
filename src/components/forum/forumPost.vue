@@ -1,156 +1,213 @@
-<script>
-
-import data from './forumArea.json'
-export default {
-  name: "zan",
-  data () {
-    return {
-      liked: false,
-      content: '关注',
-      ft_color: "#fef0f0",
-      bg_color: "rgba(0, 121, 148, 1)",
-      likeshow: true,
-      collectshow: true,
-      likeCount: 1000,
-      collectCount: 100000,
-      commentCount: 100000,
-      data: data,
-      show: true,
-      isLike: [false],
-      isSub: [false],
-    }
-  },
-  methods: {
-    like (index) {
-      this.isLike[index] = !this.isLike[index]
-      this.likeshow = !this.likeshow
-      this.likeCount = !this.likeshow ? this.likeCount + 1 : this.likeCount - 1
-    },
-    collect (index) {
-      this.isSub[index] = !this.isSub[index]
-      this.collectshow = !this.collectshow
-      this.collectCount = !this.collectshow ? this.collectCount + 1 : this.collectCount - 1
-    },
-    comment () {
-      this.commentCount++
-    },
-    favor (e) {
-      this.liked = !this.liked
-      if (this.liked) {
-        this.content = "已关注"
-        this.bg_color = "rgba(122, 141, 145, 1)"
-        this.ft_color = "#fef0f0"
-
-      }
-      else {
-        this.content = "关注"
-        this.bg_color = "rgba(0, 121, 148, 1)"
-        this.ft_color = "#fef0f0"
-      }
-    },
-    change () {
-      this.bg_color = "rgba(0, 121, 148, 1)"
-      this.ft_color = "#fef0f0"
-    },
-    // goback() {
-    //     if (this.liked) {
-    //         this.bg_color = "rgba(0, 121, 148, 1)";
-    //         this.ft_color = "#fef0f0";
-    //     }
-    //     else {
-    //         this.bg_color = "rgba(0, 121, 148, 1)";
-    //         this.ft_color = "#f56c6c";
-    //     }
-    // },
-    goToPersonifo () {
-      this.$router.push('/Personifo')
-    },
-    goToCourse () {
-      this.$router.push('/Course')
-    },
-    goToHeat () {
-      this.$router.push('/Forum_heat')
-    }
-  },
-}
-</script>
 <template>
   <div id="body">
     <ul class="post-list">
-      <li class="each-post" v-for="(item, index) in data.forumArea">
-        <div id="each-post">
-          <p class="post-title" style="padding-right: 20px">
-            {{ item["post-title"] }}
-          </p>
-          <div class="user-info">
-            <img class="user-avator" :src="item['user-avator']" />
-            <span class="user-name">{{ item.user_name }}</span>
+      <li
+        style="list-style: none"
+        v-for="(item, index) in postList"
+        :key="index"
+      >
+        <div
+          style="
+            border-radius: 10px;
+            background-image: linear-gradient(
+              180deg,
+              #007994 -134.6%,
+              #ffffff 14.9%
+            );
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+            margin: auto;
+            margin-top: 10px;
+            width: 335px;
+            position: relative;
+          "
+        >
+          <div style="margin-left: 16px">
+            <span
+              style="
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 0px;
+                line-height: 18.75px;
+                color: rgba(0, 0, 0, 1);
+                text-align: left;
+                vertical-align: top;
+                font-family: res;
+                display: inline-block;
+                margin-top: 15px;
+              "
+              >{{ item.title }}</span
+            >
+          </div>
+          <div style="position: relative; margin-top: 10px; margin-left: 16px">
+            <img
+              :src="item.url"
+              alt=""
+              style="
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin-bottom: -5px;
+              "
+            />
+            <span style="display: inline-block; margin: 0 10px">
+              {{ item.name }}</span
+            >
+
             <img
               class="vip-icon"
               src="../../assets/icons/forum/forumarea/皇冠.png"
-              style="
-                width: 16px;
-                height: 16px;
-                margin-left: -24px;
-                margin-top: -4.5px;
-              "
+              style="width: 16px; height: 16px"
             />
             <button
-              @click="favor"
-              class="button"
-              :style="{ backgroundColor: bg_color, color: ft_color }"
-              @mouseenter="change()"
-              @mouseleave="goback()"
+              @click="follow(item['follow'], index)"
+              style="
+                position: absolute;
+                margin: 5px;
+                right: 5%;
+                border-radius: 8px;
+                border: none;
+                font-weight: 900;
+                border-radius: 20px;
+                padding: 3px 14px;
+                text-align: center;
+                font-size: 13px;
+              "
             >
-              {{ content }}
+              {{ item.follow }}
             </button>
           </div>
-          <div class="ms-content">
-            <p>
-              {{ item.content }}
-            </p>
+          <div
+            style="
+              margin-left: 16px;
+              margin-bottom: 15px;
+              height: 100px;
+              margin-top: 20px;
+            "
+          >
+            <span
+              style="
+                /** 文本1 */
+                font-size: 9px;
+                font-weight: 400;
+                letter-spacing: 0px;
+                line-height: 10.55px;
+                color: rgba(125, 125, 125, 1);
+              "
+              >{{ item.context }}</span
+            >
           </div>
-          <div class="page-view">
-            <span>浏览量&nbsp;</span><span>{{ item.view }}</span>
-          </div>
-          <div class="icon">
-            <div class="like" @click="like(index)">
-              <img
-                src="../../assets/icons/forum/forumarea/like.png"
-                class="likesbox"
-                @click="clicklikes"
-              />
-              <img
-                src="./redColor.png"
-                style="
-                  position: absolute;
-                  width: 50px;
-                  height: auto;
-                  margin-top: -16px;
-                  margin-left: -8px;
-                "
-                v-if="isLike[index]"
-              />
-              <p>{{ likeCount }}</p>
+
+          <div style="display: flex; flex-direction: row; position: relative">
+            <div
+              style="
+                /** 文本3 */
+                font-size: 6px;
+                font-weight: 300;
+                letter-spacing: 0px;
+                color: rgba(181, 181, 181, 1);
+                margin-left: 16px;
+                width: 64px;
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                bottom: 10px;
+              "
+            >
+              <div>浏览：</div>
+              <div>{{ item.browse }}</div>
             </div>
-            <div class="collect" @click="collect(index)">
-              <img src="../../assets/icons/forum/forumarea/collect.png" />
-              <img
-                src="./isSub.png"
-                style="
-                  position: absolute;
-                  width: 50px;
-                  height: auto;
-                  margin-top: -16px;
-                  margin-left: -8px;
-                "
-                v-if="isSub[index]"
-              />
-              <p>{{ collectCount }}</p>
-            </div>
-            <div class="comment" @click="comment">
-              <img src="../../assets/icons/forum/forumarea/comment.png" />
-              <p>{{ commentCount }}</p>
+            <div
+              style="
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                right: 15px;
+                bottom: 10px;
+              "
+            >
+              <div class="like" style="margin-right: 12px" @click="like(index)">
+                <img
+                  v-if="item['islike']"
+                  width="25"
+                  height="25"
+                  src="./redColor.png"
+                  style="position: absolute"
+                  alt=""
+                />
+                <img
+                  width="20"
+                  height="20"
+                  src="../../assets/icons/forum/forumarea/like.png"
+                  alt=""
+                />
+                <div
+                  style="
+                    /** 文本2 */
+                    font-size: 2px;
+                    font-weight: 400;
+                    letter-spacing: 0px;
+                    line-height: 10.55px;
+                    color: rgba(0, 0, 0, 1);
+                    font-family: Medium;
+                  "
+                >
+                  {{ item.like }}
+                </div>
+              </div>
+              <div
+                class="collect"
+                style="margin-right: 12px"
+                @click="collect(index)"
+              >
+                <img
+                  v-if="item['iscollect']"
+                  width="25"
+                  height="25"
+                  src="./isSub.png"
+                  style="position: absolute"
+                  alt=""
+                />
+                <img
+                  width="20"
+                  height="20"
+                  src="../../assets/icons/forum/forumarea/collect.png"
+                  alt=""
+                />
+                <div
+                  style="
+                    /** 文本2 */
+                    font-size: 2px;
+                    font-weight: 400;
+                    letter-spacing: 0px;
+                    line-height: 10.55px;
+                    color: rgba(0, 0, 0, 1);
+                    font-family: Medium;
+                  "
+                >
+                  {{ item.collect }}
+                </div>
+              </div>
+              <div class="comment" style="margin-right: 5px">
+                <img
+                  width="20"
+                  height="20"
+                  src="../../assets/icons/forum/forumarea/comment.png"
+                  alt=""
+                />
+                <div
+                  style="
+                    /** 文本2 */
+                    font-size: 2px;
+                    font-weight: 400;
+                    letter-spacing: 0px;
+                    line-height: 10.55px;
+                    color: rgba(0, 0, 0, 1);
+                    font-family: Medium;
+                  "
+                >
+                  {{ item.comment }}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -173,175 +230,115 @@ export default {
     display: none;
   }
 }
-.history {
-  width: 280px;
-  height: 20px;
-  z-index: 999;
-  margin-top: 40px;
-  left: 90px;
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-.info {
-  width: 42px;
-  height: 42px;
-  margin-top: 1%;
-  margin-left: 5%;
-}
-.post-list {
-  width: 360px;
-  margin-top: 4%;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  flex-direction: row;
-  color: #999;
-  font-size: 20px;
-  /* overflow-x: hidden; */
-}
-.each-post {
-  background-color: rgb(255, 255, 255);
-  margin: auto;
-  height: 176px;
-  width: 98.8%;
-  color: black;
-  border-radius: 10px;
-  background-image: linear-gradient(180deg, #007994 -134.6%, #ffffff 14.9%);
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  margin-bottom: 13px;
-}
-.each-post a {
-  color: black;
-}
-#each-post {
-  position: relative;
-  margin-left: 5.86%;
-}
-.page-view {
-  width: 100%;
-  height: 20px;
-  font-size: 9px;
-  margin-top: 1%;
-  margin-left: -20%;
-  transform: scale(0.6);
-  color: rgba(181, 181, 181, 1);
-}
-.post-title {
-  margin-top: 22px;
-  color: black;
-  width: 96%;
-  font-size: 18px;
-  font-weight: 500;
-  height: 34.4px;
-  margin-bottom: 0.3%;
-  letter-spacing: 0px;
-  line-height: 18px;
-  text-align: left;
-  vertical-align: top;
-}
-.user-info {
-  color: rgb(0, 0, 0);
-  width: 100%;
-  height: 34px;
-  margin-top: 5px;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-.button {
-  position: absolute;
-  margin-top: -5px;
-  right: 9.3%;
-  border-radius: 8px;
-  border: none;
-  font-weight: 900;
-  border-radius: 20px;
-  padding: 3px 14px;
-  text-align: center;
-  font-size: 13px;
-  -webkit-transform: scale(0.9);
-}
-.user-avator {
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin-top: -4px;
-}
-.user-name {
-  font-weight: 400;
-  font-size: 12px;
-  width: 90px;
-  margin-top: -3px;
-  margin-left: 15px;
-  letter-spacing: 0px;
-  line-height: 14.06px;
-  color: rgba(0, 0, 0, 1);
-  text-align: left;
-  vertical-align: top;
-}
-
-.ms-content {
-  width: 96%;
-  height: 39px;
-  margin-top: 0px;
-  color: rgb(140, 139, 139);
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow: hidden;
-  letter-spacing: 0px;
-  color: rgba(125, 125, 125, 1);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 13px;
-  vertical-align: top;
-}
-.ms-content p {
-  font-size: 9px;
-}
-.icon {
-  margin-top: -12px;
-  width: 30%;
-  height: 100%;
-  float: right;
-  margin-right: 8%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-self: flex-start;
-  font-size: 6px;
-}
-.icon p {
-  transform: scale(0.6);
-  width: 35px;
-  height: 30px;
-  margin: auto;
-  margin-top: -13%;
-}
-.icon div {
-  width: 70px;
-  height: 34px;
-  display: flex;
-  font-size: 6px;
-  flex-direction: column;
-  text-align: center;
-}
-.like {
-  width: 50px;
-  height: 50px;
-}
-.icon img {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  margin: auto;
-}
-.content span {
-  font-size: 9px;
-}
 </style>
+<script>
+export default {
+  components: {},
+  data () {
+    return {
+      postList: [
+        {
+          title: '基于深度学习的工业缺陷检测详解——从0到1',
+          context: '   不知道小伙伴们熟不熟悉工业领域的缺陷检测腻？这我可太熟悉了，毕竟是我硕士阶段的老本行🧐🧐🧐所以今天就以钢轨表面缺陷为例，和大家唠唠基于深度学习的钢轨表面伤损细粒度图像识别与目标检测...',
+          browse: 2114,
+          like: 12,
+          collect: 21,
+          comment: 32,
+          name: 'GoAI',
+          url: 'https://image-cn2.tvcbook.com/daq/2020/11/17/d73b7026-287d-11eb-9c33-02420a0008fb.png!cover-780-439',
+          follow: '关注',
+          islike: false,
+          iscollect: false,
+
+        },
+        {
+          name: '一点东西',
+          title: '《深入浅出OCR》第六章：OCR数据集与评价指标',
+          context: '专栏介绍： 经过几个月的精心筹备，本作者推出全新系列《深入浅出OCR》专栏，对标最全OCR教程，具体章节如导图所示，将分别从OCR技术发展、方向、概念、算法、论文、数据集...',
+          browse: 5616,
+          like: 1231,
+          collect: 262,
+          comment: 52,
+          url: 'https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439',
+          follow: '已关注',
+          islike: false,
+          iscollect: false,
+        },
+        {
+          title: '独立博客、文档类网站消亡倒计时',
+          context: '去年初，我写了一个开源项目electron-egg，需要搭建一个文档站点，然后开始折腾。经历了一系列繁杂的操作后，我发现',
+          browse: 2524,
+          like: 254,
+          collect: 223,
+          comment: 44,
+          name: '沙卡拉卡',
+          url: 'https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439'
+        },
+        {
+          name: '将海越',
+          title: 'vue中style下scope的使用和坑',
+          context: '在vue组件中，为了使样式私有化（模块化），不对全局造成污染，可以在style标签上添加scoped属性以表示它的只属于当下的模块，这是一个非常好的举措，但是为什么要慎用呢？',
+          browse: 5616,
+          like: 123,
+          collect: 262,
+          comment: 52,
+          url: 'https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439',
+          follow: '已关注',
+          islike: false,
+          iscollect: false,
+        },
+        {
+          name: '江褂含',
+          title: 'docker-compose下管理的docker是如何相互通讯的',
+          context: 'docker-compose下的docker之间通讯不能直接使用ip的方式通讯,因为ip会因为server端的变化而变化.所以一般都是用compose file中的container_name来进行通讯.',
+          browse: 561,
+          like: 35,
+          collect: 22,
+          comment: 11,
+          url: 'https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439',
+          follow: '已关注',
+          islike: false,
+          iscollect: false,
+        },
+        {
+          title: '独立博客、文档类网站消亡倒计时',
+          context: '去年初，我写了一个开源项目electron-egg，需要搭建一个文档站点，然后开始折腾。经历了一系列繁杂的操作后，我发现',
+          browse: 2524,
+          like: 254,
+          collect: 223,
+          comment: 44,
+          name: '沙卡拉卡',
+          url: 'https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439'
+        },
+      ]
+    }
+  },
+  methods: {
+    follow (isfollow, index) {
+      if (isfollow === '关注') {
+        this.postList[index]['follow'] = '已关注'
+      }
+      if (isfollow === '已关注') {
+        this.postList[index]['follow'] = '关注'
+      }
+    },
+    like (index) {
+      if (this.postList[index]['islike']) {
+        this.postList[index]['like'] = this.postList[index]['like'] - 1
+      } else {
+        this.postList[index]['like'] = this.postList[index]['like'] + 1
+      }
+      this.postList[index]['islike'] = !this.postList[index]['islike']
+    },
+    collect (index) {
+      if (this.postList[index]['iscollect']) {
+        this.postList[index]['collect'] = this.postList[index]['collect'] - 1
+      } else {
+        this.postList[index]['collect'] = this.postList[index]['collect'] + 1
+      }
+      this.postList[index]['iscollect'] = !this.postList[index]['iscollect']
+    },
+  }
+
+}
+</script>
