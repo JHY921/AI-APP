@@ -233,9 +233,6 @@ export default {
           collect: 262,
           comment: 52,
           url: 'https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439'
-
-
-
         },
         {
           title: '独立博客、文档类网站消亡倒计时',
@@ -246,7 +243,6 @@ export default {
           comment: 44,
           name: '沙卡拉卡',
           url: 'https://image-cn2.tvcbook.com/daq/2020/11/17/7c7b0cbc-2893-11eb-9c33-02420a0008fb.png!cover-780-439'
-
         }
       ]
     }

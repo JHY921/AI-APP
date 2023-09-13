@@ -75,6 +75,9 @@ export default {
 }
 </script>
 <style scoped>
+*{
+  overflow-x: hidden;
+}
 .status_bar {
   position: relative;
   left: 0px;

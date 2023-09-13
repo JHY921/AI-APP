@@ -45,7 +45,8 @@
     </div>
 
     <div class="user_label">
-      <div class="headPortrait"><!--预设头像？--></div>
+      <!-- <div class="headPortrait"></div> --><!--预设头像？-->
+      <img :src="passageData.img" alt="" class="headPortrait">
       <div style="width: 230px">
         <div
           style="
@@ -366,7 +367,8 @@ export default {
       isVip: true,
       passageData: [],
       commentInfor: "",
-      psg: ''
+      psg: '',
+      url:''
     }
   },
   created () {
