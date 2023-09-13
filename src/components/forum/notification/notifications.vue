@@ -1,10 +1,74 @@
 <script>
-import data from './notification.json'
 import 'vant/es/nav-bar'
 export default {
   data () {
     return {
-      notification: data
+      notification: [
+        {
+          "avator": "require(../../../assets/info-icon/内容头像.png)",
+          "user_name": "OSIR4",
+          "user-vip": true,
+          "behavior": "评论了您的帖子",
+          "user_behavior": "../../../assets/info-icon/评论1.png",
+          "date": "9-6"
+        },
+        {
+          "avator": "../../../assets/info-icon/内容头像.png",
+          "user_name": "AXSSX",
+          "user-vip": false,
+          "behavior": "赞了您的帖子",
+          "userbehavior": "../../../assets/info-icon/点赞1.png",
+          "date": "9-2"
+        },
+        {
+          "avator": "../../../assets/info-icon/内容头像.png",
+          "user_name": "我太蓝了呀",
+          "user-vip": false,
+          "behavior": "关注了您",
+          "userbehavior": "../../../assets/info-icon/喜欢1.png",
+          "date": "8-25"
+        },
+        {
+          "avator": "../../../assets/info-icon/内容头像.png",
+          "user_name": "不是好烧饼",
+          "user-vip": true,
+          "behavior": "评论了您的帖子",
+          "userbehavior": "../../../assets/info-icon/评论1.png",
+          "date": "8-20"
+        },
+        {
+          "avator": "../../../assets/info-icon/内容头像.png",
+          "user_name": "老王框框",
+          "user-vip": true,
+          "behavior": "赞了您的评论",
+          "userbehavior": "../../../assets/info-icon/点赞1.png",
+          "date": "8-10"
+        },
+        {
+          "avator": "../../../assets/info-icon/内容头像.png",
+          "user_name": "H",
+          "user-vip": false,
+          "behavior": "赞了您的评论",
+          "userbehavior": "../../../assets/info-icon/点赞1.png",
+          "date": "8-5"
+        },
+        {
+          "avator": "../../../assets/info-icon/内容头像.png",
+          "user_name": "永远健康",
+          "user-vip": true,
+          "behavior": "评论了您的帖子",
+          "userbehavior": "../../../assets/info-icon/评论1.png",
+          "date": "7-28"
+        },
+        {
+          "avator": "../../../assets/info-icon/内容头像.png",
+          "user_name": "DWJJ",
+          "user-vip": false,
+          "behavior": "评论了您的帖子",
+          "userbehavior": "../../../assets/info-icon/评论1.png",
+          "date": "7-28"
+        }
+      ]
     }
   },
   methods: {
@@ -49,13 +113,13 @@ export default {
       <p>全部消息</p>
     </div>
     <div class="info-detail">
-      <div class="detail" v-for="item in notification.notification">
-        <img :src="item['user-avator']" class="avator-icon" />
+      <div class="detail" v-for="(item, index) in notification" :key="index">
+        <img :src="item.avator" class="avator-icon" />
         <p class="user-name">{{ item.user_name }}</p>
         <img src="../../../assets/info-icon/皇冠.png" class="vip" />
-        <p class="behavior">{{ item["user-behavior"] }}</p>
-        <img :src="item['user-behavior-icon']" class="behavior-icon" />
-        <p class="date">7-26</p>
+        <p class="behavior">{{ item.behavior }}</p>
+        <img :src="item.userbehavior" class="behavior-icon" />
+        <p class="date">{{ item.date }}</p>
       </div>
       <div class="detail">
         <img
@@ -83,7 +147,7 @@ export default {
   background-color: #a3a3a3;
   z-index: 999;
 }
- .van-nav-bar__title {
+.van-nav-bar__title {
   color: #007994;
   font-weight: 800;
   font-size: 18px;
@@ -92,11 +156,12 @@ export default {
   color: white !important;
   /* font-size:16px; */
 }
- .van-nav-bar__text {
+.van-nav-bar__text {
   color: rgba(0, 121, 148, 1);
   font-weight: 700;
   font-size: 26px;
-}.van-nav-bar__arrow {
+}
+.van-nav-bar__arrow {
   color: rgba(0, 121, 148, 1);
   font-weight: 600;
   transform: scale(1.3);
@@ -207,7 +272,7 @@ export default {
 .user-name {
   left: 30px;
   top: 21px;
-  width: 34px;
+  width: 60px;
   height: 15px;
   opacity: 1;
   font-size: 12px;
@@ -244,11 +309,11 @@ export default {
   width: 16px;
   height: 16px;
   opacity: 1;
-  left: 110px;
+  left: 100px;
   top: 22px;
 }
 .date {
-  left: 124px;
+  left: 110px;
   top: 23px;
   width: 30px;
   height: 12px;
