@@ -252,7 +252,7 @@ export default {
     return {
       nowQuesNum: 5,
       totalQuesNum: 5,
-      quesContainer: "是否有在开源项目或计算机社区中做出贡献？",
+      quesContainer: "您是否有在开源项目或计算机社区中做出贡献？",
       quesA: "是",
       quesB: "否",
       id: '',
