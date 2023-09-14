@@ -90,8 +90,8 @@ const router = createRouter({
       component: monthlycomp
     },
     {
-      // path: '/postContent/:pgId',
-      path: '/postContent',
+      path: '/postContent/:pgId',
+      //path: '/postContent',
       name: 'postContent',
       component: postContent,
 
@@ -167,26 +167,31 @@ const router = createRouter({
     },
     {
       path: '/questionSet1/:userId',
+      //path: '/questionSet1',
       name: 'questionSet1',
       component: questionSet1
     },
     {
       path: '/questionSet2/:userId',
+      //path: '/questionSet2',
       name: 'questionSet2',
       component: questionSet2
     },
     {
       path: '/questionSet3/:userId',
+      //path: '/questionSet3',
       name: 'questionSet3',
       component: questionSet3
     },
     {
       path: '/questionSet4/:userId',
+      //path: '/questionSet4',
       name: 'questionSet4',
       component: questionSet4
     },
     {
       path: '/questionSet5/:userId',
+      //path: '/questionSet5',
       name: 'questionSet5',
       component: questionSet5
     },

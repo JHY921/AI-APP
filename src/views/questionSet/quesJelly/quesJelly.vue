@@ -112,14 +112,13 @@
     </div>
     <div
       class="answer_container"
-      style="font-family: dyh; font-size: 25px; font-weight: 400; color: white"
-    >
+      style="font-family: dyh; font-size: 25px; font-weight: 400; color: white">
       <img
-        src="./ans1.png"
-        style="width: 240px; margin-top: -55px; margin-left: -75px"
+        src="./ans1.png" @click="chooseA"
+        style="width: 240px; margin-top: -55px; margin-left: -75px;"
+        :style="{ 'transform': scaleAnsA}"
       />
       <div
-        @click="chooseA"
         style="
           width: 160px;
           height: 180px;
@@ -131,12 +130,11 @@
         {{ quesA }}
         <!-- 题目区域     -->
       </div>
-      <img
-        src="./ans2.png"
+      <img @click="chooseB"
+        src="./ans2.png" :style="{ 'transform': scaleAnsB}"
         style="width: 240px; margin-top: -60px; margin-left: 165px"
       />
       <div
-        @click="chooseB"
         style="
           width: 200px;
           height: 120px;
@@ -148,12 +146,12 @@
         {{ quesB }}
         <!-- 题目区域     -->
       </div>
-      <img
-        src="./ans3.png"
+      <img @click="chooseC"
+        src="./ans3.png" :style="{ 'transform': scaleAnsC}"
         style="width: 160px; margin-top: 100px; margin-left: 150px"
       />
       <div
-        @click="chooseC"
+        
         style="
           width: 160px;
           height: 140px;
@@ -164,12 +162,11 @@
       >
         {{ quesC }}
       </div>
-      <img
-        src="./ans4.png"
+      <img @click="chooseD"
+        src="./ans4.png" :style="{ 'transform': scaleAnsD}"
         style="width: 250px; margin-top: 180px; margin-left: -40px"
       />
       <div
-        @click="chooseD"
         style="
           width: 180px;
           height: 160px;
@@ -180,12 +177,11 @@
       >
         {{ quesD }}
       </div>
-      <img
-        src="./ans5.png"
+      <img @click="chooseE"
+        src="./ans5.png" :style="{ 'transform': scaleAnsE}"
         style="width: 240px; margin-top: 160px; margin-left: 200px"
       />
       <div
-        @click="chooseE"
         style="
           width: 180px;
           height: 160px;
@@ -305,6 +301,11 @@ import qust from '../../../api/question'
 export default {
   data () {
     return {
+      scaleAnsA:"scale(1)",
+      scaleAnsB:"scale(1)",
+      scaleAnsC:"scale(1)",
+      scaleAnsD:"scale(1)",
+      scaleAnsE:"scale(1)",
       nowQuesNum: 1,
       totalQuesNum: 5,
       quesContainer: "选择您熟练掌握的语言？",
@@ -329,28 +330,24 @@ export default {
       this.$router.push({ name: 'questionSet2', params: { userId: this.id } })
     },
     chooseA () {
-      qust[0] = 1
-      console.log(1)
+      qust[0] = 1;
+      this.scaleAnsA="scale(1.2)";
     },
     chooseB () {
-      qust[0] = 2
-      console.log(1)
+      qust[0] = 2;
+      this.scaleAnsB="scale(1.2)";
     },
     chooseC () {
-      qust[0] = 3
-      console.log(1)
+      qust[0] = 3;
+      this.scaleAnsC="scale(1.2)";
     },
     chooseD () {
-      qust[0] = 4
-      console.log(1)
+      qust[0] = 4;
+      this.scaleAnsD="scale(1.2)";
     },
     chooseE () {
-      qust[0] = 5
-      console.log(1)
-    },
-    chooseF () {
-      qust[0] = 6
-      console.log(1)
+      qust[0] = 5;
+      this.scaleAnsE="scale(1.2)";
     },
   }
 };
@@ -361,6 +358,7 @@ export default {
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
+  transition: transform 0.5s;
 }
 img {
   position: absolute;

@@ -110,7 +110,7 @@
       />
     </div>
     <div class="answer_container">
-      <div
+      <div :style="{ 'transform': scaleAnsA}"
         style="
           display: inline-block;
           width: 240px;
@@ -134,7 +134,7 @@
           新手
         </div>
       </div>
-      <div
+      <div :style="{ 'transform': scaleAnsB}"
         style="
           display: inline-block;
           width: 120px;
@@ -158,7 +158,7 @@
           熟手
         </div>
       </div>
-      <div
+      <div :style="{ 'transform': scaleAnsC}"
         style="
           display: inline-block;
           width: 240px;
@@ -182,7 +182,7 @@
           高手
         </div>
       </div>
-      <div
+      <div :style="{ 'transform': scaleAnsD}"
         style="
           display: inline-block;
           width: 120px;
@@ -309,6 +309,10 @@ export default {
       nowQuesNum: 4,
       totalQuesNum: 5,
       id:'',
+      scaleAnsA:"scale(1)",
+      scaleAnsB:"scale(1)",
+      scaleAnsC:"scale(1)",
+      scaleAnsD:"scale(1)",
     }
   },
   created(){
@@ -322,20 +326,20 @@ export default {
       this.$router.push({name:'questionSet5', params:{userId:this.id}})
     },
     chooseA () {
-      quest[3]=1
-      console.log(1)
+      quest[3] = 1;
+      this.scaleAnsA="scale(1.2)";
     },
     chooseB () {
-      quest[3]=2
-      console.log(1)
+      quest[3] = 2;
+      this.scaleAnsB="scale(1.2)";
     },
     chooseC () {
-      quest[3]=3
-      console.log(1)
+      quest[3] = 3;
+      this.scaleAnsC="scale(1.2)";
     },
     chooseD () {
-      quest[3]=4
-      console.log(1)
+      quest[3] = 4;
+      this.scaleAnsD="scale(1.2)";
     },
   }
 };
@@ -346,6 +350,7 @@ export default {
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
+  transition: transform 0.5s;
 }
 
 .total {

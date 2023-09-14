@@ -126,7 +126,7 @@
         "
       ></div>
       <div style="height: 12px; width: 100%"></div>
-      <div
+      <div :style="{ 'transform': scaleAnsA}"
         @click="chooseA"
         style="
           position: relative;
@@ -150,7 +150,7 @@
       >
         &nbsp;&nbsp;选项1：{{ quesA }}
       </div>
-      <div
+      <div :style="{ 'transform': scaleAnsB}"
         @click="chooseB"
         style="
           display: inline-block;
@@ -172,7 +172,7 @@
       >
         &nbsp;&nbsp;选项2：{{ quesB }}
       </div>
-      <div
+      <div :style="{ 'transform': scaleAnsC}"
         @click="chooseC"
         style="
           display: inline-block;
@@ -194,7 +194,7 @@
       >
         &nbsp;&nbsp;选项3：{{ quesC }}
       </div>
-      <div
+      <div :style="{ 'transform': scaleAnsD}"
         @click="chooseD"
         style="
           display: inline-block;
@@ -216,7 +216,7 @@
       >
         &nbsp;&nbsp;选项4：{{ quesD }}
       </div>
-      <div
+      <div :style="{ 'transform': scaleAnsE}"
         @click="chooseE"
         style="
           display: inline-block;
@@ -238,7 +238,7 @@
       >
         &nbsp;&nbsp;选项5：{{ quesE }}
       </div>
-      <div
+      <div :style="{ 'transform': scaleAnsF}"
         @click="chooseF"
         style="
           position: relative;
@@ -386,6 +386,12 @@ export default {
       quesE: "其他",
       quesF: "无",
       id:'',
+      scaleAnsA:"scale(1)",
+      scaleAnsB:"scale(1)",
+      scaleAnsC:"scale(1)",
+      scaleAnsD:"scale(1)",
+      scaleAnsE:"scale(1)",
+      scaleAnsF:"scale(1)",
     }
   },
   created(){
@@ -399,28 +405,28 @@ export default {
       this.$router.push({name:'questionSet3', params:{userId:this.id}})
     },
     chooseA () {
-      quest[1] =1
-      console.log(1)
+      quest[1] = 1;
+      this.scaleAnsA="scale(1.2)";
     },
     chooseB () {
-      quest[1] = 2
-      console.log(1)
+      quest[1] = 2;
+      this.scaleAnsB="scale(1.2)";
     },
     chooseC () {
-      quest[1] =  3
-      console.log(1)
+      quest[1] = 3;
+      this.scaleAnsC="scale(1.2)";
     },
     chooseD () {
-      quest[1] = 4
-      console.log(1)
+      quest[1] = 4;
+      this.scaleAnsD="scale(1.2)";
     },
     chooseE () {
-      quest[1] =  5
-      console.log(1)
+      quest[1] = 5;
+      this.scaleAnsE="scale(1.2)";
     },
     chooseF () {
-      quest[1] = 6
-      console.log(1)
+      quest[1] = 6;
+      this.scaleAnsF="scale(1.2)";
     },
   }
 };
@@ -431,6 +437,7 @@ export default {
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
+  transition: transform 0.5s;
 }
 .quesShade {
   position: absolute;

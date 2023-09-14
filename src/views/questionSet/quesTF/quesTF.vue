@@ -109,7 +109,7 @@
       />
     </div>
     <div class="answer_container" style="font-family: dyh; font-size: 80px">
-      <div
+      <div :style="{ 'transform': scaleAnsA}"
         @click="chooseA"
         style="
           line-height: 80px;
@@ -128,7 +128,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;{{ quesA }},
         <p>有开源项目或社区贡献</p>
       </div>
-      <div
+      <div :style="{ 'transform': scaleAnsB}"
         @click="chooseB"
         style="
           line-height: 80px;
@@ -256,6 +256,8 @@ export default {
       quesA: "是",
       quesB: "否",
       id: '',
+      scaleAnsA:"scale(1)",
+      scaleAnsB:"scale(1)",
     }
   },
   created () {
@@ -280,12 +282,12 @@ export default {
 
     },
     chooseA () {
-      quest[4] = 1
-      console.log(1)
+      quest[4] = 1;
+      this.scaleAnsA="scale(1.2)";
     },
     chooseB () {
-      quest[4] = 2
-      console.log(1)
+      quest[4] = 2;
+      this.scaleAnsB="scale(1.2)";
     },
   }
 };
@@ -296,6 +298,7 @@ export default {
   margin: 0px;
   padding: 0px;
   border-radius: 0px;
+  transition: transform 0.5s;
 }
 
 .total {
