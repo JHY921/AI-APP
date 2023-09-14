@@ -9,7 +9,7 @@ export default {
           "user_name": "Vince_13",
           "user-vip": true,
           "user-behavior": "评论了您的帖子",
-          "user-behavior-icon": "../../assets/info-icon/评论1.png",
+          "user-behavior-icon": "../../../assets/info-icon/评论1.png",
           "date": "9-6"
         },
         {
@@ -17,7 +17,7 @@ export default {
           "user_name": "Eolink_2",
           "user-vip": true,
           "user-behavior": "赞了您的帖子",
-          "user-behavior-icon": "../../assets/info-icon/点赞1.png",
+          "user-behavior-icon": "../../../assets/info-icon/点赞1.png",
           "date": "9-2"
         },
         {
@@ -25,7 +25,7 @@ export default {
           "user_name": "灿烂一瞬",
           "user-vip": true,
           "user-behavior": "关注了您",
-          "user-behavior-icon": "../../assets/info-icon/喜欢1.png",
+          "user-behavior-icon": "../../../assets/info-icon/喜欢1.png",
           "date": "7-28"
         },
         {
@@ -33,7 +33,7 @@ export default {
           "user_name": "我太蓝了啊",
           "user-vip": true,
           "user-behavior": "评论了您的帖子",
-          "user-behavior-icon": "../../assets/info-icon/评论1.png",
+          "user-behavior-icon": "../../../assets/info-icon/评论1.png",
           "date": "8-25"
         },
         {
@@ -41,7 +41,7 @@ export default {
           "user_name": "Want595",
           "user-vip": true,
           "user-behavior": "赞了您的评论",
-          "user-behavior-icon": "../../assets/info-icon/点赞1.png",
+          "user-behavior-icon": "../../../assets/info-icon/点赞1.png",
           "date": "8-20"
         },
         {
@@ -49,7 +49,7 @@ export default {
           "user_name": "趣味人生",
           "user-vip": true,
           "user-behavior": "赞了您的评论",
-          "user-behavior-icon": "../../assets/info-icon/点赞1.png",
+          "user-behavior-icon": "../../../assets/info-icon/点赞1.png",
           "date": "8-10"
         },
         {
@@ -57,7 +57,7 @@ export default {
           "user_name": "DWJJ4",
           "user-vip": true,
           "user-behavior": "评论了您的帖子",
-          "user-behavior-icon": "../../assets/info-icon/评论1.png",
+          "user-behavior-icon": "../../../assets/info-icon/评论1.png",
           "date": "8-6"
         },
         {
@@ -65,7 +65,7 @@ export default {
           "user_name": "向前冲",
           "user-vip": true,
           "user-behavior": "评论了您的帖子",
-          "user-behavior-icon": "../../assets/info-icon/评论1.png",
+          "user-behavior-icon": "../../../assets/info-icon/评论1.png",
           "date": "7-28"
         }
       ]

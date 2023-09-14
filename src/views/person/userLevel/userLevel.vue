@@ -206,7 +206,7 @@
             <p style="text-align: right; margin-bottom: 5px">
               {{ empiricalValue }}/{{ totalEmpir }}
             </p>
-            距离下一级还需：{{ empiricalValue }}经验
+            距离下一级还需：{{  totalEmpir-empiricalValue }}经验
           </div>
         </div>
       </div>
@@ -343,7 +343,7 @@ export default {
       userPhoneNum: "",
       empiricalValue: 100,
       totalEmpir: 1800,
-      percentage: 30,
+      percentage:60,
       url: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg'
     }
   },
@@ -387,6 +387,9 @@ export default {
         this.userPhoneNum = res.data.account
         this.userBirth = res.data.birth[0] + '-' + res.data.birth[1] + '-' + res.data.birth[2]
         this.userDegree = res.data.degree
+        this.totalEmpir = res.data.totalEmpir
+        this.empiricalValue = res.data.empiricalValue
+        this.percentage = res.data.percent
       })
       .catch(error => {
         console.error(error)
