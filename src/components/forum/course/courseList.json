@@ -3,78 +3,78 @@
     {
       "course_id": 1,
       "course_name": "编程语言",
-      "total_number":4,
+      "total_number": 4,
       "subcategories": [
         {
           "subcategory_id": 101,
-          "subcategory_name": "网页前端技术",
-          "subcategory_number":1
+          "subcategory_name": "Python",
+          "subcategory_number": 1
         },
         {
           "subcategory_id": 102,
-          "subcategory_name": "Python",
-          "subcategory_number":2
+          "subcategory_name": "网页前端技术",
+          "subcategory_number": 2
         },
         {
           "subcategory_id": 103,
           "subcategory_name": "C++",
-          "subcategory_number":3
+          "subcategory_number": 3
         },
         {
           "subcategory_id": 104,
           "subcategory_name": "Java",
-          "subcategory_number":4
+          "subcategory_number": 4
         }
       ]
     },
     {
       "course_id": 2,
       "course_name": "人工智能",
-      "total_number":2,
+      "total_number": 2,
       "subcategories": [
         {
           "subcategory_id": 201,
           "subcategory_name": "数学基础",
-          "subcategory_number":1
+          "subcategory_number": 1
         },
         {
           "subcategory_id": 202,
           "subcategory_name": "算法基础",
-          "subcategory_number":2
+          "subcategory_number": 2
         }
       ]
     },
     {
       "course_id": 3,
       "course_name": "终端操作系统",
-      "total_number":3,
+      "total_number": 3,
       "subcategories": [
         {
           "subcategory_id": 301,
           "subcategory_name": "Linux",
-          "subcategory_number":2
+          "subcategory_number": 2
         },
         {
           "subcategory_id": 302,
           "subcategory_name": "Android",
-          "subcategory_number":1
+          "subcategory_number": 1
         }
       ]
-    },    
+    },
     {
       "course_id": 4,
       "course_name": "计算机理论",
-      "total_number":2,
+      "total_number": 2,
       "subcategories": [
         {
           "subcategory_id": 401,
           "subcategory_name": "计算机组成原理",
-          "subcategory_number":5
+          "subcategory_number": 5
         },
         {
           "subcategory_id": 402,
           "subcategory_name": "计算机网络概述",
-          "subcategory_number":2
+          "subcategory_number": 2
         }
       ]
     }

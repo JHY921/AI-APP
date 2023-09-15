@@ -176,7 +176,7 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="http://39.106.71.161:5000/video/1.jpg"
+                      src="https://th.bing.com/th/id/OIP.WrVEZiFiljCDFm0qFpyQSAAAAA?w=187&h=188&c=7&r=0&o=5&dpr=1.7&pid=1.7"
                     />
                   </div>
                 </template>
@@ -213,7 +213,7 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="http://39.106.71.161:5000/video/2.jpg"
+                      src="https://pic2.zhimg.com/80/v2-a8e92316cbf9f5707b4f490a33fee37d_1440w.webp"
                     />
                   </div>
                 </template>
@@ -252,7 +252,7 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="http://39.106.71.161:5000/video/3.jpg"
+                      src="https://th.bing.com/th/id/OIP.ANsj5Ok3Cpool4ONCIdPQAAAAA?w=250&h=188&c=7&r=0&o=5&dpr=1.7&pid=1.7"
                     />
                   </div>
                 </template>
@@ -295,7 +295,7 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="http://39.106.71.161:5000/video/4.jpg"
+                      src="https://pic4.zhimg.com/v2-1336e412ccbaa3403422f672926a2110_r.jpg"
                     />
                   </div>
                 </template>
@@ -332,7 +332,7 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="http://39.106.71.161:5000/video/5.jpg"
+                      src="https://pic4.zhimg.com/80/v2-570aad7dbef96e49ab01780ab7ebc98b_1440w.webp"
                     />
                   </div>
                 </template>
@@ -369,7 +369,7 @@
                       height="2rem"
                       fit="fill"
                       round
-                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                      src="https://th.bing.com/th/id/OIP.cvsrQWCMAeO9fSuMRshlegAAAA?w=211&h=211&c=7&r=0&o=5&dpr=1.7&pid=1.7"
                     />
                   </div>
                 </template>
@@ -466,30 +466,30 @@ export default {
         ],
       ],
       videoList: [{
-        url: "http://39.106.71.161:5000/video/1.mp4",
-        cover: "http://39.106.71.161:5000/video/11.jpg",
+        url: "http://127.0.0.1:5000/video/1.mp4",
+        cover: "http://127.0.0.1:5000/img/11.jpg",
         introduce: 'chatgpt到底有多智能?',
         name: '@张先生',
         like: '1000+',
         comment: '500+'
       }, {
-        url: "http://39.106.71.161:5000/video/2.mp4",
-        cover: "http://39.106.71.161:5000/video/22.jpg",
+        url: "http://127.0.0.1:5000/video/2.mp4",
+        cover: "http://127.0.0.1:5000/img/22.jpg",
         introduce: '人工智能专业千万别去这四个方向',
         name: '芯机叔Talk',
         like: '700+',
         comment: '200+'
 
       }, {
-        url: "http://39.106.71.161:5000/video/3.mp4",
-        cover: "http://39.106.71.161:5000/video/33.jpg",
+        url: "http://127.0.0.1:5000/video/3.mp4",
+        cover: "http://127.0.0.1:5000/img/33.jpg",
         introduce: '计算机专业最大的问题',
         name: '计算机队长',
         like: '200+',
         comment: '50+'
       }, {
-        url: "http://39.106.71.161:5000/video/4.mp4",
-        cover: "http://39.106.71.161:5000/video/44.jpg",
+        url: "http://127.0.0.1:5000/video/4.mp4",
+        cover: "http://127.0.0.1:5000/img/44.jpg",
         introduce: '输入文字生成视频',
         name: '景可远',
         like: '300+',
