@@ -39,7 +39,7 @@ export default {
           + '</p>';
         var Words = document.getElementById("ansContainer");
         Words.innerHTML = Words.innerHTML + str;
-      }, 1000);
+      }, 3000);
 
     },
   },
