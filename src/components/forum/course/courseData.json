@@ -2,7 +2,7 @@
     "courses": [
         {
             "course_name": "网页前端技术",
-            "course_id": 101,
+            "course_id": 201,
             "course_number": 1,
             "course_cover": "https://img.js.design/assets/smartFill/img420164da758808.jpg",
             "course_title": "HTML5+CSS3基础概述",
@@ -11,7 +11,7 @@
         },
         {
             "course_name": "网页前端技术",
-            "course_id": 101,
+            "course_id": 201,
             "course_number": 2,
             "course_cover": "https://img.js.design/assets/smartFill/img419164da758808.jpg",
             "course_title": "JavaScript从入门到精通",
@@ -20,7 +20,7 @@
         },
         {
             "course_name": "网页前端技术",
-            "course_id": 101,
+            "course_id": 201,
             "course_number": 3,
             "course_cover": "https://img.js.design/assets/smartFill/img424164da758808.jpg",
             "course_title": "Echarts+D3基础入门",
@@ -29,7 +29,7 @@
         },
         {
             "course_name": "网页前端技术",
-            "course_id": 101,
+            "course_id": 201,
             "course_number": 4,
             "course_cover": "https://img.js.design/assets/smartFill/img431164da758808.jpg",
             "course_title": "移动端技术精讲",
@@ -38,7 +38,7 @@
         },
         {
             "course_name": "网页前端技术",
-            "course_id": 101,
+            "course_id": 201,
             "course_number": 5,
             "course_cover": "https://img.js.design/assets/smartFill/img423164da758808.jpg",
             "course_title": "WEB标准概述",
@@ -47,7 +47,7 @@
         },
         {
             "course_name": "Python",
-            "course_id": 102,
+            "course_id": 101,
             "course_number": 1,
             "course_cover": "https://ts4.cn.mm.bing.net/th?id=ORMS.58e366e1952d5986503dcb043ed927e9&pid=Wdp&w=300&h=156&qlt=90&c=1&rs=1&dpr=1.75&p=0",
             "course_title": "Python基础环境搭建",
@@ -56,7 +56,7 @@
         },
         {
             "course_name": "Python",
-            "course_id": 102,
+            "course_id": 101,
             "course_number": 2,
             "course_cover": "https://img.js.design/assets/smartFill/img431164da758808.jpg",
             "course_title": "Python基础语法讲解",
@@ -65,7 +65,7 @@
         },
         {
             "course_name": "Python",
-            "course_id": 102,
+            "course_id": 101,
             "course_number": 3,
             "course_cover": "https://img.js.design/assets/smartFill/img423164da758808.jpg",
             "course_title": "Python高级教程",

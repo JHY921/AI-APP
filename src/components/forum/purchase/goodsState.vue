@@ -140,7 +140,7 @@
             "
           >
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            状态：已发货
+            状态：未发货
           </span>
           <span
             v-else

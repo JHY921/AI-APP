@@ -212,13 +212,9 @@ export default {
         <img class="album-import-icon" src="./相册.png" @click="upload" />
         <img class="album-import-text" src="./相册导入文字.png" />
       </div>
-      <div class="photo-import-button">
-        <img
-          class="photo-import-icon"
-          src="./相机.png"
-          @click="getCompetence"
-        />
-        <img class="photo-import-text" src="./拍照导入文字.png" />
+      <div class="reidentification-button">
+        <img class="reidentification-import-icon" src="./文字识别.png" />
+        <img class="reidentification-import-text" src="./重新识别文字.png" />
       </div>
     </div>
     <div class="identify-result">

@@ -343,10 +343,9 @@
 </template>
 
 <script>
-import { createApp } from 'vue'
-import { Swipe, SwipeItem } from 'vant'
-import { Notify } from 'vant'
-import { Dialog } from 'vant'
+import 'vant/es/dialog/style'
+
+import 'vant/es/toast/style'
 import { showConfirmDialog } from 'vant'
 
 export default {

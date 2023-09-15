@@ -3,7 +3,7 @@ import 'vant/es/nav-bar'
 import axios from 'axios'
 import api from '../../api/api'
 export default {
-  data() {
+  data () {
     return {
       imgurl: null,
       content: null
@@ -11,26 +11,26 @@ export default {
     }
   },
   methods: {
-    back() {
+    back () {
       history.back()
     },
-    upload() {
-      this.$refs.fileInput.click();
+    upload () {
+      this.$refs.fileInput.click()
     },
-    handlefile(event) {
+    handlefile (event) {
       const file = event.target.files[0]
       if (file) {
         this.imgurl = URL.createObjectURL(file)
         console.log('file', file)
-        console.log(URL.createObjectURL(file));
+        console.log(URL.createObjectURL(file))
         const formdate = new FormData()
         formdate.append('image', file)
-        console.log('formdate', formdate);
+        console.log('formdate', formdate)
         axios.post(`http://${api.api}/ocr`, formdate)
           .then(res => {
-            console.log(res.data);
+            console.log(res.data)
           }).catch(err => {
-            console.log(err);
+            console.log(err)
           })
       }
       setTimeout(() => {
@@ -40,7 +40,6 @@ export default {
         var Words = document.getElementById("ansContainer");
         Words.innerHTML = Words.innerHTML + str;
       }, 3000);
-
     },
   },
 }
@@ -49,21 +48,32 @@ export default {
   <div class="ocr-page">
     <div class="status-bar"></div>
     <div class="goods_info">
-      <van-nav-bar title="智能识物" left-arrow bind:click-left="onClickLeft" @click-left="back" />
+      <van-nav-bar
+        title="智能识物"
+        left-arrow
+        bind:click-left="onClickLeft"
+        @click-left="back"
+      />
     </div>
     <div class="ocr">
       <div class="photo-show">
-        <img :src="imgurl" alt="" v-if="imgurl" style="width: 268px;, height: 268px;">
+        <img
+          :src="imgurl"
+          alt=""
+          v-if="imgurl"
+          style="width: 268px;, height: 268px;"
+        />
         <img class="add-cross" src="./内容增添.png" v-if="!imgurl" />
       </div>
       <div class="album-import-button">
-        <input type="file" ref="fileInput" style="display: none;" @change="handlefile">
+        <input
+          type="file"
+          ref="fileInput"
+          style="display: none"
+          @change="handlefile"
+        />
         <img class="album-import-icon" src="./相册.png" @click="upload" />
         <img class="album-import-text" src="./相册导入文字.png" />
-      </div>
-      <div class="photo-import-button">
-        <img class="photo-import-icon" src="./相机.png" />
-        <img class="photo-import-text" src="./拍照导入文字.png" />
       </div>
       <div class="reidentification-button">
         <img class="reidentification-import-icon" src="./文字识别.png" />
@@ -76,9 +86,7 @@ export default {
         <img class="title-shadow-icon" src="./识别结果-shadow.png" />
       </div>
       <div class="result-frame">
-        <div class="result-content" id="ansContainer">
-
-        </div>
+        <div class="result-content" id="ansContainer"></div>
         <img src="./复制.png" class="copy" />
         <p class="copy-span">一键复制</p>
       </div>
@@ -157,9 +165,11 @@ export default {
   overflow-x: hidden;
   opacity: 1;
   border-radius: 10px;
-  background: linear-gradient(180deg,
-      rgba(18, 199, 240, 0.2) 0%,
-      rgba(255, 255, 255, 0.6) 10%);
+  background: linear-gradient(
+    180deg,
+    rgba(18, 199, 240, 0.2) 0%,
+    rgba(255, 255, 255, 0.6) 10%
+  );
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04);
 }
 
@@ -189,9 +199,11 @@ export default {
   height: 54px;
   opacity: 1;
   border-radius: 30px;
-  background: linear-gradient(90deg,
-      rgba(0, 79, 94, 1) 0%,
-      rgba(0, 121, 148, 0.57) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 79, 94, 1) 0%,
+    rgba(0, 121, 148, 0.57) 100%
+  );
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.22);
 }
 
@@ -223,9 +235,11 @@ export default {
   height: 54px;
   opacity: 1;
   border-radius: 30px;
-  background: linear-gradient(90deg,
-      rgba(0, 79, 94, 1) 0%,
-      rgba(0, 121, 148, 0.57) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 79, 94, 1) 0%,
+    rgba(0, 121, 148, 0.57) 100%
+  );
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.22);
 }
 
@@ -257,9 +271,11 @@ export default {
   opacity: 1;
   border-radius: 30px;
   /* border-radius: 27px 0px, 0px, 27px; */
-  background: linear-gradient(90deg,
-      rgba(0, 79, 94, 1) 0%,
-      rgba(0, 121, 148, 0.57) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 79, 94, 1) 0%,
+    rgba(0, 121, 148, 0.57) 100%
+  );
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.22);
 }
 
@@ -292,9 +308,11 @@ export default {
   opacity: 1;
   border-radius: 2%;
   border-radius: 10px 10px, 0px, 0px;
-  background: linear-gradient(180deg,
-      rgba(58, 215, 251, 0.2) 0%,
-      rgba(255, 255, 255, 0.9) 10%);
+  background: linear-gradient(
+    180deg,
+    rgba(58, 215, 251, 0.2) 0%,
+    rgba(255, 255, 255, 0.9) 10%
+  );
 }
 
 .result-title {
