@@ -53,69 +53,63 @@ export default {
       //       })
       setTimeout(() => {
         const str = '<p>'
-          + "赤鸢是广泛分布于欧洲、北美和中东的一种鸢。它跟我国常见的鸢的不同之处，在于它的羽毛呈红褐色，因而得名“赤鸢”。赤鸢体长0.6米左右，双翅展开达1．6米，尾也是叉形。每到繁殖季节，雌雄赤鸢在天空中比翼齐飞，万里晴空像一个巨大的“舞场”，雄赤鸢尽情地上下翻飞，向雌赤鸢展示自己的飞行本领。“互订终身”之后，雌雄赤鸢便一同“叽叽叽叽叽……”地欢叫着飞到它们中意的巢址，“安家立业”。"
+          + "这个视频是一次全面了解人工智能的机会。</br> - 0:00 🧠人工智能的基本概念: 人工智能是让机器模拟人类思维能力的技术，它可以感知、思考、决策。然而，机器所看到的世界是一串数字，与我们感知的世界不同，这使得机器思考变得困难。</br> - 1:00 🤖机器学习和人类行为: 机器学习的一个重要思路是让机器带入人类的视角，学习人类的语言，总结经验，揣测人类的行为。 </br>- 2:00 💪人工智能的潜力和挑战: 人工智能具备自主观察总结和决策行为的能力，不再是简单的工具，而是人类的朋友和伙伴。然而，人工智能的思维仍然是一个谜，常常出现令人哭笑不得的时刻。科学家们正在发展新方法，以使人工智能更接近人类的智能。</br> 本内容由AI课代表自动生成"
           + '</p>'
         var Words = document.getElementById("ansContainer")
         Words.innerHTML = Words.innerHTML + str
-      }, 1000)
+      }, 4000)
 
     },
     methods: {
-        back() {
-            history.back()
-        },
-        openVideoDialog() {
-            this.$refs.videoInput.click();
-        },
-        handlefile(event) {
-            const file = event.target.files[0];
-            const videoContainer = this.$refs.videoContainer;
-            console.log(file);
-            if (file && file.type.includes('video')) {
-                const reader = new FileReader();
-                console.log("do if true");
-                reader.onload = () => {
-                    const videoElement = document.getElementById('videoBox');
-                    videoElement.src = reader.result;
+      back () {
+        history.back()
+      },
+      openVideoDialog () {
+        this.$refs.videoInput.click()
+      },
+      handlefile (event) {
+        const file = event.target.files[0]
+        const videoContainer = this.$refs.videoContainer
+        console.log(file)
+        if (file && file.type.includes('video')) {
+          const reader = new FileReader()
+          console.log("do if true")
+          reader.onload = () => {
+            const videoElement = document.getElementById('videoBox')
+            videoElement.src = reader.result
 
-                    // // 清空容器并添加新的视频元素
-                    // while (videoContainer.firstChild) {
-                    //     videoContainer.removeChild(videoContainer.firstChild);
-                    // }
-                    // videoContainer.appendChild(videoElement);
-                };
+            // // 清空容器并添加新的视频元素
+            // while (videoContainer.firstChild) {
+            //     videoContainer.removeChild(videoContainer.firstChild);
+            // }
+            // videoContainer.appendChild(videoElement);
+          }
 
-                reader.readAsDataURL(file);
-            }
-            //   const file = event.target.files[0]
-            //   if (file) {
-            //     this.imgurl = URL.createObjectURL(file)
-            //     console.log('file', file)
-            //     console.log(URL.createObjectURL(file));
-            //     const formdate = new FormData()
-            //     formdate.append('image', file)
-            //     console.log('formdate', formdate);
-            //     axios.post(`http://${api.api}/ocr`, formdate)
-            //       .then(res => {
-            //         console.log(res.data);
-            //       }).catch(err => {
-            //         console.log(err);
-            //       })
-            setTimeout(() => {
-                const str = '<p>'
-                    + "这个视频是一次全面了解人工智能的机会。</br> - 0:00 🧠人工智能的基本概念: 人工智能是让机器模拟人类思维能力的技术，它可以感知、思考、决策。然而，机器所看到的世界是一串数字，与我们感知的世界不同，这使得机器思考变得困难。</br> - 1:00 🤖机器学习和人类行为: 机器学习的一个重要思路是让机器带入人类的视角，学习人类的语言，总结经验，揣测人类的行为。 </br>- 2:00 💪人工智能的潜力和挑战: 人工智能具备自主观察总结和决策行为的能力，不再是简单的工具，而是人类的朋友和伙伴。然而，人工智能的思维仍然是一个谜，常常出现令人哭笑不得的时刻。科学家们正在发展新方法，以使人工智能更接近人类的智能。</br> 本内容由AI课代表自动生成"
-                    + '</p>';
-                var Words = document.getElementById("ansContainer");
-                Words.innerHTML = Words.innerHTML + str;
-            }, 4000);
+          reader.readAsDataURL(file)
+        }
+        //   const file = event.target.files[0]
+        //   if (file) {
+        //     this.imgurl = URL.createObjectURL(file)
+        //     console.log('file', file)
+        //     console.log(URL.createObjectURL(file));
+        //     const formdate = new FormData()
+        //     formdate.append('image', file)
+        //     console.log('formdate', formdate);
+        //     axios.post(`http://${api.api}/ocr`, formdate)
+        //       .then(res => {
+        //         console.log(res.data);
+        //       }).catch(err => {
+        //         console.log(err);
+        //       })
 
-        },
-        playVideo() {
-            this.$refs.videoPlayer.play();
-        },
-        pauseVideo() {
-            this.$refs.videoPlayer.pause();
-        },
+
+      },
+      playVideo () {
+        this.$refs.videoPlayer.play()
+      },
+      pauseVideo () {
+        this.$refs.videoPlayer.pause()
+      },
     },
     pauseVideo () {
       this.$refs.videoPlayer.pause()
